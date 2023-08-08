@@ -101,7 +101,6 @@ export default function Watchlist() {
               newFData.append("career", formData.career);
               newFData.append("cv", formData.cv);
 
-
               await fetch("/api/watchlist", {
                 method: "POST",
                 // headers: {

@@ -4,7 +4,9 @@ import MainFooter from "@/components/MainFooter";
 import Offerings from "@/components/Offerings";
 import ClientCarousel from "@/components/ClientSlider";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import Link from "next/link";
 export default function Home() {
+
    
  
 
@@ -250,9 +252,9 @@ export default function Home() {
           <div className="bg-white shadow-lg rounded-lg py-10 px-[80px] bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
             <h3 className="text-2xl font-bold mb-4">Find Talents</h3>
             <p className="text-lg mb-6">Let us help you meet your talent needs</p>
-            <button className="bg-transparent border-secondary border-2 text-secondary py-2 px-4">
+            <Link href="/request-talent" className="bg-transparent border-secondary border-2 text-secondary py-2 px-4">
               Request Talents
-            </button>
+            </Link>
           </div>
             
 
@@ -260,9 +262,9 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-4">Join Talents</h3>
             <p className="text-lg mb-6">
               Join our talent pool for future opportunities</p>
-              <button className="bg-transparent border-secondary border-2 text-secondary py-2 px-4">
+              <Link href="our-watchlist" className="bg-transparent border-secondary border-2 text-secondary py-2 px-4">
               Apply
-            </button>
+            </Link>
           </div>
       </div>
 
