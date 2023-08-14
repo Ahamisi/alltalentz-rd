@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import Navigation from './Navigation';
 import { useRouter } from 'next/navigation';
+import Btn from "@/components/Btn";
+
 
 const Header = ({active='home'}) => {
   const route = useRouter()
@@ -15,10 +17,10 @@ const Header = ({active='home'}) => {
 
 
   return (
-    <header>
+    <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-transparent to-black'>
         <nav className="py-4 px-8 flex items-center justify-between bg-transparent" style={{ zIndex: 10 }} >
       {/* Logo */}
-      <div className="text-white text-2xl font-bold cursor-pointer" >
+      <div className="text-white text-2xl font-bold cursor-pointer items-center" >
         <div onClick={() => route.push('/')}>
         <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_1340_395)">
@@ -47,7 +49,7 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6 text-white text-lg">
+        <ul className="hidden md:flex text-white text-lg gap-[54px]  font-normal">
           <Navigation/>
         </ul>
       {/* Mobile Menu */}
@@ -75,9 +77,11 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* CTA Button */}
-      <Link href="/our-watchlist" className="hidden md:block bg-transparent border-secondary border-2 text-secondary py-2 px-4 rounded-md font-medium">
-        Get Started
-      </Link>
+      <Btn text="Meet with us" border={true} link="https://calendly.com/akwaowowillie" target="_blank" otherCSS="hidden md:block"/>
+
+      {/* <Button text='Get Started' onClick="" /> */}
+      
+ 
 
       {/* Mobile Menu Items */}
       {mobileMenuOpen && (

@@ -92,3 +92,42 @@ body {
 }
 
 
+.feature-box:hover:before {
+  content: '';
+  border-left: 3px solid;
+  border-top: 3px solid;
+  top: 0;
+  left: 0;
+  color: #F4461E;
+  transition: all .5s;
+  z-index: -1;
+  position: absolute;
+}
+
+
+.feature-box:hover:before, .feature-box:hover:after {
+  transform: scale(1);
+  width: 45px;
+  height: 45px;
+  opacity: 1;
+}
+
+.feature-box:after {
+  content: '';
+  border-right: 3px solid;
+  border-bottom: 3px solid;
+  bottom: 0;
+  right: 0;
+  color: #F4461E;
+}
+
+
+.feature-box:before, .feature-box:after {
+  transition: all .5s;
+  z-index: -1;
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+}

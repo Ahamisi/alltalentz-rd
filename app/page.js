@@ -4,6 +4,9 @@ import MainFooter from "@/components/MainFooter";
 import Offerings from "@/components/Offerings";
 import ClientCarousel from "@/components/ClientSlider";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import Btn from "@/components/Btn";
+import Header from "@/components/Header";
+
 import Link from "next/link";
 export default function Home() {
 
@@ -12,7 +15,8 @@ export default function Home() {
 
   return (
     <>
-    
+        <Header/>
+
     <Hero/>
     {/* our value proposition */}
     <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[15px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
@@ -21,7 +25,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
             Our Value Proposition
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl pt-[70px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl pt-[30px] md:pt-[70px]">
             {/* Value Item 1 */}
             <div className="flex flex-col">
               <div className="text-4xl mr-4 text-[#4C4C4C]">
@@ -116,7 +120,7 @@ export default function Home() {
 
         <div className=" text-white">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Clients that <span className="text-secondary">trust</span> us!</h2>
+            <h2 className="text-4xl md:text-[65px] md:leading-[80px] font-bold mb-8 text-center">Clients that <span className="text-secondary">trust</span> us!</h2>
             <p className="text-lg text-center max-w-3xl mx-auto mb-12">
             All Talentz provides employee recruitment services for over 30 Puroclean Franchises in the US and we have created job opportunities for 50 remote employees across Nigeria since we commenced operations in March 2022.
             </p>
@@ -129,20 +133,23 @@ export default function Home() {
 
 
 
-        <div className="py-16 text-white px-[15px] md:px-0">
+        <div className="py-16 md:pt-[200px] text-white px-[15px] md:px-0">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
             {/* Left Part */}
             <div className="md:w-1/2 md:pr-8 mb-8 md:mb-0">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4"> The All Talentz Conference</h2>
+              <h2 className="text-4xl md:text-[65px] md:leading-[80px] font-bold mb-4"> The All Talentz <span className="text-secondary">Conference</span></h2>
               <p className="text-lg mb-6">
               The All-Talentz Conference is an annual event/retreat where all talents in All-Talentz go through a re-orientation in excellence and service delivery.
               </p>
-              <button className="bg-transparent text-secondary py-3 text-xl rounded-full items-center flex p-0">
+              <button className="bg-transparent text-secondary py-3 text-xl px-[14px] items-center flex p-0  hover:border-secondary hover:border-2 relative overflow-hidden transition-all duration-300">
+                <span className="border border-transparent absolute inset-0 transition-all duration-300"></span>
                 View More &nbsp;
+
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                 <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z" clipRule="evenodd" />
               </svg>
               </button>
+
             </div>
 
             {/* Right Part */}
@@ -159,28 +166,43 @@ export default function Home() {
 
 
       <div className="py-16 bg-[#4C4C4C] rounded-[32px] text-white text-center w-[100%] md:w-[80%] mx-auto mt-[90px] ">
-        <div className="max-w-6xl flex flex-col md:flex-row justify-center">
+        <div className="max-w-6xl md:w-[90%] mx-auto flex flex-col md:flex-row justify-center">
           {/* Left Column */}
-          <div className="mb-8 md:mb-0 md:mr-8 px-[40px] flex flex-col flex-1">
+          {/* <div className="mb-8 md:mb-0 md:mr-8 px-[40px] flex flex-col flex-1 w-[317px]">
 
-            <img
-              src="/quality-talents.png" 
-              alt="Image 1"
-              className="rounded-[12px] border-12 border-white w-[317px] h-[169px] mx-auto mb-4"
-            />
-            <h3 className="text-lg font-semibold text-secondary">Quality Talent At A Bargain</h3>
-            <p className="text-md">Flexible labour that scales with your company. We employ the talent, therefore there are no payroll costs, benefit costs, or high overhead costs that accrue to you.</p>
+              <div className=" ml-auto">
+                  <img
+                  src="/quality-talents.png" 
+                  alt="Image 1"
+                  className="rounded-[12px] border-12 border-white w-[317px] h-[169px] mx-auto mb-4"/>
+                <h3 className="text-lg font-semibold text-secondary">Quality Talent At A Bargain</h3>
+                <p className="text-md">Flexible labour that scales with your company. We employ the talent, therefore there are no payroll costs, benefit costs, or high overhead costs that accrue to you.</p>
+
+              </div>
+          </div> */}
+
+           {/* Right Column */}
+           <div className="px-[40px] flex flex-col flex-1">
+              <div className=" mr-auto">
+                <img
+                  src="/quality-talents.png" 
+                  alt="Image 2"
+                  className="rounded-[12px] border-12 border-white w-[317px] h-[169px] mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-secondary md:text-[25px] mb-[18px]">Quality Talent At A Bargain</h3>
+                <p className="text-md">Flexible labour that scales with your company. We employ the talent, therefore there are no payroll costs, benefit costs, or high overhead costs that accrue to you.</p>
+              </div>
           </div>
 
           {/* Right Column */}
-          <div className="px-[40px] flex flex-col flex-1">
-            <img
-              src="/top-tier-talent.png" 
-              alt="Image 2"
-              className="rounded-[12px] border-12 border-white w-[317px] h-[169px] mx-auto mb-4"
-            />
-            <h3 className="text-lg font-semibold text-secondary">Top-Tier Talent From Day 1</h3>
-            <p className="text-md">Our talents are on the money, and we're determined to meet your company's demands and keep them in line with best practices. If you are not satisfied with our Talent after 30 days, we'll replace them.</p>
+          <div className="px-[40px] flex flex-col flex-1 mt-[30px] md:mt-0">
+              <div className=" mr-auto">
+                <img
+                  src="/top-tier-talent.png" 
+                  alt="Image 2"
+                  className="rounded-[12px] border-12 border-white w-[317px] h-[169px] mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-secondary md:text-[25px] mb-[18px]">Top-Tier Talent From Day 1</h3>
+                <p className="text-md">Our talents are on the money, and we're determined to meet your company's demands and keep them in line with best practices. If you are not satisfied with our Talent after 30 days, we'll replace them.</p>
+              </div>
           </div>
         </div>
       </div>
@@ -197,15 +219,15 @@ export default function Home() {
       <div className="py-16 bg-white rounded-[32px] text-[#4C4C4C] text-center w-[100%] md:w-[80%] mx-auto mt-[90px] bg-cover bg-center" style={{ backgroundImage: "url('/orange-clients.svg')" }}>
           <div className="max-w-6xl mx-auto text-center">
             {/* Header and Description */}
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Find Talents in 3 Steps!</h2>
-            <p className="text-lg mb-12">
+            <h2 className="text-4xl md:text-[65px] md:leading-[80px] font-bold mb-4">Find Talents in 3 Steps!</h2>
+            <p className="text-lg mb-12 md:text-[20px]">
             We make finding your talent easy by curating the best match for your unique needs.
             </p>
 
             {/* Three Columns */}
             <div className="flex flex-col md:flex-row justify-between gap-[42px] w-[90%] mx-auto">
               {/* Column 1 */}
-              <div className="flex flex-col items-center bg-secondary p-[40px] flex-1">
+              <div className="flex flex-col items-center bg-secondary p-[40px] flex-1 border-4 border-transparent hover:border-black transition duration-300 cursor-pointer">
 
                 <svg width="131" height="130" viewBox="0 0 131 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7701 28.5588C12.9467 28.0146 15.1524 29.338 15.6966 31.5147L17.7655 39.7906C21.0687 53.0033 31.4778 63.2473 44.7132 66.3541H87.5887C98.9151 66.3541 108.449 74.8318 109.772 86.0807L113.29 115.984C113.552 118.212 111.958 120.231 109.73 120.493C107.502 120.755 105.483 119.161 105.221 116.933L101.703 87.03C100.861 79.873 94.7951 74.4791 87.5887 74.4791H43.8094L43.3741 74.3824C26.9333 70.7289 13.9679 58.1002 9.88314 41.7612L7.81415 33.4853C7.26998 31.3086 8.59339 29.1029 10.7701 28.5588Z" fill="#282828"/>
@@ -218,7 +240,8 @@ export default function Home() {
               </div>
 
               {/* Column 2 */}
-              <div className="flex flex-col items-center bg-secondary p-[40px] flex-1">
+
+              <div className="flex flex-col items-center bg-secondary p-[40px] flex-1 border-4 border-transparent hover:border-black transition duration-300 cursor-pointer">
                 <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M77.01 18.9564C69.3129 15.3479 60.687 15.3479 52.9899 18.9564L16.7463 35.9482C10.918 38.6807 9.39844 46.3857 12.1877 51.7111L12.1877 78.5417C12.1877 80.7853 14.0065 82.6042 16.2502 82.6042C18.4938 82.6042 20.3127 80.7853 20.3127 78.5417V57.8069L52.9904 73.1269C60.6875 76.7355 69.3133 76.7355 77.0105 73.1269L113.254 56.1351C121.138 52.439 121.138 39.6446 113.254 35.9485L77.01 18.9564Z" fill="#1C274D"/>
                   <path opacity="0.5" d="M27.0835 60.9812L52.9904 73.1269C60.6875 76.7355 69.3133 76.7355 77.0105 73.1269L102.917 60.9814V90.0534C102.917 95.5136 100.19 100.626 95.4129 103.271C87.4593 107.676 74.7285 113.749 65.0002 113.749C55.2718 113.749 42.5411 107.676 34.5874 103.271C29.8108 100.626 27.0835 95.5136 27.0835 90.0534V60.9812Z" fill="#373737"/>
@@ -228,8 +251,10 @@ export default function Home() {
                 <p className="text-lg">All Talentz provides suitable Talent after training them to suit the Job requirement.</p>
               </div>
 
+             
+
               {/* Column 3 */}
-              <div className="flex flex-col items-center bg-secondary p-[40px] flex-1">
+              <div className="flex flex-col items-center bg-secondary p-[40px] flex-1 border-4 border-transparent hover:border-black transition duration-300 cursor-pointer">
                 <svg width="131" height="130" viewBox="0 0 131 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.5">
                   <path d="M59.2254 35.6123C58.3832 31.9918 57.6698 28.9252 56.896 26.5175L92.8283 36.9406C93.0659 37.0095 93.6831 37.2821 94.537 39.5201C95.3716 41.7073 96.1262 44.9232 97.2115 49.5881L97.8612 52.3824C98.005 53.004 98.1422 53.5969 98.2886 54.1589L65.7232 45.1396L64.0787 44.2029C61.7522 42.8779 61.3244 42.5698 61.0236 42.1499C60.6884 41.6821 60.4862 41.0314 59.8266 38.1964L59.2254 35.6123Z" fill="#131313"/>
@@ -249,22 +274,23 @@ export default function Home() {
 
 
         <div className="max-w-6xl mx-auto my-16 grid gap-6 grid-cols-1 sm:grid-cols-2 text-[#363636]">
-          <div className="bg-white shadow-lg rounded-lg py-10 px-[80px] bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
-            <h3 className="text-2xl font-bold mb-4">Find Talents</h3>
+          <div className="bg-white shadow-lg rounded-lg py-10 px-[50px] md:px-[80px] bg-cover bg-center bg-no-repeat h-[320px]" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
+            <h3 className="text-5xl font-bold mb-4">Find Talents</h3>
             <p className="text-lg mb-6">Let us help you meet your talent needs</p>
-            <Link href="/request-talent" className="bg-transparent border-secondary border-2 text-secondary py-2 px-4">
-              Request Talents
-            </Link>
+            <div className="flex">
+              <Btn text="Request Talents" link="/request-talent" border={true}/>
+            </div>
+
+      
           </div>
             
 
-          <div className="bg-white shadow-lg rounded-lg py-10 px-[80px] bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
-            <h3 className="text-2xl font-bold mb-4">Join Talents</h3>
-            <p className="text-lg mb-6">
-              Join our talent pool for future opportunities</p>
-              <Link href="our-watchlist" className="bg-transparent border-secondary border-2 text-secondary py-2 px-4">
-              Apply
-            </Link>
+          <div className="bg-white shadow-lg rounded-lg py-10 px-[50px] md:px-[80px]  bg-cover bg-center bg-no-repeat h-[320px]" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
+            <h3 className="text-5xl font-bold mb-4">Join Talents</h3>
+            <p className="text-lg mb-6">Join our talent pool for future opportunities</p>
+            <div className="flex">
+              <Btn text="Apply" link="/our-watchlist" border={true}/>
+            </div>
           </div>
       </div>
 
@@ -301,7 +327,7 @@ export default function Home() {
     <section className="relative bg-cover bg-center bg-no-repeat text-[#282828] py-[70px] bg-secondary" style={{ backgroundImage: "url('/abs-orange.svg')" }}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#282828]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+          <h2 className="text-4xl md:text-[45px] md:leading-[62px] font-bold mb-8 text-center">
             Reviews from our Partners
           </h2>
             <div className="w-[80%] md:w-auto md:max-w-6xl mx-auto flex flex-col md:flex-row items-center">

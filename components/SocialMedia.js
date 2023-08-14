@@ -1,5 +1,32 @@
+"use client"
 import Link from "next/link";
+import { useEffect, useState } from 'react';
+
+
 const SocialMedia = () => {
+  const [showDiv, setShowDiv] = useState(true);
+
+  useEffect(() => {
+    const footer = document.getElementById('footer');
+
+    const handleScroll = () => {
+      if (footer) {
+        // const isAtFooter = window.scrollY + window.innerHeight >= footer.offsetTop;
+        // console.log(isAtFooter,footer.offsetTop,'yikes',window.scrollY,window.innerHeight)
+        const isAtFooter = window.scrollY > 5500;
+        setShowDiv(!isAtFooter);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+
   const socialMediaLinks = [
     { name: 'Twitter', icon: 'fab fa-twitter', url: 'https://twitter.com/your_twitter_handle' },
     { name: 'Facebook', icon: 'fab fa-facebook', url: 'https://facebook.com/your_facebook_page' },
@@ -9,9 +36,8 @@ const SocialMedia = () => {
   
 
   return (
-    <div className="fixed left-0 h-100 my-auto hidden md:flex flex-col items-center justify-center py-8 px-[10px] top-[40%]" style={{
-        zIndex: '999'
-    }} id="sm">
+    <div className={`fixed left-0 h-100 hidden my-auto  ${showDiv ? 'md:flex' : 'md:hidden'} flex-col items-center justify-center py-8 px-[10px] top-[25%] gap-[30px]`} style={{ zIndex: '999' }} id="footer">
+
         <Link
           key="instagram"
           href="https://instagram.com/all_talentz?igshid=MzRlODBiNWFlZA=="

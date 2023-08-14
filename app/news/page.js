@@ -23,12 +23,17 @@ export default function News() {
                 <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 items-center ">
                     {/* First Column (60% width) */}
                     <div className="md:w-6/10 pr-6 md:w-full">
-                        <h2 className="text-3xl md:text-6xl font-bold mb-4 text-white">
-                        Talent <span className="text-secondary">Buzz</span>
-                        </h2>
-                        <p className="text-white text-md">
-                        Learn about our latest developments and how they can benefit your business growth. We provide valuable insights and tips to help you optimize your operations.
-                        </p>
+
+                    <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 ">
+                    Talent <span className="text-secondary">Buzz</span>
+
+                  </h2>
+                    
+                    <p className="text-white text-md">
+                    Learn about our latest developments and how they can benefit your business growth. We provide valuable insights and tips to help you optimize your operations.
+                    </p>
+
+
                       
                     </div>
 
@@ -51,7 +56,7 @@ export default function News() {
 
 
 
-    <section className="relative bg-cover bg-center bg-no-repeat py-[128px] bg-[#0E0E0E]" style={{backgroundImage: "url('/rest-home.svg')"}}>
+    <section className="relative bg-cover bg-center bg-no-repeat py-[60px] bg-[#0E0E0E]" style={{backgroundImage: "url('/rest-home.svg')"}}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center text-secondary">

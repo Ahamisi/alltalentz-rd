@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import MainFooter from "@/components/MainFooter";
 import Offerings from "@/components/Offerings";
 import PageHeader from "@/components/PageHeader";
+import Btn from "@/components/Btn";
 
 
 import React, { useState } from 'react';
@@ -150,13 +151,16 @@ export default function Watchlist() {
             <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 items-center ">
                 {/* First Column (60% width) */}
                 <div className="md:w-6/10 pr-6 md:w-full">
-                    <h2 className="text-3xl md:text-6xl font-bold mb-4 text-white">
-                    Begin Your Journey To A <span className="text-secondary">Global Career</span>
-                    </h2>
+                <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 ">
+                Begin Your Journey To A <span className="text-secondary">Global Career</span>
+
+                  </h2>
+                    
                     <p className="text-white text-md">
                         Join us and discover the world of opportunities and growth that await you. You'll learn new skills and explore new cultures from the comfort of your home. Don't miss this chance to grow professionally and personally. Start your global adventure today!
                     </p>
-                    <button onClick={toggleModal} className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold">Get Started</button>
+                    <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6"/>
+                    {/* <button onClick={toggleModal} className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold">Get Started</button> */}
                         
                         <Modal
                         isOpen={isOpen}

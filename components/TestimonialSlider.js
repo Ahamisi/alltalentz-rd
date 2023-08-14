@@ -56,14 +56,16 @@ const TestimonialSlider = ({ }) => {
         renderArrowPrev={(onClickHandler, hasPrev, label) =>
           hasPrev && (
             <button onClick={onClickHandler} className="arrow prev">
-              <span className="text-lg">&lt;</span> {/* Left arrow */}
+              <span className="text-lg"></span> {/* Left arrow */}
             </button>
           )
         }
+
+
         renderArrowNext={(onClickHandler, hasNext, label) =>
           hasNext && (
             <button onClick={onClickHandler} className="arrow next">
-              <span className="text-lg">&gt;</span> {/* Right arrow */}
+              <span className="text-lg"></span> {/* Right arrow */}
             </button>
           )
         }

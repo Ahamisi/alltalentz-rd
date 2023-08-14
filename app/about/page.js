@@ -15,15 +15,18 @@ export default function About() {
     <section>
     <PageHeader>
         {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-            <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 md:mt-[90px] items-center">
+            <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0  items-center">
                 {/* First Column (60% width) */}
                 <div className="md:w-6/10 pr-6 md:w-full">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+
+                <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 ">
                     The Best <span className="text-secondary">Value Solution</span> for your workforce needs.
-                    </h2>
-                    <p className="text-white text-md">
-                        All Talentz is more than just a recruitment company; We connect you with the best remote talent in Africa. Whether you need skilled, experienced, or reliable talent, we have the perfect match for you. And the best part is, you get amazing value for your money!
-                    </p>
+                </h2>
+                    
+                <p className="text-white text-md">
+                    All Talentz is more than just a recruitment company; We connect you with the best remote talent in Africa. Whether you need skilled, experienced, or reliable talent, we have the perfect match for you. And the best part is, you get amazing value for your money!
+                </p>
+
                 </div>
 
                 {/* Second Column (40% width) */}
@@ -57,7 +60,7 @@ export default function About() {
             {/* Right Column */}
             <div className="mt-6 md:mt-0 flex flex-wrap flex-row md:flex-col gap-3 md:gap-0 mr-6">
                 <div className="mb-4">
-                    <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center">
+                    <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
                     <h3 className="text-4xl font-bold">100+</h3>
                     <p className="text-sm">
                         Clients
@@ -66,7 +69,7 @@ export default function About() {
                 </div>
 
                 <div className="mb-4">
-                    <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center">
+                <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
                     <h3 className="text-4xl font-bold">99%</h3>
                     <p className="text-sm">
                         Positive Feedbacks
@@ -76,7 +79,7 @@ export default function About() {
             </div>
             <div className=" md:mt-0 flex flex-wrap flex-row md:flex-col gap-3 md:gap-0 mr-6">
             <div className="mb-4">
-                <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center">
+            <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
                 <h3 className="text-4xl font-bold">50+</h3>
                 <p className="text-sm">
                     Locations
@@ -85,7 +88,7 @@ export default function About() {
             </div>
 
             <div className="mb-4">
-                <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center">
+            <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
                 <h3 className="text-4xl font-bold">5000+</h3>
                 <p className="text-sm">
                     Quality Professionals
