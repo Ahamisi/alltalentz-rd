@@ -38,11 +38,11 @@ const MainFooter = () => {
                     <div className="col-span-2 md:col-span-2">
                         <h4 className="text-white text-right mb-4">Receive latest news</h4>
                         <form>
-                          <div className='md:flex md:justify-between flex'>
+                          <div className='md:flex md:justify-between flex flex-col lg:flex-row'>
                           <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="py-2 px-4 text-[#4C4C4C] rounded-l-md focus:outline-none focus:ring focus:border-primary md:w-[55%] md:p-[18px]"
+                                className="py-2 px-4 text-[#4C4C4C] rounded-l-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%] md:p-[18px]"
                             />
                             <Btn text="Get Started" type="submit" onClick="" otherCSS="rounded-[8px]"/>
                           </div>

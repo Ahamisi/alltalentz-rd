@@ -14,14 +14,62 @@ import Modal from 'react-modal';
 
 export default function RequestTalent() {
 
+    const [selectedServices, setSelectedServices] = useState([]);
+    const services = [
+      'Estimators ',
+      'Virtual Assistants ',
+      'Digital Marketers / Social Media Strategists ',
+      'Administrative Assistants ',
+      'Telemarketing Assistant ',
+      'Designers / Software Developers ',
+      'Quick book Specialists ',
+      'Account Receivables ',
+      'Others ',
+    ];
+
+    // const handleServiceToggle = (service,event) => {
+    //     if (selectedServices.includes(service)) {
+    //       setSelectedServices(selectedServices.filter((s) => s !== service));
+    //     } else {
+    //       setSelectedServices([...selectedServices, service]);
+    //     }
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         "service" : value,
+    //     }));
+    // };
+    
+
     const [isOpen, setIsOpen] = useState(false);
+
+
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
         company: "",
         phone: "",
-        service: "",
+        service: [], // Initialize as an empty array
       });
+      
+      const handleServiceToggle = (service) => {
+        if (selectedServices.includes(service)) {
+          setSelectedServices(selectedServices.filter((s) => s !== service));
+        } else {
+          setSelectedServices([...selectedServices, service]);
+        }
+      
+        const updatedService = selectedServices.includes(service)
+          ? formData.service.filter((s) => s !== service)
+          : [...formData.service, service];
+
+        //   console.log(selectedServices,updatedService,'dojl')
+      
+        setFormData((prevData) => ({
+          ...prevData,
+          service: updatedService,
+        }));
+      };
+      
 
       const [isLoading, setIsLoading] = useState(false);
 
@@ -74,10 +122,18 @@ export default function RequestTalent() {
 
 
     const handleSubmit = async (event) => {
+
         event.preventDefault();
+        
         if (validateForm()) {
             try {
                 setIsLoading(true);
+                setFormData((prevData) =>({
+                    ...prevData,
+                    service : formData.service.join(', ')
+                }));
+                // console.log(formData,  formData.service.join(', ')); return;
+
                 // Send email using Nodemailer
                 await fetch("/api/contact", {
                   method: "POST",
@@ -90,7 +146,7 @@ export default function RequestTalent() {
                 // console.log('sending'); return;
     
                 // Reset the form
-                resetForm();
+                // resetForm();
           
                 // Show success message or redirect to a thank you page
                 console.log("Email sent successfully!");
@@ -156,7 +212,7 @@ export default function RequestTalent() {
                         className="modal shadow-md w-[80%] md:w-[50%] overflow-y-scroll"
                         overlayClassName="overlay"
                         >
-                        <div className="modal-content p-3 w-[100] md:w-[80%] mx-auto overflow-y-auto">
+                        <div className={`modal-content w-[100] overflow-y-auto ${isSubmitted ? 'w-full pt-7' : 'bg-white md:w-[80%] p-3 mx-auto'}`}>
                             <button onClick={toggleModal} className="absolute top-2 right-2 text-dark bg-[#4C4C4C] p-3 rounded-full">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -169,11 +225,20 @@ export default function RequestTalent() {
                             </svg>
                             </button>
                             <img src="/logo.svg" alt="Logo" className="mx-auto mb-8 h-12" />
-                            <h2 className="text-lg font-normal text-center mb-8 text-[#939393]">Please fill this form to help us find you the right talent</h2>
+
                             {isSubmitted ? (
-                            <div className="success-message text-green-500 mb-4">Form submitted successfully!</div>
+                                <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
+                                    <div className="flex items-center justify-center">
+                                        <img src="/star-shine.svg"/>
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
+                                    <p className="text-gray-600">We will keep you updated via email.</p><br/>
+                                    <Btn link="https://calendly.com/akwaowowillie" target="_blank" text="Meet With Us" className="mt-6" />
+                                </div>
                             ) : (
                             <form onSubmit={handleSubmit} className="text-[#A6A6A6]">
+                                                            <h2 className="text-lg font-normal text-center mb-8 text-[#939393]">Please fill this form to help us find you the right talent</h2>
+
                                 <div className="mb-8">
                                 {/* <label className="block text-gray-700 font-semibold mb-1">Full Name</label> */}
                                 <input
@@ -239,7 +304,49 @@ export default function RequestTalent() {
                                 )}
                                 </div>
                                 <div className="mb-8">
-                                <select
+                                <div className="multi-select-container w-[100%] m-0">
+                                    <div className="multi-select-tags">
+                                        {selectedServices.map((service) => (
+                                        <div
+                                            key={service}
+                                            className="tag"
+                                            onClick={() => handleServiceToggle(service)}
+                                        >
+                                            {service}
+                                            <span className="close-icon">×</span>
+                                        </div>
+                                        ))}
+                                    </div>
+                                    <select
+                                        className="hidden-select"
+                                        onChange={(e) => handleServiceToggle(e.target.value,e)}
+                                        multiple
+                                        value={formData.service}
+                                        name="service"
+                                    >
+                                        {services.map((service) => (
+                                        <option key={service} value={service}>
+                                            {service}
+                                        </option>
+                                        ))}
+                                    </select>
+                                    <div className="available-services w-full">
+                                        Select a Service:
+                                        {services.map((service) => (
+                                            <span
+                                                key={service}
+                                                className={`service-option ${
+                                                selectedServices.includes(service) ? 'selected' : ''
+                                                }`}
+                                                onClick={(e) => handleServiceToggle(service, e)}
+                                            >
+                                                {service}
+                                            </span>
+                                            ))}
+
+                                    </div>
+                                    </div>
+                                {/* <select
                                     className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
                                         errors.service ? "border-red-500" : ""
                                       }`}
@@ -260,8 +367,8 @@ export default function RequestTalent() {
                                     <option value="Others">Others</option>
 
 
-                                    {/* Add more options as needed */}
-                                </select>
+                                    Add more options as needed
+                                </select> */}
                                 {errors.service && (
                                     <p className="text-red-500 text-sm">{errors.service}</p>
                                 )}

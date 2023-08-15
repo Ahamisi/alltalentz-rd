@@ -131,3 +131,78 @@ body {
   height: 0px;
   opacity: 0;
 }
+
+
+.multi-select-container {
+  position: relative;
+  width: 100%;
+}
+
+.multi-select-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: white;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  background-color: #F99621;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #000;
+}
+
+.close-icon {
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.hidden-select {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+.available-services {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.service-option {
+  padding: 4px 8px;
+  /* background-color: #e2e8f0; */
+  background-color: #000;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.service-option.selected {
+  background-color: #F99621;
+  color: #000;
+}
+
+
+@media (min-width: 640px) and (max-width: 770px) {
+  section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

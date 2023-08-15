@@ -23,13 +23,16 @@ export default function Faq() {
                 <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 items-center ">
                     {/* First Column (60% width) */}
                     <div className="md:w-6/10 pr-6 md:w-full">
-                        <h2 className="text-3xl md:text-6xl font-bold mb-4 text-white">
-                            FAQ
-                        </h2>
-                        <p className="text-white text-md">
-                        All Talentz is an employee recruitment company. To best describe what we do, we are best put as matchmakers, matching businesses with workforce needs; quality and experienced remote employees across Africa at great bargains.​
 
-                        </p>
+                    <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-secondary">
+                        FAQ
+                     </h2>
+                    
+                    <p className="text-white text-md">
+                    All Talentz is an employee recruitment company. To best describe what we do, we are best put as matchmakers, matching businesses with workforce needs; quality and experienced remote employees across Africa at great bargains.​
+                    </p>
+
+
                       
                     </div>
 

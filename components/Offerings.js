@@ -4,7 +4,7 @@ const Offerings = () => {
 
 
     return (
-      <div className="py-16 bg-transparent">
+      <div className="py-16 bg-transparent md:px-[30px] lg:px-0">
         <div className="max-w-6xl mx-auto grid grid-cols-2 gap-8 md:grid-cols-2">
             <div className="flex flex-row items-center gap-2 md:gap-[38px]">
               <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -102,18 +102,21 @@ export default function Watchlist() {
               newFData.append("career", formData.career);
               newFData.append("cv", formData.cv);
 
+              // console.log(formData.cv,'sljs')
+
               await fetch("/api/watchlist", {
                 method: "POST",
-                // headers: {
-                //   "Content-Type": "multipart/form-data",
-                // },
                 body: newFData,
               });
+
+                    // headers: {
+                //   "Content-Type": "multipart/form-data",
+                // },
         
               console.log('sending'); return;
   
               // Reset the form
-              resetForm();
+              // resetForm();
         
               // Show success message or redirect to a thank you page
               console.log("Email sent successfully!");
@@ -159,7 +162,9 @@ export default function Watchlist() {
                     <p className="text-white text-md">
                         Join us and discover the world of opportunities and growth that await you. You'll learn new skills and explore new cultures from the comfort of your home. Don't miss this chance to grow professionally and personally. Start your global adventure today!
                     </p>
-                    <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6"/>
+                    <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6 mt-[10px]"/>
+
+                    {/* <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6"/> */}
                     {/* <button onClick={toggleModal} className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold">Get Started</button> */}
                         
                         <Modal
@@ -186,7 +191,7 @@ export default function Watchlist() {
                             {isSubmitted ? (
                             <div className="success-message text-green-500 mb-4">Form submitted successfully!</div>
                             ) : (
-                            <form onSubmit={handleSubmit} encType="multipart/form-data" className="text-[#A6A6A6]">
+                            <form onSubmit={handleSubmit} encType="multipart/form-data" method="post" className="text-[#A6A6A6]">
                                 <div className="mb-8">
                                 {/* <label className="block text-gray-700 font-semibold mb-1">Full Name</label> */}
                                 <input

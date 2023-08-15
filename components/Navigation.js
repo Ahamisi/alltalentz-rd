@@ -6,20 +6,20 @@ const Navigation = () => {
     const pathname = usePathname();
 
    return <>
-     <li className={pathname === '/' ? 'text-secondary' : 'text-black md:text-[#FEF5E9]'}>
+     <li className={pathname === '/' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary md:text-[#FEF5E9]'}>
             <Link href="/">Home</Link>
           </li>
-          <li className={pathname === '/our-watchlist' ? 'text-secondary' : 'text-black md:text-[#FEF5E9]'}>
+          <li className={pathname === '/our-watchlist' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary md:text-[#FEF5E9]'}>
             <Link href="/our-watchlist">Services</Link>
           </li>
-          <li className={pathname === '/about' ? 'text-secondary' : 'text-black md:text-[#FEF5E9]'}>
+          <li className={pathname === '/about' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary md:text-[#FEF5E9]'}>
             <Link href="/about">About</Link>
           </li>
-          <li className={pathname === '/news' ? 'text-secondary' : 'text-black md:text-[#FEF5E9]'}>
+          <li className={pathname === '/news' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary md:text-[#FEF5E9]'}>
             <Link href="/news">Insights</Link>
           </li>
-          <li className={pathname === '/request-talent' ? 'text-secondary' : 'text-black md:text-[#FEF5E9]'}>
-            <Link href="/request-talent">Contact</Link>
+          <li className={pathname === '/faq' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary md:text-[#FEF5E9]'}>
+            <Link href="/faq">FAQs</Link>
           </li>
           {/* Add More Dropdown Here */}
    </>

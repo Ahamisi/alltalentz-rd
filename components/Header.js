@@ -49,7 +49,7 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* Desktop Menu */}
-        <ul className="hidden md:flex text-white text-lg gap-[54px]  font-normal">
+        <ul className="hidden md:flex text-white text-lg md:gap-7 lg:gap-[54px]  font-normal">
           <Navigation/>
         </ul>
       {/* Mobile Menu */}
@@ -77,7 +77,7 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* CTA Button */}
-      <Btn text="Meet with us" border={true} link="https://calendly.com/akwaowowillie" target="_blank" otherCSS="hidden md:block"/>
+      <Btn text="Meet with us" border={true} link="https://calendly.com/akwaowowillie" target="_blank" otherCSS="hidden lg:block"/>
 
       {/* <Button text='Get Started' onClick="" /> */}
       

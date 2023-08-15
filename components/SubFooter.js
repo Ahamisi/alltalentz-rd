@@ -14,12 +14,12 @@ const SubFooter = () => {
 
           {/* Right side (Text and CTAs) */}
           <div className="md:w-1/2 md:pl-8">
-            <h3 className="text-white text-3xl md:text-[65px] md:leading-[80px] font-semibold mb-4">Need customised solutions to meet your peculiar Talent needs?</h3>
+            <h3 className="text-white text-3xl lg:text-[65px] lg:leading-[80px] font-semibold mb-4">Need customised solutions to meet your peculiar Talent needs?</h3>
             <p className="text-white mb-6">
             Kindly take a moment to schedule meeting with us via Teams or download our company brochure.
             </p>
             <div className="flex items-center">
-              <Btn text="Meet with us" link="https://calendly.com/mnwoseh"/>&nbsp;&nbsp;
+              <Btn text="Meet with us" link="https://calendly.com/akwaowowillie"/>&nbsp;&nbsp;
               <Btn text="Download Brochure" link="/AllTalentzBrochure.pdf"/>
             
             </div>

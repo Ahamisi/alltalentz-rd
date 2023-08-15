@@ -9,7 +9,7 @@ const Hero = () => {
       className="relative bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/all-talents-world.jpg')" }}
     >
-          <div className="h-[50px]"></div>
+          <div className="md:h-[50px]"></div>
 
     {/* <Header/> */}
     {/* bg-gradient-to-b from-transparent to-black */}
@@ -18,7 +18,7 @@ const Hero = () => {
       " style={{
         backgroundColor: 'rgba(0, 0, 0, 0.75)'
       }}></div>
-      <div className="relative  h-screen inset-0 flex flex-col items-center justify-center md:mt-[-35px] text-white">
+      <div className="relative  h-screen inset-0 flex flex-col px-2 md:px-0 items-center justify-center md:mt-[-35px] text-white">
       {/* <HeaderText variant='h1' otherCSS= 'text-center'>
           Scale up your <span className="text-secondary">business operations</span>   <br />
           with the right remote talents.

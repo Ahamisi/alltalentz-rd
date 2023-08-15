@@ -25,7 +25,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
             Our Value Proposition
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl pt-[30px] md:pt-[70px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl pt-[30px] md:pt-[70px] md:px-5 lg:px-0">
             {/* Value Item 1 */}
             <div className="flex flex-col">
               <div className="text-4xl mr-4 text-[#4C4C4C]">
@@ -134,14 +134,14 @@ export default function Home() {
 
 
         <div className="py-16 md:pt-[200px] text-white px-[15px] md:px-0">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
             {/* Left Part */}
-            <div className="md:w-1/2 md:pr-8 mb-8 md:mb-0">
+            <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0 md:text-center md:items-center lg:text-left">
               <h2 className="text-4xl md:text-[65px] md:leading-[80px] font-bold mb-4"> The All Talentz <span className="text-secondary">Conference</span></h2>
               <p className="text-lg mb-6">
               The All-Talentz Conference is an annual event/retreat where all talents in All-Talentz go through a re-orientation in excellence and service delivery.
               </p>
-              <button className="bg-transparent text-secondary py-3 text-xl px-[14px] items-center flex p-0  hover:border-secondary hover:border-2 relative overflow-hidden transition-all duration-300">
+              <button className="bg-transparent text-secondary py-3 text-xl px-[14px] items-center flex p-0  hover:border-secondary hover:border-2 relative overflow-hidden transition-all duration-300 md:mx-auto lg:mx-0">
                 <span className="border border-transparent absolute inset-0 transition-all duration-300"></span>
                 View More &nbsp;
 
@@ -187,7 +187,7 @@ export default function Home() {
                 <img
                   src="/quality-talents.png" 
                   alt="Image 2"
-                  className="rounded-[12px] border-12 border-white w-[317px] h-[169px] mx-auto mb-4" />
+                  className="rounded-[12px] border-12 border-white w-[317px] lg:h-[169px] mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-secondary md:text-[25px] mb-[18px]">Quality Talent At A Bargain</h3>
                 <p className="text-md">Flexible labour that scales with your company. We employ the talent, therefore there are no payroll costs, benefit costs, or high overhead costs that accrue to you.</p>
               </div>
@@ -199,7 +199,7 @@ export default function Home() {
                 <img
                   src="/top-tier-talent.png" 
                   alt="Image 2"
-                  className="rounded-[12px] border-12 border-white w-[317px] h-[169px] mx-auto mb-4" />
+                  className="rounded-[12px] border-12 border-white w-[317px] lg:h-[169px] mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-secondary md:text-[25px] mb-[18px]">Top-Tier Talent From Day 1</h3>
                 <p className="text-md">Our talents are on the money, and we're determined to meet your company's demands and keep them in line with best practices. If you are not satisfied with our Talent after 30 days, we'll replace them.</p>
               </div>
@@ -225,9 +225,9 @@ export default function Home() {
             </p>
 
             {/* Three Columns */}
-            <div className="flex flex-col md:flex-row justify-between gap-[42px] w-[90%] mx-auto">
+            <div className="flex flex-col lg:flex-row justify-between gap-[42px] w-[90%] mx-auto">
               {/* Column 1 */}
-              <div className="flex flex-col items-center bg-secondary p-[40px] flex-1 border-4 border-transparent hover:border-black transition duration-300 cursor-pointer">
+              <div className="flex flex-col items-center bg-secondary p-[40px] flex-1 border-4 border-transparent hover:border-black transition duration-300 cursor-pointer h-auto">
 
                 <svg width="131" height="130" viewBox="0 0 131 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7701 28.5588C12.9467 28.0146 15.1524 29.338 15.6966 31.5147L17.7655 39.7906C21.0687 53.0033 31.4778 63.2473 44.7132 66.3541H87.5887C98.9151 66.3541 108.449 74.8318 109.772 86.0807L113.29 115.984C113.552 118.212 111.958 120.231 109.73 120.493C107.502 120.755 105.483 119.161 105.221 116.933L101.703 87.03C100.861 79.873 94.7951 74.4791 87.5887 74.4791H43.8094L43.3741 74.3824C26.9333 70.7289 13.9679 58.1002 9.88314 41.7612L7.81415 33.4853C7.26998 31.3086 8.59339 29.1029 10.7701 28.5588Z" fill="#282828"/>
@@ -274,7 +274,7 @@ export default function Home() {
 
 
         <div className="max-w-6xl mx-auto my-16 grid gap-6 grid-cols-1 sm:grid-cols-2 text-[#363636]">
-          <div className="bg-white shadow-lg rounded-lg py-10 px-[50px] md:px-[80px] bg-cover bg-center bg-no-repeat h-[320px]" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
+          <div className="bg-white shadow-lg rounded-lg py-10 px-[50px] md:px-[80px] bg-cover bg-center bg-no-repeat lg:h-[320px]" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
             <h3 className="text-5xl font-bold mb-4">Find Talents</h3>
             <p className="text-lg mb-6">Let us help you meet your talent needs</p>
             <div className="flex">
@@ -285,7 +285,7 @@ export default function Home() {
           </div>
             
 
-          <div className="bg-white shadow-lg rounded-lg py-10 px-[50px] md:px-[80px]  bg-cover bg-center bg-no-repeat h-[320px]" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
+          <div className="bg-white shadow-lg rounded-lg py-10 px-[50px] md:px-[80px]  bg-cover bg-center bg-no-repeat lg:h-[320px]" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
             <h3 className="text-5xl font-bold mb-4">Join Talents</h3>
             <p className="text-lg mb-6">Join our talent pool for future opportunities</p>
             <div className="flex">
