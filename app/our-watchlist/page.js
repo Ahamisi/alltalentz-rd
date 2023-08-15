@@ -154,7 +154,7 @@ export default function Watchlist() {
             <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 items-center ">
                 {/* First Column (60% width) */}
                 <div className="md:w-6/10 pr-6 md:w-full">
-                <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 ">
+                <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
                 Begin Your Journey To A <span className="text-secondary">Global Career</span>
 
                   </h2>

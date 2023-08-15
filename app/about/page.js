@@ -19,7 +19,7 @@ export default function About() {
                 {/* First Column (60% width) */}
                 <div className="md:w-6/10 pr-6 md:w-full">
 
-                <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 ">
+                <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white ">
                     The Best <span className="text-secondary">Value Solution</span> for your workforce needs.
                 </h2>
                     

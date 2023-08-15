@@ -189,7 +189,7 @@ export default function RequestTalent() {
                     <div className="md:w-6/10 pr-6 md:w-full">
 
 
-                <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 ">
+                <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
                 Welcome to a world of <span className="text-secondary">amazing talents</span> to help scale your operations
                 </h2>
                     

@@ -24,7 +24,7 @@ export default function News() {
                     {/* First Column (60% width) */}
                     <div className="md:w-6/10 pr-6 md:w-full">
 
-                    <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 ">
+                    <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white ">
                     Talent <span className="text-secondary">Buzz</span>
 
                   </h2>
