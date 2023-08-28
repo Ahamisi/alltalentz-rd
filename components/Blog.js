@@ -27,19 +27,26 @@ const Blog = () => {
   //   fetchPosts();
   // }, []);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch('/api/substack');
-        const data = await response.json();
-        setPosts(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
 
-    fetchPosts();
-  }, []);
+
+
+
+
+
+
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     try {
+  //       const response = await fetch('/api/substack');
+  //       const data = await response.json();
+  //       setPosts(data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchPosts();
+  // }, []);
 
 
 
@@ -51,7 +58,7 @@ const Blog = () => {
 
 
         {posts.map((post) => (
-           <div className="shadow-md rounded-[35px] rounded-tl-none rounded-br-none bg-white">
+           <div className="shadow-md rounded-[35px] rounded-tl-none rounded-br-none bg-white" key={post.id}>
               <div className="mb-4">
               {post.firstImage && <img src={post.firstImage} alt={post.title} className="w-full h-auto " />}
 

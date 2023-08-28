@@ -1,10 +1,8 @@
 import Parser from 'rss-parser';
 import cheerio from 'cheerio';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from "next/server";
 
-export const config = {
-  runtime: 'nodejs',
-};
+
 
 export async function GET(req, res) {
 

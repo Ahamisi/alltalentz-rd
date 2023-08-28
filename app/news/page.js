@@ -62,7 +62,7 @@ export default function News() {
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center text-secondary">
             Stories
           </h2>
-            <Blog/>
+            {/* <Blog/> */}
         </div>      
     </section>
 
