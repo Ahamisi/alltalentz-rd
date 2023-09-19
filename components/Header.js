@@ -17,7 +17,8 @@ const Header = ({active='home'}) => {
 
 
   return (
-    <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'>
+    <header className='bg-transparent absolute sm:relative z-50 w-full py-[30px] sm:py-0'>
+    {/* // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'> */}
         <nav className="py-4 px-8 flex items-center justify-between bg-transparent" style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >

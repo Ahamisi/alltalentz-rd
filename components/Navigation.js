@@ -16,7 +16,7 @@ const Navigation = () => {
             <Link href="/about">About</Link>
           </li>
           <li className={pathname === '/news' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary md:text-[#FEF5E9]'}>
-            <Link href="https://alltalentz.substack.com/" target="_blank">Insights</Link>
+            <Link href="https://alltalentz.substack.com/archive" target="_blank">Insights</Link>
           </li>
           {/* <li className={pathname === '/news' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary md:text-[#FEF5E9]'}>
             <Link href="/news">Insights</Link>

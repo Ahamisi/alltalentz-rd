@@ -49,6 +49,7 @@ export default function RequestTalent() {
         company: "",
         phone: "",
         service: [], // Initialize as an empty array
+        redirect: false
       });
       
       const handleServiceToggle = (service) => {
@@ -300,6 +301,7 @@ export default function RequestTalent() {
                                     value={formData.phone}
                                 />
                                 {errors.phone && (
+                                    
                                     <p className="text-red-500 text-sm">{errors.phone}</p>
                                 )}
                                 </div>
@@ -404,8 +406,38 @@ export default function RequestTalent() {
                                 "Submit"
                             )}
                             </button>&nbsp;
+                            <button
+                            type="submit"
+                            className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
+                            disabled={isLoading}
+                            >
+                            {isLoading ? (
+                                <svg
+                                className="animate-spin h-5 w-5 mx-auto"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                >
+                                <circle
+                                    className="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    strokeWidth="4"
+                                />
+                                <path
+                                    className="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.86 3.018 7.97l2.018-2.68z"
+                                />
+                                </svg>
+                            ) : (
+                                "Meet With Us"
+                            )}
+                            </button>
 
-                            <Link href="https://calendly.com/mnwoseh" className="request-button bg-secondary text-black px-[43px] py-[16px] mt-[10px] font-bold hover:bg-opacity-90">Meet With Us</Link>
+                            {/* <Link href="https://calendly.com/mnwoseh" className="request-button bg-secondary text-black px-[43px] py-[16px] mt-[10px] font-bold hover:bg-opacity-90">Meet With Us</Link> */}
 
 
                                 {/* <button type="submit" className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90">Submit</button> */}

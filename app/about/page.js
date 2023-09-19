@@ -219,9 +219,9 @@ export default function About() {
 
                         </div>
                         <div className="ml-4">
-                            <h3 className="text-lg font-semibold text-[#131313]">
-                            info@alltalentz.com
-                            </h3>
+                        <h3 className="text-lg font-semibold text-[#131313]">+1(614) 502-1440</h3>
+
+                            
                         </div>
                     </div>
 
@@ -233,7 +233,9 @@ export default function About() {
                             </svg>
                         </div>
                         <div className="ml-4">
-                            <h3 className="text-lg font-semibold text-[#131313]">+1(614) 502-1440</h3>
+                        <h3 className="text-lg font-semibold text-[#131313]">
+                            info@alltalentz.com
+                            </h3>
                         </div>
                     </div>
                     

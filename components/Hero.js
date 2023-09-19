@@ -7,16 +7,17 @@ const Hero = () => {
   return (
     <section
       className="relative bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/all-talents-world.jpg')" }}
+      style={{ backgroundImage: "url('/alltalentz-bg.jpg')" }}
     >
-          <div className="md:h-[50px]"></div>
+          {/* <div className="md:h-[50px]"></div> */}
+          <Header/>
 
-    {/* <Header/> */}
+
     {/* bg-gradient-to-b from-transparent to-black */}
 
       <div className="absolute inset-0 
       " style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.75)'
+        backgroundColor: 'rgba(0, 0, 0, 0.60)'
       }}></div>
       <div className="relative  h-screen inset-0 flex flex-col px-2 md:px-0 items-center justify-center md:mt-[-35px] text-white">
       {/* <HeaderText variant='h1' otherCSS= 'text-center'>

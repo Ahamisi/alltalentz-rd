@@ -44,7 +44,7 @@ const MainFooter = () => {
                                 placeholder="Enter your email"
                                 className="py-2 px-4 text-[#4C4C4C] rounded-l-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%] md:p-[18px]"
                             />
-                            <Btn text="Get Started" type="submit" onClick="" otherCSS="rounded-[8px]"/>
+                            <Btn text="Subscribe" target="_blank" link="https://alltalentz.substack.com/subscribe" type="submit" onClick="" otherCSS="rounded-[8px]"/>
                           </div>
 
                           
