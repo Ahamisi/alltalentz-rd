@@ -1,15 +1,16 @@
 import Link from "next/link";
-import Header from "./Header";
+import Header from "./HeaderHome";
+
 import Btn from "@/components/Btn";
 import HeaderText from "@/components/HeaderText";
 
 const Hero = () => {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/alltalentz-bg.jpg')" }}
+      className="relative bg-cover bg-top bg-no-repeat"
+      style={{ backgroundImage: "url('/alltalentz-homebg.jpg')" }}
     >
-          {/* <div className="md:h-[50px]"></div> */}
+          {/* <div className="md:h-[20px]"></div> */}
           <Header/>
 
 
@@ -19,11 +20,9 @@ const Hero = () => {
       " style={{
         backgroundColor: 'rgba(0, 0, 0, 0.60)'
       }}></div>
-      <div className="relative  h-screen inset-0 flex flex-col px-2 md:px-0 items-center justify-center md:mt-[-35px] text-white">
-      {/* <HeaderText variant='h1' otherCSS= 'text-center'>
-          Scale up your <span className="text-secondary">business operations</span>   <br />
-          with the right remote talents.
-        </HeaderText> */}
+      <br/>
+      <div className="relative h-screen flex flex-col px-2 md:px-0 items-center justify-center text-white py-10">
+
         <h1 className="text-3xl md:text-[65px] md:font-[700] md:leading-[80px] font-bold mb-6 text-center">
           Scale up your <span className="text-secondary">business operations</span>
           <br />
