@@ -206,3 +206,7 @@ body {
     padding-right: 20px;
   }
 }
+
+li.dot.selected{
+  background-color: #F99621 !important;
+}

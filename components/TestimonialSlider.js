@@ -9,36 +9,44 @@ const TestimonialSlider = ({ }) => {
     // Sample testimonial data (replace this with your actual data)
     const testimonials = [
       {
-        text: 'Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!',
-          name: 'John Doe',
+        text: 'All Talentz is a fantastic company! I have truly enjoyed working with Samuel Mbah, he is an itegral member of my team at PuroClean of Bluffdale. I appreciate how eager Samuel is to learn and to take on any task I ask of him. I know I can always depend on him to deliver<br/> Thank you Samuel for being so amazing and helpful',
+          name: 'Bre Empey',
           avatar: '/clients/puroclean-icon.png',
           rating: 4.5,
           designation: "Puroclean of Bluffdale Utah USA"
       },
       {
-        text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        text: "I had the opportunity to work with Tobiloba Oyeludw with All Talentz. Couldn't be a happier and a positive person to work together. She follows up promptly with job tasks and assignments",
           name: 'Jane Smith',
           avatar: '/clients/puroclean-icon.png',
           rating: 5.0,
-          designation: "Puroclean of Bluffdale Utah USA"
+          designation: "Puroclean Summerlin"
 
       },
       {
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          name: 'Fried Doe',
+        text: 'My estimator, Joshua has been amazing. He is very thorough and his follow up skills are second to none. He is now part of the family and we are glad we have him',
+          name: 'Sammy Shrem',
           avatar: '/clients/puroclean-icon.png',
           rating: 4.5,
-          designation: "Puroclean of Bluffdale Utah USA"
+          designation: ""
 
       },
       {
-          text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          name: 'Jane Jonathan',
+          text: 'Joel Ozue has been a great asset to the company. He handles all our SEO and Google. He has always been very responsive and willing to help however is needed. We appreciate all the hardwork and dedication he puts into PuroClean of Reston',
+          name: 'Whitney Young',
           avatar: '/clients/puroclean-icon.png',
           rating: 5.0,
-          designation: "Puroclean of Bluffdale Utah USA"
+          designation: "Puroclean of Reston"
 
       },
+      {
+        text: 'Macauley Maduwuba is an outstanding member of our team and works quickly and efficiently whenever we need his assistance. PuroClean Charlotte is grateful for his help.',
+        name: 'Susan David',
+        avatar: '/clients/puroclean-icon.png',
+        rating: 5.0,
+        designation: "Puroclean of Charlotte"
+
+    },
       // Add more testimonial items here...
     ];
 
@@ -75,7 +83,7 @@ const TestimonialSlider = ({ }) => {
           <div key={index} className="flex items-center justify-center p-8 bg-white rounded-xl mb-5">
             <div className="text-center">
               <p className="text-lg font-normal">{testimonial.text}</p>
-              <div className=" rounded-lg mt-6 bg-secondary text-[#303030] w-full py-4 md:w-[80%] mx-auto flex flex-col md:flex-row  items-center px-[24px]">
+              <div className=" rounded-lg mt-6 bg-secondary text-[#303030] w-full py-4 md:w-[80%] mx-auto flex flex-col md:flex-row  items-center px-[24px] gap-[12px]">
                 <div className="bg-white rounded-full h-[60px] w-[60px]">
                   <img
                     src={testimonial.avatar}

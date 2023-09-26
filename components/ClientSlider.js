@@ -16,15 +16,25 @@ const ClientCarousel = () => {
         showStatus={false}
         selectedItem={currentIndex}
         onChange={handleSlideChange}
+        autoPlay={true}
       >
         <div>
-          <img src="/clients/puro-clean.png" alt="Puro Clean " />
+          <img src="/clients/client-puroclean.jpg" alt="Puro Clean " />
         </div>
         <div>
-          <img src="/logo.svg" alt="Client 2" />
+            <img src="/clients/client-servicemaster.jpg" alt="Service Master " />
         </div>
         <div>
-            <img src="/clients/puro-clean.png" alt="Puro Clean " />
+            <img src="/clients/client-crdn.jpg" alt="CRDN " />
+        </div>
+        <div>
+            <img src="/clients/client-rs.jpg" alt="RS " />
+        </div>
+        <div>
+            <img src="/clients/client-servpro.jpg" alt="Serve Pro " />
+        </div>
+        <div>
+            <img src="/clients/client-cleanslate.jpg" alt="Clean Slate " />
         </div>
         {/* Add more carousel items as needed */}
       </Carousel>
