@@ -50,7 +50,7 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* Desktop Menu */}
-        <ul className="hidden md:flex text-white text-lg md:gap-7 lg:gap-[54px]  font-normal">
+        <ul className="hidden md:flex text-white text-lg md:gap-7   font-normal">
           <Navigation/>
         </ul>
       {/* Mobile Menu */}

@@ -12,12 +12,12 @@ export default function About() {
   return (
     <>
     
-    <section>
-    <PageHeader>
+        
+    <PageHeader about={true}>
         {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-            <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0  items-center">
+        <div className="max-w-6xl mx-auto px-4 justify-center align-middle lg:flex relative h-[100%] items-center ">
                 {/* First Column (60% width) */}
-                <div className="md:w-6/10 pr-6 md:w-full">
+                <div className="lg:w-4/10 pr-6 md:w-full">
 
                 <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white ">
                     The Best <span className="text-secondary">Value Solution</span> for your workforce needs.
@@ -30,7 +30,7 @@ export default function About() {
                 </div>
 
                 {/* Second Column (40% width) */}
-                <div className="hidden md:block md:w-4/10 mt-8 md:mt-0">
+                <div className="hidden lg:block lg:w-6/10 mt-8 md:mt-0">
                     <img
                         src="/african-maps.png"
                         alt="Header Image"
@@ -41,7 +41,6 @@ export default function About() {
         {/* </div> */}
         
     </PageHeader>
-    </section>
 
 
     
@@ -104,7 +103,7 @@ export default function About() {
 
 
     {/* svg home wrapper */}
-    <section className="relative bg-cover bg-center bg-no-repeat py-[128px] bg-[#0E0E0E] px-[15px] md:px-0" style={{backgroundImage: "url('/rest-home.svg')"}}>
+    <section className="md-padding relative bg-cover bg-center bg-no-repeat py-[128px] bg-[#0E0E0E] px-[15px] md:px-0" style={{backgroundImage: "url('/rest-home.svg')"}}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
 
 
@@ -112,7 +111,7 @@ export default function About() {
         <div className="py-16 text-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Our Amazing <span className="text-secondary">Team</span></h2>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
                     <div className="shadow-md">
                         <img
                             src='/sadiq-isu.png'
@@ -139,7 +138,7 @@ export default function About() {
                             alt='Sasiq Isu'
                             className="mx-auto rounded-[12px] "
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Thompson <br/>Opurum <span className="text-[12px]"></span></h3>
+                        <h3 className="text-[35px] font-semibold mt-2 ">Thompson Opurum <span className="text-[12px]"></span></h3>
                         <p className="text-[16px] text-secondary">Director, Operations</p>
                     </div>
 
@@ -147,17 +146,90 @@ export default function About() {
 
                     <div className="shadow-md">
                         <img
+                            src='/sam-akingbade.png'
+                            alt='Sasiq Isu'
+                            className="mx-auto rounded-[12px] "
+                        />
+                        <h3 className="text-[35px] font-semibold mt-2 ">Samuel Akingbade <span className="text-[12px]"></span></h3>
+                        <p className="text-[16px] text-secondary">Head of Product & Marketing</p>
+                    </div>
+
+                    <div className="shadow-md">
+                        <img
+                            src='/akwaowo.png'
+                            alt='Sasiq Isu'
+                            className="mx-auto rounded-[12px] "
+                        />
+                        <h3 className="text-[35px] font-semibold mt-2 ">Akwaowo Willie <span className="text-[12px]"></span></h3>
+                        <p className="text-[16px] text-secondary">Relationship Manager</p>
+                    </div>
+
+
+
+
+                </div>  
+
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center mt-[60px]">
+                    <div className="shadow-md">
+                        <img
+                            src='/kehinde-femi.png'
+                            alt='Sasiq Isu'
+                            className="mx-auto rounded-[12px] "
+                        />
+                        <h3 className="text-[35px] font-semibold mt-2 ">Kehinde Oluwafemi </h3>
+                        <p className="text-[16px] text-secondary">HRM</p>
+                    </div>
+
+                    <div className="shadow-md">
+                        <img
+                            src='/haolat-ogbomo.png'
+                            alt='Abdul Isu'
+                            className="mx-auto rounded-[12px]"
+                        />
+                        <h3 className="text-[35px] font-semibold mt-2 ">Haolat Ogbomo</h3>
+                        <p className="text-[16px] text-secondary">HRM</p>
+                    </div>
+
+                    <div className="shadow-md">
+                        <img
                             src='/thompson.png'
                             alt='Sasiq Isu'
                             className="mx-auto rounded-[12px] "
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Thompson <br/>Opurum <span className="text-[12px]"></span></h3>
+                        <h3 className="text-[35px] font-semibold mt-2 ">Thompson Opurum <span className="text-[12px]"></span></h3>
                         <p className="text-[16px] text-secondary">Director, Operations</p>
                     </div>
 
 
 
+                    <div className="shadow-md">
+                        <img
+                            src='/sam-akingbade.png'
+                            alt='Sasiq Isu'
+                            className="mx-auto rounded-[12px] "
+                        />
+                        <h3 className="text-[35px] font-semibold mt-2 ">Samuel Akingbade <span className="text-[12px]"></span></h3>
+                        <p className="text-[16px] text-secondary">Head of Product & Marketing</p>
+                    </div>
+
+                    <div className="shadow-md">
+                        <img
+                            src='/akwaowo.png'
+                            alt='Sasiq Isu'
+                            className="mx-auto rounded-[12px] "
+                        />
+                        <h3 className="text-[35px] font-semibold mt-2 ">Akwaowo Willie <span className="text-[12px]"></span></h3>
+                        <p className="text-[16px] text-secondary">Relationship Manager</p>
+                    </div>
+
+
+
+
                 </div>  
+
+                
+
+                
           </div>
         </div>
 

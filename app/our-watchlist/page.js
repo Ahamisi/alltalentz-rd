@@ -151,7 +151,7 @@ export default function Watchlist() {
     <section>
     <PageHeader>
         {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-            <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 items-center ">
+            <div className="max-w-6xl mx-auto px-4 py-12 lg:flex relative h-fit mt-0 items-center ">
                 {/* First Column (60% width) */}
                 <div className="md:w-6/10 pr-6 md:w-full">
                 <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
@@ -332,7 +332,7 @@ export default function Watchlist() {
                 </div>
 
                 {/* Second Column (40% width) */}
-                <div className="hidden md:block md:w-4/10 mt-8 md:mt-0">
+                <div className="hidden lg:block md:w-4/10 mt-8 md:mt-0">
                     <img
                         src="/alltalent-star.png"
                         alt="All Talents Star"
@@ -349,11 +349,11 @@ export default function Watchlist() {
 
 
 
-    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[15px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
+    <section className="md-padding relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[15px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center text-secondary">
-          What We Do At All Talentz
+          Want To Join A Global Team?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-6xl mt-[50px]">
             {/* Value Item 1 */}
@@ -366,7 +366,7 @@ export default function Watchlist() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2 text-center">Remote Employee Sourcing & Management</h3>
+                <h3 className="text-2xl font-bold mb-2 text-center">100% Remote</h3>
               </div>
             </div>
 
@@ -384,7 +384,7 @@ export default function Watchlist() {
 
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2 text-center">Remote Employee Sourcing & Management</h3>
+                <h3 className="text-2xl font-bold mb-2 text-center">Great Employment Benefits</h3>
               </div>
             </div>
 
@@ -398,15 +398,14 @@ export default function Watchlist() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2 text-center">Remote Employee Sourcing & Management</h3>
+                <h3 className="text-2xl font-bold mb-2 text-center">Better Work-Life Balance</h3>
               </div>
             </div>
 
           </div>
           <div className=" max-w-6xl text-center mt-[40px]">
             <p className="text-lg font-bold">
-                We are a team of experienced managers who have successfully led projects, hired and trained staff, and coordinated operations in various regions of the globe. We have more than five years of combined expertise in these areas and we are committed to delivering high-quality results for our clients.​
-            </p>
+            Are you ready to take your career to the next level with world class training? At All Talentz, we invest in our new and existing employees so they can deliver the best service to our amazing clientele. You can work from anywhere and still be part of a global team. Plus, you can enjoy some of the most competitive compensation and benefits in Africa. Don't miss this opportunity to join us today and start your journey to a global career!            </p>
           </div>
         </div>      
     </section>

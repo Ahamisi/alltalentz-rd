@@ -201,7 +201,7 @@ body {
 
 
 @media (min-width: 640px) and (max-width: 770px) {
-  section {
+  section.md-padding {
     padding-left: 20px;
     padding-right: 20px;
   }

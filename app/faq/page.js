@@ -85,32 +85,35 @@ export default function Faq() {
     
     <section>
         <PageHeader>
-            {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-                <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 items-center ">
-                    {/* First Column (60% width) */}
-                    <div className="md:w-6/10 pr-6 md:w-full">
 
-                    <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-secondary">
-                        FAQ
-                     </h2>
+          {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
+        <div className="max-w-6xl mx-auto px-4 justify-center align-middle md:flex relative h-[100%] items-center ">
+                {/* First Column (60% width) */}
+                <div className="md:w-[40%] pr-6">
+
+                <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white ">
+                    FAQ 
+                </h2>
                     
-                    <p className="text-white text-md">
-                    All Talentz is an employee recruitment company. To best describe what we do, we are best put as matchmakers, matching businesses with workforce needs; quality and experienced remote employees across Africa at great bargains.​
-                    </p>
+                <p className="text-white text-md">
+                Wondering how to get the best-value solution for your workforce needs? or are you looking to begin your journey to a global career? Check out the most commonly asked questions and answers below
+                </p>
 
-
-                      
-                    </div>
-
-                    {/* Second Column (40% width) */}
-                    <div className="hidden md:block md:w-4/10 mt-8 md:mt-0">
-                        <img
-                            src="/faq.png"
-                            alt="All Talents Africa"
-                            className="w-full h-auto"
-                        />
-                    </div>
                 </div>
+
+                {/* Second Column (40% width) */}
+                <div className="hidden md:block md:w-[60%] h-[60%] mt-8 md:mt-0">
+                    <img
+                        src="/faq.png"
+                        alt="Header Image"
+                        className="h-[450px] w-auto mx-auto"
+                    />
+                </div>
+            </div>
+
+
+            {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
+          
             {/* </div> */}
             
         </PageHeader>

@@ -5,6 +5,7 @@ import MainFooter from "@/components/MainFooter";
 import Offerings from "@/components/Offerings";
 import PageHeader from "@/components/PageHeader";
 import Btn from "@/components/Btn";
+import { useRouter } from 'next/navigation';
 
 import Link from "next/link";
 
@@ -14,7 +15,9 @@ import Modal from 'react-modal';
 
 export default function RequestTalent() {
 
+    const route = useRouter()
     const [selectedServices, setSelectedServices] = useState([]);
+    const [redirect, setRedirect] = useState(false)
     const services = [
       'Estimators ',
       'Virtual Assistants ',
@@ -151,6 +154,9 @@ export default function RequestTalent() {
           
                 // Show success message or redirect to a thank you page
                 console.log("Email sent successfully!");
+
+                redirect ? route.push('https://calendly.com/akwaowowillie') : setShowConfetti(true);
+
                 
                 // Add any further logic here for success actions
                 // setShowConfetti(true);
@@ -380,8 +386,10 @@ export default function RequestTalent() {
                             type="submit"
                             className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
                             disabled={isLoading}
+                            onClick={() => {setRedirect(false)}}
+
                             >
-                            {isLoading ? (
+                            {isLoading && redirect == false ? (
                                 <svg
                                 className="animate-spin h-5 w-5 mx-auto"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -410,8 +418,9 @@ export default function RequestTalent() {
                             type="submit"
                             className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
                             disabled={isLoading}
+                            onClick={() => {setRedirect(true)}}
                             >
-                            {isLoading ? (
+                            {isLoading && redirect == true  ? (
                                 <svg
                                 className="animate-spin h-5 w-5 mx-auto"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -448,7 +457,7 @@ export default function RequestTalent() {
                     </div>
 
                     {/* Second Column (40% width) */}
-                    <div className="hidden md:block md:w-4/10 mt-8 md:mt-0">
+                    <div className="hidden lg:block md:w-4/10 mt-8 md:mt-0">
                         <img
                             src="/our-talents.png"
                             alt="All Talents Africa"

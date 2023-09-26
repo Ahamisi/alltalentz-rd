@@ -20,9 +20,9 @@ const Header = ({active='home'}) => {
     // <header className='bg-transparent absolute sm:relative z-50 w-full py-[30px] sm:py-0 md:w-[95%]'>
     // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'>
 
-    <header className='max-w-6xl md:mx-auto'>
+    <header className='max-w-7xl md:mx-auto'>
 
-        <nav className="py-4 flex items-center justify-between bg-transparent" style={{ zIndex: 10 }} >
+        <nav className="py-4 flex items-center justify-between bg-transparent md:px-[20px] lg:px-0" style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >
         <div onClick={() => route.push('/')}>
@@ -53,11 +53,13 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* Desktop Menu */}
-        <ul className="hidden md:flex text-white text-lg md:gap-7 lg:gap-[54px]  font-normal">
+      <ul className="hidden lg:flex text-white text-lg lg:gap-7   font-normal">
+
+        {/* <ul className="hidden md:flex text-white text-lg md:gap-7 lg:gap-[35px]  font-normal"> */}
           <Navigation/>
         </ul>
       {/* Mobile Menu */}
-      <div className="md:hidden flex items-center">
+      <div className="lg:hidden flex items-center">
         <button
           className="text-white text-lg"
           onClick={toggleMobileMenu}
@@ -89,7 +91,7 @@ const Header = ({active='home'}) => {
 
       {/* Mobile Menu Items */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 px-4 py-2 bg-white shadow-lg rounded-md">
+        <div className="lg:hidden mt-2 px-4 py-2 bg-white shadow-lg rounded-md">
           <ul className="space-y-2 text-primary text-lg">
           <Navigation/>
 
