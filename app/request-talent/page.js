@@ -9,8 +9,10 @@ import { useRouter } from 'next/navigation';
 
 import Link from "next/link";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import { useSearchParams } from 'next/navigation'
+
 
 
 export default function RequestTalent() {
@@ -29,6 +31,10 @@ export default function RequestTalent() {
       'Account Receivables ',
       'Others ',
     ];
+    // Check if a specific query parameter exists in the URL
+    const searchParams = useSearchParams()
+    const search = searchParams.get('popup')
+
 
     // const handleServiceToggle = (service,event) => {
     //     if (selectedServices.includes(service)) {
@@ -44,7 +50,18 @@ export default function RequestTalent() {
     
 
     const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        // Perform an action based on the query parameter
+        if (search === 'true') {
+            setIsOpen(true)
+            // Do something when the query parameter is 'someValue'
+        }else{
+            setIsOpen(false)
+        }
 
+    }, [])
+    
+  
 
     const [formData, setFormData] = useState({
         fullName: "",
@@ -191,8 +208,9 @@ export default function RequestTalent() {
     <section>
         <PageHeader>
             {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-                <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 items-center ">
+                <div className="max-w-6xl mx-auto px-0 md:px-4 py-12 md:flex relative h-fit mt-0 items-center ">
                     {/* First Column (60% width) */}
+                    {/* mx-auto px-4 py-12 md:flex */}
                     <div className="md:w-6/10 pr-6 md:w-full">
 
 

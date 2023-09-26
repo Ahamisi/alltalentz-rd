@@ -151,7 +151,7 @@ export default function Watchlist() {
     <section>
     <PageHeader>
         {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-            <div className="max-w-6xl mx-auto px-4 py-12 lg:flex relative h-fit mt-0 items-center ">
+            <div className="max-w-6xl mx-auto md:px-4 px-0 py-12 lg:flex relative h-fit mt-0 items-center ">
                 {/* First Column (60% width) */}
                 <div className="md:w-6/10 pr-6 md:w-full">
                 <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">

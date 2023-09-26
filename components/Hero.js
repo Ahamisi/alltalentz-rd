@@ -28,7 +28,7 @@ const Hero = () => {
           <br />
           with the right remote talents.
         </h1>
-        <Btn text="Find Talent" link="/request-talent"/>
+        <Btn text="Find Talent" link="/request-talent?popup=true"/>
 
         {/* <Link href="/request-talent" className="bg-secondary text-black text-1xl px-[63px] py-[23px] mb-8 text-[20px] hover:bg-white">
           Find Talent

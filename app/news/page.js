@@ -20,7 +20,7 @@ export default function News() {
     <section>
         <PageHeader>
             {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-                <div className="max-w-6xl mx-auto px-4 py-12 md:flex relative h-fit mt-0 items-center ">
+                <div className="max-w-6xl mx-auto md:px-4 px-0 py-12 md:flex relative h-fit mt-0 items-center ">
                     {/* First Column (60% width) */}
                     <div className="md:w-6/10 pr-6 md:w-full">
 
