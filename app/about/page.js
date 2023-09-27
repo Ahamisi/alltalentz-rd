@@ -111,12 +111,12 @@ export default function About() {
         <div className="py-16 text-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Our Amazing <span className="text-secondary">Team</span></h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
                     <div className="shadow-md">
                         <img
                             src='/sadiq-isu.png'
                             alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] "
+                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
                         />
                         <h3 className="text-[35px] font-semibold mt-2 ">Sadiq <br/>Isu <span className="text-[12px]">MBA</span></h3>
                         <p className="text-[16px] text-secondary">Founder & CEO</p>
@@ -126,7 +126,7 @@ export default function About() {
                         <img
                             src='/abdul-isu.png'
                             alt='Abdul Isu'
-                            className="mx-auto rounded-[12px]"
+                            className="mx-auto rounded-[12px] h-[403px] w-[230px]"
                         />
                         <h3 className="text-[35px] font-semibold mt-2 ">Abdul <br/>Isu <span className="text-[12px]">Ph.D</span></h3>
                         <p className="text-[16px] text-secondary">Co-Founder</p>
@@ -135,8 +135,8 @@ export default function About() {
                     <div className="shadow-md">
                         <img
                             src='/thompson.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] "
+                            alt='THompson Opurum'
+                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
                         />
                         <h3 className="text-[35px] font-semibold mt-2 ">Thompson Opurum <span className="text-[12px]"></span></h3>
                         <p className="text-[16px] text-secondary">Director, Operations</p>
@@ -146,58 +146,54 @@ export default function About() {
 
                     <div className="shadow-md">
                         <img
-                            src='/sam-akingbade.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] "
+                            src='/gina-isuu.png'
+                            alt='Gina Isu'
+                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Samuel Akingbade <span className="text-[12px]"></span></h3>
-                        <p className="text-[16px] text-secondary">Head of Product & Marketing</p>
+                        <h3 className="text-[35px] font-semibold mt-2 ">Gina <br/>Isu </h3>
+                        <p className="text-[16px] text-secondary">Director of Marketing</p>
                     </div>
 
-                    <div className="shadow-md">
-                        <img
-                            src='/akwaowo.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] "
-                        />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Akwaowo Willie <span className="text-[12px]"></span></h3>
-                        <p className="text-[16px] text-secondary">Relationship Manager</p>
-                    </div>
 
 
 
 
                 </div>  
 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center mt-[60px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center mt-[60px]">
+
+
+                
+
+                    <div className="shadow-md">
+                        <img
+                            src='/akwaowo.png'
+                            alt='Sasiq Isu'
+                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
+                        />
+                        <h3 className="text-[35px] font-semibold mt-2 ">Akwaowo Willie <span className="text-[12px]"></span></h3>
+                        <p className="text-[16px] text-secondary">Relationship Manager</p>
+                    </div>
+
+
                     <div className="shadow-md">
                         <img
                             src='/kehinde-femi.png'
                             alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] "
+                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
                         />
                         <h3 className="text-[35px] font-semibold mt-2 ">Kehinde Oluwafemi </h3>
-                        <p className="text-[16px] text-secondary">HRM</p>
+                        <p className="text-[16px] text-secondary">HR Manager</p>
                     </div>
 
                     <div className="shadow-md">
                         <img
-                            src='/haolat-ogbomo.png'
+                            src='/haolat.png'
                             alt='Abdul Isu'
-                            className="mx-auto rounded-[12px]"
+                            className="mx-auto rounded-[12px] h-[403px] w-[230px]"
                         />
                         <h3 className="text-[35px] font-semibold mt-2 ">Haolat Ogbomo</h3>
-                        <p className="text-[16px] text-secondary">HRM</p>
-                    </div>
-
-                    <div className="shadow-md">
-                        <img
-                            src='/thompson.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] "
-                        />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Thompson Opurum <span className="text-[12px]"></span></h3>
-                        <p className="text-[16px] text-secondary">Director, Operations</p>
+                        <p className="text-[16px] text-secondary">HR Manager</p>
                     </div>
 
 
@@ -206,21 +202,13 @@ export default function About() {
                         <img
                             src='/sam-akingbade.png'
                             alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] "
+                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
                         />
                         <h3 className="text-[35px] font-semibold mt-2 ">Samuel Akingbade <span className="text-[12px]"></span></h3>
                         <p className="text-[16px] text-secondary">Head of Product & Marketing</p>
                     </div>
 
-                    <div className="shadow-md">
-                        <img
-                            src='/akwaowo.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] "
-                        />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Akwaowo Willie <span className="text-[12px]"></span></h3>
-                        <p className="text-[16px] text-secondary">Relationship Manager</p>
-                    </div>
+                  
 
 
 
