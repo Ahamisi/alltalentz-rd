@@ -17,9 +17,9 @@ const Header = ({active='home'}) => {
 
 
   return (
-    <header className='bg-transparent md:absolute relative z-50 md:w-[95%]  md:mx-[50px] w-full py-0'>
+    <header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0'>
     {/* // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'> */}
-        <nav className="py-4 px-4 md:px-8  flex items-center justify-between bg-transparent" style={{ zIndex: 10 }} >
+        <nav className="py-4 px-4 lg:px-8  flex items-center justify-between bg-transparent" style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >
         <div onClick={() => route.push('/')}>
@@ -50,11 +50,11 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* Desktop Menu */}
-        <ul className="hidden md:flex text-white text-lg md:gap-7   font-normal">
+        <ul className="hidden lg:flex text-white text-lg lg:gap-7   font-normal">
           <Navigation/>
         </ul>
       {/* Mobile Menu */}
-      <div className="md:hidden flex items-center">
+      <div className="lg:hidden flex items-center">
         <button
           className="text-white text-lg"
           onClick={toggleMobileMenu}
@@ -86,7 +86,7 @@ const Header = ({active='home'}) => {
 
       {/* Mobile Menu Items */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 px-4 py-2 bg-white shadow-lg rounded-md">
+        <div className="lg:hidden mt-2 px-4 py-2 bg-white shadow-lg rounded-md">
           <ul className="space-y-2 text-primary text-lg">
           <Navigation/>
 
