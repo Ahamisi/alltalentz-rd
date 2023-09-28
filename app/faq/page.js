@@ -87,7 +87,7 @@ export default function Faq() {
         <PageHeader>
 
           {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-        <div className="max-w-6xl mx-auto px-4 justify-center align-middle md:flex relative h-[100%] items-center ">
+        <div className="max-w-6xl mx-auto justify-center align-middle md:flex relative h-[100%] items-center px-[20px] md:px-4 ">
                 {/* First Column (60% width) */}
                 <div className="md:w-[40%] pr-6">
 
@@ -95,7 +95,7 @@ export default function Faq() {
                     FAQ 
                 </h2>
                     
-                <p className="text-white text-md">
+                <p className="text-white  text-sm md:text-md">
                 Wondering how to get the best-value solution for your workforce needs? or are you looking to begin your journey to a global career? Check out the most commonly asked questions and answers below
                 </p>
 
@@ -124,7 +124,7 @@ export default function Faq() {
 
 
 
-    <section className="relative bg-cover bg-center bg-no-repeat py-[128px] bg-white" >
+    <section className="relative bg-cover bg-center bg-no-repeat py-[60px] md:py-[128px] bg-white px-[40px] md:px-0 " >
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
           
@@ -180,7 +180,7 @@ export default function Faq() {
  
 
 
-    <section>
+    <section className='px-[30px] md:px-0 bg-[#131313]'>
       <MainFooter/>
     </section>
 

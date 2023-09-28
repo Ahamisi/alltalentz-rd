@@ -208,21 +208,21 @@ export default function RequestTalent() {
     <section>
         <PageHeader>
             {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-                <div className="max-w-6xl mx-auto px-0 md:px-4 py-12 md:flex relative h-fit mt-0 items-center ">
+                <div className="max-w-6xl mx-auto  py-12 md:flex relative h-fit items-center mt-6 md:mt-0 px-[20px] md:px-4">
                     {/* First Column (60% width) */}
                     {/* mx-auto px-4 py-12 md:flex */}
                     <div className="md:w-6/10 pr-6 md:w-full">
 
 
-                <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
+                <h2 className="text-2xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
                 Welcome to a world of <span className="text-secondary">amazing talents</span> to help scale your operations
                 </h2>
                     
-                <p className="text-white text-md">
+                <p className="text-white text-sm md:text-base">
                 Prepare to be amazed by the incredible talents that can take your operations to the next level! You have come to the right place to find the best solutions for your needs. Whether you are looking for experts, innovators, or collaborators, you will find them here. Don't miss this opportunity to work with the most amazing talents in the world!
                 </p>
-               <div className="flex md:block flex-column">
-               <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6 mt-[10px]"/>
+               <div className="flex md:block flex-column mt-6 md:mt-0">
+               <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6"/>
                 {/* <Btn link="https://calendly.com/akwaowowillie" target="_blank" border={true} text="Meet With Us" otherCSS="mt-[10px] md:mt-6 md:ml-[10px] text-center"/> */}
 
                </div>
@@ -471,14 +471,14 @@ export default function RequestTalent() {
 
 
 
-    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[15px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
+    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[40px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
 
-        <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center text-secondary">
+        <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C] ">
+          <h2 className="text-2xl md:text-5xl font-bold mb-8 text-center text-secondary">
           All Talentz Talents offering
           </h2>
-            <Offerings/>
+            <Offerings notHome={true}/>
         </div>      
     </section>
 
@@ -486,7 +486,7 @@ export default function RequestTalent() {
  
 
 
-    <section>
+    <section className="px-[30px] md:px-0 bg-[#131313]">
       <MainFooter/>
     </section>
 

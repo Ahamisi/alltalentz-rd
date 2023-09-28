@@ -18,9 +18,9 @@ const SubFooter = () => {
             <p className="text-white mb-6">
             Kindly take a moment to schedule meeting with us via Teams or download our company brochure.
             </p>
-            <div className="flex items-center">
-              <Btn text="Meet with us" link="https://calendly.com/akwaowowillie"/>&nbsp;&nbsp;
-              <Btn text="Download Brochure" link="/AllTalentzBrochure.pdf"/>
+            <div className="flex items-center flex-col md:flex-row">
+              <Btn text="Meet with us" otherCSS="w-full text-center" link="https://calendly.com/akwaowowillie"/>&nbsp;&nbsp;
+              <Btn text="Download Brochure" otherCSS="w-full text-center" link="/AllTalentzBrochure.pdf"/>
             
             </div>
           </div>

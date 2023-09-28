@@ -44,7 +44,7 @@ const MainFooter = () => {
                                 placeholder="Enter your email"
                                 className="py-2 px-4 text-[#4C4C4C] rounded-l-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%] md:p-[18px]"
                             />
-                            <Btn text="Subscribe" target="_blank" link="https://alltalentz.substack.com/subscribe" type="submit" onClick="" otherCSS="rounded-[8px]"/>
+                            <Btn text="Subscribe" target="_blank" link="https://alltalentz.substack.com/subscribe" type="submit" onClick="" otherCSS=""/>
                           </div>
 
                           
@@ -86,8 +86,8 @@ const MainFooter = () => {
                         <div className="col-span-1 flex md:block justify-center md:justify-self-auto">
                             <img src="/all-talents-footer.svg" alt="Logo" />
                         </div>
-                        <div className="col-span-1 text-white text-center">
-                            © {new Date().getFullYear()} All Talentz. All rights reserved.
+                        <div className="col-span-1 text-white text-center text-sm md:text-auto">
+                            © {new Date().getFullYear()} All Talentz LLC. All rights reserved.
                         </div>
                         <div className="col-span-1 flex justify-center items-center gap-[30px]">
                             {/* Add your social media icons here */}

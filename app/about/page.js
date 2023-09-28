@@ -15,17 +15,17 @@ export default function About() {
         
     <PageHeader about={true}>
         {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-        <div className="max-w-6xl mx-auto px-4 justify-center align-middle lg:flex relative h-[100%] items-center ">
+        <div className="max-w-6xl mx-auto px-4 justify-center align-middle lg:flex relative h-[100%] items-center mt-6 md:mt-0 ">
                 {/* First Column (60% width) */}
-                <div className="lg:w-4/10 pr-6 md:w-full">
+                <div className="lg:w-4/10 pr-6 md:w-full flex flex-col">
 
-                <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white ">
-                    The Best <span className="text-secondary">Value Solution</span> for your workforce needs.
-                </h2>
-                    
-                <p className="text-white text-md">
-                    All Talentz is more than just a recruitment company; We connect you with the best remote talent in Africa. Whether you need skilled, experienced, or reliable talent, we have the perfect match for you. And the best part is, you get amazing value for your money!
-                </p>
+                    <h2 className="text-2xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white ">
+                        The Best <span className="text-secondary">Value Solution</span> for your workforce needs.
+                    </h2>
+                        
+                    <p className="text-white text-sm md:text-base">
+                        All Talentz is more than just a recruitment company; We connect you with the best remote talent in Africa. Whether you need skilled, experienced, or reliable talent, we have the perfect match for you. And the best part is, you get amazing value for your money!
+                    </p>
 
                 </div>
 
@@ -45,21 +45,21 @@ export default function About() {
 
     
     {/* our value proposition */}
-    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white " style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
+    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[30px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
             <div className="max-w-6xl mx-auto px-4 md:flex items-center justify-center">
             {/* Left Column (Longer) */}
             <div className="md:w-2/3 pr-8">
-                <p className="text-lg md:text-[35px] md:leading-[45px] text-center font-bold">
+                <p className="text-base md:text-[35px] md:leading-[45px] text-center font-bold">
                 Since 2022, we have been passionately empowering the best talents in Africa with rewarding and meaningful careers and matching them with different global businesses to help them scale up their operations.
                 </p>
             </div>
 
             {/* Right Column */}
-            <div className="mt-6 md:mt-0 flex flex-wrap flex-row md:flex-col gap-3 md:gap-0 mr-6">
+            <div className="mt-6 md:mt-0 flex flex-wrap flex-row md:flex-col gap-3 md:gap-0 mr-6 justify-center">
                 <div className="mb-4">
-                    <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
+                    <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[140px] w-[140px] md:h-[152px] md:w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
                     <h3 className="text-4xl font-bold">100+</h3>
                     <p className="text-sm">
                         Clients
@@ -68,7 +68,7 @@ export default function About() {
                 </div>
 
                 <div className="mb-4">
-                <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
+                <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[140px] w-[140px] md:h-[152px] md:w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
                     <h3 className="text-4xl font-bold">99%</h3>
                     <p className="text-sm">
                         Positive Feedbacks
@@ -76,9 +76,9 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <div className=" md:mt-0 flex flex-wrap flex-row md:flex-col gap-3 md:gap-0 mr-6">
+            <div className=" md:mt-0 flex flex-wrap flex-row md:flex-col gap-3 md:gap-0 mr-6 justify-center">
             <div className="mb-4">
-            <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
+            <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[140px] w-[140px] md:h-[152px] md:w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
                 <h3 className="text-4xl font-bold">50+</h3>
                 <p className="text-sm">
                     Locations
@@ -87,7 +87,7 @@ export default function About() {
             </div>
 
             <div className="mb-4">
-            <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[152px] w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
+            <div className="bg-secondary text-white rounded-lg p-4 shadow-md h-[140px] w-[140px] md:h-[152px] md:w-[152px] flex flex-col text-center justify-center transition hover:bg-black hover:text-secondary duration-200 cursor-pointer">
                 <h3 className="text-4xl font-bold">5000+</h3>
                 <p className="text-sm">
                     Quality Professionals
@@ -103,22 +103,22 @@ export default function About() {
 
 
     {/* svg home wrapper */}
-    <section className="md-padding relative bg-cover bg-center bg-no-repeat py-[128px] bg-[#0E0E0E] px-[15px] md:px-0" style={{backgroundImage: "url('/rest-home.svg')"}}>
+    <section className="md-padding relative bg-cover bg-center bg-no-repeat py-[30px] md:py-[128px] bg-[#0E0E0E] px-[15px] md:px-0" style={{backgroundImage: "url('/rest-home.svg')"}}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
 
 
 
         <div className="py-16 text-white">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Our Amazing <span className="text-secondary">Team</span></h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+            <h2 className="text-2xl md:text-5xl font-bold mb-8 text-center">Our Amazing <span className="text-secondary">Team</span></h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
                     <div className="shadow-md">
                         <img
                             src='/sadiq-isu.png'
                             alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
+                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px] "
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Sadiq <br/>Isu <span className="text-[12px]">MBA</span></h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 ">Sadiq Isu <span className="text-[12px]">MBA</span></h3>
                         <p className="text-[16px] text-secondary">Founder & CEO</p>
                     </div>
 
@@ -126,9 +126,10 @@ export default function About() {
                         <img
                             src='/abdul-isu.png'
                             alt='Abdul Isu'
-                            className="mx-auto rounded-[12px] h-[403px] w-[230px]"
+                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Abdul <br/>Isu <span className="text-[12px]">Ph.D</span></h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 ">Abdul Isu <span className="text-[12px]">Ph.D</span></h3>
+
                         <p className="text-[16px] text-secondary">Co-Founder</p>
                     </div>
 
@@ -136,9 +137,9 @@ export default function About() {
                         <img
                             src='/thompson.png'
                             alt='THompson Opurum'
-                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
+                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Thompson Opurum <span className="text-[12px]"></span></h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Thompson Opurum </h3>
                         <p className="text-[16px] text-secondary">Director, Operations</p>
                     </div>
 
@@ -148,9 +149,9 @@ export default function About() {
                         <img
                             src='/gina-isuu.png'
                             alt='Gina Isu'
-                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
+                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Gina <br/>Isu </h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Gina Isu </h3>
                         <p className="text-[16px] text-secondary">Director of Marketing</p>
                     </div>
 
@@ -160,7 +161,7 @@ export default function About() {
 
                 </div>  
 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center mt-[60px]">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center mt-[30px] md:mt-[60px]">
 
 
                 
@@ -168,10 +169,10 @@ export default function About() {
                     <div className="shadow-md">
                         <img
                             src='/akwaowo.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
+                            alt='Akwaowo Willie'
+                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Akwaowo Willie <span className="text-[12px]"></span></h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Akwaowo Willie </h3>
                         <p className="text-[16px] text-secondary">Relationship Manager</p>
                     </div>
 
@@ -179,20 +180,20 @@ export default function About() {
                     <div className="shadow-md">
                         <img
                             src='/kehinde-femi.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
+                            alt='Kehinde Oluwafemi'
+                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Kehinde Oluwafemi </h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Kehinde Oluwafemi </h3>
                         <p className="text-[16px] text-secondary">HR Manager</p>
                     </div>
 
                     <div className="shadow-md">
                         <img
                             src='/haolat.png'
-                            alt='Abdul Isu'
-                            className="mx-auto rounded-[12px] h-[403px] w-[230px]"
+                            alt='Haolat Ogbomo'
+                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Haolat Ogbomo</h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Haolat Ogbomo </h3>
                         <p className="text-[16px] text-secondary">HR Manager</p>
                     </div>
 
@@ -201,10 +202,10 @@ export default function About() {
                     <div className="shadow-md">
                         <img
                             src='/sam-akingbade.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] h-[403px] w-[230px] "
+                            alt='Samuel Akingbade'
+                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-[35px] font-semibold mt-2 ">Samuel Akingbade <span className="text-[12px]"></span></h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Samuel Akingbade </h3>
                         <p className="text-[16px] text-secondary">Head of Product & Marketing</p>
                     </div>
 
@@ -228,11 +229,11 @@ export default function About() {
 
 
         {/* testimonial */}
-    <section className="relative bg-cover bg-center bg-no-repeat text-[#282828] py-[70px] bg-secondary" style={{ backgroundImage: "url('/abstract-contact.svg')" }}>
+    <section className="relative bg-cover bg-center bg-no-repeat text-[#282828] py-[70px] bg-secondary px-[30px] md:px-0" style={{ backgroundImage: "url('/abstract-contact.svg')" }}>
             <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-left">Contact Us</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="p-4 ">
+                    <div className="md:p-4 ">
                         <div className="flex items-center mb-2">
                             <div>
                                 <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -247,7 +248,7 @@ export default function About() {
                         <h3 className="text-lg font-semibold text-[#131313]">United States</h3>
                         <p className="text-sm text-[#131313]">2020 Brice Road, Reynoldsburg, OH 43068</p>
                     </div>
-                    <div className="p-4 ">
+                    <div className="md:p-4 ">
                         <div className="flex items-center mb-2">
                             <div>
                                 <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,16 +267,12 @@ export default function About() {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="flex items-center">
+                    <div className="flex items-center pt-6 md:pt-0">
                         <div>
                         <svg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path opacity="0.5" d="M4.4834 23.7744C4.4834 17.7338 8.68073 12.8369 13.8584 12.8369C19.0361 12.8369 23.2334 17.7338 23.2334 23.7744V42.0036H9.13456C6.5658 42.0036 4.4834 39.5741 4.4834 36.5772V23.7744Z" fill="#282828"/>
-                            <path opacity="0.8" d="M23.2334 23.7744V42.0036H29.4834H31.5667H41.5524C44.0916 42.0036 46.1501 39.602 46.1501 36.6396V23.7744C46.1501 17.7338 41.9527 12.8369 36.7751 12.8369H13.8584C19.0361 12.8369 23.2334 17.7338 23.2334 23.7744Z" fill="#1C274C"/>
-                            <path d="M20.1084 42.0036V46.1703C20.1084 47.0332 20.808 47.7327 21.6709 47.7327C22.5338 47.7327 23.2334 47.0332 23.2334 46.1703V42.0036H20.1084Z" fill="#1C274C"/>
-                            <path d="M31.5667 42.0036H28.4417V46.1703C28.4417 47.0332 29.1413 47.7327 30.0042 47.7327C30.8672 47.7327 31.5667 47.0332 31.5667 46.1703V42.0036Z" fill="#1C274C"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.1709 33.6702C9.1709 32.8073 9.87045 32.1077 10.7334 32.1077H16.9834C17.8463 32.1077 18.5459 32.8073 18.5459 33.6702C18.5459 34.5332 17.8463 35.2327 16.9834 35.2327H10.7334C9.87045 35.2327 9.1709 34.5332 9.1709 33.6702Z" fill="#1C274C"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M36.535 14.0551L37.0685 13.9483C37.9346 13.7749 38.8302 13.8577 39.6532 14.1872C41.0914 14.763 42.6641 14.8706 44.1625 14.4956L44.2905 14.4636C45.3815 14.1906 46.1504 13.1765 46.1504 12.0106V7.572C46.1504 6.03489 44.7667 4.90243 43.3284 5.26236C42.5024 5.46905 41.6355 5.40976 40.8428 5.09235L40.6905 5.03139C39.3634 4.50001 37.9193 4.36652 36.5227 4.64611L35.5879 4.83324C34.4632 5.05842 33.6504 6.08112 33.6504 7.27121V21.7551C33.6504 22.5827 34.2961 23.2536 35.0927 23.2536C35.8893 23.2536 36.535 22.5827 36.535 21.7551V14.0551Z" fill="#1C274C"/>
-                        </svg>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M34.3851 28.1682L35.334 27.2248C36.6456 25.9205 38.6904 25.6525 40.3687 26.5649L44.3489 28.7285C46.9049 30.118 47.4681 33.5234 45.4704 35.5098L42.511 38.4524C41.7585 39.2007 40.8246 39.7475 39.7509 39.8476C37.2672 40.0792 32.1571 39.9542 26.1282 36.4251L34.3851 28.1682ZM22.0726 15.9256L22.6701 15.3315C24.1421 13.8678 24.2809 11.518 22.9966 9.80251L20.3696 6.29334C18.7801 4.17008 15.7085 3.8896 13.8866 5.70114L10.6166 8.95258C9.71327 9.85083 9.1079 11.0152 9.18131 12.3069C9.31615 14.6795 10.1249 19.0138 13.6581 24.3401L22.0726 15.9256Z" fill="#282828"/>
+                                <path opacity="0.6" d="M25.9726 24.2897C19.8355 18.1875 22.0578 15.9398 22.0717 15.9258L13.6572 24.3403C15.0451 26.4325 16.8534 28.6778 19.2064 31.0174C21.5808 33.3784 23.9159 35.1308 26.1273 36.4253L34.3842 28.1684C34.3842 28.1684 32.1288 30.411 25.9726 24.2897Z" fill="#1C274C"/>
+                            </svg>
 
                         </div>
                         <div className="ml-4">
@@ -287,10 +284,15 @@ export default function About() {
 
                     <div className="flex items-center">
                         <div>
-                            <svg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M34.3851 28.1682L35.334 27.2248C36.6456 25.9205 38.6904 25.6525 40.3687 26.5649L44.3489 28.7285C46.9049 30.118 47.4681 33.5234 45.4704 35.5098L42.511 38.4524C41.7585 39.2007 40.8246 39.7475 39.7509 39.8476C37.2672 40.0792 32.1571 39.9542 26.1282 36.4251L34.3851 28.1682ZM22.0726 15.9256L22.6701 15.3315C24.1421 13.8678 24.2809 11.518 22.9966 9.80251L20.3696 6.29334C18.7801 4.17008 15.7085 3.8896 13.8866 5.70114L10.6166 8.95258C9.71327 9.85083 9.1079 11.0152 9.18131 12.3069C9.31615 14.6795 10.1249 19.0138 13.6581 24.3401L22.0726 15.9256Z" fill="#282828"/>
-                                <path opacity="0.6" d="M25.9726 24.2897C19.8355 18.1875 22.0578 15.9398 22.0717 15.9258L13.6572 24.3403C15.0451 26.4325 16.8534 28.6778 19.2064 31.0174C21.5808 33.3784 23.9159 35.1308 26.1273 36.4253L34.3842 28.1684C34.3842 28.1684 32.1288 30.411 25.9726 24.2897Z" fill="#1C274C"/>
-                            </svg>
+                        <svg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.5" d="M4.4834 23.7744C4.4834 17.7338 8.68073 12.8369 13.8584 12.8369C19.0361 12.8369 23.2334 17.7338 23.2334 23.7744V42.0036H9.13456C6.5658 42.0036 4.4834 39.5741 4.4834 36.5772V23.7744Z" fill="#282828"/>
+                            <path opacity="0.8" d="M23.2334 23.7744V42.0036H29.4834H31.5667H41.5524C44.0916 42.0036 46.1501 39.602 46.1501 36.6396V23.7744C46.1501 17.7338 41.9527 12.8369 36.7751 12.8369H13.8584C19.0361 12.8369 23.2334 17.7338 23.2334 23.7744Z" fill="#1C274C"/>
+                            <path d="M20.1084 42.0036V46.1703C20.1084 47.0332 20.808 47.7327 21.6709 47.7327C22.5338 47.7327 23.2334 47.0332 23.2334 46.1703V42.0036H20.1084Z" fill="#1C274C"/>
+                            <path d="M31.5667 42.0036H28.4417V46.1703C28.4417 47.0332 29.1413 47.7327 30.0042 47.7327C30.8672 47.7327 31.5667 47.0332 31.5667 46.1703V42.0036Z" fill="#1C274C"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.1709 33.6702C9.1709 32.8073 9.87045 32.1077 10.7334 32.1077H16.9834C17.8463 32.1077 18.5459 32.8073 18.5459 33.6702C18.5459 34.5332 17.8463 35.2327 16.9834 35.2327H10.7334C9.87045 35.2327 9.1709 34.5332 9.1709 33.6702Z" fill="#1C274C"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M36.535 14.0551L37.0685 13.9483C37.9346 13.7749 38.8302 13.8577 39.6532 14.1872C41.0914 14.763 42.6641 14.8706 44.1625 14.4956L44.2905 14.4636C45.3815 14.1906 46.1504 13.1765 46.1504 12.0106V7.572C46.1504 6.03489 44.7667 4.90243 43.3284 5.26236C42.5024 5.46905 41.6355 5.40976 40.8428 5.09235L40.6905 5.03139C39.3634 4.50001 37.9193 4.36652 36.5227 4.64611L35.5879 4.83324C34.4632 5.05842 33.6504 6.08112 33.6504 7.27121V21.7551C33.6504 22.5827 34.2961 23.2536 35.0927 23.2536C35.8893 23.2536 36.535 22.5827 36.535 21.7551V14.0551Z" fill="#1C274C"/>
+                        </svg>
+                            
                         </div>
                         <div className="ml-4">
                         <h3 className="text-lg font-semibold text-[#131313]">
@@ -308,7 +310,7 @@ export default function About() {
 
 
 
-    <section>
+    <section className="px-[30px] md:px-0 bg-[#131313]">
       <MainFooter/>
     </section>
 

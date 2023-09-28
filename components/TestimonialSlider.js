@@ -9,7 +9,7 @@ const TestimonialSlider = ({ }) => {
     // Sample testimonial data (replace this with your actual data)
     const testimonials = [
       {
-        text: 'All Talentz is a fantastic company! I have truly enjoyed working with Samuel Mbah, he is an itegral member of my team at PuroClean of Bluffdale. I appreciate how eager Samuel is to learn and to take on any task I ask of him. I know I can always depend on him to deliver<br/> Thank you Samuel for being so amazing and helpful',
+        text: 'All Talentz is a fantastic company! I have truly enjoyed working with Samuel Mbah, he is an itegral member of my team at PuroClean of Bluffdale. I appreciate how eager Samuel is to learn and to take on any task I ask of him. I know I can always depend on him to deliver.Thank you Samuel for being so amazing and helpful',
           name: 'Bre Empey',
           avatar: '/clients/puroclean-icon.png',
           rating: 4.5,

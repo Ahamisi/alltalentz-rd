@@ -18,10 +18,10 @@ export default function Home() {
 
     <Hero/>
     {/* our value proposition */}
-    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[15px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
+    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[40px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+          <h2 className="text-2xl md:text-5xl font-bold mb-8 text-center">
             Our Value Proposition
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl pt-[30px] md:pt-[70px] md:px-5 lg:px-0">
@@ -36,7 +36,7 @@ export default function Home() {
 
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2">Highly-Skilled Employees</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-2">Highly-Skilled Employees</h3>
                 <p className="text-lg">
                   Our remote talent are trained and certified in the latest skills, techniques and proficient in the software required.
                 </p>
@@ -53,7 +53,7 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2">Affordable Cost</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-2">Affordable Cost</h3>
                 <p className="text-lg">
                 Save up to 70% on cost when you use our remote talent which leads to considerable savings on cost of operations.
                 </p>
@@ -69,7 +69,7 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2">Vetted & Reliable Employees</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-2">Vetted & Reliable Employees</h3>
                 <p className="text-lg">
                   Our remote talent are vetted and verified by us, and we provide ongoing support and feedback to ensure quality and satisfaction.
                 </p>
@@ -85,7 +85,7 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2">Contribute to Success</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-2">Contribute to Success</h3>
                 <p className="text-lg">
                 Our talent understand the job and are solutions-oriented; ultimately, they contribute to your success.
                 </p>
@@ -98,10 +98,10 @@ export default function Home() {
 
 
     {/* our offerings */}
-    <section className="relative bg-cover bg-center bg-no-repeat py-[128px] bg-[#0E0E0E]">
+    <section className="relative bg-cover bg-center bg-no-repeat py-[128px] bg-[#0E0E0E] px-[30px] md:px-0">
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-white">
-          <h2 className="text-3xl md:text-4xl font-light mb-8 text-center">
+          <h2 className="text-base md:text-4xl font-light mb-8 text-center">
           Our range of vetted remote employees cut <br/>across varied business needs and niches.
           </h2>
           <div className="text-[#A5A5A5] px-[15px] md:px-0">
@@ -112,14 +112,14 @@ export default function Home() {
 
 
     {/* svg home wrapper */}
-    <section className="relative bg-cover bg-center bg-no-repeat py-[68px] bg-[#0E0E0E]" style={{backgroundImage: "url('/rest-home.svg')"}}>
+    <section className="relative bg-cover bg-center bg-no-repeat md:py-[68px] bg-[#0E0E0E] " style={{backgroundImage: "url('/rest-home.svg')"}}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
 
 
 
-        <div className=" text-white">
+        <div className=" text-white px-[40px] md:px-0">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-[65px] md:leading-[80px] font-bold mb-8 text-center">Clients that <span className="text-secondary">trust</span> us!</h2>
+            <h2 className="text-3xl md:text-[65px] md:leading-[80px] font-bold mb-8 text-center">Clients that <span className="text-secondary">trust</span> us!</h2>
             <p className="text-lg text-center max-w-3xl mx-auto mb-12">
             All Talentz provides employee recruitment services for over 30 Puroclean Franchises in the US and we have created job opportunities for 50 remote employees across Nigeria since we commenced operations in March 2022.
             </p>
@@ -132,11 +132,11 @@ export default function Home() {
 
 
 
-        <div className="py-16 md:pt-[200px] text-white px-[15px] md:px-0">
+        <div className="py-16 md:pt-[200px] text-white px-[40px] md:px-0 ">
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
             {/* Left Part */}
             <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0 md:text-center md:items-center lg:text-left">
-              <h2 className="text-4xl md:text-[65px] md:leading-[80px] font-bold mb-4"> The All Talentz <span className="text-secondary">Conference</span></h2>
+              <h2 className="text-2xl md:text-[65px] md:leading-[80px] font-bold mb-4"> The All Talentz <span className="text-secondary">Conference</span></h2>
               <p className="text-lg mb-6">
               The All-Talentz Conference is an annual event/retreat where all talents in All-Talentz go through a re-orientation in excellence and service delivery.
               </p>
@@ -215,10 +215,10 @@ export default function Home() {
     {/* find talents in 3 steps */}
 
 
-      <div className="py-16 bg-white rounded-[32px] text-[#4C4C4C] text-center w-[100%] md:w-[80%] mx-auto mt-[90px] bg-cover bg-center" style={{ backgroundImage: "url('/orange-clients.svg')" }}>
+      <div className="py-16 bg-white rounded-[32px] text-[#4C4C4C] text-center w-[100%] md:w-[80%] mx-auto mt-[90px] bg-cover bg-center px-[40px] md:px-0" style={{ backgroundImage: "url('/orange-clients.svg')" }}>
           <div className="max-w-6xl mx-auto text-center">
             {/* Header and Description */}
-            <h2 className="text-4xl md:text-[65px] md:leading-[80px] font-bold mb-4">Find Talents in 3 Steps!</h2>
+            <h2 className="text-2xl md:text-[65px] md:leading-[80px] font-bold mb-4">Find Talents in 3 Steps!</h2>
             <p className="text-lg mb-12 md:text-[20px]">
             We make finding your talent easy by curating the best match for your unique needs.
             </p>
@@ -274,7 +274,7 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto my-16 grid gap-6 grid-cols-1 sm:grid-cols-2 text-[#363636]">
           <div className="bg-white shadow-lg rounded-lg py-10 px-[50px] md:px-[80px] bg-cover bg-center bg-no-repeat lg:h-[320px]" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
-            <h3 className="text-5xl font-bold mb-4">Find Talents</h3>
+            <h3 className="text-2xl md:text-5xl font-bold mb-4">Find Talents</h3>
             <p className="text-lg mb-6">Let us help you meet your talent needs</p>
             <div className="flex">
               <Btn text="Request Talents" link="/request-talent" border={true}/>
@@ -285,7 +285,7 @@ export default function Home() {
             
 
           <div className="bg-white shadow-lg rounded-lg py-10 px-[50px] md:px-[80px]  bg-cover bg-center bg-no-repeat lg:h-[320px]" style={{backgroundImage: "url('/find-talents-bg.svg"}}>
-            <h3 className="text-5xl font-bold mb-4">Join Talents</h3>
+            <h3 className="text-2xl md:text-5xl font-bold mb-4">Join Talents</h3>
             <p className="text-lg mb-6">Join our talent pool for future opportunities</p>
             <div className="flex">
               <Btn text="Apply" link="/our-watchlist" border={true}/>
@@ -323,13 +323,13 @@ export default function Home() {
 
 
         {/* testimonial */}
-    <section className="relative bg-cover bg-center bg-no-repeat text-[#282828] py-[70px] bg-secondary" style={{ backgroundImage: "url('/abs-orange.svg')" }}>
+    <section className="relative bg-cover bg-center bg-no-repeat text-[#282828] py-[50px] md:py-[70px] bg-secondary px-[40px] md:px-0" style={{ backgroundImage: "url('/abs-orange.svg')" }}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#282828]">
-          <h2 className="text-4xl md:text-[45px] md:leading-[62px] font-bold mb-8 text-center">
+          <h2 className="text-2xl md:text-[45px] md:leading-[62px] font-bold mb-8 text-center">
             Reviews from our Partners
           </h2>
-            <div className="w-[80%] md:w-auto md:max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+            <div className="w-[100%] md:w-auto md:max-w-6xl mx-auto flex flex-col md:flex-row items-center">
               <TestimonialSlider/>
             </div>
               
@@ -339,7 +339,7 @@ export default function Home() {
 
 
 
-    <section>
+    <section className="px-[30px] md:px-0 bg-[#131313]">
       <MainFooter/>
     </section>
 
