@@ -78,7 +78,8 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* CTA Button */}
-      <Btn text="Meet with us" border={true} link="https://calendly.com/akwaowowillie" target="_blank" otherCSS="hidden lg:block"/>
+      {/* <Btn text="Meet with us" border={true} link="https://calendly.com/akwaowowillie" target="_blank" otherCSS="hidden lg:block"/> */}
+      <Btn text="Take Online Test" border={true} link="https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=fhgFiTIHCkquTYO-BRMRBXp0wYJIl_lGpg9Af4df6OVUMkdBSlo4UlZFNFhHTE42WDlXU0JFMFUxVy4u&Token=e74c4ee402914e8b94bccdced2792081" target="_blank" otherCSS="hidden lg:block"/>
 
       {/* <Button text='Get Started' onClick="" /> */}
       

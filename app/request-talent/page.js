@@ -372,29 +372,7 @@ export default function RequestTalent() {
 
                                     </div>
                                     </div>
-                                {/* <select
-                                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                                        errors.service ? "border-red-500" : ""
-                                      }`}
-                                    onChange={handleInputChange}
-                                    value={formData.service}
-                                    name="service"
-                                    placeholder="Enter your phone number"
-                                >
-                                    <option value="" disabled>Select a service</option>
-                                    <option value="Estimators">Estimators</option>
-                                    <option value="Virtual Assistants">Virtual Assistants</option>
-                                    <option value="Social Media Strategist">Social Media Strategist</option>
-                                    <option value="Administrative Assistants">Administrative Assistants</option>
-                                    <option value="Telemarketing Assistant">Telemarketing Assistant</option>
-                                    <option value="Designers /Software Developers">Designers /Software Developers</option>
-                                    <option value="Quick book Specialists">Quick book Specialists</option>
-                                    <option value="Account Receivables">Account Receivables</option>
-                                    <option value="Others">Others</option>
-
-
-                                    Add more options as needed
-                                </select> */}
+                             
                                 {errors.service && (
                                     <p className="text-red-500 text-sm">{errors.service}</p>
                                 )}

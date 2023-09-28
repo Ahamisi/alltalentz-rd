@@ -5,6 +5,8 @@ import MainFooter from "@/components/MainFooter";
 import Offerings from "@/components/Offerings";
 import PageHeader from "@/components/PageHeader";
 import Btn from "@/components/Btn";
+import { useRouter } from 'next/navigation';
+
 
 
 import React, { useState } from 'react';
@@ -16,6 +18,9 @@ export default function Watchlist() {
 
 
   const [isOpen, setIsOpen] = useState(false);
+  const [countdown, setCountdown] = useState(5); // Initial countdown time
+  const route = useRouter()
+
   const [formData, setFormData] = useState({
       fullName: "",
       email: "",
@@ -93,6 +98,7 @@ export default function Watchlist() {
               formData.cv = selectedFile
               // console.log(formData); return;
 
+
                 // Create FormData and append form fields
               const newFData = new FormData();
               newFData.append("fullName", formData.fullName);
@@ -104,23 +110,72 @@ export default function Watchlist() {
 
               // console.log(formData.cv,'sljs')
 
+              // await fetch("/api/watchlist", {
+              //   method: "POST",
+              //   body: newFData,
+              // });
+
               await fetch("/api/watchlist", {
                 method: "POST",
-                body: newFData,
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
               });
 
                     // headers: {
                 //   "Content-Type": "multipart/form-data",
                 // },
         
-              console.log('sending'); return;
+              // console.log('sending'); return;
   
               // Reset the form
               // resetForm();
         
               // Show success message or redirect to a thank you page
+              setIsSubmitted(true);
               console.log("Email sent successfully!");
               setIsLoading(false);
+               // Add a countdown timer before redirection
+
+
+              //  const countdownInterval = setInterval(() => {
+              //   if (countdown == 0) {
+              //     clearInterval(countdownInterval);
+              //     console.log("done");
+              //     console.log('redirecting')
+              //     window.location.href = "https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=fhgFiTIHCkquTYO-BRMRBXp0wYJIl_lGpg9Af4df6OVUMkdBSlo4UlZFNFhHTE42WDlXU0JFMFUxVy4u&Token=e74c4ee402914e8b94bccdced2792081";
+              //   } else if (countdown > 0) {
+              //     console.log("Before: ", countdown);
+              //     setCountdown((countdown) => countdown - 1);
+              //     console.log("After: ", countdown);
+
+              //   }
+              // }, 1000);
+
+              const countdownInterval = setInterval(() => {
+                setCountdown((prevCountdown) => {
+                  if (prevCountdown === 0) {
+                    clearInterval(countdownInterval);
+                    console.log("done");
+                    route.push(
+                      "https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=fhgFiTIHCkquTYO-BRMRBXp0wYJIl_lGpg9Af4df6OVUMkdBSlo4UlZFNFhHTE42WDlXU0JFMFUxVy4u&Token=e74c4ee402914e8b94bccdced2792081"
+                    );
+                    return prevCountdown; // Countdown should not change when it reaches 0
+                  } else if (prevCountdown > 0) {
+                    return prevCountdown - 1;
+                  }
+                });
+              }, 1000);
+              
+              
+              
+              
+              
+              
+              
+
+
 
               
               // Add any further logic here for success actions
@@ -187,11 +242,21 @@ export default function Watchlist() {
                             </svg>
                             </button>
                             <img src="/logo.svg" alt="Logo" className="mx-auto mb-8 h-12" />
-                            <h2 className="text-lg font-normal text-center mb-8 text-[#939393]">Kindly fill this form and upload your CV to keep yourself in the loop</h2>
                             {isSubmitted ? (
-                            <div className="success-message text-green-500 mb-4">Form submitted successfully!</div>
+                               <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
+                                    <div className="flex items-center justify-center">
+                                        <img src="/star-shine.svg"/>
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
+                                    <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>
+
+                                    
+                                    <Btn link="https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=fhgFiTIHCkquTYO-BRMRBXp0wYJIl_lGpg9Af4df6OVUMkdBSlo4UlZFNFhHTE42WDlXU0JFMFUxVy4u&Token=e74c4ee402914e8b94bccdced2792081" target="_blank" text="Take Test Now" className="mt-6" />
+                                </div>
                             ) : (
                             <form onSubmit={handleSubmit} encType="multipart/form-data" method="post" className="text-[#A6A6A6]">
+                                                            <h2 className="text-lg font-normal text-center mb-8 text-[#939393]">Kindly fill this form and upload your CV to keep yourself in the loop</h2>
+
                                 <div className="mb-8">
                                 {/* <label className="block text-gray-700 font-semibold mb-1">Full Name</label> */}
                                 <input

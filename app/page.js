@@ -140,14 +140,14 @@ export default function Home() {
               <p className="text-lg mb-6">
               The All-Talentz Conference is an annual event/retreat where all talents in All-Talentz go through a re-orientation in excellence and service delivery.
               </p>
-              <button className="bg-transparent text-secondary py-3 text-xl px-[14px] items-center flex p-0  hover:border-secondary hover:border-2 relative overflow-hidden transition-all duration-300 md:mx-auto lg:mx-0">
+              {/* <button className="bg-transparent text-secondary py-3 text-xl px-[14px] items-center flex p-0  hover:border-secondary hover:border-2 relative overflow-hidden transition-all duration-300 md:mx-auto lg:mx-0">
                 <span className="border border-transparent absolute inset-0 transition-all duration-300"></span>
                 View More &nbsp;
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                 <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z" clipRule="evenodd" />
               </svg>
-              </button>
+              </button> */}
 
             </div>
 
