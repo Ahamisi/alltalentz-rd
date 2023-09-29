@@ -116,7 +116,7 @@ export default function About() {
                         <img
                             src='/sadiq-isu.png'
                             alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px] "
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px] "
                         />
                         <h3 className="text-lg md:text-[35px] font-semibold mt-5 ">Sadiq Isu <span className="text-[12px]">MBA</span></h3>
                         <p className="text-[16px] text-secondary">Founder & CEO</p>
@@ -126,7 +126,7 @@ export default function About() {
                         <img
                             src='/abdul-isu.png'
                             alt='Abdul Isu'
-                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
                         <h3 className="text-lg md:text-[35px] font-semibold mt-5 ">Abdul Isu <span className="text-[12px]">Ph.D</span></h3>
 
@@ -137,7 +137,7 @@ export default function About() {
                         <img
                             src='/thompson.png'
                             alt='THompson Opurum'
-                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
                         <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Thompson Opurum </h3>
                         <p className="text-[16px] text-secondary">Director, Operations</p>
@@ -149,7 +149,7 @@ export default function About() {
                         <img
                             src='/gina-isuu.png'
                             alt='Gina Isu'
-                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
                         <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Gina Isu </h3>
                         <p className="text-[16px] text-secondary">Director of Marketing</p>
@@ -170,7 +170,7 @@ export default function About() {
                         <img
                             src='/akwaowo.png'
                             alt='Akwaowo Willie'
-                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
                         <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Akwaowo Willie </h3>
                         <p className="text-[16px] text-secondary">Relationship Manager</p>
@@ -181,7 +181,7 @@ export default function About() {
                         <img
                             src='/kehinde-femi.png'
                             alt='Kehinde Oluwafemi'
-                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
                         <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Kehinde Oluwafemi </h3>
                         <p className="text-[16px] text-secondary">HR Manager</p>
@@ -191,7 +191,7 @@ export default function About() {
                         <img
                             src='/haolat.png'
                             alt='Haolat Ogbomo'
-                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
                         <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Haolat Ogbomo </h3>
                         <p className="text-[16px] text-secondary">HR Manager</p>
@@ -203,7 +203,7 @@ export default function About() {
                         <img
                             src='/sam-akingbade.png'
                             alt='Samuel Akingbade'
-                            className="mx-auto rounded-[12px] h-[300px] w-auto md:h-[403px] md:w-[230px]"
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
                         <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Samuel Akingbade </h3>
                         <p className="text-[16px] text-secondary">Head of Product & Marketing</p>
@@ -236,7 +236,7 @@ export default function About() {
                     <div className="md:p-4 ">
                         <div className="flex items-center mb-2">
                             <div>
-                                <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className="w-[51px] h-[51px] md:w-[76px] md:h-[76px]" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.56689 67.0229C5.27248 67.0229 4.22314 68.0723 4.22314 69.3667C4.22314 70.6611 5.27248 71.7104 6.56689 71.7104H69.0669C70.3613 71.7104 71.4106 70.6611 71.4106 69.3667C71.4106 68.0723 70.3613 67.0229 69.0669 67.0229H65.9419H58.1294H53.4419V50.6167C53.4419 44.7241 53.4419 41.7779 51.6113 39.9473C49.7807 38.1167 46.8344 38.1167 40.9419 38.1167H34.6919C28.7993 38.1167 25.8531 38.1167 24.0225 39.9473C22.1919 41.7779 22.1919 44.7241 22.1919 50.6167V67.0229H17.5044H9.69189H6.56689ZM29.2231 47.4917C29.2231 46.1973 30.2725 45.1479 31.5669 45.1479H44.0669C45.3613 45.1479 46.4106 46.1973 46.4106 47.4917C46.4106 48.7861 45.3613 49.8354 44.0669 49.8354H31.5669C30.2725 49.8354 29.2231 48.7861 29.2231 47.4917ZM29.2231 56.8667C29.2231 55.5723 30.2725 54.5229 31.5669 54.5229H44.0669C45.3613 54.5229 46.4106 55.5723 46.4106 56.8667C46.4106 58.1611 45.3613 59.2104 44.0669 59.2104H31.5669C30.2725 59.2104 29.2231 58.1611 29.2231 56.8667Z" fill="#282828"/>
                                     <g opacity="0.5">
                                     <path d="M25.3169 14.6792C28.2632 14.6792 29.7363 14.6792 30.6516 15.5945C31.5669 16.5098 31.5669 17.9829 31.5669 20.9292L31.5669 26.5305C32.0568 26.7687 32.4829 27.0689 32.8613 27.4473C34.1241 28.71 34.5158 30.5037 34.6373 33.4292V38.1167C28.7811 38.1167 25.8474 38.1224 24.0225 39.9473C22.1919 41.7779 22.1919 44.7241 22.1919 50.6167V67.0229H9.69189V38.1167C9.69189 32.2241 9.69189 29.2779 11.5225 27.4473C11.9009 27.0689 12.327 26.7687 12.8169 26.5306V20.9292C12.8169 17.9829 12.8169 16.5098 13.7322 15.5945C14.6475 14.6792 16.1206 14.6792 19.0669 14.6792H19.8481V9.9917C19.8481 8.69728 20.8975 7.64795 22.1919 7.64795C23.4863 7.64795 24.5356 8.69728 24.5356 9.9917V14.6792H25.3169Z" fill="#1C274C"/>
@@ -251,7 +251,7 @@ export default function About() {
                     <div className="md:p-4 ">
                         <div className="flex items-center mb-2">
                             <div>
-                                <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className="w-[51px] h-[51px] md:w-[76px] md:h-[76px]" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M68.1278 36.8219L65.6856 34.8682V67.0229H69.5919C70.8863 67.0229 71.9356 68.0723 71.9356 69.3667C71.9356 70.6611 70.8863 71.7104 69.5919 71.7104H7.09188C5.79747 71.7104 4.74813 70.6611 4.74813 69.3667C4.74813 68.0723 5.79747 67.0229 7.09188 67.0229H10.9981V34.8682L8.55601 36.8219C7.54524 37.6305 6.07034 37.4666 5.26172 36.4558C4.45311 35.4451 4.61698 33.9702 5.62775 33.1615L31.0212 12.8468C35.3011 9.42283 41.3826 9.42283 45.6625 12.8468L71.056 33.1615C72.0668 33.9702 72.2307 35.4451 71.422 36.4558C70.6134 37.4666 69.1385 37.6305 68.1278 36.8219ZM38.3419 21.7104C33.5957 21.7104 29.7481 25.558 29.7481 30.3042C29.7481 35.0504 33.5957 38.8979 38.3419 38.8979C43.0881 38.8979 46.9356 35.0504 46.9356 30.3042C46.9356 25.558 43.0881 21.7104 38.3419 21.7104ZM43.7976 42.2155C42.3641 42.0227 40.5739 42.0228 38.4962 42.0229H38.1876C36.1099 42.0228 34.3197 42.0227 32.8861 42.2155C31.3498 42.422 29.8771 42.8878 28.6825 44.0824C27.488 45.2769 27.0222 46.7496 26.8156 48.2859C26.6229 49.7195 26.623 51.5097 26.6231 53.5874L26.6231 67.0229H31.3106H45.3731H50.0606L50.0606 53.5874L50.0606 53.2012C50.06 51.2873 50.0488 49.6299 49.8681 48.2859C49.6616 46.7496 49.1958 45.2769 48.0012 44.0824C46.8067 42.8878 45.334 42.422 43.7976 42.2155Z" fill="#282828"/>
                                     <g opacity="0.5">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M34.4355 30.3042C34.4355 28.1468 36.1844 26.3979 38.3418 26.3979C40.4992 26.3979 42.248 28.1468 42.248 30.3042C42.248 32.4616 40.4992 34.2104 38.3418 34.2104C36.1844 34.2104 34.4355 32.4616 34.4355 30.3042Z" fill="#1C274C"/>
