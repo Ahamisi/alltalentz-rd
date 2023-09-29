@@ -21,7 +21,7 @@ const Hero = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.60)'
       }}></div>
       <br/>
-      <div className="relative h-screen flex flex-col px-2 md:px-0 items-center justify-center text-white py-10">
+      <div className="relative h-screen flex flex-col px-2 md:px-0 items-center justify-center text-white py-0 md:py-10">
 
         <h1 className="text-2xl md:text-[65px] md:font-[700] md:leading-[80px] font-bold mb-6 text-center">
           Scale up your  <span className="text-secondary">business operations</span>
