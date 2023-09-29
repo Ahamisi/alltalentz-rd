@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Navigation from './Navigation';
 import { useRouter } from 'next/navigation';
 import Btn from "@/components/Btn";
+import MobileMenu from './MobileMenu';
+
 
 
 const Header = ({active='home'}) => {
@@ -17,13 +19,15 @@ const Header = ({active='home'}) => {
 
 
   return (
-    <header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0'>
-    {/* // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'> */}
-        <nav className="py-4 px-4 lg:px-8  flex items-center justify-between bg-transparent" style={{ zIndex: 10 }} >
+    // <header className='bg-transparent absolute sm:relative z-50 w-full py-[30px] sm:py-0 md:w-[95%]'>
+    // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'>
+
+<header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0'>
+        <nav className="py-4 flex items-center justify-between bg-transparent md:px-[20px] lg:px-0" style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >
         <div onClick={() => route.push('/')}>
-        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-[120px] h-[30px] md:w-[150px] md:h-[40px]" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_1340_395)">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 39.6093L3.99697 37.1121C4.1468 37.0058 4.27837 36.9281 4.43592 36.8087L7.47201 34.5933C7.78427 34.3771 8.03643 34.1873 8.33285 33.969C8.62887 33.7508 8.90417 33.5687 9.19613 33.3472C10.5576 32.3152 12.1819 31.2304 13.5714 30.1903C13.7663 30.0445 14.2922 29.6193 14.4867 29.5672V21.9693H8.34097C7.58083 21.9693 7.71564 21.7005 7.39486 22.5081L0.5 39.6093H0.5ZM7.86426 20.2687H16.2351L17.969 28.8908C18.0632 29.388 18.0709 29.2398 18.3669 29.5016L22.5274 33.0866C22.6326 33.1847 22.6858 33.2584 22.797 33.3476L24.4879 34.7868C24.8537 35.128 25.1907 35.4396 25.5907 35.7528L29.1758 38.8519C29.3272 38.9932 29.9124 39.5157 30.063 39.556C30.0431 39.3153 29.9469 39.1772 29.8706 38.952L29.2761 37.1573C28.9809 36.3677 28.7348 35.5337 28.4668 34.7277C28.2069 33.9454 27.9316 33.1696 27.6588 32.3499L25.2216 25.1238C24.9435 24.2865 24.6681 23.5103 24.4006 22.706L23.599 20.2687C25.2756 20.2687 26.9563 20.2577 28.6329 20.2695C29.445 20.2752 29.5002 20.0015 30.3379 19.4293L34.7696 16.2227C35.2995 15.8301 37.5093 14.325 37.6916 14.0525C36.1693 14.0525 34.7083 13.9996 33.1357 13.9996H0.5536C0.632375 14.2957 1.96018 15.3178 2.31427 15.6343C2.92579 16.1804 3.51214 16.6707 4.14031 17.2034L4.59428 17.5984C4.76848 17.7682 4.86715 17.8411 5.04338 17.9983L5.49654 18.3937C5.60252 18.4837 5.62485 18.4809 5.73286 18.5815L7.32136 19.9636C7.46267 20.0972 7.60601 20.2691 7.86467 20.2691L7.86426 20.2687ZM11.8907 12.2456H20.8443C20.7188 11.7064 18.717 6.14108 18.3341 4.98615L17.5792 2.82085C17.4866 2.54026 17.42 2.34153 17.3169 2.07438L16.8178 0.609131C16.6899 0.703203 16.7139 0.746371 16.6404 0.90886L12.1936 11.4861C12.0929 11.7398 11.9991 12.0196 11.8911 12.2452L11.8907 12.2456Z" fill="#FFB300"/>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M47.4904 14.1527H47.7519C47.7519 14.9448 47.9566 15.8867 48.0869 16.7024C48.2339 17.6228 48.3793 18.4491 48.5182 19.2864L49.3213 24.3834H45.921C45.9344 23.7705 46.1915 22.4885 46.2942 21.8719L47.1201 16.7977C47.2314 15.9918 47.4904 15.0552 47.4904 14.1527ZM41.082 32.2533C45.4861 32.2533 44.5587 32.8235 45.0058 30.1552C45.1276 29.4291 45.3404 28.3532 45.3976 27.6625H49.8439C49.9905 28.2941 50.0478 28.8362 50.1607 29.5745C50.2658 30.2631 50.3962 30.8907 50.4656 31.4987C50.5964 32.6508 50.8802 32.2533 54.2907 32.2533C53.5512 29.0695 52.5925 23.45 51.9246 20.0675C51.2059 16.4304 50.3617 11.21 49.5828 7.85718H45.6595C45.6595 8.68754 45.2868 10.0392 45.1243 10.8618C44.9217 11.8885 44.7516 12.8699 44.5372 13.9454C44.2343 15.4648 41.0824 31.4221 41.0824 32.2533H41.082Z" fill="white"/>
@@ -50,7 +54,9 @@ const Header = ({active='home'}) => {
       </div>
 
       {/* Desktop Menu */}
-        <ul className="hidden lg:flex text-white text-lg lg:gap-7   font-normal">
+      <ul className="hidden lg:flex text-white text-lg lg:gap-7   font-normal">
+
+        {/* <ul className="hidden md:flex text-white text-lg md:gap-7 lg:gap-[35px]  font-normal"> */}
           <Navigation/>
         </ul>
       {/* Mobile Menu */}
@@ -84,22 +90,15 @@ const Header = ({active='home'}) => {
       {/* <Button text='Get Started' onClick="" /> */}
       
  
-
-      {/* Mobile Menu Items */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden mt-2 px-4 py-2 bg-white shadow-lg rounded-md">
-          <ul className="space-y-2 text-primary text-lg">
-          <Navigation/>
-
-            {/* <li>Home</li>
-            <li>Services</li>
-            <li>About</li>
-            <li>News</li>
-            <li>Contact</li> */}
-            {/* Add More Dropdown Here */}
-          </ul>
-        </div>
-      )}
+      
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+            <MobileMenu isOpen={mobileMenuOpen} onClose={toggleMobileMenu}>
+            <ul className="space-y-2 text-primary text-lg">
+                <Navigation />
+            </ul>
+            </MobileMenu>
+        )}
         </nav>
     </header>
   )

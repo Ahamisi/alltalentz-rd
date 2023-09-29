@@ -40,7 +40,7 @@ const SocialMedia = () => {
 
         <Link
           key="instagram"
-          href="https://instagram.com/all_talentz?igshid=MzRlODBiNWFlZA=="
+          href="https://instagram.com/all_talentz"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white text-2xl mb-4"
@@ -55,7 +55,7 @@ const SocialMedia = () => {
 
         <Link
           key="twitter"
-          href="https://www.linkedin.com/company/all-talentz/"
+          href="https://twitter.com/AllTalentz"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white text-2xl mb-4"
@@ -84,7 +84,7 @@ const SocialMedia = () => {
 
         <Link
           key="Facebook"
-          href="https://www.facebook.com/Alltalentz?mibextid=ZbWKwL"
+          href="https://www.facebook.com/Alltalentz"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white text-2xl mb-4"
