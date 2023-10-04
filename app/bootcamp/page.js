@@ -13,7 +13,7 @@ export default function BootCamp() {
     <>
     
         
-    <PageHeader about={true}>
+    <PageHeader about={false}>
         {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
         <div className="max-w-6xl mx-auto px-4 justify-center align-middle lg:flex relative h-[100%] items-center mt-6 md:mt-0 ">
                 {/* First Column (60% width) */}

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 
-const Navigation = () => {
+const Navigation = ({addBootcamp = false}) => {
     const pathname = usePathname();
 
    return <>
@@ -28,6 +28,12 @@ const Navigation = () => {
           <li className={pathname === '/academy' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary lg:text-[#FEF5E9]'}>
             <Link href="/academy">Academy</Link>
           </li>
+          {
+            addBootcamp && 
+              <li className={pathname === '/bootcamp' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary lg:text-[#FEF5E9]'}>
+                <Link href="/bootcamp">Apply to Bootcamp</Link>
+              </li>
+          }
           {/* <li className={pathname === '/news' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary lg:text-[#FEF5E9]'}>
             <Link href="/news">Insights</Link>
           </li> */}
