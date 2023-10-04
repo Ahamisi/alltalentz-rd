@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const CBT = () => {
   const router = useRouter();
 
-  const totalDuration = 20 * 60 * 1000;
+  const totalDuration = 45 * 60 * 1000;
   const redThreshold = 1 * 60 * 1000;
 
   const [remainingTime, setRemainingTime] = useState(totalDuration);
