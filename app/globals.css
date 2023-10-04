@@ -210,3 +210,7 @@ body {
 li.dot.selected{
   background-color: #F99621 !important;
 }
+
+.survey-page-body{
+  margin-top: 500px;
+}

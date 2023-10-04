@@ -144,7 +144,7 @@ export default function Watchlist() {
               //     clearInterval(countdownInterval);
               //     console.log("done");
               //     console.log('redirecting')
-              //     window.location.href = "https://www.surveymonkey.com/r/R5JQLN2";
+              //     window.location.href = "https://alltalentz.com/cbt";
               //   } else if (countdown > 0) {
               //     console.log("Before: ", countdown);
               //     setCountdown((countdown) => countdown - 1);
@@ -159,7 +159,7 @@ export default function Watchlist() {
                     clearInterval(countdownInterval);
                     console.log("done");
                     route.push(
-                      "https://www.surveymonkey.com/r/R5JQLN2"
+                      "https://alltalentz.com/cbt"
                     );
                     return prevCountdown; // Countdown should not change when it reaches 0
                   } else if (prevCountdown > 0) {
@@ -253,7 +253,7 @@ export default function Watchlist() {
                                     <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>
 
                                     
-                                    <Btn link="https://www.surveymonkey.com/r/R5JQLN2" target="_blank" text="Take Test Now" className="mt-6" />
+                                    <Btn link="https://alltalentz.com/cbt" target="_blank" text="Take Test Now" className="mt-6" />
                                 </div>
                             ) : (
                             <form onSubmit={handleSubmit} encType="multipart/form-data" method="post" className="text-[#A6A6A6]">
