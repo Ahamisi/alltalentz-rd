@@ -23,9 +23,9 @@ const Header = ({active='home', type=""}) => {
     // <header className='bg-transparent absolute sm:relative z-50 w-full py-[30px] sm:py-0 md:w-[95%]'>
     // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'>
 
-    <header className={`${type == 'bootcamp' ? 'max-w-6xl' : 'max-w-7xl'} md:mx-auto`}>
+    <header className={`${type == 'bootcamp' ? 'lg:w-[79%]' : 'max-w-7xl'} md:mx-auto`}>
 
-        <nav className={`py-4 flex items-center ${type == "bootcamp" ? 'justify-between lg:justify-start lg:gap-[50px]' : 'justify-between'}  bg-transparent md:px-[20px] lg:px-0`} style={{ zIndex: 10 }} >
+      <nav className={`py-4 flex items-center ${type == "bootcamp" ? 'justify-between lg:justify-normal' : 'justify-between'}  bg-transparent md:px-[20px] lg:px-0`} style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >
         <div onClick={() => route.push('/')}>
@@ -56,7 +56,7 @@ const Header = ({active='home', type=""}) => {
       </div>
 
       {/* Desktop Menu */}
-      <ul className="hidden lg:flex text-white text-lg lg:gap-7   font-normal">
+      <ul className={`hidden lg:flex text-white text-lg ${type  == 'bootcamp' ? 'gap-[54px] lg:ml-[20%]' : 'lg:gap-7'}   font-normal`}>
 
         {/* <ul className="hidden md:flex text-white text-lg md:gap-7 lg:gap-[35px]  font-normal"> */}
         {

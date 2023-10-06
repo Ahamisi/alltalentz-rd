@@ -159,7 +159,7 @@ export default function BootCamp() {
 
       <div class="flex lg:flex-wrap w-[100%] lg:w-[80%] mx-auto">
           <div class="w-full lg:w-1/2 p-4 items-center justify-center h-[580px]">
-          <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[80px] xl:mt-[120px]">
+          <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 
                     <img src="bootcamp.svg"/>
                     <p className="text-[#FEF5E9] text-md md:text-[20px]">
