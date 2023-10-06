@@ -150,15 +150,15 @@ export default function BootCamp() {
     <>
     
     <section
-      className={`relative h-auto pb-12 bg-cover bg-center bg-no-repeat mt-[0px] px-[20px] md:px-0 lg:px-0 bg-black font-montserrat`}
+      className={`relative h-auto pb-12 bg-cover bg-center bg-no-repeat mt-[0px]  md:px-0 lg:px-0 bg-black font-montserrat`}
       
     >
       <Header type="bootcamp" />
 
       <div className={`flex  h-[100%]`}>
 
-      <div class="flex lg:flex-wrap w-[100%] lg:w-[80%] mx-auto">
-          <div class="w-full lg:w-1/2 p-4 items-center justify-center h-[580px]">
+      <div class="flex lg:flex-wrap flex-col lg:flex-row w-[100%] lg:w-[80%] mx-auto">
+          <div class="w-full lg:w-1/2 p-4 items-center justify-center h-auto pl-[20px] lg:pl-0  lg:h-[580px]">
           <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 
                     <img src="bootcamp.svg"/>
@@ -387,10 +387,10 @@ export default function BootCamp() {
 
           </div>
 
-          <div class="w-full sm:w-1/2 p-4 hidden lg:block">
+          <div class="w-full lg:w-1/2 lg:p-4  lg:block">
             <div class="bg-cover bg-center h-64 sm:h-auto">
               <div class="h-full flex items-center justify-center ">
-                <div className="absolute lg:h-[500px] lg:w-[600px]  xl:h-[530px] right-0 xl:w-[750px] bottom-[-20px]">
+                <div className="relative lg:absolute lg:h-[500px] lg:w-[600px]  xl:h-[530px] right-0 xl:w-[750px] bottom-[-20px]">
                   <img src="/bootcamp-hero.png"/>
                 </div>
               </div>
