@@ -150,7 +150,7 @@ export default function BootCamp() {
     <>
     
     <section
-      className={`relative h-auto pb-12 bg-cover bg-center bg-no-repeat mt-[0px]  md:px-0 lg:px-0 bg-black font-montserrat`}
+      className={`relative h-auto pb-12 bg-cover bg-center bg-no-repeat mt-[0px] pl-4  md:px-0 lg:px-0 bg-black font-montserrat`}
       
     >
       <Header type="bootcamp" />
@@ -158,7 +158,7 @@ export default function BootCamp() {
       <div className={`flex  h-[100%]`}>
 
       <div class="flex lg:flex-wrap flex-col lg:flex-row w-[100%] lg:w-[80%] mx-auto">
-          <div class="w-full lg:w-1/2 p-4 items-center justify-center h-auto pl-[20px] lg:pl-0  lg:h-[580px]">
+          <div class="w-full lg:w-1/2 p-4 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
           <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 
                     <img src="bootcamp.svg"/>
