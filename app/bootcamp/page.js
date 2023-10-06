@@ -150,7 +150,7 @@ export default function BootCamp() {
     <>
     
     <section
-      className={`relative h-auto pb-12 bg-cover bg-center bg-no-repeat mt-[0px] px-[20px] md:px-0 lg:px-0 font-montserrat`}
+      className={`relative h-auto pb-12 bg-cover bg-center bg-no-repeat mt-[0px] px-[20px] md:px-0 lg:px-0 bg-black font-montserrat`}
       
     >
       <Header type="bootcamp" />
@@ -426,9 +426,9 @@ export default function BootCamp() {
 
               </div>
               <div>
-              <h3 className="text-2xl mb-2 f text-[#060606] font-Montserrat_cabfd8 font-bold fm">What you will learn</h3>
+              <h3 className="text-2xl mb-2 f text-[#060606] font-bold">What you will learn</h3>
                 <div>
-                  <ul className="text-[16px] font-bold text-[#060606] font-Montserrat_cabfd8 list-disc leading-[28px] fm">
+                  <ul className="text-[16px] font-bold text-[#060606]  list-disc leading-[28px] ">
                     <li>The art of precise estimate writing.</li>
                     <li>Mastering industry specific tools and software.</li>
                     <li>Essential communication skills for success.</li>
@@ -448,9 +448,9 @@ export default function BootCamp() {
 
               </div>
               <div>
-              <h3 className="text-2xl mb-2 f text-[#060606] font-Montserrat_cabfd8 font-bold from-current">What’s in it for you</h3>
+              <h3 className="text-2xl mb-2  text-[#060606]  font-bold">What’s in it for you</h3>
                 <div>
-                  <ul className="text-[16px] font-bold text-[#060606] font-Montserrat_cabfd8 list-disc leading-[28px] fm">
+                  <ul className="text-[16px] font-bold text-[#060606]  list-disc leading-[28px] ">
                     <li>Competitive compensation during the bootcamp</li>
                     <li>Opportunity to secure a permanent position with our entry level salary.</li>
                     <li>Mentorship and guidance from industry experts.</li>
