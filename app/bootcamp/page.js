@@ -21,6 +21,11 @@ export default function BootCamp() {
   const [isOpen, setIsOpen] = useState(false);
   const [countdown, setCountdown] = useState(5); // Initial countdown time
   const route = useRouter()
+  const isMobile = window.innerWidth <= 720; // Adjust the breakpoint as needed
+
+  // Define the image source based on the screen size
+  const bootcampImg = isMobile ? "/bootcamp-mobile.svg" : "/bootcamp.svg";
+
 
   const [formData, setFormData] = useState({
       fullName: "",
@@ -161,7 +166,7 @@ export default function BootCamp() {
           <div class="w-full lg:w-1/2 p-4 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
           <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 
-                    <img src="bootcamp.svg"/>
+                    <img src={bootcampImg} className="h-[287px] w-[327px] sm:h-auto sm:w-auto"/>
                     <p className="text-[#FEF5E9] text-md md:text-[20px]">
                      Join the ALL TALENTZ Estimate writing bootcamp and embark on a transformative journey over the next 3 months.
                      </p>
