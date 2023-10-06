@@ -170,7 +170,7 @@ export default function BootCamp() {
                        <Btn action={toggleModal} text="Apply Now" otherCSS=""/>
                     </div>
 
-                    <div>
+                    <div className="text-white">
                       <h6 className="text-[16px] lg:text-[25px] font-bold leading-[30px]">
                         Application opens
                       </h6>
