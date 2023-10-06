@@ -150,7 +150,7 @@ export default function BootCamp() {
     <>
     
     <section
-      className={`relative h-auto pb-12 bg-cover bg-center bg-no-repeat mt-[0px] pl-4  md:px-0 lg:px-0 bg-black font-montserrat`}
+      className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-[0px]  md:px-0 lg:px-0 bg-black font-montserrat`}
       
     >
       <Header type="bootcamp" />

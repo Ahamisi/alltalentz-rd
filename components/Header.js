@@ -23,7 +23,7 @@ const Header = ({active='home', type=""}) => {
     // <header className='bg-transparent absolute sm:relative z-50 w-full py-[30px] sm:py-0 md:w-[95%]'>
     // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'>
 
-    <header className={`${type == 'bootcamp' ? 'lg:w-[79%]' : 'max-w-7xl'} md:mx-auto`}>
+    <header className={`${type == 'bootcamp' ? 'lg:w-[79%] px-4 md:px-0' : 'max-w-7xl'} md:mx-auto`}>
 
       <nav className={`py-4 flex items-center ${type == "bootcamp" ? 'justify-between lg:justify-normal' : 'justify-between'}  bg-transparent md:px-[20px] lg:px-0`} style={{ zIndex: 10 }} >
       {/* Logo */}
