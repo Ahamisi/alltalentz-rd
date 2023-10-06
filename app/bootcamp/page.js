@@ -10,10 +10,13 @@ import Header from "@/components/Header";
 
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 
 export default function BootCamp() {
+
+  const [isMobile, setIsMobile] = useState(false);
+
 
 
 
@@ -21,7 +24,27 @@ export default function BootCamp() {
   const [isOpen, setIsOpen] = useState(false);
   const [countdown, setCountdown] = useState(5); // Initial countdown time
   const route = useRouter()
-  const isMobile = window.innerWidth <= 720; // Adjust the breakpoint as needed
+
+
+  useEffect(() => {
+    // Function to update the isMobile state based on screen width
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 640); // Adjust the breakpoint as needed
+    }
+
+    // Initial check on component mount
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
 
   // Define the image source based on the screen size
   const bootcampImg = isMobile ? "/bootcamp-mobile.svg" : "/bootcamp.svg";
@@ -163,7 +186,7 @@ export default function BootCamp() {
       <div className={`flex  h-[100%]`}>
 
       <div class="flex lg:flex-wrap flex-col lg:flex-row w-[100%] lg:w-[80%] mx-auto">
-          <div class="w-full lg:w-1/2 p-4 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
+          <div class="w-full lg:w-1/2 p-6 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
           <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 
                     <img src={bootcampImg} className="h-[287px] w-[327px] sm:h-auto sm:w-auto"/>
