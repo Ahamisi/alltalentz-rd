@@ -59,11 +59,11 @@ const CBT = () => {
         <h3>Hey</h3>
       </section> */}
         <div className="bg-transparent text-center py-4 mb-8 lg:px-4 fixed bottom-0 md:top-0 md:bottom-auto w-full">
-        <div class="md:w-[93%] md:ml-auto md:mr-auto">
-            <div class="p-2 bg-[#F99621] items-center text-white leading-none lg:rounded-full flex lg:inline-flex" role="alert">
-                <span class=" rounded-full bg-orange-500 uppercase px-2 py-1 text-xs font-bold mr-3 hidden md:flex">Important</span>
-                <span class="font-semibold mr-2 text-left flex-auto">Hey there test taker, please ensure you click the submit button before the timer runs out. We dont automatically submit for you !</span>
-                <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+        <div className="md:w-[93%] md:ml-auto md:mr-auto">
+            <div className="p-2 bg-[#F99621] items-center text-white leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+                <span className=" rounded-full bg-orange-500 uppercase px-2 py-1 text-xs font-bold mr-3 hidden md:flex">Important</span>
+                <span className="font-semibold mr-2 text-left flex-auto">Hey there test taker, please ensure you click the submit button before the timer runs out. We dont automatically submit for you !</span>
+                <svg className="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
             </div>
         </div>
         </div>

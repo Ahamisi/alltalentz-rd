@@ -1,25 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import { render } from "@react-email/components";
-
 import { transporter, smtpEmail } from "@/utils/nodemailer";
-
 import { Email } from "@/components/Email";
 import { EmailWaitlist } from "@/components/EmailWaitlist";
+import { google } from "googleapis";
 
+export const clientEmail = process.env.CLIENT_EMAIL;
+export const pkey = process.env.CLIENT_PRIVATEKY;
 
-
-
-// google apis upload
-const fs = require('fs');
-const { google }= require('googleapis');
-const apikeys = require('./apikeys.json');
 const SCOPE = ['https://www.googleapis.com/auth/drive'];
 
 export async function POST(req, res) {
-  const body = await req.json();
-  const { fullName, email, career, phone, yoe, cv } = body;
+  const data = await req.formData();
+  const file = data.get('cv');
+  const fullName = data.get('fullName');
+  const email = data.get('email');
+  const career = data.get('career');
+  const phone = data.get('phone');
+  const yoe = data.get('yoe');
+  const nyscFile = data.get('nysc');
 
-  console.log(body,'alonee'); return;
+
+
+  const cvBuffer = await file.arrayBuffer();
+  const nyscBuffer = await nyscFile.arrayBuffer();
+
 
   const formData = new FormData();
   formData.append("Fullname", fullName);
@@ -28,75 +33,97 @@ export async function POST(req, res) {
   formData.append("Phone", phone);
   formData.append("Yoe", yoe);
 
-
-  const message = `
-    Hi, I Want to join All Talentz Bootcamp
-    Phone Number: ${phone}\r\n"
-    Years of Experience : ${yoe}\r\n"
-    Career Field: ${career}\r\n
-  `;
-
   const emailHtml = render(
-    <EmailWaitlist  name={fullName} email={email} yoe={yoe}  phone ={phone} career ={career}/>
+    <EmailWaitlist name={fullName} email={email} yoe={yoe} phone={phone} career={career} />
   );
 
-
-
-
-// A Function that can provide access to google drive api
-async function authorize(){
+  async function authorize() {
     const jwtClient = new google.auth.JWT(
-        apikeys.client_email,
-        null,
-        apikeys.private_key,
-        SCOPE
+      clientEmail,
+      null,
+      pkey.split(String.raw`\n`).join('\n'),
+      SCOPE
     );
 
     await jwtClient.authorize();
 
     return jwtClient;
-}
+  }
 
+  const uploadFile = async (authClient, fileBuffer, fileType) => {
+    return new Promise((resolve, rejected) => {
+      const drive = google.drive({ version: 'v3', auth: authClient });
 
+      const mimeType = fileType === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+      const fileExtension = fileType === 'pdf' ? 'pdf' : 'docx';
+      const randomString = Math.random().toString(36).substring(2, 15); // Generate a random string
+      const fileName = `${fullName}_${randomString}.${fileExtension}`; // Generate a unique file name
 
-// A Function that will upload the desired file to google drive folder
-async function uploadFile(authClient){
-    return new Promise((resolve,rejected)=>{
-        const drive = google.drive({version:'v3',auth:authClient}); 
+      const fileMetaData = {
+        name: fileName,
+        parents: ['1-Ky5OmRH2XgNsjN7jEYQ48OhKGgFs2Ni'],
+      };
 
-        var fileMetaData = {
-            name:'mydrivetext.txt',    
-            parents:['1_9BfKxZyRcBSaz9LD9pLg8BPCejYL7Nr'] // A folder ID to which file will get uploaded
+      const { Readable } = require('stream'); // Import the Readable class
+      const readableStream = new Readable(); // Create a new Readable stream
+
+      readableStream.push(Buffer.from(fileBuffer)); // Push the file buffer to the stream
+      readableStream.push(null); // Signal the end of the stream
+
+      drive.files.create(
+        {
+          resource: fileMetaData,
+          media: {
+            mimeType: mimeType,
+            body: readableStream, // Use the readable stream
+          },
+          fields: 'id',
+        },
+        function (error, file) {
+          if (error) {
+            return rejected(error);
+          }
+
+          const fileLink = `https://drive.google.com/uc?id=${file.data.id}`;
+          resolve(fileLink); // Resolve with the file link
         }
-
-        drive.files.create({
-            resource:fileMetaData,
-            media:{
-                body: fs.createReadStream('mydrivetext.txt'), // files that will get uploaded
-                mimeType:'text/plain'
-            },
-            fields:'id'
-        },function(error,file){
-            if(error){
-                return rejected(error)
-            }
-            resolve(file);
-        })
+      );
     });
-}
+  };
+
+  const uploadCvToDrive = async () => {
+    try {
+      const authClient = await authorize();
+      const fileLink = await uploadFile(authClient, cvBuffer, file.type.includes('pdf') ? 'pdf' : 'docx');
+      formData.append("CV",fileLink);
+      
+      // Now, you can use `fileLink` to send to your Google Sheet or perform any other actions.
+      console.log('File Link:', fileLink);
+    } catch (error) {
+      console.error('Failed to upload CV to Google Drive:', error);
+      // Handle the error as needed
+    }
+  }
 
 
-
-
-const uploadCvToDrive =  async () => {
-    authorize().then(uploadFile).catch("error",console.error()); // function call
-}
-
+  const uploadNyscToDrive = async () => {
+    try {
+      const authClient = await authorize();
+      const fileLink = await uploadFile(authClient, nyscBuffer, nyscFile.type.includes('pdf') ? 'pdf' : 'docx');
+      formData.append("Nysc",fileLink);
+      
+      // Now, you can use `fileLink` to send to your Google Sheet or perform any other actions.
+      console.log('File Link:', fileLink);
+    } catch (error) {
+      console.error('Failed to upload CV to Google Drive:', error);
+      // Handle the error as needed
+    }
+  }
 
   const sendToSheets = async () => {
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzdRKcnoOTuQFfc7JAZxLF03ffg1V8vmNu-FXA-2AbJ0bdtiwOZVHGAqLL46TsTPHqW/exec",
+        "https://script.google.com/macros/s/AKfycbxm2zIK7AzEPmGIhm6jz3PsN--pyF5WVlxE9tC8rVoCXL6xX2451UnfWBuqT4OAplOOKg/exec",
         {
           method: "POST",
           body: formData, // Send data as form data
@@ -112,25 +139,40 @@ const uploadCvToDrive =  async () => {
       console.error('Error:', error);
     }
   };
-  
 
   const options = {
     from: smtpEmail,
     to: smtpEmail,
-    subject: "Alltalentz Bootcamp Application",
+    subject: "Bootcamp Application",
     html: emailHtml,
   };
 
   try {
     // Send email using the transporter
-    await sendToSheets();
+    await uploadCvToDrive();
+    await uploadNyscToDrive();
+
+    // await transporter.sendMail(options);
+    // Append empty string to formData.CV and formData.Nysc if they are missing
+    // if (!formData.CV) {
+    //   formData.append("CV", ""); // Replace "" with the desired default value
+    // }
+    // if (!formData.Nysc) {
+    //   formData.append("Nysc", ""); // Replace "" with the desired default value
+    // }
+
+    // Now check if both formData.CV and formData.Nysc exist
+    if (formData.get("CV") && formData.get("Nysc")) {
+      // console.log(formData);
+      await sendToSheets();
+    }
     await transporter.sendMail(options);
+
     return new Response('SENT');
     // alert('got here')
     console.log('sent')
   } catch (error) {
     console.error("Failed to send email:", error);
-  return new Response(error);
-}
-//   return new Response("OK");
+    return new Response(error);
+  }
 }
