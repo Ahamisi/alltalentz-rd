@@ -86,7 +86,7 @@ const Navigation = () => {
         }
       >
         <Link href="https://alltalentz.substack.com/archive" target="_blank">
-          Insights
+          Blog
         </Link>
       </li>
       <li
