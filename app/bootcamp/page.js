@@ -273,7 +273,7 @@ export default function BootCamp() {
                                     <path d="M40 55 Q50 70 60 55" stroke="black" stroke-width="2" fill="transparent" />
                                   </svg>
                                   </div>
-                                  <h1 className="text-[22px] text-center font-bold">Ohh Snaps, bootcamp application is over</h1>
+                                  <h1 className="text-[22px] text-center font-bold">Oops, the bootcamp application period is over.</h1>
                                   <p>Please be on the look out for the next cycle of applications...</p>
                                   
                                 </div>
