@@ -85,7 +85,7 @@ const Navigation = () => {
             : 'text-black hover:text-secondary lg:text-[#FEF5E9]'
         }
       >
-        <Link href="https://alltalentz.substack.com/archive" target="_blank">
+        <Link href="https://blog.alltalentz.com" target="_blank">
           Blog
         </Link>
       </li>
