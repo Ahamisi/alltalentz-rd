@@ -21,8 +21,8 @@ const NavigationBootcamp = ({addBootcamp = false}) => {
             <Link href="https://blog.alltalentz.com" target="_blank">Blog</Link>
           </li>
          
-          <li className={pathname === '/academy' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary lg:text-[#FEF5E9]'}>
-            <Link href="/academy">Academy</Link>
+          <li className={pathname === 'https://academy.alltalentz.com' ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary lg:text-[#FEF5E9]'}>
+            <Link href="https://academy.alltalentz.com">Academy</Link>
           </li>
           
          
