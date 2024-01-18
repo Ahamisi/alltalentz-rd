@@ -100,12 +100,12 @@ const Navigation = () => {
       </li>
       <li
         className={
-          pathname === 'https://academy.alltalentz.com'
+          pathname === 'https://alltalentzacademy.com'
             ? 'text-secondary hover:text-[#FEF5E9]'
             : 'text-black hover:text-secondary lg:text-[#FEF5E9]'
         }
       >
-        <Link href="https://academy.alltalentz.com">Academy</Link>
+        <Link href="https://alltalentzacademy.com">Academy</Link>
       </li>
     </>
   );
