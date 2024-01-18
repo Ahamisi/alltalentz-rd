@@ -2,6 +2,7 @@ import React from 'react';
 import SubFooter from './SubFooter';
 import Link from 'next/link';
 import Btn from './Btn';
+import Script from 'next/script';
 
 const MainFooter = ({hideSub=false}) => {
   return (
@@ -9,6 +10,20 @@ const MainFooter = ({hideSub=false}) => {
         {
             !hideSub && <SubFooter/>
         }
+
+
+        <Script type="text/javascript" id='linkd1'>
+            _linkedin_partner_id = "4798922";
+            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+            window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+        </Script>
+        <Script src='././utils/linkedin.js' type="text/javascript" id='linkd2'></Script>
+
+        <noscript id='linkd3'>
+            <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=4798922&fmt=gif" />
+        </noscript>
+
+
         
         <div className="bg-[#131313] py-12">
                 {/* First Row */}
