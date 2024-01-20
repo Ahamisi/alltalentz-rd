@@ -209,7 +209,7 @@ export default function BootCamp() {
 
       <div className={`flex h-[100%] flex-col`}>
         
-        <div style={{ backgroundImage: `url(${bootcampImg1})`,  }} className="bg-contain bg-no-repeat h-[500px] md:h-[300px] xl:h-[500px] w-full cursor-pointer md:bg-center" onClick={toggleModal}>
+        <div style={{ backgroundImage: `url(${bootcampImg1})`,  }} className="bg-contain bg-no-repeat h-[500px] md:h-[300px] lg:h-[380px] xl:h-[500px] w-full cursor-pointer md:bg-center" onClick={toggleModal}>
         </div>
 
       <div className="hidden">
