@@ -49,6 +49,9 @@ export default function BootCamp() {
   // Define the image source based on the screen size
   const bootcampImg = isMobile ? "/bootcamp-mobile.svg" : "/bootcamp.svg";
 
+  const bootcampImg1 = isMobile ? "/bootcamp-mobile.jpg" : "/bootcamp-banner.jpg";
+
+
 
   const [formData, setFormData] = useState({
       fullName: "",
@@ -204,11 +207,12 @@ export default function BootCamp() {
     >
       <Header type="bootcamp" />
 
-      <div className={`flex  h-[100%] flex-col`}>
+      <div className={`flex h-[100%] flex-col`}>
         
-        <div style={{ backgroundImage: "url('/bootcamp-banner.jpg')"  }} className="bg-cover bg-no-repeat h-[500px] hidden lg:block cursor-pointer" onClick={toggleModal}>
+        <div style={{ backgroundImage: `url(${bootcampImg1})`,  }} className="bg-contain bg-no-repeat h-[500px] md:h-[300px] xl:h-[500px] w-full cursor-pointer md:bg-center" onClick={toggleModal}>
         </div>
 
+      <div className="hidden">
       <div className="flex lg:flex-wrap flex-col lg:flex-row w-[100%] lg:w-[80%] mx-auto lg:hidden">
           <div className="w-full lg:w-1/2 p-6 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
           <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
@@ -235,7 +239,26 @@ export default function BootCamp() {
                     {/* <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6"/> */}
                     {/* <button onClick={toggleModal} className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold">Get Started</button> */}
                         
-                        <Modal
+                      
+                </div>
+
+          </div>
+
+          <div className="w-full lg:w-1/2 lg:p-4  lg:block">
+            <div className="bg-cover bg-center h-64 sm:h-auto">
+              <div className="h-full flex items-center justify-center ">
+                <div className="relative lg:absolute lg:h-[500px] lg:w-[600px]  xl:h-[530px] right-0 xl:w-[750px] bottom-[-20px]">
+                  <img src="/bootcamp-hero.png"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+        <Modal
                         isOpen={isOpen}
                         onRequestClose={toggleModal}
                         contentLabel="Service Request Form"
@@ -435,20 +458,6 @@ export default function BootCamp() {
                             )}
                         </div>
                         </Modal>
-                </div>
-
-          </div>
-
-          <div className="w-full lg:w-1/2 lg:p-4  lg:block">
-            <div className="bg-cover bg-center h-64 sm:h-auto">
-              <div className="h-full flex items-center justify-center ">
-                <div className="relative lg:absolute lg:h-[500px] lg:w-[600px]  xl:h-[530px] right-0 xl:w-[750px] bottom-[-20px]">
-                  <img src="/bootcamp-hero.png"/>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </section>
