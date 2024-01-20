@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const CBT = () => {
   const router = useRouter();
 
-  const totalDuration = 45 * 60 * 1000;
+  const totalDuration = 40 * 60 * 1000;
   const redThreshold = 1 * 60 * 1000;
 
   const [remainingTime, setRemainingTime] = useState(totalDuration);
@@ -14,7 +14,6 @@ const CBT = () => {
 
 
   const closeTestAndRedirect = () => {
-    // Add your code here to close the test if needed
     // For example, you might want to trigger some action to close the test
 
     // Redirect to the homepage

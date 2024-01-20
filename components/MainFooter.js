@@ -12,14 +12,6 @@ const MainFooter = ({hideSub=false}) => {
         }
 
 
-        <script type="text/javascript" id='linkd1'>
-            _linkedin_partner_id = "4798922";
-            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-            window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-        </script>
-        <Script src='./utils/linkedin.js' type="text/javascript" id='linkd2'></Script>
-
-
 
         
         <div className="bg-[#131313] py-12">
@@ -148,6 +140,17 @@ const MainFooter = ({hideSub=false}) => {
                     </div>
                 </div>    
             </div>
+
+
+        <script type="text/javascript" id='linkd1'>
+            {/* var _linkedin_partner_id = "4798922";
+            _linkedin_partner_id = "4798922";
+            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+            window._linkedin_data_partner_ids.push(_linkedin_partner_id); */}
+        </script>
+        <Script src='./utils/linkedin.js' type="text/javascript" id='linkd2'></Script>
+
+
     </>
   );
 };
