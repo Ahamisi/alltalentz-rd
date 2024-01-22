@@ -149,6 +149,7 @@ const MainFooter = ({hideSub=false}) => {
             window._linkedin_data_partner_ids.push(_linkedin_partner_id); */}
         </script>
         <Script src='./utils/linkedin.js' type="text/javascript" id='linkd2'></Script>
+        <Script src='./utils/facebook.js' type="text/javascript" id='facebook1'></Script>
 
 
     </>
