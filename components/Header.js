@@ -83,7 +83,7 @@ const Header = ({active='home', type="", theme="dark"}) => {
       {/* Mobile Menu */}
       <div className="lg:hidden flex items-center">
         <button
-          className="text-white text-lg"
+          className={`${theme == 'light' ? 'text-black text-lg' : 'text-white text-lg' }`}
           onClick={toggleMobileMenu}
           aria-label="Mobile Menu Toggle"
         >
