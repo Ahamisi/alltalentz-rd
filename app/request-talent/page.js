@@ -12,6 +12,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSearchParams } from 'next/navigation'
+import Header from "@/components/Header";
 
 
 
@@ -22,14 +23,13 @@ export default function RequestTalent() {
     const [redirect, setRedirect] = useState(false)
     const services = [
       'Estimators ',
-      'Virtual Assistants ',
-      'Digital Marketers / Social Media Strategists ',
       'Administrative Assistants ',
+      'Virtual Assistants ',
       'Telemarketing Assistant ',
+      'Digital Marketers',
+      'Account Receivables ',
       'Designers / Software Developers ',
       'Quick book Specialists ',
-      'Account Receivables ',
-      'Others ',
     ];
     // Check if a specific query parameter exists in the URL
     const searchParams = useSearchParams()
@@ -203,53 +203,102 @@ export default function RequestTalent() {
   return (
     <>
 
-
     
-    <section>
-        <PageHeader>
-            {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-                <div className="max-w-6xl mx-auto  py-12 md:flex relative h-fit items-center mt-6 md:mt-0 px-[20px] md:px-4">
+    <section
+      className={`relative bg-cover bg-center bg-no-repeat mt-[0px] px-[20px] md:px-0 lg:px-0 bg-[#FFFFFF] `}
+    >            {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
+        <Header theme="light"/>
+
+
+            <div className={`flex items-center justify-center h-[100%] `}>
+                <div className="max-w-6xl mx-auto  py-12 md:flex relative h-fit items-center mt-6 md:mt-0 px-[20px] md:px-4 ">
                     {/* First Column (60% width) */}
                     {/* mx-auto px-4 py-12 md:flex */}
-                    <div className="md:w-6/10 pr-6 md:w-full">
+                    <div className="md:w-5/10 pr-6 md:w-full lg:mt-[5%]">
 
 
-                <h2 className="text-2xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
-                Welcome to a world of <span className="text-secondary">amazing talents</span> to help scale your operations
+                <h2 className="text-2xl md:text-[65px] md:font-[700] md:leading-[70px] font-bold mb-6 text-black text-left">
+                Save up to <span className="text-secondary">75%</span><br/> on your empoyee payroll budget!
                 </h2>
-                    
-                <p className="text-white text-sm md:text-base">
-                Prepare to be amazed by the incredible talents that can take your operations to the next level! You have come to the right place to find the best solutions for your needs. Whether you are looking for experts, innovators, or collaborators, you will find them here. Don't miss this opportunity to work with the most amazing talents in the world!
-                </p>
+
+                <div className="flex items-left flex-col space-y-[40px]">
+                    <a href="#formInter" className="flex space-x-[17px] gap-[17px] py-[16px] px-[30px] md:px-[52px] rounded-[32px] items-center border-[2px] font-bold border-black text-black hover:bg-black hover:text-white md:w-[60%] md:ml-[90px]">
+                        <div>
+                            <img src="/special-events/tampa-build-expo.png" className="h-[50px]"/>
+                        </div>
+                        February 7 - 8, 2024
+                    </a>
+
+                         
+                    <div className="w-full">
+                    <p className="text-black text-sm md:text-lg text-justify">
+                        Get 50% off your first month payment when you sign up at <span className="text-black font-bold text-center"><br/>Tampa Build Expo 2024.</span>
+                    </p>
+                    </div>
+                </div>
+               
                <div className="flex md:block flex-column mt-6 md:mt-0">
-               <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6"/>
-                {/* <Btn link="https://calendly.com/akwaowowillie" target="_blank" border={true} text="Meet With Us" otherCSS="mt-[10px] md:mt-6 md:ml-[10px] text-center"/> */}
 
                </div>
 
                         {/* <button onClick={toggleModal} className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold">Get Started</button>&nbsp;&nbsp; */}
                         {/* <Link href="https://calendly.com/mnwoseh" className="request-button bg-black border-secondary border-2 text-secondary px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90">Meet With Us</Link> */}
 
-                        <Modal
-                        isOpen={isOpen}
-                        onRequestClose={toggleModal}
-                        contentLabel="Service Request Form"
-                        className="modal shadow-md w-[80%] md:w-[50%] overflow-y-scroll"
-                        overlayClassName="overlay"
-                        >
-                        <div className={`modal-content w-[100] overflow-y-auto ${isSubmitted ? 'w-full pt-7' : 'bg-white md:w-[80%] p-3 mx-auto'}`}>
-                            <button onClick={toggleModal} className="absolute top-2 right-2 text-dark bg-[#4C4C4C] p-3 rounded-full">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                            </button>
-                            <img src="/logo.svg" alt="Logo" className="mx-auto mb-8 h-12" />
+                      
+                    </div>
+
+                    {/* Second Column (40% width) */}
+                    <div className="hidden lg:block md:w-5/10 mt-8 md:mt-0">
+                        <img
+                            src="/special-events/tampa-mask.png"
+                            alt="Tampa Build Expo"
+                            className="w-full h-auto"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="absolute top-[-10%] left-0">
+                <img src="star-vector-left.svg"/>
+            </div>
+            <div className="absolute top-[-20%] right-0 hidden lg:block">
+                <img src="star-vector-top.svg"/>
+            </div>
+    </section>
+
+
+
+
+
+
+    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[40px] md:px-0">
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
+       <div className="mb-[42px]">
+            <h3 className="text-[#F99621] text-[35px] text-center font-normal">Some talent offers you can get from us!</h3>
+       </div>
+        <div className="bg-[#F8F8F8] py-7">
+
+        <div className="available-services md:w-[50%] mx-auto">
+            {services.map((service) => (
+                <span
+                    key={service}
+                    className={`service-option ${
+                    selectedServices.includes(service) ? 'selected' : ''
+                    }`}
+                    onClick={(e) => handleServiceToggle(service, e)}
+                >
+                    {service}
+                </span>
+                ))}
+
+        </div>
+
+        </div>
+
+        <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C] " id="formInter">
+       
+          <div className={`modal-content w-[100] overflow-y-auto ${isSubmitted ? 'w-full pt-7' : 'bg-white md:w-[60%] p-3 mx-auto'}`}>
+                           
 
                             {isSubmitted ? (
                                 <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
@@ -261,8 +310,9 @@ export default function RequestTalent() {
                                     <Btn link="https://calendly.com/akwaowowillie" target="_blank" text="Meet With Us" className="mt-6" />
                                 </div>
                             ) : (
-                            <form onSubmit={handleSubmit} className="text-[#A6A6A6]">
-                                                            <h2 className="text-lg font-normal text-center mb-8 text-[#939393]">Please fill this form to help us find you the right talent</h2>
+                            <form onSubmit={handleSubmit} className="text-[#A6A6A6]" >
+                                                            <h2 className="text-[25px] font-normal text-center mb-8 text-[#4C4C4C]">Kindly fill this form to help us
+find you the right talent</h2>
 
                                 <div className="mb-8">
                                 {/* <label className="block text-gray-700 font-semibold mb-1">Full Name</label> */}
@@ -356,21 +406,7 @@ export default function RequestTalent() {
                                         </option>
                                         ))}
                                     </select>
-                                    <div className="available-services w-full">
-                                        Select a Service:
-                                        {services.map((service) => (
-                                            <span
-                                                key={service}
-                                                className={`service-option ${
-                                                selectedServices.includes(service) ? 'selected' : ''
-                                                }`}
-                                                onClick={(e) => handleServiceToggle(service, e)}
-                                            >
-                                                {service}
-                                            </span>
-                                            ))}
-
-                                    </div>
+                                  
                                     </div>
                              
                                 {errors.service && (
@@ -449,36 +485,6 @@ export default function RequestTalent() {
                             </form>
                             )}
                         </div>
-                        </Modal>
-                    </div>
-
-                    {/* Second Column (40% width) */}
-                    <div className="hidden lg:block md:w-4/10 mt-8 md:mt-0">
-                        <img
-                            src="/our-talents.png"
-                            alt="All Talents Africa"
-                            className="w-full h-auto"
-                        />
-                    </div>
-                </div>
-            {/* </div> */}
-            
-        </PageHeader>
-    </section>
-
-
-
-
-
-
-    <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[40px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
-
-        <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C] ">
-          <h2 className="text-2xl md:text-5xl font-bold mb-8 text-center text-secondary">
-          All Talentz Talents offering
-          </h2>
-            <Offerings notHome={true}/>
         </div>      
     </section>
 
