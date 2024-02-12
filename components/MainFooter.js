@@ -149,11 +149,10 @@ const MainFooter = ({hideSub=false}) => {
             window._linkedin_data_partner_ids.push(_linkedin_partner_id); */}
         </script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3HFMLR4MD"></script>
-        <Script src='./utils/googletag.js' type="text/javascript" id='googletag'></Script>
+        <Script src='./utils/googletag.js' type="text/javascript" id='googletag' async></Script>
         <Script src='./utils/linkedin.js' type="text/javascript" id='linkd2'></Script>
         <Script src='./utils/facebook.js' type="text/javascript" id='facebook1'></Script>
-        <Script src='./utils/tawk.js' type="text/javascript" id='tawk'></Script>
-
+        <Script src='./utils/tawk.js' type="text/javascript" id='tawk' async></Script>
 
 
     </>
