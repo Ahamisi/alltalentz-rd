@@ -14,8 +14,9 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import BootcmpOver from "@/components/BootcmpOver";
 import Script from "next/script";
+import Image from "next/image";
 
-export default function BootCamp() {
+export default function Outsourcing() {
 
 
 
@@ -44,7 +45,7 @@ export default function BootCamp() {
 
       {/* Second Column (Image) */}
       <div className="lg:w-[40%] ml-auto mt-6 md:mt-0 md:w-0" data-aos="fade-left">
-        <img src="/outsource-bg.svg" alt="Image Description" className="w-full md:h-[700px] h-auto"/>
+        <img src="/outsource-bg.svg" alt="Image Description"  className="w-full md:h-[700px] h-auto"/>
       </div>
     </div>
   </div>
@@ -341,7 +342,7 @@ export default function BootCamp() {
     </section>
 
     {/* <Script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></Script> */}
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" async></script>
 
     <script>
         AOS.init();
