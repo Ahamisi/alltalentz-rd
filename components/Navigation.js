@@ -7,7 +7,7 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
 
     const getLinkClassName = (path) => {
       if (theme === 'light') {
-        return path === pathname ? 'text-secondary hover:text-[#FEF5E9]' : 'text-black hover:text-secondary lg:text-[#282828]';
+        return path === pathname ? 'text-secondary' : 'text-black hover:text-secondary lg:text-[#282828]';
       } else {
         return path === pathname ? 'text-secondary hover:text-secondary' : 'text-black hover:text-secondary lg:text-[#FEF5E9]';
       }
@@ -15,20 +15,22 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
     
     return (
       <>
-        <li className={getLinkClassName('/')}>
-          <Link href="/">Home</Link>
-        </li>
+  
         <li className={getLinkClassName('/about')}>
           <Link href="/about">About</Link>
         </li>
         <li className={getLinkClassName('/request-talent')}>
-          <Link href="/request-talent">Find Talent</Link>
+          <Link href="/request-talent">Services</Link>
         </li>
-        <li className={getLinkClassName('/our-watchlist')}>
-          <Link href="/our-watchlist">Join Talent</Link>
+        <li className={getLinkClassName('/outsourcing')}>
+          <Link href="/outsourcing">Agency</Link>
         </li>
         <li className={getLinkClassName('/news')}>
           <Link href="https://blog.alltalentz.com" target="_blank">Blog</Link>
+        </li>
+
+        <li className={getLinkClassName('https://alltalentzacademy.com')}>
+          <Link href="https://alltalentzacademy.com">Academy</Link>
         </li>
 
         {
@@ -38,9 +40,6 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
           
           <li className={getLinkClassName('/faq')}>
           <Link href="/faq">FAQs</Link>
-        </li>
-        <li className={getLinkClassName('https://alltalentzacademy.com')}>
-          <Link href="https://alltalentzacademy.com">Academy</Link>
         </li>
         {addBootcamp && 
           <li className={`${getLinkClassName('/bootcamp')} cursor-pointer`}>

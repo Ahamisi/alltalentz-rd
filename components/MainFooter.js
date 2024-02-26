@@ -4,11 +4,11 @@ import Link from 'next/link';
 import Btn from './Btn';
 import Script from 'next/script';
 
-const MainFooter = ({hideSub=false}) => {
+const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
   return (
     <>
         {
-            !hideSub && <SubFooter/>
+            !hideSub && <SubFooter brochure={brochure} meetWithUs={meetWithUs}/>
         }
 
 

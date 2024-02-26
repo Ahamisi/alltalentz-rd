@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Btn from './Btn';
 
-const SubFooter = () => {
+const SubFooter = ({brochure, meetWithUs}) => {
   return (
     <div className="bg-[#131313] py-[100px]">
       <div className="max-w-7xl mx-auto px-4">
@@ -19,9 +19,8 @@ const SubFooter = () => {
             Kindly take a moment to schedule meeting with us via Teams or download our company brochure.
             </p>
             <div className="flex items-center flex-col md:flex-row">
-              <Btn text="Meet with us" otherCSS="w-full text-center" link="https://calendly.com/akwaowowillie"/>&nbsp;&nbsp;
-              <Btn text="Download Brochure" otherCSS="w-full text-center" link="/AllTalentzBrochure.pdf"/>
-            
+              <Btn text="Meet with us" otherCSS="w-full text-center" link={`${meetWithUs ? meetWithUs : 'https://calendly.com/akwaowowillie'}`}/>&nbsp;&nbsp;
+              <Btn text="Download Brochure" otherCSS="w-full text-center" link={`${brochure ? brochure : '/AllTalentzBrochure.pdf'}`}/>
             </div>
           </div>
         </div>
