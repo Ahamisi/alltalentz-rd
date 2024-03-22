@@ -33,7 +33,7 @@ export default function Outsourcing() {
 <div className={`flex h-[100%] flex-col`}>
     
   <div className="bg-white text-black opacity-0 animate__animated animate__fadeIn animate__delay-0s">
-    <div className="container ml-auto flex flex-col md:flex-row items-center">
+    <div className="container lg:ml-auto xxl:mx-auto flex flex-col md:flex-row items-center">
       {/* First Column */}
       <div className="lg:w-[50%] md:pr-8 gap-[25px] flex flex-col md:pl-[30px] xl:pl-0" data-aos="fade-right">
         <h1 className="text-4xl md:text-[55px] font-bold mb-4 md:leading-[65px]">Outsource your <span className="text-[#F99621]">Business process</span> to us for great results!</h1>

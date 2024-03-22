@@ -204,10 +204,11 @@ export default function RequestTalent() {
     <>
 
     
-<section>
-    <PageHeader>
-        {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-            <div className="max-w-6xl mx-auto py-12 lg:flex relative h-fit mt-0 items-center px-[20px] md:px-4 ">
+    <section
+      className={`relative bg-cover bg-center bg-no-repeat mt-[0px] px-[20px] md:px-0 lg:px-0 bg-[#FFFFFF] `}
+    >            {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
+        <Header theme="light"/>
+
 
             <div className={`flex items-center justify-center h-[100%] `}>
                 <div className="max-w-6xl mx-auto  py-12 md:flex relative h-fit items-center mt-6 md:mt-0 px-[20px] md:px-4 ">
@@ -216,35 +217,54 @@ export default function RequestTalent() {
                     <div className="md:w-5/10 pr-6 md:w-full lg:mt-[5%]">
 
 
-                <h2 className="text-2xl md:text-[65px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white text-left">
-                Slash your payroll cost by over <span className="text-secondary">75%</span>
+                <h2 className="text-2xl md:text-[65px] md:font-[700] md:leading-[70px] font-bold mb-6 text-black text-left">
+                Save up to <span className="text-secondary">75%</span><br/> on your empoyee payroll budget!
                 </h2>
 
-               
+                <div className="flex items-left flex-col space-y-[40px]">
+                    <a href="#formInter" className="flex space-x-[17px] gap-[17px] py-[16px] px-[30px] md:px-[52px] rounded-[32px] items-center border-[2px] font-bold border-black text-black hover:bg-black hover:text-white md:w-[60%] md:ml-[90px]">
+                        <div>
+                            <img src="/special-events/tampa-build-expo.png" className="h-[50px]"/>
+                        </div>
+                        February 7 - 8, 2024
+                    </a>
+
+                         
+                    <div className="w-full">
+                    <p className="text-black text-sm md:text-lg text-justify">
+                        Get 50% off your first month payment when you sign up at <span className="text-black font-bold text-center"><br/>Tampa Build Expo 2024.</span>
+                    </p>
+                    </div>
+                </div>
                
                <div className="flex md:block flex-column mt-6 md:mt-0">
 
                </div>
 
-        
+                        {/* <button onClick={toggleModal} className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold">Get Started</button>&nbsp;&nbsp; */}
+                        {/* <Link href="https://calendly.com/mnwoseh" className="request-button bg-black border-secondary border-2 text-secondary px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90">Meet With Us</Link> */}
+
                       
                     </div>
 
                     {/* Second Column (40% width) */}
                     <div className="hidden lg:block md:w-5/10 mt-8 md:mt-0">
                         <img
-                            src="/star-payroll-at.png"
-                            alt="Alltalentz Star Employees"
+                            src="/special-events/tampa-mask.png"
+                            alt="Tampa Build Expo"
                             className="w-full h-auto"
                         />
                     </div>
                 </div>
             </div>
 
-        
-        </div>
-    </PageHeader>
-</section>            
+            <div className="absolute top-[-10%] left-0">
+                <img src="star-vector-left.svg"/>
+            </div>
+            <div className="absolute top-[-20%] right-0 hidden lg:block">
+                <img src="star-vector-top.svg"/>
+            </div>
+    </section>
 
 
 
