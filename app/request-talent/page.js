@@ -205,44 +205,31 @@ export default function RequestTalent() {
 
     
 <section>
-    <PageHeader>
+<PageHeader>
         {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
             <div className="max-w-6xl mx-auto py-12 lg:flex relative h-fit mt-0 items-center px-[20px] md:px-4 ">
-
-            <div className={`flex items-center justify-center h-[100%] `}>
-                <div className="max-w-6xl mx-auto  py-12 md:flex relative h-fit items-center mt-6 md:mt-0 px-[20px] md:px-4 ">
-                    {/* First Column (60% width) */}
-                    {/* mx-auto px-4 py-12 md:flex */}
-                    <div className="md:w-5/10 pr-6 md:w-full lg:mt-[5%]">
-
-
-                <h2 className="text-2xl md:text-[65px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white text-left">
+                {/* First Column (60% width) */}
+                <div className="md:w-6/10 pr-6 md:w-full">
+                <h2 className="text-2xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
                 Slash your payroll cost by over <span className="text-secondary">75%</span>
-                </h2>
 
-               
-               
-               <div className="flex md:block flex-column mt-6 md:mt-0">
+                  </h2>
+                    
+                   
 
-               </div>
+                 
+                </div>
 
-        
-                      
-                    </div>
-
-                    {/* Second Column (40% width) */}
-                    <div className="hidden lg:block md:w-5/10 mt-8 md:mt-0">
-                        <img
-                            src="/star-payroll-at.png"
-                            alt="Alltalentz Star Employees"
-                            className="w-full h-auto"
-                        />
-                    </div>
+                {/* Second Column (40% width) */}
+                <div className="hidden lg:block md:w-4/10 mt-8 md:mt-0">
+                    <img
+                        src="/star-payroll-alltalentz.png"
+                        alt="All Talents Star"
+                        className="w-full h-auto"
+                    />
                 </div>
             </div>
-
         
-        </div>
     </PageHeader>
 </section>            
 
