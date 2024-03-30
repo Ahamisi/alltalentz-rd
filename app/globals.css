@@ -223,3 +223,33 @@ li.dot.selected{
 .survey-page-body{
   margin-top: 500px;
 }
+
+
+
+
+/* home animations */
+/* CSS for animations */
+.fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.slide-in {
+  transition: transform 0.5s ease-out;
+}
+
+
+@keyframes spin-slow {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Apply these classes to respective elements */

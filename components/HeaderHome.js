@@ -22,7 +22,7 @@ const Header = ({active='home'}) => {
     // <header className='bg-transparent absolute sm:relative z-50 w-full py-[30px] sm:py-0 md:w-[95%]'>
     // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'>
 
-<header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0'>
+    <header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0'>
         <nav className="py-4 flex items-center justify-between bg-transparent md:px-[20px] lg:px-0" style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >
