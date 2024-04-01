@@ -20,7 +20,7 @@ const NicheItem = ({ imageSrc, altText, title }) => {
   return (
     <motion.div
       ref={ref}
-      className="rounded-[38px] bg-[#F99621] hover:bg-black transition-colors duration-300 cursor-pointer py-[16px] px-[24px] flex items-center space-x-[10px] md:space-x-[38px]"
+      className="rounded-[38px] hover:bg-[#F99621] bg-[#121212] transition-colors duration-300 cursor-pointer py-[16px] px-[24px] flex items-center space-x-[10px] md:space-x-[38px]"
       variants={itemVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}

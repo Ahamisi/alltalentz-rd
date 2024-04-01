@@ -60,7 +60,7 @@ const Section = ({ imageSrc, altText, title, description, buttonLabel, reverse =
 const TheAgency = () => {
   return (
     <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[10px] md:py-[70px] bg-white px-[40px] md:px-0" style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
-      <div className="container mx-auto md:py-[80px]">
+      <div className="container mx-auto md:py-[0px]">
         <Section
           imageSrc="/home-img/outsourcing-agency.png"
           altText="Outsourcing Agency alltalentz"

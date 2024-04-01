@@ -98,7 +98,7 @@ const HeroNew = () => {
               transition={{ delay: 0.8 }}
               className="flex"
             >
-              <a href="/request-talent" className="bg-[#F99621] text-[#121212] px-[63px] py-[23px] transition duration-300">
+              <a href="/request-talent" className="bg-[#F99621] hover:bg-white text-[#121212] px-[63px] py-[23px] transition duration-300">
                 Find Talent
               </a>
             </motion.div>
