@@ -14,7 +14,7 @@ const ConferenceVideo = () => {
   }, [controls, inView]);
 
   return (
-    <section className="bg-[#F8F8F8] py-[82px]" ref={ref}>
+    <section className="bg-[#F8F8F8] py-[82px] px-[40px] md:px-0" ref={ref}>
       <div className="container mx-auto">
         {/* Section Header */}
         <motion.h2

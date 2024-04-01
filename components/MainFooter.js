@@ -1,10 +1,29 @@
+"use client"
 import React from 'react';
 import SubFooter from './SubFooter';
 import Link from 'next/link';
 import Btn from './Btn';
 import Script from 'next/script';
 
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+
+
 const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
+    const { ref, inView } = useInView();
+
+    const containerVariants = {
+      hidden: { opacity: 0, y: 50 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: 'easeInOut' }
+      }
+    };
+
+
+
   return (
     <>
         {
@@ -14,8 +33,13 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
 
 
         
-        <div className="bg-[#131313] py-12">
-                {/* First Row */}
+            <motion.div
+        className="bg-[#131313] py-12"
+        ref={ref}
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? 'visible' : 'hidden'}
+      >                {/* First Row */}
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
                     <div className="col-span-1">
@@ -139,7 +163,7 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
                         </div>
                     </div>
                 </div>    
-            </div>
+            </motion.div>
 
 
         <script type="text/javascript" id='linkd1'>

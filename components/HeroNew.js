@@ -74,7 +74,7 @@ const HeroNew = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="p-8 md:p-12 flex flex-col justify-center space-y-[33px] lg:w-[60%]"
+            className="p-0 md:p-12 flex flex-col justify-center space-y-[33px] lg:w-[60%]"
           >
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -98,14 +98,14 @@ const HeroNew = () => {
               transition={{ delay: 0.8 }}
               className="flex"
             >
-              <button className="bg-[#F99621] text-[#121212] px-[63px] py-[23px] transition duration-300">
+              <a href="/request-talent" className="bg-[#F99621] text-[#121212] px-[63px] py-[23px] transition duration-300">
                 Find Talent
-              </button>
+              </a>
             </motion.div>
           </motion.div>
 
             {/* Right Grid */}
-            <div className="hidden md:block lg:w-[40%]">
+            <div className="hidden md:flex lg:w-[40%] items-center">
                 <motion.div
                 variants={variants}
                 initial="hidden"

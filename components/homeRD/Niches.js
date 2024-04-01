@@ -20,7 +20,7 @@ const NicheItem = ({ imageSrc, altText, title }) => {
   return (
     <motion.div
       ref={ref}
-      className="rounded-[38px] bg-[#F99621] hover:bg-black transition-colors duration-300 cursor-pointer py-[16px] px-[24px] flex items-center space-x-[38px]"
+      className="rounded-[38px] bg-[#F99621] hover:bg-black transition-colors duration-300 cursor-pointer py-[16px] px-[24px] flex items-center space-x-[10px] md:space-x-[38px]"
       variants={itemVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
@@ -34,7 +34,7 @@ const NicheItem = ({ imageSrc, altText, title }) => {
 const NicheSection = () => {
   return (
     <section>
-      <div className="container mx-auto py-12 md:py-[140px]">
+      <div className="container mx-auto py-12 md:py-[140px] px-[40px] md:px-0">
         {/* Section Header */}
         <h2 className="text-3xl text-center mb-8">Our range of vetted remote employees cut <br/>across varied business needs and niches.</h2>
 

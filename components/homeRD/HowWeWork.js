@@ -41,7 +41,7 @@ const HowWeWork = () => {
               animate={controls}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <button className="bg-[#F99621] text-white px-[47px] py-[17px] transition duration-300">Find Talents</button>
+              <a href="/request-talent" className="bg-[#F99621] text-white px-[47px] py-[17px] transition duration-300">Find Talents</a>
             </motion.div>
           </div>
 

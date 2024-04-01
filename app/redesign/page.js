@@ -15,6 +15,7 @@ import TheAgency from "@/components/homeRD/TheAgency";
 import ConferenceVideo from "@/components/homeRD/ConferenceVideo";
 import HowWeWork from "@/components/homeRD/HowWeWork";
 import OurClients from "@/components/homeRD/OurClients";
+import MainTestimony from "@/components/homeRD/MainTestimony";
 export default function Home() {
 
    
@@ -58,20 +59,7 @@ export default function Home() {
 
 
 
-        {/* testimonial */}
-    <section className="relative bg-cover bg-center bg-no-repeat text-[#282828] py-[50px] md:py-[70px] px-[40px] md:px-0" style={{ backgroundImage: "url('/home-img/testimonial.jpg')" }}>
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
-        <div className="relative inset-0 flex flex-col items-center justify-center text-[#282828]">
-          <h2 className="text-2xl md:text-[45px] md:leading-[62px] font-bold mb-8 text-center">
-          What our Partners say          </h2>
-            <div className="w-[100%] md:w-[65%] md:max-8xl mx-auto flex flex-col md:flex-row items-center">
-              <TestimonialSlider/>
-            </div>
-              
-            
-        </div>      
-    </section>
-
+    <MainTestimony/>
 
 
     <section className="px-[30px] md:px-0 bg-[#131313]">
