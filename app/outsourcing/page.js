@@ -70,8 +70,8 @@ export default function Outsourcing() {
 
             {/* <!-- Second Column (Title and Text) --> */}
             <div class="px-[30px] mt-6 md:px-0 md:mt-0 md:w-[50%] mx-auto lg:w-[33%] opacity-0 animate__animated animate__fadeIn animate__delay-1s text white">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Why <span className="text-[#F99621]">choose </span> Us.</h2>
-            <p class="text-md mb-6">You don’t have to hire a large team or get a large space to get the job done, All Talentz outsourcing agency solution  has got you covered</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Why <span className="text-[#F99621]">choose </span> Us.</h2>
+            <p class="text-md mb-6 text-white">You don’t have to hire a large team or get a large space to get the job done, All Talentz outsourcing agency solution  has got you covered</p>
             </div>
         </div>
         </div>

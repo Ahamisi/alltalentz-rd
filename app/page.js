@@ -153,7 +153,7 @@ export default function Home() {
 
             {/* Right Part */}
             <div className="md:w-1/2">
-              <video width="100%" controls poster="/video-cover.png">
+              <video width="100%" controls poster="/at-video-cover.png">
                 <source src="/video/at-video.mp4" type="video/mp4" alt=" All-Talentz annual Conference event" />
               </video>
             </div>
