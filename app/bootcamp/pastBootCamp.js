@@ -217,7 +217,7 @@ export default function BootCamp() {
           <div className="w-full lg:w-1/2 p-6 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
           <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 
-                    <img src={bootcampImg} className="h-[287px] w-[327px] sm:h-auto sm:w-auto"/>
+                    <img src={bootcampImg} alt="Bootcamp" className="h-[287px] w-[327px] sm:h-auto sm:w-auto"/>
                     <p className="text-[#FEF5E9] text-md md:text-[20px]">
                      Join the ALL TALENTZ Estimate writing bootcamp and embark on a transformative journey over the next 3 months.
                      </p>
@@ -248,7 +248,7 @@ export default function BootCamp() {
             <div className="bg-cover bg-center h-64 sm:h-auto">
               <div className="h-full flex items-center justify-center ">
                 <div className="relative lg:absolute lg:h-[500px] lg:w-[600px]  xl:h-[530px] right-0 xl:w-[750px] bottom-[-20px]">
-                  <img src="/bootcamp-hero.png"/>
+                  <img alt="Bootcamp" src="/bootcamp-hero.png"/>
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@ export default function BootCamp() {
                             {isSubmitted ? (
                                <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
                                     <div className="flex items-center justify-center">
-                                        <img src="/star-shine.svg"/>
+                                        <img src="/star-shine.svg" alt="Logo"/>
                                     </div>
                                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                                     <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>

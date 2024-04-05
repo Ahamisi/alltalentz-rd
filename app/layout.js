@@ -13,6 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+       <meta
+          property="og:image"
+          content="/alltalentz-homebg.jpg"
+        />
       
     <body className={montserrat.className}>
       <SocialMedia/>

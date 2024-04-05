@@ -7,7 +7,7 @@ const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Outsourcing',
-  description: 'Outsource your Business process to us for great result!',
+  description: 'All talentz offers comprehensive outsourcing solutions to improve your business operations.',
 }
 
 

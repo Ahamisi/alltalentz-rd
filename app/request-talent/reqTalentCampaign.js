@@ -224,7 +224,7 @@ export default function RequestTalent() {
                 <div className="flex items-left flex-col space-y-[40px]">
                     <a href="#formInter" className="flex space-x-[17px] gap-[17px] py-[16px] px-[30px] md:px-[52px] rounded-[32px] items-center border-[2px] font-bold border-black text-black hover:bg-black hover:text-white md:w-[60%] md:ml-[90px]">
                         <div>
-                            <img src="/special-events/tampa-build-expo.png" className="h-[50px]"/>
+                            <img src="/special-events/tampa-build-expo.png" alt="Tampa alltalentz" className="h-[50px]"/>
                         </div>
                         February 7 - 8, 2024
                     </a>
@@ -259,10 +259,10 @@ export default function RequestTalent() {
             </div>
 
             <div className="absolute top-[-10%] left-0">
-                <img src="star-vector-left.svg"/>
+                <img src="star-vector-left.svg" alt="Star Alltalentz"/>
             </div>
             <div className="absolute top-[-20%] right-0 hidden lg:block">
-                <img src="star-vector-top.svg"/>
+                <img src="star-vector-top.svg" alt="Star Alltalentz"/>
             </div>
     </section>
 
@@ -303,7 +303,7 @@ export default function RequestTalent() {
                             {isSubmitted ? (
                                 <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
                                     <div className="flex items-center justify-center">
-                                        <img src="/star-shine.svg"/>
+                                        <img src="/star-shine.svg" alt="alltalentz shine"/>
                                     </div>
                                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                                     <p className="text-gray-600">We will keep you updated via email.</p><br/>

@@ -44,7 +44,7 @@ export default function Watchlist() {
                 <div className="hidden md:block md:w-[60%] h-[60%] mt-8 md:mt-0">
                     <img
                         src="/our-talents.png"
-                        alt="Header Image"
+                        alt="Our Talents at Alltalentz"
                         className="h-[450px] w-auto mx-auto"
                     />
                 </div>

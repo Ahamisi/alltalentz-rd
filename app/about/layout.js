@@ -6,8 +6,8 @@ import SocialMedia from '@/components/SocialMedia'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'About',
-  description: 'Welcome to All Talentz, the leading platform for recruiting the best remote talent from Africa at a fraction of the cost.',
+  title: "About",
+  description: "Your Gateway to Africa's Leading Remote Professionals | Superior Workforce Value",
 }
 
 

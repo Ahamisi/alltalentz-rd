@@ -115,7 +115,7 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
                     {/* third Row */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                         <div className="col-span-1 flex md:block justify-center md:justify-self-auto">
-                            <img src="/all-talents-footer.svg" alt="Logo" />
+                            <img src="/all-talents-footer.svg" alt="Footer Logo" />
                         </div>
                         <div className="col-span-1 text-white text-center text-sm md:text-auto">
                             © {new Date().getFullYear()} All Talentz LLC. All rights reserved.

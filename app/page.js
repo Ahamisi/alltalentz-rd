@@ -154,7 +154,7 @@ export default function Home() {
             {/* Right Part */}
             <div className="md:w-1/2">
               <video width="100%" controls poster="/video-cover.png">
-                <source src="/video/all-talent.mp4" type="video/mp4" />
+                <source src="/video/at-video.mp4" type="video/mp4" alt=" All-Talentz annual Conference event" />
               </video>
             </div>
           </div>
@@ -185,7 +185,7 @@ export default function Home() {
               <div className=" mr-auto">
                 <img
                   src="/quality-talents.png" 
-                  alt="Image 2"
+                  alt="Quality Talents at Bargain"
                   className="rounded-[12px] border-12 border-white w-[317px] lg:h-[169px] mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-secondary md:text-[25px] mb-[18px]">Quality Talent At A Bargain</h3>
                 <p className="text-md">Flexible labour that scales with your company. We employ the talent, therefore there are no payroll costs, benefit costs, or high overhead costs that accrue to you.</p>
@@ -197,7 +197,7 @@ export default function Home() {
               <div className=" mr-auto">
                 <img
                   src="/top-tier-talent.png" 
-                  alt="Image 2"
+                  alt="Top Tier Talents"
                   className="rounded-[12px] border-12 border-white w-[317px] lg:h-[169px] mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-secondary md:text-[25px] mb-[18px]">Top-Tier Talent From Day 1</h3>
                 <p className="text-md">Our talents are on the money, and we're determined to meet your company's demands and keep them in line with best practices. If you are not satisfied with our Talent after 30 days, we'll replace them.</p>

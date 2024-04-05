@@ -7,7 +7,7 @@ const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'BootCamp',
-  description: 'Welcome to All Talentz, the leading platform for recruiting the best remote talent from Africa at a fraction of the cost.',
+  description: 'Join Our Estimator Bootcamp - All Talentz Training 2.0',
 }
 
 

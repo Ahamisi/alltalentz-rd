@@ -7,7 +7,7 @@ const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Our Watchlist',
-  description: 'Welcome to All Talentz, the leading platform for recruiting the best remote talent from Africa at a fraction of the cost.',
+  description: 'Join All Talentz and begin your remote global career adventure today.',
 }
 
 export default function RootLayout({ children }) {

@@ -30,7 +30,7 @@ export default function About() {
                 <div className="hidden lg:block lg:w-6/10 mt-8 md:mt-0">
                     <img
                         src="/african-maps.png"
-                        alt="Header Image"
+                        alt="African Maps"
                         className="w-full h-auto"
                     />
                 </div>
