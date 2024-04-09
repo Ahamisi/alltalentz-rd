@@ -54,15 +54,15 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
                     <div className="col-span-1">
                         <h4 className="text-white font-semibold mb-4">Support</h4>
                         <ul className="text-white">
-                            <li className="mb-[12px]">Jobs</li>
-                            <li className="mb-[12px]">Community</li>
+                            <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary">Jobs</Link></li>
+                            <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary">Community</Link></li>
                         </ul>
                     </div>
                     <div className="col-span-1">
                         <h4 className="text-white font-semibold mb-4">Legal</h4>
                         <ul className="text-white">
-                            <li className="mb-[12px]">Privacy Policy</li>
-                            <li className="mb-[12px]">Terms &amp; Conditions</li>
+                            <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary">Privacy Policy</Link></li>
+                            <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary">Terms &amp; Conditions</Link></li>
                         </ul>
                     </div>
                 
