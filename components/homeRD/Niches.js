@@ -34,7 +34,7 @@ const NicheItem = ({ imageSrc, altText, title }) => {
 const NicheSection = () => {
   return (
     <section>
-      <div className="container mx-auto py-12 md:py-[70px] px-[40px] md:px-0">
+      <div className="container mx-auto py-12 md:py-[70px] px-[40px] md:px-0 bg-black">
         {/* Section Header */}
         <h2 className="text-3xl text-center mb-8">Our range of vetted remote employees cut <br/>across varied business needs and niches.</h2>
 
