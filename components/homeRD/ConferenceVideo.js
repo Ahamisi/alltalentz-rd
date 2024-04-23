@@ -18,7 +18,7 @@ const ConferenceVideo = () => {
       <div className="container mx-auto">
         {/* Section Header */}
         <motion.h2
-          className="text-3xl font-bold text-center mb-8 text-black"
+          className="text-3xl font-bold text-center mb-8 text-black lg:text-[45px]"
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
           transition={{ duration: 0.5 }}

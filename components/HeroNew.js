@@ -112,7 +112,7 @@ const HeroNew = () => {
                 animate="show"
                 className="grid grid-cols-2 gap-2">
                     <motion.div variants={imageVariant} className="flex">
-                        <motion.img src="/home-img/remote-guy-alltalent.svg" alt="Remote Alltalentz" className="rounded-lg animate-spin-slow"
+                        <motion.img src="/home-img/remote-guy-alltalent.svg" alt="Remote Alltalentz" className="rounded-lg animate-spin-slow w-[95%]"
                             variants={images}
                         />
                     </motion.div>
@@ -120,7 +120,7 @@ const HeroNew = () => {
                         <motion.img src="/home-img/remote-woman-at.svg" alt="Remote Staff Alltalentz" className="rounded-lg animate-spin-slow" variants={images}/>
                     </motion.div>
                     <motion.div variants={imageVariant} className="flex">
-                        <motion.img src="/home-img/remote-woman-3.svg" alt="Remote Software Developer Alltalentz" className="rounded-lg animate-spin-slow" variants={images} />
+                        <motion.img src="/home-img/remote-woman-3.svg" alt="Remote Software Developer Alltalentz" className="rounded-lg animate-spin-slow w-[95%]" variants={images} />
                     </motion.div>
                     <motion.div variants={imageVariant} className="flex">
                         <motion.img src="/home-img/remote-woman-4.svg" alt="Remote Estimator Alltalentz" className="rounded-lg animate-spin-slow" variants={images}/>

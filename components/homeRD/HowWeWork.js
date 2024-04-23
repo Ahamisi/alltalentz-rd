@@ -25,7 +25,7 @@ const HowWeWork = () => {
               animate={controls}
               transition={{ duration: 0.5 }}
             >
-              Find <span className="text-[#F99621]">Talentz</span> in 3 Simple Steps!
+              Find <span className="text-[#F99621]">Talentz</span> <br/> in 3 Simple Steps!
             </motion.h2>
             <motion.p
               className="text-lg mb-6 text-center md:text-left"

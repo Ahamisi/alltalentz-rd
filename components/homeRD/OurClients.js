@@ -35,7 +35,7 @@ const ClientLogo = ({ src, alt }) => {
 
 const OurClients = () => {
     const logos = [
-        "/home-img/clients/puro-clean.png",
+        "/home-img/clients/puroclean-logo-at.png",
         "/home-img/clients/we-scope.png",
         "/home-img/clients/serv-pro.png",
         "/home-img/clients/clean-slate.png",
