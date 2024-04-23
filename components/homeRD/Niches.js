@@ -26,7 +26,7 @@ const NicheItem = ({ imageSrc, altText, title }) => {
       animate={inView ? "visible" : "hidden"}
     >
       <img src={imageSrc} alt={altText} className="rounded-full h-[78px] w-[78px]" />
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="text-xl font-semibold text-white">{title}</h3>
     </motion.div>
   );
 };
