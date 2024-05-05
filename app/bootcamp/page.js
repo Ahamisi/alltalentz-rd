@@ -384,7 +384,7 @@ export default function BootCamp() {
                                   type="file"
                                   name="cv"
                                   accept=".pdf,.doc,.docx"
-                                  onChange={handleFileChangeNysc}
+                                  onChange={handleFileChange}
                                   className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
                                     errors.cv ? "border-red-500" : ""
                                   }`}
@@ -406,7 +406,7 @@ export default function BootCamp() {
                                   type="file"
                                   name="nysc"
                                   accept=".pdf,.doc,.docx"
-                                  onChange={handleFileChange}
+                                  onChange={handleFileChangeNysc}
                                   className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
                                     errors.nysc ? "border-red-500" : ""
                                   }`}
