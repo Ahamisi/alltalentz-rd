@@ -12,6 +12,7 @@ import Header from "@/components/Header";
 
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import BootcmpOver from "@/components/BootcmpOver";
 
 export default function BootCamp() {
 
@@ -217,7 +218,7 @@ export default function BootCamp() {
           <div className="w-full lg:w-1/2 p-6 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
           <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 
-                    <img src={bootcampImg} alt="Bootcamp" className="h-[287px] w-[327px] sm:h-auto sm:w-auto"/>
+                    <img src={bootcampImg} alt="Alltalentz Bootcamp" className="h-[287px] w-[327px] sm:h-auto sm:w-auto"/>
                     <p className="text-[#FEF5E9] text-md md:text-[20px]">
                      Join the ALL TALENTZ Estimate writing bootcamp and embark on a transformative journey over the next 3 months.
                      </p>
@@ -248,7 +249,7 @@ export default function BootCamp() {
             <div className="bg-cover bg-center h-64 sm:h-auto">
               <div className="h-full flex items-center justify-center ">
                 <div className="relative lg:absolute lg:h-[500px] lg:w-[600px]  xl:h-[530px] right-0 xl:w-[750px] bottom-[-20px]">
-                  <img alt="Bootcamp" src="/bootcamp-hero.png"/>
+                  <img src="/bootcamp-hero.png" alt="Bootcamp Hero All Talentz"/>
                 </div>
               </div>
             </div>
@@ -277,11 +278,11 @@ export default function BootCamp() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                             </button>
-                            <img src="/logo.svg" alt="Logo" className="mx-auto mb-8 h-12" />
+                            <img src="/logo.svg" alt="Alltalentz Logo" className="mx-auto mb-8 h-12" />
                             {isSubmitted ? (
                                <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
                                     <div className="flex items-center justify-center">
-                                        <img src="/star-shine.svg" alt="Logo"/>
+                                        <img src="/star-shine.svg"/>
                                     </div>
                                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                                     <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>
@@ -290,171 +291,16 @@ export default function BootCamp() {
                                     <Btn link="https://alltalentz.com/cbt" target="_blank" text="Take Test Now" className="mt-6" />
                                 </div>
                             ) : (
-                            <form onSubmit={handleSubmit} encType="multipart/form-data" method="post" className="text-[#A6A6A6]">
-                            <h2 className="text-lg font-normal text-center mb-8 text-[#939393]">Kindly fill this form and upload your CV to keep yourself in the loop</h2>
 
-                                <div className="mb-8">
-                                <input
-                                    type="text"
-                                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                                        errors.fullName ? "border-red-500" : ""
-                                      }`}
-                                    placeholder="Enter your full name"
-                                    onChange={handleInputChange}
-                                    name="fullName"
-                                    value={formData.fullName}
-                                />
-                                {errors.fullName && (
-                                    <p className="text-red-500 text-sm">{errors.fullName}</p>
-                                )}
-                                </div>
-                                <div className="mb-8">
-                                {/* <label className="block text-gray-700 font-semibold mb-1">Email</label> */}
-                                <input
-                                    type="email"
-                                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                                        errors.email ? "border-red-500" : ""
-                                      }`}
-                                    placeholder="Enter your email"
-                                    onChange={handleInputChange}
-                                    name="email"
-                                    value={formData.email}
-                                />
-                                {errors.email && (
-                                    <p className="text-red-500 text-sm">{errors.email}</p>
-                                )}
-                                </div>
-                                <div className="mb-8">
-                                {/* <label className="block text-gray-700 font-semibold mb-1">Phone</label> */}
-                                <input
-                                    type="tel"
-                                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                                        errors.phone ? "border-red-500" : ""
-                                      }`}
-                                    placeholder="Enter your phone number"
-                                    onChange={handleInputChange}
-                                    name="phone"
-                                    value={formData.phone}
-                                />
-                                {errors.phone && (
-                                    <p className="text-red-500 text-sm">{errors.phone}</p>
-                                )}
-                                </div>
+                              <>
 
-                                <div className="mb-8">
-                                {/* <label className="block text-gray-700 font-semibold mb-1">yoe</label> */}
-                                <input
-                                    type="number"
-                                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                                        errors.yoe ? "border-red-500" : ""
-                                      }`}
-                                    placeholder="Years of Experience"
-                                    onChange={handleInputChange}
-                                    name="yoe"
-                                    value={formData.yoe}
-                                />
-                                {errors.yoe && (
-                                    <p className="text-red-500 text-sm">{errors.yoe}</p>
-                                )}
-                                </div>
-
-                                <div className="mb-8">
-                                {/* <label className="block text-gray-700 font-semibold mb-1">yoe</label> */}
-                                <input
-                                    type="text"
-                                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                                        errors.career ? "border-red-500" : ""
-                                      }`}
-                                    placeholder="Career Field"
-                                    onChange={handleInputChange}
-                                    name="career"
-                                    value={formData.career}
-                                />
-                                {errors.career && (
-                                    <p className="text-red-500 text-sm">{errors.career}</p>
-                                )}
-                                </div>
-
-
-
-                                <div className="mb-8">
-                                <label className="block text-gray-700 mb-1">Upload CV</label>
-
-                                <input
-                                  type="file"
-                                  name="cv"
-                                  accept=".pdf,.doc,.docx"
-                                  onChange={handleFileChangeNysc}
-                                  className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                                    errors.cv ? "border-red-500" : ""
-                                  }`}
-                                />
                                
-                                {errors.cv && (
-                                    <p className="text-red-500 text-sm">{errors.cv}</p>
-                                )}
-
-                                  
-                                </div>
-
-
-
-                                <div className="mb-8">
-                                <label className="block text-gray-700 mb-1">Upload NYSC Cert.</label>
-
-                                <input
-                                  type="file"
-                                  name="nysc"
-                                  accept=".pdf,.doc,.docx"
-                                  onChange={handleFileChange}
-                                  className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                                    errors.cv ? "border-red-500" : ""
-                                  }`}
-                                />
-                               
-                                {errors.nysc && (
-                                    <p className="text-red-500 text-sm">{errors.nysc}</p>
-                                )}
-
-                                  <div className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 mt-3" role="alert">
-                                    <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z"/></svg>
-                                    <p>Hey there, once you click submit, you would be redirected to take a compulsory test as the final stage.</p>
-                                  </div>
-                                </div>
-
-                            <button
-                            type="submit"
-                            className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
-                            disabled={isLoading}
-                            >
-                            {isLoading ? (
-                                <svg
-                                className="animate-spin h-5 w-5 mx-auto"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                >
-                                <circle
-                                    className="opacity-25"
-                                    cx="12"
-                                    cy="12"
-                                    r="10"
-                                    stroke="currentColor"
-                                    strokeWidth="4"
-                                />
-                                <path
-                                    className="opacity-75"
-                                    fill="currentColor"
-                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.86 3.018 7.97l2.018-2.68z"
-                                />
-                                </svg>
-                            ) : (
-                                "Submit"
-                            )}
-                            </button>
-
-                                {/* <button type="submit" className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90">Submit</button> */}
-                            </form>
+                              
+                              
+                                <BootcmpOver/>
+                              
+                              </>
+                           
                             )}
                         </div>
                         </Modal>
