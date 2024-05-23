@@ -360,12 +360,12 @@ export default function BootCamp() {
 
 
       <Modal
-    isOpen={isOpen}
-    onRequestClose={toggleModal}
-    contentLabel="Service Request Form"
-    className="modal shadow-md w-[80%] md:w-[50%] overflow-y-scroll"
-    overlayClassName="overlay"
->
+        isOpen={isOpen}
+        onRequestClose={toggleModal}
+        contentLabel="Service Request Form"
+        className="modal shadow-md w-[80%] md:w-[50%] overflow-y-scroll"
+        overlayClassName="overlay"
+      >
     {bootCampOver ? (
         <div className="flex flex-col items-center text-black">
             <div className="text-center">
@@ -534,7 +534,7 @@ export default function BootCamp() {
             )}
         </div>
     )}
-</Modal>
+      </Modal>
 
 
       </div>

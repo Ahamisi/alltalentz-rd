@@ -72,7 +72,7 @@ const HowWeWork = () => {
 
                 {/* Card 2 */}
                 <motion.div
-                className="bg-[#E6E6E6] hover:bg-[#E6E6E6] cursor-pointer py-[24px] px-[16px] rounded-[28px]"
+                className="bg-[#F8F8F8] hover:bg-[#E6E6E6] cursor-pointer py-[24px] px-[16px] rounded-[28px]"
                 initial={{ opacity: 0, y: 50 }}
                 animate={controls}
                 transition={{ duration: 0.5, delay: 0.8 }}
@@ -95,7 +95,7 @@ const HowWeWork = () => {
 
                 {/* Card 3 */}
                 <motion.div
-                className="bg-[#E6E6E6] hover:bg-[#E6E6E6] cursor-pointer py-[24px] px-[16px] rounded-[28px]"
+                className="bg-[#F8F8F8] hover:bg-[#E6E6E6] cursor-pointer py-[24px] px-[16px] rounded-[28px]"
                 initial={{ opacity: 0, y: 50 }}
                 animate={controls}
                 transition={{ duration: 0.5, delay: 1 }}
