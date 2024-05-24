@@ -29,7 +29,7 @@ const SubFooter = ({ brochure, meetWithUs }) => {
         <div className="flex flex-col md:flex-row items-center">
           {/* Left side (Image) */}
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <img src="/at-wman.png" alt="All Talents Footer" className="hover:rotate-6 transition duration-200 cursor-pointer" />
+            <img src="/alltalentzwoman-footer.png" alt="All Talents Footer" className="hover:rotate-6 transition duration-200 cursor-pointer" />
           </div>
 
           {/* Right side (Text and CTAs) */}
