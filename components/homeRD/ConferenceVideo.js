@@ -23,18 +23,18 @@ const ConferenceVideo = () => {
           animate={controls}
           transition={{ duration: 0.5 }}
         >
-          The <span className="text-[#F99621]">All Talentz</span> Conference
+          Slash overhead cost by up to&nbsp;<span className="text-[#F99621]">75%</span> 
         </motion.h2>
 
         {/* Description Text */}
-        <motion.p
+        {/* <motion.p
           className="text-lg text-gray-700 mb-8 text-center"
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           The All-Talentz Conference is an annual event/retreat where all talents in All-<br/>Talentz go through a re-orientation in excellence and service delivery.
-        </motion.p>
+        </motion.p> */}
 
         {/* Video Player */}
         <motion.div
@@ -43,8 +43,8 @@ const ConferenceVideo = () => {
           animate={controls}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <video width="100%" controls poster="/video-cover.png">
-            <source src="/video/all-talent.mp4" type="video/mp4" />
+          <video width="100%" controls poster="/at-video-cover.png">
+            <source src="/video/alltalentz-explainer.mp4" type="video/mp4" />
           </video>
         </motion.div>
       </div>
