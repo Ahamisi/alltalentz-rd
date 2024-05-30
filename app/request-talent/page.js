@@ -214,6 +214,10 @@ export default function RequestTalent() {
                 Slash your payroll cost by over <span className="text-secondary">75%</span>
 
                   </h2>
+
+                  <div className="text-center flex justify-center">
+                    <img src="/special-events/gaylord-levelup.png" className="h-auto md:h-[130px]"/>
+                  </div>
                     
                    
 
