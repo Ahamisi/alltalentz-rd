@@ -30,6 +30,8 @@ export default function RequestTalent() {
       'Account Receivables ',
       'Designers / Software Developers ',
       'Quick book Specialists ',
+      'Compliance Specialists',
+
     ];
     // Check if a specific query parameter exists in the URL
     const searchParams = useSearchParams()
