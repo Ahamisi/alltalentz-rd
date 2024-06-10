@@ -108,16 +108,26 @@ export default function About() {
         <div className="py-16 text-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-5xl font-bold mb-8 text-center">Our Amazing <span className="text-secondary">Team</span></h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 text-center lg:w-[70%] lg:mx-auto">
+                
+
+
+
+                </div>  
+
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 text-center mt-[30px] md:mt-[60px] lg:w-[70%] lg:mx-auto">
+
                     <div className="shadow-md">
                         <img
                             src='/sadiq-isu.png'
-                            alt='Sasiq Isu'
-                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px] "
+                            alt='Sadiq Isu'
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 ">Sadiq Isu <span className="text-[12px]">MBA</span></h3>
-                        <p className="text-[16px] text-secondary">Founder & CEO</p>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Sadiq <br/>Isu&nbsp;<span className="text-[12px]">MBA</span></h3>
+                        <p className="text-[16px] text-secondary">Founder &amp; CEO</p>
                     </div>
+
+                
 
                     <div className="shadow-md">
                         <img
@@ -125,21 +135,41 @@ export default function About() {
                             alt='Abdul Isu'
                             className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 ">Abdul Isu <span className="text-[12px]">Ph.D</span></h3>
-
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Abdul <br/>Isu&nbsp;<span className="text-[12px]">Ph.D</span></h3>
                         <p className="text-[16px] text-secondary">Co-Founder</p>
                     </div>
+
 
                     <div className="shadow-md">
                         <img
                             src='/thompson.png'
-                            alt='THompson Opurum'
+                            alt='Thompson Opurum'
                             className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Thompson Opurum </h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Thompson <br/>Opurum </h3>
                         <p className="text-[16px] text-secondary">Director, Operations</p>
                     </div>
 
+                
+
+                  
+
+
+
+
+                </div>  
+
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 text-center mt-[30px] md:mt-[60px] lg:w-[70%] lg:mx-auto">
+
+                <div className="shadow-md">
+                        <img
+                            src='/michael-nwoseh.png'
+                            alt='Michael Nwoseh'
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
+                        />
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Michael <br/>Nwoseh </h3>
+                        <p className="text-[16px] text-secondary">Business and Digital Solutions Director</p>
+                    </div>
 
 
                     <div className="shadow-md">
@@ -148,31 +178,53 @@ export default function About() {
                             alt='Gina Isu'
                             className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Gina Isu </h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Gina <br/>Isu </h3>
                         <p className="text-[16px] text-secondary">Director of Marketing</p>
                     </div>
 
+
+                    <div className="shadow-md">
+                        <img
+                            src='/sam-akingbade.png'
+                            alt='Samuel Akingbade'
+                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
+                        />
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Samuel <br/>Akingbade </h3>
+                        <p className="text-[16px] text-secondary">Head of Product & Marketing</p>
+                    </div>
+
+
+                
+
+                    
+
+
+                    
+                
+
+                  
 
 
 
 
                 </div>  
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center mt-[30px] md:mt-[60px]">
 
 
-                
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 text-center mt-[30px] md:mt-[60px] lg:w-[70%] lg:mx-auto">
 
-                    <div className="shadow-md">
+
+                <div className="shadow-md">
                         <img
                             src='/akwaowo.png'
                             alt='Akwaowo Willie'
                             className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Akwaowo Willie </h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Akwaowo <br/>Willie </h3>
                         <p className="text-[16px] text-secondary">Relationship Manager</p>
                     </div>
 
+                   
 
                     <div className="shadow-md">
                         <img
@@ -180,7 +232,7 @@ export default function About() {
                             alt='Kehinde Oluwafemi'
                             className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Kehinde Oluwafemi </h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Kehinde <br/>Oluwafemi </h3>
                         <p className="text-[16px] text-secondary">HR Manager</p>
                     </div>
 
@@ -190,28 +242,19 @@ export default function About() {
                             alt='Haolat Ogbomo'
                             className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
                         />
-                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Haolat Ogbomo </h3>
+                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Haolat <br/>Ogbomo </h3>
                         <p className="text-[16px] text-secondary">HR Manager</p>
                     </div>
 
 
-
-                    <div className="shadow-md">
-                        <img
-                            src='/sam-akingbade.png'
-                            alt='Samuel Akingbade'
-                            className="mx-auto rounded-[12px] h-auto w-auto md:h-[403px] md:w-[230px]"
-                        />
-                        <h3 className="text-lg md:text-[35px] font-semibold mt-5 md:leading-[40px]">Samuel Akingbade </h3>
-                        <p className="text-[16px] text-secondary">Head of Product & Marketing</p>
-                    </div>
 
                   
 
 
 
 
-                </div>  
+
+                    </div>  
 
                 
 
