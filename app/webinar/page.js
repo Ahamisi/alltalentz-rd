@@ -6,7 +6,7 @@ import WebinarFaq from "@/components/webinar/Faq";
 import Hero from "@/components/webinar/Hero";
 export default function Home() {
   return (
-    <section className={`relative h-auto  bg-cover bg-center bg-no-repeat mt-[0px] px-0  xl:px-0 bg-white font-montserrat`}>
+    <section className={`relative  bg-cover bg-center bg-no-repeat mt-[0px] px-0  xl:px-0 bg-white font-montserrat`}>
         <Header theme="light"/>
         <Hero />
             {/* svg home wrapper */}

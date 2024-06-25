@@ -30,7 +30,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative lg:mt-[-40px]">
+      <div className="relative lg:mt-[-55px]">
         <div className="relative flex justify-center space-x-6 py-6 z-10 bg-[url('/skew-bg.svg')] bg-cover bg-center md:h-[348px] items-center  pb-0">
         <div className='mt-8 bg-[#F99621] p-[40px] md:p-0'>
             <CountdownTimer targetDate='2024-07-17T00:00:00' />
