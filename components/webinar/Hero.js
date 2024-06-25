@@ -19,7 +19,8 @@ export default function Hero() {
               Register Now
             </a>
           </div>
-          <p className="text-base md:text-5xl text-[#4C4C4C] mt-2 font-bold">July 17th, 2024</p>
+          <p className="text-base md:text-5xl text-[#4C4C4C] mt-2 font-bold">July 17th, 2024<span className='text-[#4C4C4C] font-bold text-sm '>&nbsp; (11.AM EST)</span></p>
+          
         </div>
         <div className="lg:w-1/2 flex justify-center lg:justify-end lg:items-end lg:mt-[84px] mt-8 lg:mt-0">
           <img
