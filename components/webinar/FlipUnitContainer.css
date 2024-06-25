@@ -1,0 +1,79 @@
+/* components/FlipUnitContainer.css */
+.flip-unit-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    perspective: 1000px;
+  }
+  
+  .upper-card,
+  .lower-card,
+  .flip-card {
+    width: 100px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333;
+    color: #fff;
+    font-size: 5rem;
+    border-radius: 10px;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card {
+    animation: flip 1s infinite;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-front {
+    background: #333;
+  }
+  
+  .flip-card-back {
+    background: #333;
+    transform: rotateX(180deg);
+  }
+  
+  .first-flip {
+    animation-delay: 0.5s;
+  }
+  
+  .second-flip {
+    animation-delay: 0s;
+  }
+  
+  @keyframes flip {
+    0% {
+      transform: rotateX(0deg);
+    }
+    50% {
+      transform: rotateX(-180deg);
+    }
+    100% {
+      transform: rotateX(-180deg);
+    }
+  }
+  
+  .label {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #fff;
+  }
+  
