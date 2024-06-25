@@ -80,9 +80,9 @@ export default function Home() {
         </div>
         <div>
             <ul className="text-[#4C4C4C] list-disc">
-                <li className="mb-5">Understand the customer journey and identify where leads are slipping away. </li>
+                <li className="mb-5">The customer journey and identify where leads are slipping away. </li>
                 <li className="mb-5">How to close deals faster and more efficiently. </li>
-                <li className="mb-5">Understand how various digital marketing channels work.  </li>
+                <li className="mb-5">How various digital marketing channels work.  </li>
             </ul>
         </div>
     </section>
