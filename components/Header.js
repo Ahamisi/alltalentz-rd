@@ -108,7 +108,7 @@ const Header = ({active='home', type="", theme="dark"}) => {
       {/* <Btn text="Meet with us" border={true} link="https://calendly.com/akwaowowillie" target="_blank" otherCSS="hidden lg:block"/> */}
 
       {
-        type !== "bootcamp" &&  <Btn text="Apply TO Bootcamp" border={true} link="/bootcamp" otherCSS="hidden lg:block"/>
+        type !== "bootcamp" &&  <Btn text="Join Webinar" border={true} link="/webinar" otherCSS="hidden lg:block"/>
 
       }
       {/* <Button text='Get Started' onClick="" /> */}

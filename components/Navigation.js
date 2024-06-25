@@ -43,7 +43,7 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
         </li>
         {addBootcamp && 
           <li className={`${getLinkClassName('/bootcamp')} cursor-pointer`}>
-            <Link href="/bootcamp" className="cursor-pointer">Apply To Bootcamp</Link>
+            <Link href="/webinar" className="cursor-pointer">Join Webinar</Link>
           </li>
         }
           
