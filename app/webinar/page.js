@@ -85,6 +85,12 @@ export default function Home() {
                 <li className="mb-5">How various digital marketing channels work.  </li>
             </ul>
         </div>
+
+        <div className="flex py-4 md:py-[40px] justify-start lg:justify-start">
+            <a href="https://events.teams.microsoft.com/event/279aa6e0-9f31-421e-b3a8-ff11094a607a@8905187e-0732-4a0a-ae4d-83be05131105" target='_blank' className="bg-[#F99621] hover:bg-[#282828] text-[#121212] hover:text-white px-8 md:px-[63px] py-4 md:py-[23px] transition duration-300 text-sm md:text-base">
+              Register Now
+            </a>
+          </div>
     </section>
 
 
