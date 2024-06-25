@@ -9,13 +9,13 @@ export default function Hero() {
       <div className="absolute inset-0 bg-white z-0"></div>
 
 
-      <div className="relative container mx-auto px-6 flex flex-col items-center lg:flex-row lg:items-center lg:justify-between">
+      <div className="relative container mx-auto px-6 flex flex-col items-center lg:flex-row lg:items-center lg:justify-between lg:px-[80px]">
         <div className="text-center lg:text-left lg:w-1/2 py-8 md:py-16">
           <h1 className="text-3xl md:text-5xl font-bold text-black leading-tight">
             How to close your <span className="text-[#F99621] text-4xl md:text-8xl">Digital Marketing</span> Sales Lead
           </h1>
           <div className="flex py-4 md:py-[20px] justify-center lg:justify-start">
-            <a href="/request-talent" className="bg-[#F99621] hover:bg-white text-[#121212] px-8 md:px-[63px] py-4 md:py-[23px] transition duration-300 text-sm md:text-base">
+            <a href="https://events.teams.microsoft.com/event/279aa6e0-9f31-421e-b3a8-ff11094a607a@8905187e-0732-4a0a-ae4d-83be05131105" target='_blank' className="bg-[#F99621] hover:bg-[#282828] text-[#121212] hover:text-white px-8 md:px-[63px] py-4 md:py-[23px] transition duration-300 text-sm md:text-base">
               Register Now
             </a>
           </div>

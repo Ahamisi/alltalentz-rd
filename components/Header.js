@@ -25,7 +25,7 @@ const Header = ({active='home', type="", theme="dark"}) => {
 
     <header className={`${type == 'bootcamp' ? 'lg:w-[79%] px-4 md:px-0' : 'max-w-7xl'} md:mx-auto`}>
 
-      <nav className={`py-4 flex items-center ${type == "bootcamp" ? 'justify-between lg:justify-normal' : 'justify-between'}  bg-transparent md:px-[20px] lg:px-0`} style={{ zIndex: 10 }} >
+      <nav className={`py-4 px-4 flex items-center ${type == "bootcamp" ? 'justify-between lg:justify-normal' : 'justify-between'}  bg-transparent md:px-[20px] `} style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >
         <div onClick={() => route.push('/')}>

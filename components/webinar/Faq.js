@@ -4,15 +4,15 @@ import { useState } from "react";
 const faqData = [
     {
       question: 'Is this webinar right for me?',
-      answer: 'This webinar is ideal for restoration business owners and small business owners who are struggling to convert online leads.',
+      answer: 'This webinar is ideal for restoration business owners and small business owners who are struggling to convert online leads. ',
     },
     {
       question: 'What format will the webinar be in?',
-      answer: 'This webinar is ideal for restoration business owners and small business owners who are struggling to convert online leads.',
+      answer: 'The webinar will be a live presentation with slides and opportunities to ask questions.',
     },
     {
         question: 'Will there be a recording available?',
-        answer: 'This webinar is ideal for restoration business owners and small business owners who are struggling to convert online leads.',
+        answer: 'Yes, registrants will receive a recording of the webinar after the event.',
     },
 
   ];
