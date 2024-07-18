@@ -217,9 +217,9 @@ export default function RequestTalent() {
 
                   </h2>
 
-                  <div className="text-center flex justify-center">
+                  {/* <div className="text-center flex justify-center">
                     <img src="/special-events/gaylord-levelup.png" className="h-auto md:h-[130px]"/>
-                  </div>
+                  </div> */}
                     
                    
 
