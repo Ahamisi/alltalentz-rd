@@ -20,6 +20,8 @@ export default function RootLayout({ children }) {
           content="/alltalentz-homebg.jpg"
         />
         <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+        <meta name="description" content="All talentz offers comprehensive outsourcing solutions to improve your business operations." />
+
       
       
     <body className={montserrat.className}>

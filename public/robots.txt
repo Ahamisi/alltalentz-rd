@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /talentz
+Disallow: /find-talentz
+Allow: /
+Sitemap: https://alltalentz.com/sitemap.xml

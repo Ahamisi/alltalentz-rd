@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
           content="/alltalentz-homebg.jpg"
         />
         <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+        <meta name="description" content="Learn more about Alltalentz and what we do | Your Gateway to Africa's Leading Remote Professionals | Superior Workforce Value" />
       
       
     <body className={montserrat.className}>

@@ -19,6 +19,8 @@ export default function RootLayout({ children }) {
           content="/alltalentz-homebg.jpg"
         />
         <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+        <meta name="description" content="Discover Great Talent Offers and Save on Payroll with All Talentz" />
+
       
       
     <body className={montserrat.className}>
