@@ -566,15 +566,14 @@ export default function BootCamp() {
                 </g>
                 <path fillRule="evenodd" clipRule="evenodd" d="M29.8848 59.2406C29.8848 57.9298 30.9341 56.8672 32.2285 56.8672H44.7285C46.0229 56.8672 47.0723 57.9298 47.0723 59.2406C47.0723 60.5514 46.0229 61.614 44.7285 61.614H32.2285C30.9341 61.614 29.8848 60.5514 29.8848 59.2406ZM31.9681 67.152C31.9681 65.8412 33.0174 64.7786 34.3119 64.7786H42.6452C43.9396 64.7786 44.9889 65.8412 44.9889 67.152C44.9889 68.4628 43.9396 69.5254 42.6452 69.5254H34.3119C33.0174 69.5254 31.9681 68.4628 31.9681 67.152Z" fill="#1C274C"/>
               </svg>
-
               </div>
               <div>
               <h3 className="text-2xl mb-2 f text-[#060606] font-bold">What you will learn</h3>
                 <div>
                   <ul className="text-[16px] font-bold text-[#060606]  list-disc leading-[28px] ">
-                    <li>The art of precise estimate writing.</li>
-                    <li>Mastering industry specific tools and software.</li>
-                    <li>Essential communication skills for success.</li>
+                    <li className="text-[#060606]">The art of precise estimate writing.</li>
+                    <li className="text-[#060606]">Mastering industry specific tools and software.</li>
+                    <li className="text-[#060606]">Essential communication skills for success.</li>
                   </ul>
                 </div>
               </div>
@@ -594,9 +593,9 @@ export default function BootCamp() {
               <h3 className="text-2xl mb-2  text-[#060606]  font-bold">What’s in it for you</h3>
                 <div>
                   <ul className="text-[16px] font-bold text-[#060606]  list-disc leading-[28px] ">
-                    <li>Competitive compensation during the bootcamp</li>
-                    <li>Opportunity to secure a permanent position with our entry level salary.</li>
-                    <li>Mentorship and guidance from industry experts.</li>
+                    <li className="text-[#060606]">Competitive compensation during the bootcamp</li>
+                    <li className="text-[#060606]">Opportunity to secure a permanent position with our entry level salary.</li>
+                    <li className="text-[#060606]">Mentorship and guidance from industry experts.</li>
                   </ul>
                 </div>
               </div>

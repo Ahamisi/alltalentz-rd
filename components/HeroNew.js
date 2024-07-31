@@ -64,7 +64,7 @@ const HeroNew = () => {
                 backgroundColor: 'rgba(0, 0, 0, 0.80)'
             }}></div>
             <br/>
-            <div className="relative h-screen flex flex-col px-2 md:px-0 items-center justify-center text-white py-0 md:py-10">
+            <div className="relative py-[30px] md:h-screen flex flex-col px-2 md:px-0 items-center justify-center text-white  md:py-10">
             
             
             <div className="flex lg:mx-[80px]">
