@@ -19,7 +19,7 @@ export default function BootCamp() {
   
 
   const [isDuplicate, setIsDuplicate] = useState(null);
-  const [bootCampOver, setBootCampOver] = useState(true);
+  const [bootCampOver, setBootCampOver] = useState(false);
 
 
 
@@ -53,7 +53,7 @@ export default function BootCamp() {
   // Define the image source based on the screen size
   const bootcampImg = isMobile ? "/bootcamp-mobile.svg" : "/bootcamp.svg";
 
-  const bootcampImg1 = isMobile ? "/bootcamp3-mobile.jpg" : "/bootcamp3.jpg";
+  const bootcampImg1 = isMobile ? "/bootcamp/bootcamp-4-0-mobile.png" : "/bootcamp/bootcamp-4-0-banner.png";
 
 
 
@@ -196,7 +196,8 @@ export default function BootCamp() {
             if (prevCountdown === 0) {
               clearInterval(countdownInterval);
               console.log("done");
-              route.push("https://alltalentz.com/cbt");
+              route.push("https://forms.office.com/r/KhhE4EjRLR?origin=lprLink")
+              // route.push("https://alltalentz.com/cbt");
               return prevCountdown; // Countdown should not change when it reaches 0
             } else if (prevCountdown > 0) {
               return prevCountdown - 1;
@@ -400,7 +401,10 @@ export default function BootCamp() {
                     </div>
                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                     <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>
-                    <Btn link="https://alltalentz.com/cbt" target="_blank" text="Take Test Now" className="mt-6" />
+                    <Btn link="https://forms.office.com/r/KhhE4EjRLR?origin=lprLink" target="_blank" text="Take Test Now" className="mt-6" />
+
+                    {/* <Btn link="https://alltalentz.com/cbt" target="_blank" text="Take Test Now" className="mt-6" /> */}
+                    
                 </div>
             ) : (
                 isDuplicate ? (

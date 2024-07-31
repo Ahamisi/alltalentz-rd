@@ -166,7 +166,7 @@ export async function POST(req, res) {
       // console.log(formData);
       await sendToSheets();
     }
-    await transporter.sendMail(options);
+    // await transporter.sendMail(options);
 
     return new Response('SENT');
     // alert('got here')
