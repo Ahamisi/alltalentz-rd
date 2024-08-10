@@ -19,7 +19,7 @@ export default function BootCamp() {
   
 
   const [isDuplicate, setIsDuplicate] = useState(null);
-  const [bootCampOver, setBootCampOver] = useState(false);
+  const [bootCampOver, setBootCampOver] = useState(true);
 
 
 
@@ -552,7 +552,7 @@ export default function BootCamp() {
 
 
 
-    <section className="md-padding relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[60px] bg-white  px-[30px] md:px-0 " style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
+    <section className="md-padding relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[60px] bg-white px-[30px] md:px-0 " style={{ backgroundImage: "url('/our-values-bg.svg')" }}>
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
          
