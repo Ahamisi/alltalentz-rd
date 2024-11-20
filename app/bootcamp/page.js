@@ -19,7 +19,7 @@ export default function BootCamp() {
   
 
   const [isDuplicate, setIsDuplicate] = useState(null);
-  const [bootCampOver, setBootCampOver] = useState(true);
+  const [bootCampOver, setBootCampOver] = useState(false);
 
 
 
@@ -53,7 +53,7 @@ export default function BootCamp() {
   // Define the image source based on the screen size
   const bootcampImg = isMobile ? "/bootcamp-mobile.svg" : "/bootcamp.svg";
 
-  const bootcampImg1 = isMobile ? "/bootcamp/bootcamp-4-0-mobile.png" : "/bootcamp/bootcamp-4-0-banner.png";
+  const bootcampImg1 = isMobile ? "/bootcamp/mobile-banner-bootcamp5.jpg" : "/bootcamp/alltalentzbanne5.jpg";
 
 
 
