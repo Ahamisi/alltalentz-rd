@@ -205,8 +205,14 @@ export default function RequestTalent() {
                 <div className="flex flex-col lg:flex-row items-center justify-between w-full">
                     {/* Text Column */}
                     <div className="lg:w-1/2 pr-8">
-                        <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-6 text-black">
-                            Your Gateway to find Exceptional Remote <span className="text-[#F99621]">Talents.</span>
+                        {/* <h1 className="text-4xl lg:text-3xl font-bold leading-tight mb-6 text-black">
+                            Your Gateway to Finding Exceptional Remote <span className="text-[#F99621]">Talents</span> At 5% Off The Price Because You Are An <span className="text-[#F99621]">Alacrity Partner </span>
+                        </h1> */}
+
+                        <h1 className="text-4xl lg:text-2xl font-bold leading-tight mb-6 text-black">
+                            Your Gateway to <span className="text-[#F99621]">Exceptional</span> Remote Talent.
+                            <br/>
+                            Exclusive <span className="text-[#F99621]">5% Partner Discount</span> for Alacrity Members
                         </h1>
 
                         <p className="text-lg mb-8 text-black">
