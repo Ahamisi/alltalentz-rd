@@ -28,7 +28,7 @@ export default function RequestTalent() {
       'Telemarketing Assistant ',
       'Digital Marketers',
       'Account Receivables ',
-      'Designers / Software Developers ',
+      'Designers and Software Developers ',
       'Quick book Specialists ',
       'Compliance Specialists',
 
@@ -74,6 +74,30 @@ export default function RequestTalent() {
         redirect: false
       });
       
+      // Check URL hash on component mount
+      useEffect(() => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+          // First decode the URL to handle %20 and other encoded characters
+          const decodedHash = decodeURIComponent(hash);
+          
+          // Convert hyphens to spaces and clean up the string
+          const searchTerm = decodedHash
+            .replace(/-/g, ' ')
+            .toLowerCase()
+            .trim();
+          
+          // Find matching service (case-insensitive and trimmed)
+          const matchingService = services.find(
+            service => service.trim().toLowerCase() === searchTerm
+          );
+          
+          if (matchingService) {
+            handleServiceToggle(matchingService);
+          }
+        }
+      }, []);
+
       const handleServiceToggle = (service) => {
         if (selectedServices.includes(service)) {
           setSelectedServices(selectedServices.filter((s) => s !== service));
@@ -84,8 +108,6 @@ export default function RequestTalent() {
         const updatedService = selectedServices.includes(service)
           ? formData.service.filter((s) => s !== service)
           : [...formData.service, service];
-
-        //   console.log(selectedServices,updatedService,'dojl')
       
         setFormData((prevData) => ({
           ...prevData,

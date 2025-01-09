@@ -7,7 +7,7 @@ const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'BootCamp',
-  description: 'Join Our Estimator Bootcamp - All Talentz Training 2.0',
+  description: 'Join Our Estimator Bootcamp - All Talentz Training 5.0',
 }
 
 

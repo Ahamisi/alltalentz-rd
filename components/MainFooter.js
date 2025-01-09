@@ -40,47 +40,56 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
       >                {/* First Row */}
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                <div className="max-w-7xl mx-auto px-3">
+                    <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
                     <div className="col-span-1">
-                        <h4 className="text-white font-semibold mb-4">Company</h4>
+                        <img 
+                            src="/redesign-25/iso-cert.svg" 
+                            alt="ISO 27001 Certified" 
+                            className=" object-contain mb-4"
+                        />
+                    </div>
+                    <div className="col-span-1">
+                        <h4 className="text-white font-bold text-xl mb-4">Company</h4>
                         <ul className="text-white">
 
-                        <li className="mb-[12px]"><Link href="faq" className="hover:text-secondary">FAQs</Link></li>
-                        <li className="mb-[12px]"><Link href="our-watchlist" className="hover:text-secondary">Careers</Link></li>
-                        <li className="mb-[12px]"><Link href="about" className="hover:text-secondary">About Us</Link></li>
+                        <li className="mb-[12px]"><Link href="faq" className="hover:text-secondary font-light">FAQs</Link></li>
+                        <li className="mb-[12px]"><Link href="our-watchlist" className="hover:text-secondary font-light">Careers</Link></li>
+                        <li className="mb-[12px]"><Link href="about" className="hover:text-secondary font-light">About Us</Link></li>
                         </ul>
                     </div>
                     <div className="col-span-1">
-                        <h4 className="text-white font-semibold mb-4">Support</h4>
+                        <h4 className="text-white font-bold text-xl mb-4">Support</h4>
                         <ul className="text-white">
-                            <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary">Jobs</Link></li>
-                            <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary">Community</Link></li>
+                            <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary font-light">Jobs</Link></li>
+                            <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary font-light">Community</Link></li>
                         </ul>
                     </div>
                     <div className="col-span-1">
-                        <h4 className="text-white font-semibold mb-4">Legal</h4>
+                        <h4 className="text-white font-bold text-xl mb-4">Legal</h4>
                         <ul className="text-white">
-                            <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary">Privacy Policy</Link></li>
-                            <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary">Terms &amp; Conditions</Link></li>
+                            <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary font-light">Privacy Policy</Link></li>
+                            <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary font-light">Terms &amp; Conditions</Link></li>
                         </ul>
                     </div>
                 
-                    <div className="col-span-2 md:col-span-2">
-                        <h4 className="text-white text-right mb-4">Receive latest news</h4>
+                    <div className="col-span-2">
+                        <h4 className="text-white font-bold text-xl mb-4">Receive latest news</h4>
                         <form>
-                          <div className='md:flex md:justify-between flex flex-col lg:flex-row'>
+                          <div className='flex flex-col lg:flex-row gap-4'>
                           <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="py-2 px-4 text-[#4C4C4C] rounded-l-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%] md:p-[18px]"
+                                className="py-2 px-4 text-[#4C4C4C] rounded-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%]"
                             />
-                            <Btn text="Subscribe" target="_blank" link="https://blog.alltalentz.com" type="submit" onClick="" otherCSS=""/>
+                            <Btn text="Subscribe" target="_blank" link="https://blog.alltalentz.com" type="submit" otherCSS=""/>
                           </div>
 
                           
                         </form>
-                        <p className="text-white mt-6">By entering your email address, you confirming that you are agree to subscribe into our newsletter</p>
+                        <p className="text-white mt-4 text-sm font-light">
+                          By entering your email address, you confirming that you are agree to subscribe into our newsletter
+                        </p>
                         
                     </div>
                     </div>

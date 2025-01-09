@@ -50,7 +50,7 @@ const HeroNew = () => {
             transition={{delay: 0.25}}
         >
             <section
-            className="relative bg-cover bg-top bg-no-repeat px-[20px] md:px-0"
+            className="relative bg-cover bg-top bg-no-repeat px-[20px] md:px-0  h-screen overflow-hidden"
             style={{ backgroundImage: "url('/alltalentz-homebg.jpg')" }}
             >
                 {/* <div className="md:h-[20px]"></div> */}
