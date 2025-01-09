@@ -53,7 +53,7 @@ const TestimonialSlider = () => {
       {/* Testimonial Content */}
       <div className="flex items-start gap-8">
         {/* Company Logo */}
-        <div className="w-[80px] h-[80px] rounded-full border border-gray-200 flex-shrink-0 p-4">
+        <div className="w-[80px] h-[80px] rounded-full border border-gray-200 flex-shrink-0 p-4 hidden md:block">
           <img 
             src={testimonials[currentIndex].logo} 
             alt="Company Logo" 
