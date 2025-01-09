@@ -242,7 +242,7 @@ const NicheSection = () => {
         {/* CTA Button */}
         <div className="text-center mt-16">
           <a
-            href="#pricing"
+            href="/pricing-model"
             className="inline-flex items-center space-x-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 px-8 py-3 "
           >
             <span>Check out our Pricing Model</span>
