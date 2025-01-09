@@ -61,25 +61,25 @@ export default function About() {
         {/* Statistics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Stat Card 1 */}
-          <div className="bg-[#FFB300] rounded-xl p-8 text-white">
+          <div className="bg-[#F99621] rounded-xl p-8 text-white">
             <div className="text-5xl font-bold mb-2">100+</div>
             <div className="text-xl">Clients</div>
           </div>
 
           {/* Stat Card 2 */}
-          <div className="bg-[#FFB300] rounded-xl p-8 text-white">
+          <div className="bg-[#F99621] rounded-xl p-8 text-white">
             <div className="text-5xl font-bold mb-2">50+</div>
             <div className="text-xl">Locations</div>
           </div>
 
           {/* Stat Card 3 */}
-          <div className="bg-[#FFB300] rounded-xl p-8 text-white">
+          <div className="bg-[#F99621] rounded-xl p-8 text-white">
             <div className="text-5xl font-bold mb-2">99%</div>
             <div className="text-xl">Positive feedbacks</div>
           </div>
 
           {/* Stat Card 4 */}
-          <div className="bg-[#FFB300] rounded-xl p-8 text-white">
+          <div className="bg-[#F99621] rounded-xl p-8 text-white">
             <div className="text-5xl font-bold mb-2">5000+</div>
             <div className="text-xl">Quality Professionals</div>
           </div>

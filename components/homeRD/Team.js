@@ -89,7 +89,7 @@ const teamMembers = [
         <div className="py-16 text-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-5xl font-bold mb-8 text-center">
-              Our Amazing <span className="text-[#FFB300]">Team</span>
+              Our Amazing <span className="text-[#F99621]">Team</span>
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-[30px] md:mt-[60px] flex justify-center">
               {teamMembers.map((member, index) => (
@@ -102,17 +102,17 @@ const teamMembers = [
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent group-hover:opacity-0 transition-opacity">
                     <h3 className="text-lg md:text-2xl font-semibold">
                       {member.name} {member.lastName}
-                      {member.title && <span className="text-[12px] text-[#FFB300]">&nbsp;{member.title}</span>}
+                      {member.title && <span className="text-[12px] text-[#F99621]">&nbsp;{member.title}</span>}
                     </h3>
-                    <p className="text-[14px] text-[#FFB300]">{member.role}</p>
+                    <p className="text-[14px] text-[#F99621]">{member.role}</p>
                   </div>
                   
                   <div className="absolute inset-0 bg-black/90 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 overflow-y-auto">
                     <h3 className="text-lg md:text-2xl font-semibold mb-2">
                       {member.name} {member.lastName}
-                      {member.title && <span className="text-[12px] text-[#FFB300]">&nbsp;{member.title}</span>}
+                      {member.title && <span className="text-[12px] text-[#F99621]">&nbsp;{member.title}</span>}
                     </h3>
-                    <p className="text-[14px] text-[#FFB300] mb-3">{member.role}</p>
+                    <p className="text-[14px] text-[#F99621] mb-3">{member.role}</p>
                     <p className="text-sm leading-relaxed">{member.bio}</p>
                   </div>
                 </div>
