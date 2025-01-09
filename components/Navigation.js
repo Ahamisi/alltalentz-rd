@@ -87,9 +87,9 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
           )}
         </li>
 
-        <li className={getLinkClassName('/pricing-model')}>
+        {/* <li className={getLinkClassName('/pricing-model')}>
           <Link href="/pricing-model">Services</Link>
-        </li>
+        </li> */}
         <li className={getLinkClassName('/outsourcing')}>
           <Link href="/outsourcing">Agency</Link>
         </li>
