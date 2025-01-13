@@ -28,23 +28,23 @@ const ClientLogo = ({ src, alt }) => {
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
     >
-      <img src={src} alt={alt} className="max-w-xs h-[60px]" />
+      <img src={src} alt={alt} className="max-w-xs h-[60px] cursor-pointer" />
     </motion.div>
   );
 };
 
 const OurClients = () => {
     const logos = [
-        "/home-img/clients/puroclean-logo-at.png",
-        "/home-img/clients/we-scope.png",
-        "/home-img/clients/serv-pro.png",
-        "/home-img/clients/clean-slate.png",
-        "/home-img/clients/true-north.png",
-        "/home-img/clients/365-restoration.png",
-        "/home-img/clients/restoration-specialists.png",
-        "/home-img/clients/dri.png",
-        "/home-img/clients/crdn.png",
-        "/home-img/clients/property-doctor.png"
+        "/redesign-25/client-logos/puro-clean-logo.jpg",
+        "/redesign-25/client-logos/alacrity-solutions.jpg",
+        "/redesign-25/client-logos/servpro.jpg",
+        "/redesign-25/client-logos/clean-slate.jpg",
+        "/redesign-25/client-logos/wonder-logo.jpg",
+        "/redesign-25/client-logos/365-restoration.jpg",
+        "/redesign-25/client-logos/restoration-specialists.jpg",
+        "/redesign-25/client-logos/signal-restoration.jpg",
+        "/redesign-25/client-logos/on-site.jpg",
+        "/redesign-25/client-logos/property-doctors.jpg"
     ]
 
     
