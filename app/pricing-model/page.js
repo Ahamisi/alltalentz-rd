@@ -75,7 +75,7 @@ export default function About() {
             {/* Left Column */}
             <div className="lg:w-[50%] flex flex-col space-y-8">
                 <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                Begin Your Journey To Hiring <span className="text-[#FFB300]"> World Class Talents</span>
+                Begin Your Journey Towards Hiring <span className="text-[#FFB300]"> World Class Talents</span>
                 </h1>
                     
              

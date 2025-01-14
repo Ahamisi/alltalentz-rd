@@ -31,7 +31,7 @@ const pricingModels = [
     id: 3,
     title: "ACCOUNT RECEIVABLES SPECIALIST",
     image: "/redesign-25/pricing/account-reciveables.jpg",
-    description: "Our Accounts Receivables Specialist supports business in managing invoicing, tracking payments, and ensure timely collections, to maintain a company’s cash flow.",
+    description: "Our Accounts Receivables Specialist supports businesses in managing invoicing, tracking payments, and ensure timely collections, to maintain a company’s cash flow.",
     price: "400-1600",
     benefits: [
       "Highly trained Account Receivables Specialists",
@@ -70,7 +70,7 @@ const pricingModels = [
     id: 6,
     title: "DESIGNERS / DEVELOPERS",
     image: "/redesign-25/pricing/software-devs.jpg",
-    description: "Our highly experienced team of designers and software engineers, designs, develops, tests, and maintain software applications and systems on behalf of our clients, ensuring they meet user needs and performance requirements.",
+    description: "Our highly experienced team of designers and software engineers, design, develop, test, and maintain software applications and systems on behalf of our clients, ensuring they meet user needs and performance requirements.",
     price: "1500-2500",
     benefits: [
       "Highly trained Software Developers",
