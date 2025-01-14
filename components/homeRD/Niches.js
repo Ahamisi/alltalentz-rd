@@ -89,32 +89,32 @@ const NicheSection = () => {
     {
       title: "Estimators",
       imageSrc: "/redesign-25/niche/estimators.png",
-      description: "Our range of vetted remote employees cut across varied business needs and niches."
+      description: "Our team of well trained and highly experienced estimators, review and prepare detailed estimates for property restoration projects, ensuring accuracy in cost calculations for materials and labor."
     },
     {
       title: "Virtual Assistants",
       imageSrc: "/redesign-25/niche/virtual-assitants.png",
-      description: "Our range of vetted remote employees cut across varied business needs and niches."
+      description: "Our VAs offer administrative and organizational support remotely, handling tasks like email management, scheduling, and document preparation for our clients."
     },
     {
       title: "Account Receivables",
       imageSrc: "/redesign-25/niche/account-receivables.jpg",
-      description: "Our range of vetted remote employees cut across varied business needs and niches."
+      description: "Our Accounts Receivables Specialist supports business in managing invoicing, tracking payments, and ensure timely collections, to maintain a company’s cash flow."
     },
     {
       title: "Digital Marketers",
       imageSrc: "/redesign-25/niche/digital-marketers.jpg",
-      description: "Our range of vetted remote employees cut across varied business needs and niches."
+      description: "Our Digital Marketers help businesses to develop and execute online marketing strategies, including SEO, social media, and content creation, to generate quality leads, increase brand visibility and drive engagement."
     },
     {
       title: "Telemarketing Assistant",
       imageSrc: "/redesign-25/niche/data-entry.jpg",
-      description: "Our range of vetted remote employees cut across varied business needs and niches."
+      description: "Our Telemarketers/Admin Assistants provide customer outreach through calls to generate leads or sales, while also assisting with administrative tasks such as data entry, documentation and appointment setting."
     },
     {
       title: "Designers and Software Developers",
       imageSrc: "/redesign-25/niche/software-developers.jpg",
-      description: "Our range of vetted remote employees cut across varied business needs and niches."
+      description: "Our highly experienced team of designers and software engineers, designs, develops, tests, and maintain software applications and systems on behalf of our clients, ensuring they meet user needs and performance requirements."
     },
     // Add more niches as needed
   ];

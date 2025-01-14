@@ -342,8 +342,7 @@ export default function BootCamp() {
               Are you ready to level up your career? All Talentz Bootcamp offers 
               intensive 90-days training programs led by industry experts. 
               Whether you're a recent graduate or a seasoned professional, our 
-              flexible online and in-person format allows you to learn at your 
-              own pace.
+              flexible online and in-person format provides a smooth and convenient learning experience for our participants.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-8">

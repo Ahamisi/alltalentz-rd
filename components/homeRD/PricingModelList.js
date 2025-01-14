@@ -5,73 +5,79 @@ const pricingModels = [
     id: 1,
     title: "ESTIMATOR",
     image: "/redesign-25/pricing/estimator.jpg",
-    description: "Our range of vetted remote employees cut across varied business needs and niches, varied business needs and niches.",
-    price: "3200.00",
+    description: "Our team of well trained and highly experienced estimators, review and prepare detailed estimates for property restoration projects, ensuring accuracy in cost calculations for materials and labor.",
+    price: "400-1600",
     benefits: [
       "Highly trained Estimators",
-      "24/7 supports",
-      "24/7 supports"
-    ]
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#estimators"
   },
   {
     id: 2,
     title: "VIRTUAL ASSISTANT",
     image: "/redesign-25/pricing/virtual-assistants.jpg",
-    description: "Our range of vetted remote employees cut across varied business needs and niches, varied business needs and niches.",
-    price: "3200.00",
+    description: "Our VAs offer administrative and organizational support remotely, handling tasks like email management, scheduling, and document preparation for our clients.",
+    price: "400-1600",
     benefits: [
-      "Highly trained Estimators",
-      "24/7 supports",
-      "24/7 supports"
-    ]
+      "Well trained Virtual Assistants",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#virtual-assistant"
   },
   {
     id: 3,
-    title: "ACCOUNT RECEIVABLES",
+    title: "ACCOUNT RECEIVABLES SPECIALIST",
     image: "/redesign-25/pricing/account-reciveables.jpg",
-    description: "Our range of vetted remote employees cut across varied business needs and niches, varied business needs and niches.",
-    price: "3200.00",
+    description: "Our Accounts Receivables Specialist supports business in managing invoicing, tracking payments, and ensure timely collections, to maintain a company’s cash flow.",
+    price: "400-1600",
     benefits: [
-      "Highly trained Estimators",
-      "24/7 supports",
-      "24/7 supports"
-    ]
+      "Highly trained Account Receivables Specialists",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#account-receivables"
   },
   {
     id: 4,
     title: "DIGITAL MARKETERS",
     image: "/redesign-25/pricing/digital-marketer.jpg",
-    description: "Our range of vetted remote employees cut across varied business needs and niches, varied business needs and niches.",
-    price: "3200.00",
+    description: "Our Digital Marketers help businesses to develop and execute online marketing strategies, including SEO, social media, and content creation, to generate quality leads, increase brand visibility and drive engagement.",
+    price: "400-1600",
     benefits: [
-      "Highly trained Estimators",
-      "24/7 supports",
-      "24/7 supports"
-    ]
+      "Highly trained Digital Marketers",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#digital-marketers"
   },
   {
     id: 5,
     title: "TELEMARKETING/ADMIN ASSISTANTS",
     image: "/redesign-25/pricing/telemarketer.jpg",
-    description: "Our range of vetted remote employees cut across varied business needs and niches, varied business needs and niches.",
-    price: "3200.00",
+    description: "Our Telemarketers/Admin Assistants provide customer outreach through calls to generate leads or sales, while also assisting with administrative tasks such as data entry, documentation and appointment setting.",
+    price: "400-1600",
     benefits: [
-      "Highly trained Estimators",
-      "24/7 supports",
-      "24/7 supports"
-    ]
+      "Highly trained Telemarketers",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#telemarketing-assistant"
   },
   {
     id: 6,
-    title: "DESIGNERS / SOFTWARE DEVELOPERS",
+    title: "DESIGNERS / DEVELOPERS",
     image: "/redesign-25/pricing/software-devs.jpg",
-    description: "Our range of vetted remote employees cut across varied business needs and niches, varied business needs and niches.",
-    price: "3200.00",
+    description: "Our highly experienced team of designers and software engineers, designs, develops, tests, and maintain software applications and systems on behalf of our clients, ensuring they meet user needs and performance requirements.",
+    price: "1500-2500",
     benefits: [
-      "Highly trained Estimators",
-      "24/7 supports",
-      "24/7 supports"
-    ]
+      "Highly trained Software Developers",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#designers-and software developers"
   },
   
 ];
@@ -84,7 +90,7 @@ const PricingModelList = () => {
           Our Pricing Model
         </h2>
         <p className="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-          We've got the perfect pricing plan for your business to manage all your restoration documentations and claims
+          We've got the perfect pricing plan for any type of business.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -113,15 +119,16 @@ const PricingModelList = () => {
 
                 {/* Price */}
                 <div className="mb-6">
-                  <span className="text-2xl font-bold text-[#1A1A1A]">
+                <span className="text-gray-500 ml-2">Starting From </span>
+
+                  <span className="text-xl font-bold text-[#1A1A1A]">
                     ${model.price}
                   </span>
-                  <span className="text-gray-500 ml-2">(Starting Price)</span>
                 </div>
 
                 {/* CTA Button */}
                 <Link 
-                  href="/request-talent" 
+                  href={model.ctaLink} 
                   className="block w-full py-3 px-4 rounded-full border-2 border-[#1A1A1A] text-[#1A1A1A] text-md font-semibold hover:bg-[#1A1A1A] hover:text-white transition-colors text-center"
                 >
                   Hire Now

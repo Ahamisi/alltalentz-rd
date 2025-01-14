@@ -75,12 +75,10 @@ export default function About() {
             {/* Left Column */}
             <div className="lg:w-[50%] flex flex-col space-y-8">
                 <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                Begin Your Journey To A <span className="text-[#FFB300]">Global Career</span>
+                Begin Your Journey To Hiring <span className="text-[#FFB300]"> World Class Talents</span>
                 </h1>
                     
-                <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-                Feel Free to send us a message, call us or visit our office or drop us an email anytime.  We'd love to hear from you.
-                </p>
+             
                 
                 <a href="/request-talent" className="bg-[#F99621] hover:bg-white text-[#121212] px-[63px] py-[23px] transition duration-300 w-fit">
                 Find Talent
