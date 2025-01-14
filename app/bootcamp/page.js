@@ -330,7 +330,7 @@ export default function BootCamp() {
     <>
 
 
-      <PageHeader>
+      <PageHeader showBg={false}>
         <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
           {/* Left Column */}
           <div className="lg:w-[45%] flex flex-col">
@@ -580,7 +580,7 @@ export default function BootCamp() {
           <span className="ml-2">
               <Image src="/redesign-25/icons/stars.svg" alt="Logo" width={25} height={25} />
             </span>
-            ACCOUNT RECEIVABLES
+            ACCOUNT RECEIVABLES SPECIALIST
             <span className="ml-2">
               <Image src="/redesign-25/icons/stars.svg" alt="Logo" width={25} height={25} />
             </span>
@@ -629,13 +629,13 @@ export default function BootCamp() {
       <section id="bootcampVideos">
 
       <ConferenceVideo 
-        title="Bootcamp Videos"
+        title="Bootcamp Testimonials"
         description="Watch our students transform into industry professionals."
         videos={bootcampVideos}
       />
       </section>
 
-      <ClientWords 
+      {/* <ClientWords 
         title="Bootcamp Testimonials"
         description="Hear what our graduates say about their bootcamp experience"
         theme="dark"
@@ -644,13 +644,11 @@ export default function BootCamp() {
             name: "Michael Brown",
             role: "Recent Graduate",
             company: "All Talentz Bootcamp",
-            // image: "/redesign-25/testimonials/bootcamp1.jpg",
             quote: "The hands-on experience and expert guidance were invaluable...",
             rating: 5
           },
-          // Add more testimonials specific to bootcamp
         ]}
-      />
+      /> */}
 
       <Faq 
         title="Bootcamp FAQs"

@@ -23,7 +23,7 @@ export default function WhyAfrica() {
 
   return (
     <>
-      <PageHeader>
+      <PageHeader showBg={false}>
         <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
             {/* Left Column */}
             <div className="lg:w-[40%] flex flex-col">
@@ -43,7 +43,6 @@ export default function WhyAfrica() {
                     src="/redesign-25/say-hello.png"
                     alt="Success Stories"
                     className="w-full h-[400px] object-contain"
-                    // className="w-full h-auto object-contain"
                 />
             </div>
         </div>

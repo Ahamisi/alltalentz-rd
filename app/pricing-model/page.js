@@ -88,12 +88,11 @@ export default function About() {
 
             {/* Right Column - Map */}
             <div className="hidden lg:block lg:w-[50%] pl-12">
-                <img
+                {/* <img
                     src="/redesign-25/alltalentz-star.png"
                     alt="Success Stories"
                     className="w-full h-[400px] object-contain"
-                    // className="w-full h-auto object-contain"
-                />
+                /> */}
             </div>
         </div>
     </PageHeader>

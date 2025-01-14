@@ -13,7 +13,7 @@ export default function About() {
     <>
     
         
-    <PageHeader about={true}>
+    <PageHeader about={true} showBg={false}>
         <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
             {/* Left Column */}
             <div className="lg:w-[45%] flex flex-col">

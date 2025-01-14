@@ -84,7 +84,7 @@ export default function Faq() {
 
     
     <section>
-        <PageHeader>
+        <PageHeader showBg={false}>
 
           {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
         <div className="max-w-6xl mx-auto justify-center align-middle md:flex relative h-[100%] items-center px-[20px] md:px-4 ">

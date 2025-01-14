@@ -33,7 +33,7 @@ export default function About() {
     <>
     
         
-    <PageHeader>
+    <PageHeader showBg={false}>
         <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
             {/* Left Column */}
             <div className="lg:w-[45%] flex flex-col">
@@ -41,9 +41,7 @@ export default function About() {
                 We have Stories to <span className="text-[#FFB300]">inspire you</span>
                 </h1>
                     
-                <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-                Feel Free to send us a message, call us or visit our office or drop us an email anytime.  We’d love to hear from you.
-                </p>
+               
             </div>
 
             {/* Right Column - Map */}
