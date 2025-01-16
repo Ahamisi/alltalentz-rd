@@ -22,7 +22,7 @@ export default function WhyAfrica() {
   ];
 
   return (
-    <>
+    <main className="relative overflow-hidden overflow-y-hidden" >
       <PageHeader showBg={false}>
         <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
             {/* Left Column */}
@@ -108,9 +108,9 @@ export default function WhyAfrica() {
       </div>
     </section>
 
-    <section className="px-[30px] md:px-0 bg-[#131313]">
+    <section className="px-[10px] md:px-0 bg-[#131313]">
       <MainFooter/>
     </section>
-    </>
+    </main>
   )
 }

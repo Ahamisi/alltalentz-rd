@@ -327,7 +327,7 @@ export default function BootCamp() {
   ];
 
   return (
-    <>
+    <main className="relative overflow-hidden overflow-y-hidden" >
 
 
       <PageHeader showBg={false}>
@@ -666,7 +666,7 @@ export default function BootCamp() {
         ]}
       />
 
-      <section className="px-[30px] md:px-0 bg-[#131313]">
+      <section className="px-[10px] md:px-0 bg-[#131313]">
         <MainFooter hideSub={true}/>
       </section>
 
@@ -675,6 +675,6 @@ export default function BootCamp() {
 
 
     
-    </>
+    </main>
   )
 }

@@ -24,9 +24,9 @@ export default function Outsourcing() {
  
 
   return (
-    <>
+    <main className="relative overflow-hidden overflow-y-hidden" >
     
-    <section className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-[0px] px-[30px]  xl:px-0 bg-white font-montserrat`}>
+    <section className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-[0px] px-[30px] lg:px-[0px]  xl:px-0 bg-white font-montserrat`}>
 
 <Header theme="light"/>
 
@@ -368,7 +368,7 @@ export default function Outsourcing() {
  
 
 
-    <section className="px-[30px] md:px-0 bg-[#131313]">
+    <section className="px-[10px] md:px-0 bg-[#131313]">
       <MainFooter meetWithUs="https://calendly.com/mnwoseh" brochure="/AllTalentzAgencyFlyer.pdf"/>
     </section>
 
@@ -383,6 +383,6 @@ export default function Outsourcing() {
 
 
     
-    </>
+    </main>
   )
 }

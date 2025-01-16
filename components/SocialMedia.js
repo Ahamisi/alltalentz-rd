@@ -36,7 +36,7 @@ const SocialMedia = () => {
   
 
   return (
-    <div className={`fixed left-0 h-100 hidden my-auto  ${showDiv ? 'lg:flex' : 'lg:hidden'} flex-col items-center justify-center py-8 px-[10px] top-[25%] gap-[30px]`} style={{ zIndex: '999' }} id="footer">
+    <div className={`fixed left-0 h-100 hidden my-auto  ${showDiv ? 'xl:flex' : 'xl:hidden'} flex-col items-center justify-center py-8 px-[10px] top-[25%] gap-[30px]`} style={{ zIndex: '999' }} id="footer">
 
         <Link
           key="instagram"

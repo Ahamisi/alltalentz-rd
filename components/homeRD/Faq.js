@@ -56,7 +56,7 @@ const Faq = ({
 
 
   return (
-    <section className="relative bg-white py-20 bg-[url('/redesign-25/backgrounds/frame-pattern-2.svg')] bg-center bg-cover bg-no-repeat overflow-hidden px-4 md:px-0">
+    <section className="relative bg-white py-20 bg-[url('/redesign-25/backgrounds/frame-pattern-2.svg')] bg-center bg-cover bg-no-repeat overflow-hidden px-4 md:px-0 lg:px-8 xl:px-0">
 
       <div className="relative max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row gap-12 md:gap-24">

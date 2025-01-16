@@ -47,7 +47,7 @@ export default function Home() {
  
 
   return (
-    <main className="relative">
+    <main className="relative overflow-hidden overflow-y-hidden">
 
 
 <section className="px-[30px] md:px-0">
@@ -119,7 +119,7 @@ export default function Home() {
     />
 
 
-    <section className="px-[30px] md:px-0 bg-[#131313]">
+    <section className="px-[10px] md:px-0 bg-[#131313]">
       <MainFooter/>
     </section>
 

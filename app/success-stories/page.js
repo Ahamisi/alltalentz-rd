@@ -30,7 +30,7 @@ export default function About() {
   ];
 
   return (
-    <>
+    <main className="relative overflow-hidden overflow-y-hidden" >
     
         
     <PageHeader showBg={false}>
@@ -163,7 +163,7 @@ export default function About() {
 
 
 
-    <section className="px-[30px] md:px-0 bg-[#131313]">
+    <section className="px-[10px] md:px-0 bg-[#131313]">
       <MainFooter/>
     </section>
 
@@ -182,6 +182,6 @@ export default function About() {
 
     
     
-    </>
+    </main>
   )
 }

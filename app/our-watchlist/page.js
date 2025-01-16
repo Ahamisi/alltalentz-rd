@@ -187,7 +187,7 @@ export default function Watchlist() {
  
 
   return (
-    <>
+    <main className="relative overflow-hidden overflow-y-hidden" >
     
     <section>
     <PageHeader>
@@ -472,7 +472,7 @@ export default function Watchlist() {
  
 
 
-    <section className="px-[30px] md:px-0 bg-[#131313]">
+    <section className="px-[10px] md:px-0 bg-[#131313]">
       <MainFooter/>
     </section>
 
@@ -480,6 +480,6 @@ export default function Watchlist() {
 
 
     
-    </>
+    </main>
   )
 }

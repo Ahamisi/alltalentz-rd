@@ -63,7 +63,7 @@ const TestimonialSlider = () => {
 
         {/* Testimonial Text */}
         <div className="flex-grow">
-          <p className="text-[32px] leading-[1.4] mb-8 text-black font-light">
+          <p className="text-lg lg:text-[32px] leading-[1.4] mb-8 text-black font-light">
             {testimonials[currentIndex].text}
           </p>
           <div>

@@ -67,7 +67,7 @@ const HeroNew = () => {
             <div className="relative py-[30px] md:h-screen flex flex-col px-2 md:px-0 items-center justify-center text-white  md:py-10">
             
             
-            <div className="flex lg:mx-[80px]">
+            <div className="flex  lg:mx-[50px] xl:mx-[80px]">
             {/* Left Grid */}
               {/* Left Grid */}
           <motion.div
@@ -105,7 +105,7 @@ const HeroNew = () => {
           </motion.div>
 
             {/* Right Grid */}
-            <div className="hidden md:flex lg:w-[40%] items-center">
+            <div className="hidden md:flex lg:w-[40%] items-center lg:mx-[50px] xl:mx-0">
                 <motion.div
                 variants={variants}
                 initial="hidden"

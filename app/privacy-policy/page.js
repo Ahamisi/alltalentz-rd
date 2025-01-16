@@ -192,7 +192,7 @@ export default function Faq() {
  
 
 
-    <section className='px-[30px] md:px-0 bg-[#131313]'>
+    <section className='px-[10px] md:px-0 bg-[#131313]'>
       <MainFooter/>
     </section>
 
