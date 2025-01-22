@@ -32,7 +32,8 @@ export default function WhyAfrica() {
                 </h1>
                     
                 <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-                    Feel Free to send us a message, call us or visit our office or drop us an email anytime.  We’d love to hear from you.
+                Feel free to send us a message, call us or visit our office. We’d love to hear from you.
+ 
                 </p><br/>
 
             </div>
@@ -94,7 +95,7 @@ export default function WhyAfrica() {
                   <h3 className="text-xl mb-2">Phone</h3>
                   <p className="text-white-800 opacity-70 mb-2">Mon - Fri from 8am-5pm</p>
                   <p className="mb-1">USA: +1 614-502-1440</p>
-                  <p>Nigeria: +1 614-502-1440</p>
+                  <p>Nigeria: +2349169855898</p>
                 </div>
               </div>
             </div>

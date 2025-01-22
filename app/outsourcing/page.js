@@ -39,7 +39,9 @@ export default function Outsourcing() {
       {/* First Column */}
       <div className="lg:w-[50%] md:pr-8 gap-[25px] flex flex-col md:pl-[30px] xl:pl-0" data-aos="fade-right">
         <h1 className="text-4xl md:text-[55px] font-bold mb-4 md:leading-[65px]">Outsource your <span className="text-[#F99621]">Business process</span> to us for great results!</h1>
-        <p className="text-lg mb-6 text-[#121212]">We are a dynamic and results-driven agency specializing in Professional Services (Xactimate Estimating, Digital Marketing, Project Management, Creative Design, Accounting & Book Keeping Services.)</p>
+        <p className="text-lg mb-6 text-[#121212]">
+            We are a dynamic and results-driven agency that specializes in managing various aspects of the business operations for our clients. Some of our services include Xactimate Estimating, Digital Marketing, Project Management, Creative Design, Accounting & Book Keeping Services and so much more.
+        </p>
         <div>
             <a href="https://calendly.com/mnwoseh/" className="bg-[#F99621] hover:bg-black text-black hover:text-white font-bold py-[23px] px-[64px] transition-all duration-300">Get Started</a>
         </div>
