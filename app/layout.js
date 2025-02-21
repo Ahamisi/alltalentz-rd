@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         />
         <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
       
-    <body className={montserrat.className}>
+    <body className={montserrat.className} id="body" style={{overflowY: 'hidden'}}>
       <SocialMedia/>
 
       <main className=''>

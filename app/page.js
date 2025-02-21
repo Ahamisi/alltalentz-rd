@@ -51,7 +51,7 @@ export default function Home() {
     <main className="relative overflow-hidden overflow-y-hidden">
 
 
-<section className="px-[30px] md:px-0">
+<section className="xs:px-0 sm:px-[30px] md:px-0">
   <HeroNew/>
 </section>
 

@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from './Navigation';
 import { useRouter } from 'next/navigation';
 import Btn from "@/components/Btn";
@@ -12,17 +12,50 @@ const Header = ({active='home'}) => {
   const route = useRouter()
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrollPosition, setScrollPosition] = useState(0);
 
     const toggleMobileMenu = () => {
       setMobileMenuOpen((prevState) => !prevState);
     };
 
+    useEffect(() => {
+      const animation = setInterval(() => {
+        setScrollPosition((prev) => (prev <= -100 ? 100 : prev - 0.2));
+      }, 50);
+
+      return () => clearInterval(animation);
+    }, []);
+
 
   return (
-    // <header className='bg-transparent absolute sm:relative z-50 w-full py-[30px] sm:py-0 md:w-[95%]'>
-    // <header className='md:w-[95%] md:ml-auto bg-gradient-to-b from-black to-black'>
+    <>
+      <div className="w-full bg-[#F99621] text-black py-2 overflow-hidden z-50 absolute">
+        <div 
+          className="whitespace-nowrap font-medium"
+          style={{ 
+            transform: `translateX(${scrollPosition}%)`,
+            transition: 'transform 0.05s linear'
+          }}
+        >
+          <span className="inline-flex items-center gap-2">
+            🏆 We are now IAF certified! [Certificate ID: vD5DJrOP2lgDH3m3YPIqgqtH] 
+            <span className="mx-8">•</span>
+            🎉 We are now certified by Assurance Point!
+            <span className="mx-8">•</span>
+            <a href="https://www.iafcertsearch.org/certification/vD5DJrOP2lgDH3m3YPIqgqtH" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="underline hover:text-white">
+              Verify our certification
+            </a>
+            <span className="mx-8">•</span>
+            🎉 We are now certified by Assurance Point!
 
-    <header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0'>
+          </span>
+        </div>
+      </div>
+
+    <header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0 mt-10'>
         <nav className="py-4 flex items-center justify-between bg-transparent md:px-[20px] lg:px-0" style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >
@@ -101,6 +134,7 @@ const Header = ({active='home'}) => {
         )}
         </nav>
     </header>
+    </>
   )
 }
 
