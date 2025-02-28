@@ -41,13 +41,32 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
         animate={inView ? 'visible' : 'hidden'}
       >                {/* First Row */}
                 <div className="max-w-7xl mx-auto px-3">
-                    <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-8 gap-8 mb-8">
                     <div className="col-span-1">
+                        <Link href="https://www.iafcertsearch.org/certification/vD5DJrOP2lgDH3m3YPIqgqtH" target="_blank" rel="noopener noreferrer">
+                        <div className='flex items-center gap-2'>
                         <img 
-                            src="/redesign-25/iso-cert.svg" 
+                            src="/certs/iso-badge.png" 
                             alt="ISO 27001 Certified" 
                             className=" object-contain mb-4"
                         />
+                       
+                       </div>
+                        </Link>
+                      
+                    </div>
+                    <div className="col-span-1">
+                        <Link href="https://www.iafcertsearch.org/certification/vD5DJrOP2lgDH3m3YPIqgqtH" target="_blank" rel="noopener noreferrer">
+                        <div className='flex items-center gap-2'>
+                       
+                        <img 
+                            src="/certs/AssurancePoint.png" 
+                            alt="Assurance Point Certified" 
+                            className=" object-contain mb-4"
+                        />
+                       </div>
+                        </Link>
+                      
                     </div>
                     <div className="col-span-1">
                         <h4 className="text-white font-bold text-xl mb-4">Company</h4>
@@ -73,7 +92,7 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
                         </ul>
                     </div>
                 
-                    <div className="col-span-2">
+                    <div className="col-span-3">
                         <h4 className="text-white font-bold text-xl mb-4">Receive latest news</h4>
                         <form>
                           <div className='flex flex-col lg:flex-row gap-4'>
