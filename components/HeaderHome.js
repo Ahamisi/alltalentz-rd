@@ -118,7 +118,7 @@ const Header = ({active='home'}) => {
 
       {/* CTA Button */}
       {/* <Btn text="Meet with us" border={true} link="https://calendly.com/akwaowowillie" target="_blank" otherCSS="hidden lg:block"/> */}
-      <Btn text="Join our PDP" border={true} link="/bootcamp" otherCSS="hidden lg:block"/>
+      <Btn text="Join our PDP" border={true} link="/professional-development-programme" otherCSS="hidden lg:block"/>
 
       {/* <Button text='Get Started' onClick="" /> */}
       
