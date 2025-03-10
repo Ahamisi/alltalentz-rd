@@ -23,7 +23,7 @@ export default function BootCamp() {
   
 
   const [isDuplicate, setIsDuplicate] = useState(null);
-  const [bootCampOver, setBootCampOver] = useState(true);
+  const [bootCampOver, setBootCampOver] = useState(false);
 
 
 
@@ -200,7 +200,8 @@ export default function BootCamp() {
             if (prevCountdown === 0) {
               clearInterval(countdownInterval);
               console.log("done");
-              route.push("https://forms.office.com/pages/responsepage.aspx?id=fhgFiTIHCkquTYO-BRMRBfQf36Oi-MZHkm_eYMKcGU9UMTkwQ1RXVDFOVzBIVk5US0g5T0NBM0NBWi4u&route=shorturl")
+              route.push("https://forms.office.com/r/efisy50hkD?origin=lprLink");
+              // route.push("https://forms.office.com/pages/responsepage.aspx?id=fhgFiTIHCkquTYO-BRMRBfQf36Oi-MZHkm_eYMKcGU9UMTkwQ1RXVDFOVzBIVk5US0g5T0NBM0NBWi4u&route=shorturl")
               // route.push("https://alltalentz.com/cbt");
               return prevCountdown; // Countdown should not change when it reaches 0
             } else if (prevCountdown > 0) {
@@ -335,11 +336,11 @@ export default function BootCamp() {
           {/* Left Column */}
           <div className="lg:w-[45%] flex flex-col">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              Welcome to <span className="text-[#F99621]">All Talentz</span> Estimator <span className="text-white">Bootcamp.</span>
+              Welcome to <span className="text-[#F99621]">All Talentz</span>  <span className="text-white">professional development programme.</span>
             </h1>
             
             <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-              Are you ready to level up your career? All Talentz Bootcamp offers 
+              Are you ready to level up your career? All Talentz Professional Development Program offers 
               intensive 90-days training programs led by industry experts. 
               Whether you're a recent graduate or a seasoned professional, our 
               flexible online and in-person format provides a smooth and convenient learning experience for our participants.
@@ -351,7 +352,7 @@ export default function BootCamp() {
                 onClick={toggleModal}
                 className="bg-[#F99621] text-black px-8 py-4 rounded font-bold hover:bg-opacity-90 transition-all"
               >
-                Apply to bootcamp
+                Apply to our professional development programme
               </button>
               
               <a 
@@ -400,7 +401,7 @@ export default function BootCamp() {
                 <path d="M40 55 Q50 70 60 55" stroke="black" strokeWidth="2" fill="transparent" />
               </svg>
             </div>
-            <h1 className="text-[22px] text-center font-bold">Oops, the bootcamp application period is over.</h1>
+            <h1 className="text-[22px] text-center font-bold">Oops, the professional development programme application period is over.</h1>
             <p>Please be on the lookout for the next cycle of applications...</p>
           </div>
         ) : (
@@ -425,7 +426,7 @@ export default function BootCamp() {
                   </div>
                   <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                   <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>
-                  <Btn link="https://forms.office.com/pages/responsepage.aspx?id=fhgFiTIHCkquTYO-BRMRBfQf36Oi-MZHkm_eYMKcGU9UMTkwQ1RXVDFOVzBIVk5US0g5T0NBM0NBWi4u&route=shorturl" target="_blank" text="Take Test Now" className="mt-6" />
+                  <Btn link="https://forms.office.com/r/efisy50hkD?origin=lprLink" target="_blank" text="Take Test Now" className="mt-6" />
 
                   {/* <Btn link="https://alltalentz.com/cbt" target="_blank" text="Take Test Now" className="mt-6" /> */}
                   
@@ -629,7 +630,7 @@ export default function BootCamp() {
       <section id="bootcampVideos">
 
       <ConferenceVideo 
-        title="Bootcamp Testimonials"
+        title="PDP Testimonials"
         description="Watch our students transform into industry professionals."
         videos={bootcampVideos}
       />
@@ -651,12 +652,12 @@ export default function BootCamp() {
       /> */}
 
       <Faq 
-        title="Bootcamp FAQs"
-        description="Common questions about our bootcamp program"
+        title="PDP FAQs"
+        description="Common questions about our professional development program"
         faqs={[
           {
-            question: "How long is the bootcamp program?",
-            answer: "Our bootcamp is an intensive 90-day program designed to transform you into an industry-ready professional."
+            question: "How long is the professional development program?",
+            answer: "Our professional development program is an intensive 90-day program designed to transform you into an industry-ready professional."
           },
           {
             question: "What are the prerequisites for joining?",

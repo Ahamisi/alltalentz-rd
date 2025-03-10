@@ -133,7 +133,7 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
                       href="/bootcamp" 
                       className={getDropdownItemClassName('/bootcamp')}
                     >
-                      Join Bootcamp
+                      Join our PDP
                     </Link>
                     <Link 
                       href="/our-watchlist" 
