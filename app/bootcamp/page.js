@@ -352,7 +352,7 @@ export default function BootCamp() {
                 onClick={toggleModal}
                 className="bg-[#F99621] text-black px-8 py-4 rounded font-bold hover:bg-opacity-90 transition-all"
               >
-                Apply to our professional development programme
+                Apply to our PDP
               </button>
               
               <a 
