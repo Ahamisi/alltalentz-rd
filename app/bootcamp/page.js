@@ -23,7 +23,7 @@ export default function BootCamp() {
   
 
   const [isDuplicate, setIsDuplicate] = useState(null);
-  const [bootCampOver, setBootCampOver] = useState(false);
+  const [bootCampOver, setBootCampOver] = useState(true);
 
 
 
