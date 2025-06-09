@@ -98,7 +98,7 @@ const ContactForm = ({ services = [] }) => {
                     </div>
                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                     <p className="text-gray-600">We will keep you updated via email.</p><br/>
-                    <Btn link="https://calendly.com/akwaowowillie" target="_blank" text="Meet With Us" className="mt-6" />
+                    <Btn link="https://calendly.com/mnwoseh" target="_blank" text="Meet With Us" className="mt-6" />
                 </div>
             ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">

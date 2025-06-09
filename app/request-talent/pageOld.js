@@ -174,7 +174,7 @@ export default function RequestTalent() {
                 // Show success message or redirect to a thank you page
                 console.log("Email sent successfully!");
 
-                redirect ? route.push('https://calendly.com/akwaowowillie') : setShowConfetti(true);
+                redirect ? route.push('https://calendly.com/mnwoseh') : setShowConfetti(true);
 
                 
                 // Add any further logic here for success actions
@@ -225,7 +225,7 @@ export default function RequestTalent() {
                 </p>
                <div className="flex md:block flex-column mt-6 md:mt-0">
                <Btn action={toggleModal} text="Get Started" otherCSS="md:mt-6"/>
-                {/* <Btn link="https://calendly.com/akwaowowillie" target="_blank" border={true} text="Meet With Us" otherCSS="mt-[10px] md:mt-6 md:ml-[10px] text-center"/> */}
+                {/* <Btn link="https://calendly.com/mnwoseh" target="_blank" border={true} text="Meet With Us" otherCSS="mt-[10px] md:mt-6 md:ml-[10px] text-center"/> */}
 
                </div>
 
@@ -260,7 +260,7 @@ export default function RequestTalent() {
                                     </div>
                                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                                     <p className="text-gray-600">We will keep you updated via email.</p><br/>
-                                    <Btn link="https://calendly.com/akwaowowillie" target="_blank" text="Meet With Us" className="mt-6" />
+                                    <Btn link="https://calendly.com/mnwoseh" target="_blank" text="Meet With Us" className="mt-6" />
                                 </div>
                             ) : (
                             <form onSubmit={handleSubmit} className="text-[#A6A6A6]">

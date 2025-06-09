@@ -105,7 +105,7 @@ const Header = ({active='home', type="", theme="dark"}) => {
       </div>
 
       {/* CTA Button */}
-      {/* <Btn text="Meet with us" border={true} link="https://calendly.com/akwaowowillie" target="_blank" otherCSS="hidden lg:block"/> */}
+      {/* <Btn text="Meet with us" border={true} link="https://calendly.com/mnwoseh" target="_blank" otherCSS="hidden lg:block"/> */}
 
       {
         type !== "bootcamp" &&  <Btn text="Join PDP" border={true} link="/professional-development-programme" otherCSS="hidden lg:block"/>
