@@ -388,7 +388,7 @@ export default function Hackathon() {
           {/* Image Collage */}
           <div className="flex justify-center max-w-6xl mx-auto">
             <Image
-              src="/hackathon/hackathon-collage.svg"
+              src="/hackathon/hackathon-collage.png"
               alt="Hackathon participants and tech innovation collage"
               width={1200}
               height={400}
