@@ -301,24 +301,27 @@ export default function Hackathon() {
             <div className="p-4">
               <div className="flex justify-between items-center mb-8">
                 <Image
-                  src="/all-talents-footer.svg"
+                  src="/hackathon/alltalentz.svg"
                   alt="All Talentz"
                   width={120}
                   height={32}
                   className="h-auto"
                 />
-                <button onClick={() => setMobileMenuOpen(false)}>
+                <button 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-8 w-8 text-black"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    strokeWidth={2}
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
                       d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
@@ -869,7 +872,7 @@ export default function Hackathon() {
                 Call for submission
               </h3>
               <p className="text-gray-600 text-sm md:text-base">
-                Kickoff & team formation
+                Sign up for the Hackathon.
               </p>
             </div>
             
@@ -891,10 +894,10 @@ export default function Hackathon() {
                 ></div>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Submission deadline
+                Registration Deadline
               </h3>
               <p className="text-gray-600 text-sm md:text-base">
-                Mentorship & solution building.
+                Goodluck on your submissions!
               </p>
             </div>
             
@@ -919,7 +922,7 @@ export default function Hackathon() {
                 Teams Announcement
               </h3>
               <p className="text-gray-600 text-sm md:text-base">
-                Prototyping & Testing
+                Get ready for the main event!
               </p>
             </div>
           </div>
