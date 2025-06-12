@@ -56,18 +56,33 @@ const judges = [
 const rules = [
   {
     id: 1,
-    question: "Who can participate",
-    answer: "Open to all students, recent graduates, and young professionals aged 18-30. Teams must have 3-5 members with at least one technical member."
+    question: "Who can participate?",
+    answer: `Nigerian youth — NYSC graduates, Post-NYSC, or employable individuals.\nYou must form a team of at least 3 members to participate.`
   },
   {
     id: 2,
-    question: "How to submit an entry",
-    answer: "Register your team through our online portal, submit your problem statement (max 500 words), and wait for selection confirmation."
+    question: "How to submit an entry?",
+    answer: `You will submit your team registration via the Hackathon Microsite.\nDuring registration, you'll provide your team info, problem statement, and initial solution idea.`
   },
   {
     id: 3,
-    question: "Submission Requirements",
-    answer: "Teams must submit a working prototype, demo video (max 3 minutes), technical documentation, and business plan presentation."
+    question: "Submission requirements?",
+    answer: `Your submission must include:\n\n- A clear problem statement\n- A proposed tech-driven solution\n- A working MVP or prototype (required for Demo Day — UI mockup only is not enough)\n- A demo presentation for final judging.`
+  },
+  {
+    id: 4,
+    question: "What are the team requirements?",
+    answer: `Each team must have a minimum of 3 members.\nYou can add more members, but all must be registered as part of your team.`
+  },
+  {
+    id: 5,
+    question: "What solution types are allowed?",
+    answer: `Tech-based solutions that address one of the 8 Hackathon tracks.\nYour project must be original and developed during the Hackathon period.`
+  },
+  {
+    id: 6,
+    question: "What are the rules on intellectual property?",
+    answer: `All submitted solutions remain the intellectual property of the participants.\nHowever, All Talentz may highlight and promote winning projects with participant consent.`
   }
 ];
 
@@ -75,18 +90,43 @@ const rules = [
 const faqs = [
   {
     id: 1,
-    question: "How do i start?",
-    answer: "Start by forming your team of 3-5 members, then register through our portal and submit your problem statement before the deadline."
+    question: "How do I start?",
+    answer: `Click "Apply Now" to register your team.\nFollow the instructions and complete your submission before the deadline.`
   },
   {
     id: 2,
-    question: "Can i submit a custom code?",
-    answer: "Yes, you can use any programming language, framework, or technology stack. All code must be original work created during the hackathon period."
+    question: "Can I submit a custom code?",
+    answer: `Yes! You are encouraged to build a real MVP or working prototype with your own code or tech stack of choice.`
   },
   {
     id: 3,
-    question: "How do i win a prize?",
-    answer: "Winners are selected based on innovation, technical execution, business viability, and potential impact. Present your solution clearly during demo day."
+    question: "How do I win a prize?",
+    answer: `Judging criteria:\n\n- Innovation (30%)\n- Impact (30%)\n- Feasibility (20%)\n- Presentation (10%)\n- Creativity (10%)\n\nYour solution should be practical, scalable, and deliver real-world value.`
+  },
+  {
+    id: 4,
+    question: "Can individuals participate alone?",
+    answer: `No. You must form a team of at least 3 members to participate.`
+  },
+  {
+    id: 5,
+    question: "Can I join more than one team?",
+    answer: `No. You can only participate as part of one registered team.`
+  },
+  {
+    id: 6,
+    question: "Do I need to attend Demo Day in person?",
+    answer: `Demo Day will be a Hybrid event. Teams may present virtually or in-person at the designated venue in Lagos.`
+  },
+  {
+    id: 7,
+    question: "What kind of mentorship will I receive?",
+    answer: `Shortlisted teams will receive guidance from industry mentors during the Hackathon period to help refine and improve their solutions.`
+  },
+  {
+    id: 8,
+    question: "Will travel or accommodation be provided?",
+    answer: `For selected in-person participants, All Talentz may offer support for transportation within Lagos for Demo Day. Details will be communicated to shortlisted teams.`
   }
 ];
 
