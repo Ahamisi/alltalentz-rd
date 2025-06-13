@@ -269,7 +269,7 @@ export default function Hackathon() {
 
           {/* Register Button */}
           <Link 
-            href="https://forms.microsoft.com/pages/responsepage.aspx?id=your-form-id"
+            href="https://forms.office.com/r/WDsvt4BR59?origin=lprLink"
             target="_blank"
             className="hidden md:block bg-[#F99621] hover:bg-black text-white px-8 py-3 rounded-lg transition-colors"
           >
@@ -364,7 +364,7 @@ export default function Hackathon() {
                   Rules
                 </Link>
                 <Link
-                  href="https://forms.microsoft.com/pages/responsepage.aspx?id=your-form-id"
+                  href="https://forms.office.com/r/WDsvt4BR59?origin=lprLink"
                   target="_blank"
                   className="bg-[#F99621] hover:bg-black text-white px-8 py-3 rounded-lg transition-colors text-center"
                   onClick={() => setMobileMenuOpen(false)}
@@ -412,7 +412,7 @@ export default function Hackathon() {
             {/* Description and CTA */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
               <Link 
-                href="https://forms.microsoft.com/pages/responsepage.aspx?id=your-form-id"
+                href="https://forms.office.com/r/WDsvt4BR59?origin=lprLink"
                 target="_blank"
                 className="bg-[#F99621] hover:bg-black text-black hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
