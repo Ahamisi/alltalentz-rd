@@ -86,6 +86,54 @@ const rules = [
   }
 ];
 
+// Rules Modal data object - shorter statements for the modal
+const rulesModal = [
+  {
+    id: 1,
+    text: "Teams must have a minimum of 3 members."
+  },
+  {
+    id: 2,
+    text: "Participants must be employable Nigerian youth (NYSC, Post-NYSC, graduates)."
+  },
+  {
+    id: 3,
+    text: "All submissions must be original solutions — plagiarism will result in disqualification."
+  },
+  {
+    id: 4,
+    text: "Final Demo Day submissions should include a working MVP or prototype."
+  },
+  {
+    id: 5,
+    text: "Collaboration will happen via provided platforms (Slack, Teams, etc.)."
+  },
+  {
+    id: 6,
+    text: "Judging criteria: Innovation (30%), Impact (30%), Feasibility (20%), Presentation (10%), Creativity (10%)."
+  }
+];
+
+// Mentorship Modal data object
+const mentorshipModal = [
+  {
+    id: 1,
+    text: "Access to industry experts across the 8 challenge tracks."
+  },
+  {
+    id: 2,
+    text: "Personalized feedback on your solution & pitch."
+  },
+  {
+    id: 3,
+    text: "A dedicated mentor will be assigned to each team during the 4-week Main Hackathon"
+  },
+  {
+    id: 4,
+    text: "Workshops on prototyping, business modeling & presentation skills."
+  }
+];
+
 // FAQs data object
 const faqs = [
   {
@@ -198,6 +246,8 @@ export default function Hackathon() {
   const [openRules, setOpenRules] = useState({});
   const [openFaqs, setOpenFaqs] = useState({});
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [rulesModalOpen, setRulesModalOpen] = useState(false);
+  const [mentorshipModalOpen, setMentorshipModalOpen] = useState(false);
 
   const toggleRule = (id) => {
     setOpenRules(prev => ({
@@ -282,14 +332,14 @@ export default function Hackathon() {
               Prize
             </a>
             <a 
-              href="#judges" 
+              href="#challenge-tracks" 
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('judges');
+                scrollToSection('challenge-tracks');
               }}
               className="text-black hover:text-[#F99621] transition-colors cursor-pointer"
             >
-              Team
+              Challenges
             </a>
             <a 
               href="#faqs" 
@@ -397,15 +447,15 @@ export default function Hackathon() {
                   Prize
                 </a>
                 <a
-                  href="#judges"
+                  href="#challenge-tracks"
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection('judges');
+                    scrollToSection('challenge-tracks');
                     setMobileMenuOpen(false);
                   }}
                   className="text-black hover:text-[#F99621] transition-colors text-lg cursor-pointer"
                 >
-                  Team
+                  Challenges
                 </a>
                 <a
                   href="#faqs"
@@ -548,7 +598,7 @@ export default function Hackathon() {
                 Pick from 8 challenge tracks and build real-world tech solutions.
               </p>
               <a 
-                href="#challenge-tracks"
+                href="#challenge-tracks" 
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection('challenge-tracks');
@@ -570,16 +620,17 @@ export default function Hackathon() {
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                 Simple rules, big reward. See how to qualify
               </p>
-              <a 
-                href="#rules"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('rules');
-                }}
+              <button 
+                // href="#rules"
+                // onClick={(e) => {
+                //   e.preventDefault();
+                //   scrollToSection('rules');
+                // }}
+                onClick={() => setRulesModalOpen(true)}
                 className="bg-[#F99621] hover:bg-black text-black hover:text-white px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 inline-block cursor-pointer"
               >
                 Learn more...
-              </a>
+              </button>
             </div>
             
             {/* Mentorship Column */}
@@ -593,26 +644,22 @@ export default function Hackathon() {
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                 You will create a disruptive and innovative idea for the restoration industry.
               </p>
-              <a 
-                href="#hackathon-journey"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('hackathon-journey');
-                }}
+              <button 
+                onClick={() => setMentorshipModalOpen(true)}
                 className="bg-[#F99621] hover:bg-black text-black hover:text-white px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 inline-block cursor-pointer"
               >
                 Learn more...
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
       
       {/* Challenge Tracks Section */}
-      <section id="challenge-tracks" className="bg-white py-16 px-4 md:px-8">
+      <section id="challenge-tracks" className="bg-black py-16 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 
-            className="text-2xl md:text-3xl font-normal text-gray-800 mb-12 text-left leading-tight"
+            className="text-2xl md:text-3xl font-normal text-white mb-12 text-left leading-tight text-white text-center"
             style={{ fontFamily: 'Digital Numbers, monospace' }}
           >
             CHALLENGE TRACKS
@@ -621,204 +668,110 @@ export default function Hackathon() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Education Track */}
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
-              <div className="absolute inset-0">
-                <Image
+              <div className="">
+                <img
                   src="/hackathon/challenges/education.jpg"
                   alt="Education background"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/50"></div>
-              </div>
-              <div className="relative h-full p-6 flex flex-col justify-between">
-                <div className="w-12 h-12 rounded-xl flex items-left justify-left">
-                  <Image
-                    src="/hackathon/icons/education.svg"
-                    alt="Education icon"
-                    width={28}
-                    height={28}
-                  />
-                </div>
-                <h3 className="text-2xl font-semibold text-black">Education</h3>
               </div>
             </div>
 
             {/* FinTech Track */}
+
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
-              <div className="absolute inset-0">
-                <Image
+              <div className="">
+                <img
                   src="/hackathon/challenges/fintech.jpg"
                   alt="FinTech background"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/50"></div>
-              </div>
-              <div className="relative h-full p-6 flex flex-col justify-between">
-                <div className="w-12 h-12 rounded-xl flex items-left justify-left">
-                  <Image
-                    src="/hackathon/icons/fintech.svg"
-                    alt="FinTech icon"
-                    width={28}
-                    height={28}
-                  />
-                </div>
-                <h3 className="text-2xl font-semibold text-black">FinTech</h3>
               </div>
             </div>
+           
 
             {/* Health Track */}
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
-              <div className="absolute inset-0">
-                <Image
+              <div className="">
+                <img
                   src="/hackathon/challenges/health.jpg"
-                  alt="Health background"
+                  alt="Education background"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/50"></div>
-              </div>
-              <div className="relative h-full p-6 flex flex-col justify-between">
-                <div className="w-12 h-12 rounded-xl flex items-left justify-left">
-                  <Image
-                    src="/hackathon/icons/health.svg"
-                    alt="Health icon"
-                    width={28}
-                    height={28}
-                  />
-                </div>
-                <h3 className="text-2xl font-semibold text-black">Health</h3>
               </div>
             </div>
 
             {/* Governance Track */}
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
-              <div className="absolute inset-0">
-                <Image
+              <div className="">
+                <img
                   src="/hackathon/challenges/governance.jpg"
                   alt="Governance background"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/50"></div>
-              </div>
-              <div className="relative h-full p-6 flex flex-col justify-between">
-                <div className="w-12 h-12 rounded-xl flex items-left justify-left">
-                  <Image
-                    src="/hackathon/icons/governance.svg"
-                    alt="Governance icon"
-                    width={28}
-                    height={28}
-                  />
-                </div>
-                <h3 className="text-2xl font-semibold text-black">Governance</h3>
               </div>
             </div>
 
             {/* AgriTech Track */}
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
-              <div className="absolute inset-0">
-                <Image
+              <div className="">
+                <img
                   src="/hackathon/challenges/agritech.jpg"
                   alt="AgriTech background"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/50"></div>
-              </div>
-              <div className="relative h-full p-6 flex flex-col justify-between">
-                <div className="w-12 h-12 rounded-xl flex items-left justify-left">
-                  <Image
-                    src="/hackathon/icons/agritech.svg"
-                    alt="AgriTech icon"
-                    width={28}
-                    height={28}
-                  />
-                </div>
-                <h3 className="text-2xl font-semibold text-black">AgriTech</h3>
               </div>
             </div>
 
             {/* Smart Mobility Track */}
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
-              <div className="absolute inset-0">
-                <Image
+                <img
                   src="/hackathon/challenges/smart-mobility.jpg"
                   alt="Smart Mobility background"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/50"></div>
-              </div>
-              <div className="relative h-full p-6 flex flex-col justify-between">
-                <div className="w-12 h-12 rounded-xl flex items-left justify-left">
-                  <Image
-                    src="/hackathon/icons/smart-mobility.svg"
-                    alt="Smart Mobility icon"
-                    width={28}
-                    height={28}
-                  />
-                </div>
-                <h3 className="text-2xl font-semibold text-black">Smart Mobility</h3>
               </div>
             </div>
-          </div>
           
           {/* AI in Housing and Youth Employment in a separate centered container */}
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* AI in Housing */}
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
-              <div className="absolute inset-0">
-                <Image
+              <div className="">
+                <img
                   src="/hackathon/challenges/ai-in-housing.jpg"
                   alt="AI in Housing background"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/50"></div>
               </div>
-              <div className="relative h-full p-6 flex flex-col justify-between">
-                <div className="w-12 h-12 rounded-xl flex items-left justify-left">
-                  <Image
-                    src="/hackathon/icons/ai-in-housing.svg"
-                    alt="AI in Housing icon"
-                    width={28}
-                    height={28}
-                  />
-                </div>
-                <h3 className="text-2xl font-semibold text-black">AI in Housing</h3>
-              </div>
+              
             </div>
 
             {/* Youth Employment */}
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
               <div className="absolute inset-0">
-                <Image
+                <img
                   src="/hackathon/challenges/youth-employment.jpg"
                   alt="Youth Employment background"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/50"></div>
               </div>
-              <div className="relative h-full p-6 flex flex-col justify-between">
-                <div className="w-12 h-12 rounded-xl flex items-left justify-left">
-                  <Image
-                    src="/hackathon/icons/youth-employment.svg"
-                    alt="Youth Employment icon"
-                    width={28}
-                    height={28}
-                  />
-                </div>
-                <h3 className="text-2xl font-semibold text-black">Youth Employment</h3>
-              </div>
+             
             </div>
           </div>
         </div>
       </section>
       
       {/* Meet Our Judges Section */}
-      <section id="judges" className="bg-gray-50 py-16 px-4 md:px-8">
+      {/* <section id="judges" className="bg-gray-50 py-16 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-left mb-16">
             <h2 
@@ -848,7 +801,6 @@ export default function Hackathon() {
                   className="object-cover"
                 />
                 
-                {/* Judge Info Overlay */}
                 <div className="absolute bottom-10 right-0 ml-auto w-4/5">
                   <div className="bg-[#FFB300] text-white px-4 py-3">
                     <h3 className="font-bold text-lg text-left">{judge.name}</h3>
@@ -861,7 +813,7 @@ export default function Hackathon() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       
       {/* Hackathon Journey Section */}
       <section id="hackathon-journey" className="bg-white py-16 px-4 md:px-8">
@@ -1449,7 +1401,10 @@ export default function Hackathon() {
           
           {/* Learn More Button */}
           <div className="text-center mt-12">
-            <button className="bg-[#F99621] hover:bg-black text-black hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300">
+            <button 
+              onClick={() => setRulesModalOpen(true)}
+              className="bg-[#F99621] hover:bg-black text-black hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300"
+            >
               Learn more...
             </button>
           </div>
@@ -1457,9 +1412,8 @@ export default function Hackathon() {
       </section>
       
       {/* Partners Section */}
-      <section className="bg-white py-16 px-4 md:px-8">
+      {/* <section className="bg-white py-16 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Partners Heading */}
           <div className="text-center mb-16">
             <h2 
               className="text-4xl md:text-6xl lg:text-7xl font-normal leading-none"
@@ -1472,7 +1426,6 @@ export default function Hackathon() {
             </h2>
           </div>
           
-          {/* Partners Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 items-center">
             {partners.map((partner) => (
               <div key={partner.id} className="flex items-center justify-center p-4">
@@ -1494,7 +1447,7 @@ export default function Hackathon() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Acquire Innovators Section */}
       <section className="bg-white py-16 px-4 md:px-8 overflow-hidden">
@@ -1521,11 +1474,9 @@ export default function Hackathon() {
                 Build your dream team without burning through your funding.
               </p>
               <a 
-                href="#register"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('register');
-                }}
+                href="https://forms.office.com/r/WDsvt4BR59?origin=lprLink"
+                target="_blank"
+               
                 className="inline-block bg-[#FF9500] hover:bg-[#FF9500]/90 text-black font-medium px-8 py-4 rounded-lg text-lg transition-colors cursor-pointer"
               >
                 Register to attend
@@ -1597,6 +1548,150 @@ export default function Hackathon() {
          
         </div>
       </footer>
+
+      {/* Rules Modal */}
+      {rulesModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+          <div 
+            className="rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto relative"
+            style={{
+            //   backgroundImage: "url('/hackathon/bg-texture.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: '#131313'
+            }}
+          >
+            {/* Modal Header */}
+            <div className="flex justify-between items-center p-6">
+              <div className="flex-1"></div>
+              <h2 
+                className="text-4xl md:text-5xl font-normal text-white text-center flex-1"
+                style={{ fontFamily: 'Digital Numbers, monospace' }}
+              >
+                RULES
+              </h2>
+              <div className="flex-1 flex justify-end">
+                <button 
+                  onClick={() => setRulesModalOpen(false)}
+                  className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 pt-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {rulesModal.map((rule) => (
+                  <div key={rule.id} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    {/* Orange star icon */}
+                    <div className="mb-4">
+                      <Image
+                        src="/hackathon/icons/star.svg"
+                        alt="Star icon"
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                    
+                    {/* Rule content */}
+                    <p className="text-gray-800 text-sm leading-relaxed font-medium">
+                      {rule.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mentorship Modal */}
+      {mentorshipModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+          <div 
+            className="rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto relative"
+            style={{
+            //   backgroundImage: "url('/hackathon/bg-texture.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: '#131313'
+            }}
+          >
+            {/* Modal Header */}
+            <div className="flex justify-between items-center p-6">
+              <div className="flex-1"></div>
+              <h2 
+                className="text-4xl md:text-5xl font-normal text-white text-center flex-1"
+                style={{ fontFamily: 'Digital Numbers, monospace' }}
+              >
+                MENTORSHIP
+              </h2>
+              <div className="flex-1 flex justify-end">
+                <button 
+                  onClick={() => setMentorshipModalOpen(false)}
+                  className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 pt-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {mentorshipModal.map((item) => (
+                  <div key={item.id} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    {/* Orange star icon */}
+                    <div className="mb-4">
+                      <Image
+                        src="/hackathon/icons/star.svg"
+                        alt="Star icon"
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                    
+                    {/* Mentorship content */}
+                    <p className="text-gray-800 text-sm leading-relaxed font-medium">
+                      {item.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
     </>
   );
