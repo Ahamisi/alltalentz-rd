@@ -213,6 +213,17 @@ export default function Hackathon() {
     }));
   };
 
+  // Add smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <>
       <Head>
@@ -250,21 +261,56 @@ export default function Hackathon() {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#what-is" className="text-black hover:text-[#F99621] transition-colors">
+            <a 
+              href="#what-is" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('what-is');
+              }}
+              className="text-black hover:text-[#F99621] transition-colors cursor-pointer"
+            >
               About
-            </Link>
-            <Link href="#prizes" className="text-black hover:text-[#F99621] transition-colors">
+            </a>
+            <a 
+              href="#prizes" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('prizes');
+              }}
+              className="text-black hover:text-[#F99621] transition-colors cursor-pointer"
+            >
               Prize
-            </Link>
-            <Link href="#judges" className="text-black hover:text-[#F99621] transition-colors">
+            </a>
+            <a 
+              href="#judges" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('judges');
+              }}
+              className="text-black hover:text-[#F99621] transition-colors cursor-pointer"
+            >
               Team
-            </Link>
-            <Link href="#faqs" className="text-black hover:text-[#F99621] transition-colors">
+            </a>
+            <a 
+              href="#faqs" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('faqs');
+              }}
+              className="text-black hover:text-[#F99621] transition-colors cursor-pointer"
+            >
               FAQs
-            </Link>
-            <Link href="#rules" className="text-black hover:text-[#F99621] transition-colors">
+            </a>
+            <a 
+              href="#rules" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('rules');
+              }}
+              className="text-black hover:text-[#F99621] transition-colors cursor-pointer"
+            >
               Rules
-            </Link>
+            </a>
           </nav>
 
           {/* Register Button */}
@@ -328,41 +374,61 @@ export default function Hackathon() {
                 </button>
               </div>
               <nav className="flex flex-col space-y-4">
-                <Link
+                <a
                   href="#what-is"
-                  className="text-black hover:text-[#F99621] transition-colors text-lg"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('what-is');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-black hover:text-[#F99621] transition-colors text-lg cursor-pointer"
                 >
                   About
-                </Link>
-                <Link
+                </a>
+                <a
                   href="#prizes"
-                  className="text-black hover:text-[#F99621] transition-colors text-lg"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('prizes');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-black hover:text-[#F99621] transition-colors text-lg cursor-pointer"
                 >
                   Prize
-                </Link>
-                <Link
+                </a>
+                <a
                   href="#judges"
-                  className="text-black hover:text-[#F99621] transition-colors text-lg"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('judges');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-black hover:text-[#F99621] transition-colors text-lg cursor-pointer"
                 >
                   Team
-                </Link>
-                <Link
+                </a>
+                <a
                   href="#faqs"
-                  className="text-black hover:text-[#F99621] transition-colors text-lg"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('faqs');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-black hover:text-[#F99621] transition-colors text-lg cursor-pointer"
                 >
                   FAQs
-                </Link>
-                <Link
+                </a>
+                <a
                   href="#rules"
-                  className="text-black hover:text-[#F99621] transition-colors text-lg"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('rules');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-black hover:text-[#F99621] transition-colors text-lg cursor-pointer"
                 >
                   Rules
-                </Link>
+                </a>
                 <Link
                   href="https://forms.office.com/r/WDsvt4BR59?origin=lprLink"
                   target="_blank"
@@ -481,12 +547,16 @@ export default function Hackathon() {
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                 Pick from 8 challenge tracks and build real-world tech solutions.
               </p>
-              <Link 
+              <a 
                 href="#challenge-tracks"
-                className="bg-[#F99621] hover:bg-black text-black hover:text-white px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 inline-block"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('challenge-tracks');
+                }}
+                className="bg-[#F99621] hover:bg-black text-black hover:text-white px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 inline-block cursor-pointer"
               >
                 Learn more...
-              </Link>
+              </a>
             </div>
             
             {/* Rules Column */}
@@ -500,12 +570,16 @@ export default function Hackathon() {
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                 Simple rules, big reward. See how to qualify
               </p>
-              <Link 
+              <a 
                 href="#rules"
-                className="bg-[#F99621] hover:bg-black text-black hover:text-white px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 inline-block"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('rules');
+                }}
+                className="bg-[#F99621] hover:bg-black text-black hover:text-white px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 inline-block cursor-pointer"
               >
                 Learn more...
-              </Link>
+              </a>
             </div>
             
             {/* Mentorship Column */}
@@ -519,12 +593,16 @@ export default function Hackathon() {
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                 You will create a disruptive and innovative idea for the restoration industry.
               </p>
-              <Link 
+              <a 
                 href="#hackathon-journey"
-                className="bg-[#F99621] hover:bg-black text-black hover:text-white px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 inline-block"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('hackathon-journey');
+                }}
+                className="bg-[#F99621] hover:bg-black text-black hover:text-white px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 inline-block cursor-pointer"
               >
                 Learn more...
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -1442,12 +1520,16 @@ export default function Hackathon() {
               <p className="text-xl md:text-2xl text-gray-600 mb-8">
                 Build your dream team without burning through your funding.
               </p>
-              <Link 
+              <a 
                 href="#register"
-                className="inline-block bg-[#FF9500] hover:bg-[#FF9500]/90 text-black font-medium px-8 py-4 rounded-lg text-lg transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('register');
+                }}
+                className="inline-block bg-[#FF9500] hover:bg-[#FF9500]/90 text-black font-medium px-8 py-4 rounded-lg text-lg transition-colors cursor-pointer"
               >
                 Register to attend
-              </Link>
+              </a>
             </div>
           </div>
         </div>
