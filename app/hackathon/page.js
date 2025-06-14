@@ -670,10 +670,10 @@ export default function Hackathon() {
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
               <div className="">
                 <img
-                  src="/hackathon/challenges/education.jpg"
+                  src="/hackathon/challenges/education.png"
                   alt="Education background"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform scale-105 duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -683,10 +683,10 @@ export default function Hackathon() {
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
               <div className="">
                 <img
-                  src="/hackathon/challenges/fintech.jpg"
+                  src="/hackathon/challenges/fintech.png"
                   alt="FinTech background"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform scale-105 duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -699,7 +699,7 @@ export default function Hackathon() {
                   src="/hackathon/challenges/health.jpg"
                   alt="Education background"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform scale-105 duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -711,7 +711,7 @@ export default function Hackathon() {
                   src="/hackathon/challenges/governance.jpg"
                   alt="Governance background"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform scale-105 duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -723,7 +723,7 @@ export default function Hackathon() {
                   src="/hackathon/challenges/agritech.jpg"
                   alt="AgriTech background"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform scale-105 duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -731,10 +731,10 @@ export default function Hackathon() {
             {/* Smart Mobility Track */}
             <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
                 <img
-                  src="/hackathon/challenges/smart-mobility.jpg"
+                  src="/hackathon/challenges/smart-mobility.png"
                   alt="Smart Mobility background"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform scale-105 duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -742,26 +742,26 @@ export default function Hackathon() {
           {/* AI in Housing and Youth Employment in a separate centered container */}
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* AI in Housing */}
-            <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
+            <div className="relative group overflow-hidden rounded-2xl h-[180px] cursor-pointer">
               <div className="">
                 <img
-                  src="/hackathon/challenges/ai-in-housing.jpg"
+                  src="/hackathon/challenges/ai-in-housing.png"
                   alt="AI in Housing background"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform scale-105 duration-300 group-hover:scale-110"
                 />
               </div>
               
             </div>
 
             {/* Youth Employment */}
-            <div className="relative group overflow-hidden rounded-2xl h-[160px] cursor-pointer">
+            <div className="relative group overflow-hidden rounded-2xl h-[180px] cursor-pointer">
               <div className="absolute inset-0">
                 <img
-                  src="/hackathon/challenges/youth-employment.jpg"
+                  src="/hackathon/challenges/youth-employment.png"
                   alt="Youth Employment background"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform scale-105 duration-300 group-hover:scale-110"
                 />
               </div>
              
