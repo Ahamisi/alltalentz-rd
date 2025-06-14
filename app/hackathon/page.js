@@ -296,7 +296,7 @@ export default function Hackathon() {
       
       <main className="relative overflow-hidden">
       {/* Header */}
-      <header className="bg-white py-4 px-4 md:px-8">
+      <header className="bg-white py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-40 shadow-sm">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
@@ -495,7 +495,7 @@ export default function Hackathon() {
       
       {/* Hero Section */}
       <section 
-        className="relative py-16 px-4 md:px-8 bg-cover bg-center bg-no-repeat"
+        className="relative py-16 px-4 md:px-8 bg-cover bg-center bg-no-repeat pt-24 md:pt-28"
         style={{
           backgroundImage: "url('/hackathon/hackathon-bg.jpg')"
         }}
