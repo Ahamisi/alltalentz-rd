@@ -4,7 +4,7 @@ import MainFooter from "@/components/MainFooter";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import Head from "next/head";
+import Script from "next/script";
 
 // Judges data object for easy updates
 const judges = [
@@ -276,24 +276,6 @@ export default function Hackathon() {
 
   return (
     <>
-      <Head>
-        <title>All Talentz Hackathon 2025 | Build Solutions That Matter</title>
-        <meta name="description" content="Join Nigeria's leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders." />
-        <meta name="keywords" content="hackathon, Nigeria tech, innovation challenge, tech hackathon, All Talentz, tech competition" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="All Talentz Hackathon 2025 | Build Solutions That Matter" />
-        <meta property="og:description" content="Join Nigeria's leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders." />
-        <meta property="og:image" content="/hackathon/alltalentz.svg" />
-        
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="All Talentz Hackathon 2025" />
-        <meta property="twitter:description" content="Join Nigeria's leading tech hackathon. Build solutions that matter, compete for ₦10M in prizes." />
-        <meta property="twitter:image" content="/hackathon/alltalentz.svg" />
-      </Head>
-      
       <main className="relative overflow-hidden">
       {/* Header */}
       <header className="bg-white py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-40 shadow-sm">
