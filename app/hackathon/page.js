@@ -863,7 +863,7 @@ export default function Hackathon() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {/* June 16 */}
+            {/* June 18 */}
             <div className="text-left">
               <div className="mb-6">
                 <div 
@@ -873,7 +873,7 @@ export default function Hackathon() {
                     backgroundColor: '#FFB300'
                   }}
                 >
-                  JUNE 16
+                  JUNE 18
                 </div>
                 <div 
                   className="h-2 w-3/5"
@@ -888,7 +888,7 @@ export default function Hackathon() {
               </p>
             </div>
             
-            {/* June 27 */}
+            {/* July 4 */}
             <div className="text-left">
               <div className="mb-6">
                 <div 
@@ -898,7 +898,7 @@ export default function Hackathon() {
                     backgroundColor: '#FFB300'
                   }}
                 >
-                  JUNE 27
+                  JULY 4
                 </div>
                 <div 
                   className="h-2 w-3/5"
@@ -913,7 +913,7 @@ export default function Hackathon() {
               </p>
             </div>
             
-            {/* July 2 */}
+            {/* July 9 */}
             <div className="text-left">
               <div className="mb-6">
                 <div 
@@ -923,7 +923,7 @@ export default function Hackathon() {
                     backgroundColor: '#FFB300'
                   }}
                 >
-                  JULY 2
+                  JULY 9
                 </div>
                 <div 
                   className="h-2 w-3/5"
@@ -931,7 +931,7 @@ export default function Hackathon() {
                 ></div>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Teams Announcement
+                Selected Teams Announcement
               </h3>
               <p className="text-gray-600 text-sm md:text-base">
                 Get ready for the main event!
@@ -983,10 +983,10 @@ export default function Hackathon() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  July 7 - 11, 2025.
+                  July 14 - 18, 2025.
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
-                  Kickoff, onboarding, agent ideation
+                  Hackathon Kick-off, onboarding, team ideation
                 </p>
               </div>
               
@@ -1033,7 +1033,7 @@ export default function Hackathon() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  July 14 - 18, 2025
+                  July 21 - 25, 2025
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
                   Tooling deep dives, prototyping
@@ -1083,7 +1083,7 @@ export default function Hackathon() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  July - 21 - 25, 2025
+                  July 28 - August 1, 2025
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
                   Testing, integration, polish
@@ -1130,7 +1130,7 @@ export default function Hackathon() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  July 28 - August 1, 2025
+                  August 4 - 8, 2025
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
                 Pitching dry runs and Project submission on or before August 1
