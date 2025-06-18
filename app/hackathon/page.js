@@ -248,6 +248,7 @@ export default function Hackathon() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [rulesModalOpen, setRulesModalOpen] = useState(false);
   const [mentorshipModalOpen, setMentorshipModalOpen] = useState(false);
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
 
   const toggleRule = (id) => {
     setOpenRules(prev => ({
@@ -1479,8 +1480,16 @@ export default function Hackathon() {
                         <div className="col-span-1 flex md:block justify-center md:justify-self-auto">
                             <img src="/all-talents-footer.svg" alt="Footer Logo" />
                         </div>
+                        
                         <div className="col-span-1 text-white text-center text-sm md:text-auto">
+                        <button 
+                                onClick={() => setPrivacyModalOpen(true)}
+                                className="text-white text-sm hover:text-gray-300"
+                            >
+                                Terms & Conditions
+                        </button><br/>
                             © {new Date().getFullYear()} All Talentz LLC. All rights reserved.
+                            
                         </div>
                         <div className="col-span-1 flex justify-center items-center gap-[30px]">
                             {/* Add your social media icons here */}
@@ -1526,8 +1535,7 @@ export default function Hackathon() {
                     </div>
                 </div>    
 
-
-         
+     
         </div>
       </footer>
 
@@ -1602,6 +1610,220 @@ export default function Hackathon() {
           </div>
         </div>
       )}
+
+
+{privacyModalOpen && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+    <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative shadow-lg">
+      <div className="flex justify-between items-center p-6 border-b">
+        <h2 className="text-2xl font-bold text-gray-900">HACKATHON TERMS AND CONDITIONS</h2>
+        <button
+          onClick={() => setPrivacyModalOpen(false)}
+          className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div className="p-6">
+        {/* Replace this with your actual privacy policy content */}
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">1. Eligibility</span> <br/><br/>
+            <span className="">
+                1.1 This Hackathon is open to individuals who have attained the age of eighteen (18)
+                years at the time of registration and who possess the legal capacity to participate under
+                applicable laws. <br/><br/>
+                1.2 Participation may occur individually or as part of a team comprising no fewer
+                than three (3) and no more than five (5) members. <br/><br/>
+                1.3 Employees, affiliates, mentors, or judges affiliated with the organizing entity shall
+                not be eligible to participate as contestants. <br/><br/>
+                1.4 Any falsified registration information shall be grounds for disqualification, at the
+                sole discretion of the organizers. <br/><br/>
+            </span>
+        </p>
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">2. Registration and Participation</span> <br/><br/>
+            <span className="">
+                2.1 Registration shall be completed exclusively via the official platform designated by
+                the organizers. <br/><br/>
+                2.2 Participants must explicitly accept these Terms and Conditions as a precondition
+                to participation. <br/><br/>
+                2.3 Only submissions made within the stipulated deadline shall be considered
+                eligible. <br/><br/>
+                2.4 All official communications shall be conducted via Slack, Microsoft Teams, or
+                any other channel communicated by the organizers. <br/><br/>
+                2.5 All participant information collected during registration shall be used exclusively
+                for Hackathon coordination and future talent pipeline opportunities, in compliance with
+                the Nigeria Data Protection Regulation (NDPR). <br/><br/>
+            </span>
+        </p>
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">3. Event Structure and Timeline</span> <br/><br/>
+            <span className="">
+            3.1 The Hackathon shall be conducted in three (3) principal phases: (i) Submission
+            and Shortlisting; (ii) Mentorship and Development; and (iii) Demo Day and Final
+            Judging. <br/><br/>
+            3.2 Each phase will be governed by timelines communicated in advance by the
+            organizers. <br/><br/>
+            </span>
+        </p>
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">4. Judging and Appeals</span> <br/><br/>
+            <span className="">
+            4.1 Submissions shall be assessed based on the following criteria: Innovation (30%),
+            Feasibility (25%), Impact (25%), and Presentation (20%). <br/><br/>
+            4.2 Judging shall follow a blind review process in the initial phase to reduce bias. <br/><br/>
+            4.3 In the event of a scoring tie, teams with a working prototype will be prioritized
+            over idea-only submissions. <br/><br/>
+            4.4 Participants may appeal judging outcomes within forty-eight (48) hours of result
+            announcements. Appeals will be reviewed by an independent committee. <br/><br/>
+            </span>
+        </p>
+
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">5. Mentorship Support</span> <br/><br/>
+            <span className="">
+
+                5.1 Each team shall be assigned a mentor based on relevant expertise. Mentors shall
+                provide non-binding advisory support. <br/><br/>
+                5.2 Mentors must support all assigned teams equitably and must not claim ownership
+                over any team’s work. <br/><br/>
+               
+            </span>
+        </p>
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">6. Intellectual Property Rights</span> <br/><br/>
+            <span className="">
+
+            6.1 All intellectual property developed during the Hackathon shall be jointly owned
+            by the participants and organizers on a 50/50 basis, unless otherwise agreed in writing. <br/><br/>
+            6.2 Unauthorized use of another team's work will result in immediate disqualification. <br/><br/>
+            6.3 Participants represent and warrant that their submissions do not infringe upon
+            third-party rights. <br/><br/>
+               
+            </span>
+        </p>
+
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">7. Code of Conduct and Ethics</span> <br/><br/>
+            <span className="">
+
+            7.1 Participants, mentors, judges, and organizers must uphold fairness, transparency,
+            and professionalism throughout the Hackathon. <br/><br/>
+            7.2 Any form of harassment, discrimination, or unethical behavior shall result in
+            immediate disqualification. <br/><br/>
+            7.3 Judges must maintain impartiality and confidentiality. <br/><br/>
+            7.4 Organizers must disclose any conflicts of interest with participating teams. <br/><br/>
+               
+            </span>
+        </p>
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">8. Inclusivity and Accessibility</span> <br/><br/>
+            <span className="">
+            8.1 The Hackathon is committed to providing a welcoming and inclusive environment
+            for all participants regardless of gender, background, or disability. <br/><br/>
+            8.2 Reasonable accommodations shall be provided for participants with disabilities
+            (e.g., captioning, assistive technologies). <br/><br/>
+            </span>
+        </p>
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">9. Prizes and Recognition</span> <br/><br/>
+            <span className="">
+            9.1 Prizes shall be awarded to the top three (3) teams as determined by cumulative
+            scores. <br/><br/>
+            9.2 Additional non-monetary benefits may include incubation support, employment
+            referrals, or sponsorship opportunities. <br/><br/>
+            9.3 Participation does not guarantee post-event employment but enhances visibility
+            within the talent pipeline. <br/><br/>
+            </span>
+        </p>
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">10. Organizer Rights</span> <br/> <br/>
+            <span className="">
+            10.1 The organizers reserve the right to amend any part of the Hackathon structure,
+            rules, or deadlines. <br/> <br/>
+            10.2 The organizers may disqualify any team found to be in breach of these Terms
+            and Conditions. <br/> <br/>
+               
+            </span>
+        </p>
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">11. Limitation of Liability</span> <br/><br/>
+            <span className="">
+            11.1 The organizers shall not be held liable for any data loss, injury, or other damages
+            incurred during or as a result of participation in the Hackathon. <br/><br/>
+            </span>
+        </p>
+
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">12.Governing Law and Jurisdiction</span> <br/><br/>
+            <span className="">
+            12.1 These Terms and Conditions shall be governed by and construed in accordance
+            with the laws of the Federal Republic of Nigeria. <br/><br/>
+            12.2 Any disputes shall be resolved exclusively by the competent courts in Nigeria. <br/><br/>
+            </span>
+        </p>
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">13. Contact and Grievance Reporting</span> <br/><br/>
+            <span className="">
+                13.1 Participants may report ethical concerns or violations via the following: <br/><br/>
+                Email: ethics@alltalentz.com <br/>
+                Hotline: +2347035089708 <br/><br/>
+            </span>
+        </p>
+
+        <p className="text-gray-700 text-sm">
+             <span className="font-bold">14. Acceptance</span> <br/> <br/>
+            <span className="">
+            14.1 By participating in the Hackathon, participants acknowledge and agree to be
+            bound by these Terms and Conditions in their entirety. <br/><br/>
+            By ticking the checkbox below or providing your digital signature, you confirm that
+            you have read, understood, and agree to be legally bound by the Hackathon Terms and
+            Conditions provided by the organizers. <br/><br/>
+            You further acknowledge and accept that: <br/><br/>
+            - Your intellectual property rights may be shared with the organizers on a 50/50
+            basis. <br/><br/>
+            - Your personal data may be collected and used strictly for event coordination and
+            talent pipeline opportunities. <br/><br/>
+            - You will comply with the Code of Conduct, deadlines, and all Hackathon rules
+            as communicated. <br/><br/>
+            - Any violation may lead to disqualification or legal recourse under the laws of
+            the Federal Republic of Nigeria. <br/><br/>
+               
+            </span>
+        </p>
+
+    
+
+
+
+
+      </div>
+    </div>
+  </div>
+)}
+
 
       {/* Mentorship Modal */}
       {mentorshipModalOpen && (
