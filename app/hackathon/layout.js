@@ -21,7 +21,21 @@ export const metadata = {
 export default function HackathonLayout({ children }) {
   return (
     <>
-      {/* Google Tag Manager */}
+      {/* Google tag (gtag.js) - Place as high as possible */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17208890772"
+        strategy="afterInteractive"
+      />
+      <Script id="google-ads-config" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17208890772');
+        `}
+      </Script>
+
+      {/* Google Tag Manager - Place as high as possible */}
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -48,17 +62,17 @@ export default function HackathonLayout({ children }) {
         `}
       </Script>
 
+      {/* Google Tag Manager (noscript) - Immediately after opening body tag */}
+      <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCPKB87F"
+          height="0" width="0" style={{display:'none', visibility:'hidden'}}></iframe>
+      </noscript>
+
       {/* Meta Pixel Noscript */}
       <noscript>
         <img height="1" width="1" style={{display:'none'}}
           src="https://www.facebook.com/tr?id=426834159682080&ev=PageView&noscript=1"
         />
-      </noscript>
-
-      {/* Google Tag Manager (noscript) */}
-      <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCPKB87F"
-          height="0" width="0" style={{display:'none', visibility:'hidden'}}></iframe>
       </noscript>
 
       {children}
