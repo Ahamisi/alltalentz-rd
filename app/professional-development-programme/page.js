@@ -23,7 +23,7 @@ export default function BootCamp() {
   
 
   const [isDuplicate, setIsDuplicate] = useState(null);
-  const [bootCampOver, setBootCampOver] = useState(true);
+  const [bootCampOver, setBootCampOver] = useState(false);
 
 
 
@@ -200,7 +200,7 @@ export default function BootCamp() {
             if (prevCountdown === 0) {
               clearInterval(countdownInterval);
               console.log("done");
-              route.push("https://forms.office.com/r/efisy50hkD?origin=lprLink");
+              route.push("https://forms.office.com/r/WnuaQ8A3Mn?origin=lprLink");
               // route.push("https://forms.office.com/pages/responsepage.aspx?id=fhgFiTIHCkquTYO-BRMRBfQf36Oi-MZHkm_eYMKcGU9UMTkwQ1RXVDFOVzBIVk5US0g5T0NBM0NBWi4u&route=shorturl")
               // route.push("https://alltalentz.com/cbt");
               return prevCountdown; // Countdown should not change when it reaches 0
@@ -426,7 +426,7 @@ export default function BootCamp() {
                   </div>
                   <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                   <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>
-                  <Btn link="https://forms.office.com/r/efisy50hkD?origin=lprLink" target="_blank" text="Take Test Now" className="mt-6" />
+                  <Btn link="https://forms.office.com/r/WnuaQ8A3Mn?origin=lprLink" target="_blank" text="Take Test Now" className="mt-6" />
 
                   {/* <Btn link="https://alltalentz.com/cbt" target="_blank" text="Take Test Now" className="mt-6" /> */}
                   
