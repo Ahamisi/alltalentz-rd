@@ -22,7 +22,7 @@ import MainTestimony from "@/components/homeRD/MainTestimony";
 import Faq from "@/components/homeRD/Faq";
 
 export default function Home() {
-  const [pdpModalOpen, setPdpModalOpen] = useState(true); // Show PDP modal on page load
+  const [pdpModalOpen, setPdpModalOpen] = useState(false); // Show PDP modal on page load
 
 
   const clientVideos = [
