@@ -846,7 +846,7 @@ export default function Hackathon() {
               </h3>
               <div className="space-y-3 text-gray-600 text-sm md:text-base">
                 <p>Judges review submissions.</p>
-                <p>Top 50 teams are invited to join the main hackathon phase.</p>
+                <p>Top 10 teams are invited to join the main hackathon phase.</p>
               </div>
             </div>
           </div>
