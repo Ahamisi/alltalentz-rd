@@ -985,7 +985,7 @@ export default function Hackathon() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  July 14 - 18, 2025.
+                  July 21, 2025.
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
                   Hackathon Kick-off, onboarding, team ideation
@@ -1035,7 +1035,7 @@ export default function Hackathon() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  July 21 - 25, 2025
+                  July 28, 2025
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
                   Tooling deep dives, prototyping
@@ -1085,7 +1085,7 @@ export default function Hackathon() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  July 28 - August 1, 2025
+                  August 4, 2025
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
                   Testing, integration, polish
@@ -1132,7 +1132,7 @@ export default function Hackathon() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  August 4 - 8, 2025
+                  August 11, 2025
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
                 Pitching dry runs and Project submission on or before August 1
