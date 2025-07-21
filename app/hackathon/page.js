@@ -1135,7 +1135,7 @@ export default function Hackathon() {
                   August 11, 2025
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
-                Pitching dry runs and Project submission on or before August 1
+                Pitching dry runs and Project submissions
                 </p>
               </div>
               
