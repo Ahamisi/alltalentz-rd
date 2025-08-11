@@ -444,6 +444,8 @@ export default function BootCamp() {
                         🇬🇭 <span className="ml-1">Strictly for Candidates from Ghana</span>
                       </h2>
           
+          
+
                 <div className="mb-8">
                   <input
                     type="text"
