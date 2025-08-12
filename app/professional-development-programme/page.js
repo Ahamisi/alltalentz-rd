@@ -532,7 +532,7 @@ export default function BootCamp() {
                 </div>
           
                 <div className="mb-8">
-                  <label className="block text-gray-700 mb-1">Upload NYSC Cert.</label>
+                  <label className="block text-gray-700 mb-1">Upload NSS (National Service Scheme) Cert.</label>
                   <input
                     type="file"
                     name="nysc"
