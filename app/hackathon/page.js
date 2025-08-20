@@ -182,64 +182,64 @@ const faqs = [
 const partners = [
   {
     id: 1,
-    name: "PuroClean",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://puroclean.com"
+    name: "American Business Council",
+    logo: "/hackathon/partners/abc.png",
+    website: "https://www.abcnig.com"
   },
   {
     id: 2,
-    name: "WeScope",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://wescope.com"
+    name: "Jumia",
+    logo: "/hackathon/partners/jumia.png",
+    website: "https://www.jumia.com.ng"
   },
   {
     id: 3,
-    name: "ServPro",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://servpro.com"
+    name: "Tech Cabal",
+    logo: "/hackathon/partners/tech-cabal.png",
+    website: "https://techcabal.com/"
   },
-  {
-    id: 4,
-    name: "CleanSlate",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://cleanslate.com"
-  },
-  {
-    id: 5,
-    name: "TrueNorth",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://truenorth.com"
-  },
-  {
-    id: 6,
-    name: "365 Restoration",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://365restoration.com"
-  },
-  {
-    id: 7,
-    name: "Restoration Specialists",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://restoration-specialists.com"
-  },
-  {
-    id: 8,
-    name: "DRI",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://dri.com"
-  },
-  {
-    id: 9,
-    name: "CRDN",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://crdn.com"
-  },
-  {
-    id: 10,
-    name: "Property Damage",
-    logo: "/hackathon/partners/microsoft.png",
-    website: "https://property-damage.com"
-  }
+  // {
+  //   id: 4,
+  //   name: "CleanSlate",
+  //   logo: "/hackathon/partners/microsoft.png",
+  //   website: "https://cleanslate.com"
+  // },
+  // {
+  //   id: 5,
+  //   name: "TrueNorth",
+  //   logo: "/hackathon/partners/microsoft.png",
+  //   website: "https://truenorth.com"
+  // },
+  // {
+  //   id: 6,
+  //   name: "365 Restoration",
+  //   logo: "/hackathon/partners/microsoft.png",
+  //   website: "https://365restoration.com"
+  // },
+  // {
+  //   id: 7,
+  //   name: "Restoration Specialists",
+  //   logo: "/hackathon/partners/microsoft.png",
+  //   website: "https://restoration-specialists.com"
+  // },
+  // {
+  //   id: 8,
+  //   name: "DRI",
+  //   logo: "/hackathon/partners/microsoft.png",
+  //   website: "https://dri.com"
+  // },
+  // {
+  //   id: 9,
+  //   name: "CRDN",
+  //   logo: "/hackathon/partners/microsoft.png",
+  //   website: "https://crdn.com"
+  // },
+  // {
+  //   id: 10,
+  //   name: "Property Damage",
+  //   logo: "/hackathon/partners/microsoft.png",
+  //   website: "https://property-damage.com"
+  // }
 ];
 
 export default function Hackathon() {
@@ -1396,7 +1396,7 @@ export default function Hackathon() {
       </section>
       
       {/* Partners Section */}
-      {/* <section className="bg-white py-16 px-4 md:px-8">
+      <section className="bg-white py-16 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 
@@ -1410,7 +1410,7 @@ export default function Hackathon() {
             </h2>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 md:gap-12 items-center">
             {partners.map((partner) => (
               <div key={partner.id} className="flex items-center justify-center p-4">
                 <a 
@@ -1422,8 +1422,8 @@ export default function Hackathon() {
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} logo`}
-                    width={120}
-                    height={80}
+                    width={200}
+                    height={100}
                     className="object-contain max-w-full h-auto grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </a>
@@ -1431,7 +1431,7 @@ export default function Hackathon() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Acquire Innovators Section */}
       <section className="bg-white py-16 px-4 md:px-8 overflow-hidden">
