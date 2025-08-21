@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Script from "next/script";
 
+
 // Judges data object for easy updates
 const judges = [
   {
