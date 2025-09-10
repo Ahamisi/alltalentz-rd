@@ -78,7 +78,7 @@ const teamMembers = [
         lastName: "Willie",
         role: "Snr. Relationship Manager",
         image: "/redesign-25/teams/willie-akwaowo.jpg",
-        bio: "A seasoned professional with diverse experience across the private and public sectors, he has led cross-functional teams in delivering remarkable client relationship management, business development, and strategic growth initiatives within the last 15 years, in industries ranging from telecommunications to healthcare. He currently leads initiatives towards building strong client-focused relationships here at All Talentz"
+        bio: "Experienced in building strong client relationships and driving strategic growth across varied sectors. Now leading client engagement initiatives at All Talentz."
     },
   ];
   
