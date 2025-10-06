@@ -41,98 +41,98 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
         animate={inView ? 'visible' : 'hidden'}
       >                {/* First Row */}
                 <div className="max-w-7xl mx-auto px-3">
-                    <div className="grid grid-cols-1 md:grid-cols-8 gap-8 mb-8">
-                    <div className="col-span-1">
-                        <Link href="https://www.iafcertsearch.org/certification/vD5DJrOP2lgDH3m3YPIqgqtH" target="_blank" rel="noopener noreferrer">
-                        <div className='flex items-center gap-2'>
-                        <img 
-                            src="/certs/iso-badge.png" 
-                            alt="ISO 27001 Certified" 
-                            className=" object-contain mb-4"
-                        />
-                       
-                       </div>
-                        </Link>
-                      
-                    </div>
-                    <div className="col-span-1">
-                        <Link href="https://www.iafcertsearch.org/certification/vD5DJrOP2lgDH3m3YPIqgqtH" target="_blank" rel="noopener noreferrer">
-                        <div className='flex items-center gap-2'>
-                       
-                        <img 
-                            src="/certs/AssurancePoint.png" 
-                            alt="Assurance Point Certified" 
-                            className=" object-contain mb-4"
-                        />
-                       </div>
-                        </Link>
-                      
-                    </div>
-                    <div className="col-span-1">
-                        <h4 className="text-white font-bold text-xl mb-4">Company</h4>
-                        <ul className="text-white">
-
-                        <li className="mb-[12px]"><Link href="faq" className="hover:text-secondary font-light">FAQs</Link></li>
-                        <li className="mb-[12px]"><Link href="our-watchlist" className="hover:text-secondary font-light">Careers</Link></li>
-                        <li className="mb-[12px]"><Link href="about" className="hover:text-secondary font-light">About Us</Link></li>
-                        </ul>
-                    </div>
-                    <div className="col-span-1">
-                        <h4 className="text-white font-bold text-xl mb-4">Support</h4>
-                        <ul className="text-white">
-                            <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary font-light">Jobs</Link></li>
-                            <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary font-light">Community</Link></li>
-                        </ul>
-                    </div>
-                    <div className="col-span-1">
-                        <h4 className="text-white font-bold text-xl mb-4">Legal</h4>
-                        <ul className="text-white">
-                            <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary font-light">Privacy Policy</Link></li>
-                            <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary font-light">Terms &amp; Conditions</Link></li>
-                        </ul>
-                    </div>
-                
-                    <div className="col-span-3">
-                        <h4 className="text-white font-bold text-xl mb-4">Receive latest news</h4>
-                        <form>
-                          <div className='flex flex-col lg:flex-row gap-4'>
-                          <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="py-2 px-4 text-[#4C4C4C] rounded-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%]"
-                            />
-                            <Btn text="Subscribe" target="_blank" link="https://blog.alltalentz.com" type="submit" otherCSS=""/>
-                          </div>
-
-                          
-                        </form>
-                        <p className="text-white mt-4 text-sm font-light">
-                          By entering your email address, you confirming that you are agree to subscribe into our newsletter
-                        </p>
-                        
-                    </div>
+                    <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+                        {/* Left side - Menu sections */}
+                        <div className="flex flex-col md:flex-row gap-8 flex-1">
+                            <div>
+                                <h4 className="text-white font-bold text-xl mb-4">Company</h4>
+                                <ul className="text-white">
+                                    <li className="mb-[12px]"><Link href="faq" className="hover:text-secondary font-light">FAQs</Link></li>
+                                    <li className="mb-[12px]"><Link href="our-watchlist" className="hover:text-secondary font-light">Careers</Link></li>
+                                    <li className="mb-[12px]"><Link href="about" className="hover:text-secondary font-light">About Us</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold text-xl mb-4">Support</h4>
+                                <ul className="text-white">
+                                    <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary font-light">Jobs</Link></li>
+                                    <li className="mb-[12px]"><Link href="bootcamp" className="hover:text-secondary font-light">Community</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold text-xl mb-4">Legal</h4>
+                                <ul className="text-white">
+                                    <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary font-light">Privacy Policy</Link></li>
+                                    <li className="mb-[12px]"><Link href="privacy-policy" className="hover:text-secondary font-light">Terms &amp; Conditions</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                    
+                        {/* Right side - Newsletter */}
+                        <div className="flex-shrink-0 w-full md:w-auto md:min-w-[400px]">
+                            <h4 className="text-white font-bold text-xl mb-4 md:text-right">Receive latest news</h4>
+                            <form>
+                              <div className='flex flex-col lg:flex-row gap-4 justify-end'>
+                              <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className="py-2 px-4 text-[#4C4C4C] rounded-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%]"
+                                />
+                                <Btn text="Subscribe" target="_blank" link="https://blog.alltalentz.com" type="submit" otherCSS=""/>
+                              </div>
+                            </form>
+                            <p className="text-white mt-4 text-sm font-light">
+                              By entering your email address, you confirming that you are agree to subscribe into our newsletter
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 {/* second Row */}
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                    <div className="col-span-1">
-                        <h4 className="text-white font-semibold mb-4">Address</h4>
-                        <ul className="text-white">
-                        <li>United States</li>
-                        <li>2020 Brice Road, Reynoldsburg, OH 43068</li>
-                        </ul>
-                    </div>
-                    <div className="col-span-1">
-                        <h4 className="text-white font-semibold mb-4">&nbsp;</h4>
-                        <ul className="text-white">
-                        <li>Nigeria</li>
-                        <li>151 Herbert Macaulay Way, Yaba, Lagos.</li>
-                        </ul>
-                    </div>
-                    
-            
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-8">
+                        {/* Address Section */}
+                        <div className="flex flex-col md:flex-row gap-8">
+                            <div>
+                                <h4 className="text-white font-semibold mb-4">Address</h4>
+                                <ul className="text-white">
+                                    <li>United States</li>
+                                    <li>2020 Brice Road, Reynoldsburg, OH 43068</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-semibold mb-4">&nbsp;</h4>
+                                <ul className="text-white">
+                                    <li>Nigeria</li>
+                                    <li>151 Herbert Macaulay Way, Yaba, Lagos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        {/* Certification Badges */}
+                        <div className="flex flex-wrap gap-4 items-center justify-end md:min-w-[400px]">
+                            <Link href="https://www.iafcertsearch.org/certification/vD5DJrOP2lgDH3m3YPIqgqtH" target="_blank" rel="noopener noreferrer">
+                                <img 
+                                    src="/certs/iso-badge.png" 
+                                    alt="ISO 27001 Certified" 
+                                    className="h-20 w-auto object-contain"
+                                />
+                            </Link>
+                            <Link href="https://www.iafcertsearch.org/certification/vD5DJrOP2lgDH3m3YPIqgqtH" target="_blank" rel="noopener noreferrer">
+                                <img 
+                                    src="/certs/AssurancePoint.png" 
+                                    alt="Assurance Point Certified" 
+                                    className="h-20 w-auto object-contain"
+                                />
+                            </Link>
+                            <Link href="https://www.greatplacetowork.com/" target="_blank" rel="noopener noreferrer">
+                                <img 
+                                    src="/gptw-badge-alltalentz.svg" 
+                                    alt="Great Place to Work Certified" 
+                                    className="h-20 w-auto object-contain"
+                                />
+                            </Link>
+                        </div>
                     </div>
                 </div>    
 
@@ -141,14 +141,16 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
 
                 <div className="max-w-7xl mx-auto px-4">
                     {/* third Row */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                        <div className="col-span-1 flex md:block justify-center md:justify-self-auto">
-                            <img src="/all-talents-footer.svg" alt="Footer Logo" />
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+                        <div className="flex flex-col md:flex-row items-center gap-8 flex-1">
+                            <div>
+                                <img src="/all-talents-footer.svg" alt="Footer Logo" />
+                            </div>
+                            <div className="text-white text-center md:text-left text-sm">
+                                © {new Date().getFullYear()} All Talentz LLC. All rights reserved.
+                            </div>
                         </div>
-                        <div className="col-span-1 text-white text-center text-sm md:text-auto">
-                            © {new Date().getFullYear()} All Talentz LLC. All rights reserved.
-                        </div>
-                        <div className="col-span-1 flex justify-center items-center gap-[30px]">
+                        <div className="flex justify-end items-center gap-[30px] md:min-w-[400px]">
                             {/* Add your social media icons here */}
                             <Link href="https://instagram.com/all_talentz" target='_blank'>
                             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">

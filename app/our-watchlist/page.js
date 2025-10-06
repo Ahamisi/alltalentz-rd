@@ -413,6 +413,15 @@ export default function Watchlist() {
           <h2 className="text-2xl md:text-5xl font-bold mb-8 text-center text-secondary">
           Want To Join A Global Team?
           </h2>
+          
+          {/* Great Place to Work Badge */}
+          <div className="flex justify-center mb-8">
+            <img 
+              src="/gptw-badge-alltalentz.svg" 
+              alt="Great Place to Work Certified" 
+              className="h-20 md:h-24 object-contain"
+            />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-6xl mt-[25px]">
             {/* Value Item 1 */}
             <div className="flex flex-col items-center bg-[#E6E6E6] rounded-[12px] p-[24px]">

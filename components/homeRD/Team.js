@@ -64,7 +64,7 @@ const teamMembers = [
         lastName: "Obinaike",
         role: "Head, SW Engineering",
         image: "/redesign-25/teams/adetayo-obinaike.jpg",
-        bio: "Adetayo is an experienced Product and Marketing Manager with over a decade of experience cutting across multinationals such as Nokia, Microsoft and HMD Global. Within this period, he built great collaborations with major Mobile Operators, Marketing Agencies, Retail brands, and Marketing Influencers across West Africa.  Currently he leads a fantastic team of Software Engineers and Product developers in All Talentz LLC."
+        bio: "Adetayo is an experienced Product and Marketing Manager with over a decade of experience cutting across multinationals such as Nokia, Microsoft and HMD Global. Within this period, he built great collaborations with major Mobile Operators, Marketing Agencies, Retail brands, and Marketing Influencers across West Africa. Currently he leads a fantastic team of Software Engineers and Product developers in All Talentz LLC."
     },
     {
         name: "Helen-Sylvanus",
