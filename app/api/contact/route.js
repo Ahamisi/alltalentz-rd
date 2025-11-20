@@ -7,7 +7,43 @@ import { Email } from "@/components/Email";
 
 export async function POST(req, res) {
   const body = await req.json();
-  const { fullName, email, company, phone, service } = body;
+  const { fullName, email, company, phone, service, recaptchaToken } = body;
+
+  // Verify reCAPTCHA token
+  if (!recaptchaToken) {
+    return NextResponse.json(
+      { error: "reCAPTCHA token is required" },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const recaptchaResponse = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+      }
+    );
+
+    const recaptchaData = await recaptchaResponse.json();
+
+    if (!recaptchaData.success) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed" },
+        { status: 400 }
+      );
+    }
+  } catch (error) {
+    console.error("reCAPTCHA verification error:", error);
+    return NextResponse.json(
+      { error: "reCAPTCHA verification failed" },
+      { status: 500 }
+    );
+  }
 
   const formData = new FormData();
   formData.append("Fullname", fullName);
@@ -51,9 +87,12 @@ export async function POST(req, res) {
     // Send email using the transporter
     await transporter.sendMail(options);
     await sendToSheets();
-    return new Response('SENT');
+    return NextResponse.json({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Failed to send email:", error);
-    return new Response(error);
+    return NextResponse.json(
+      { error: "Failed to send email" },
+      { status: 500 }
+    );
   }
 }

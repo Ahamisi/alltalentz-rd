@@ -13,6 +13,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSearchParams } from 'next/navigation'
 import Header from "@/components/Header";
+import Script from 'next/script';
 
 
 
@@ -60,6 +61,24 @@ export default function RequestTalent() {
         }else{
             setIsOpen(false)
         }
+
+        // Add event listeners for reCAPTCHA callbacks
+        const handleRecaptchaSuccess = (event) => {
+            setRecaptchaToken(event.detail);
+            setErrors(prev => ({ ...prev, recaptcha: null }));
+        };
+
+        const handleRecaptchaExpired = () => {
+            setRecaptchaToken(null);
+        };
+
+        window.addEventListener('recaptchaSuccess', handleRecaptchaSuccess);
+        window.addEventListener('recaptchaExpired', handleRecaptchaExpired);
+
+        return () => {
+            window.removeEventListener('recaptchaSuccess', handleRecaptchaSuccess);
+            window.removeEventListener('recaptchaExpired', handleRecaptchaExpired);
+        };
 
     }, [])
     
@@ -124,6 +143,8 @@ export default function RequestTalent() {
 
 
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState(null);
+    const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
 
 
     const toggleModal = () => {
@@ -160,6 +181,9 @@ export default function RequestTalent() {
         if (!formData.service) {
         newErrors.service = "Service is required";
         }
+        if (!recaptchaToken) {
+        newErrors.recaptcha = "Please complete the reCAPTCHA verification";
+        }
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0; // Return true if no errors
     };
@@ -179,13 +203,16 @@ export default function RequestTalent() {
                 }));
                 // console.log(formData,  formData.service.join(', ')); return;
 
-                // Send email using Nodemailer
+                // Send email using Nodemailer with reCAPTCHA token
                 await fetch("/api/contact", {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
                   },
-                  body: JSON.stringify(formData),
+                  body: JSON.stringify({
+                    ...formData,
+                    recaptchaToken: recaptchaToken
+                  }),
                 });
           
                 // console.log('sending'); return;
@@ -218,6 +245,23 @@ export default function RequestTalent() {
         }
     };
 
+    // reCAPTCHA handlers
+    const onRecaptchaLoad = () => {
+        setRecaptchaLoaded(true);
+    };
+
+    const onRecaptchaChange = (token) => {
+        setRecaptchaToken(token);
+        // Clear recaptcha error when user completes it
+        if (errors.recaptcha) {
+            setErrors(prev => ({ ...prev, recaptcha: null }));
+        }
+    };
+
+    const onRecaptchaExpired = () => {
+        setRecaptchaToken(null);
+    };
+
     
       
 
@@ -226,6 +270,26 @@ export default function RequestTalent() {
 
   return (
     <>
+    {/* reCAPTCHA Script */}
+    <Script 
+        src="https://www.google.com/recaptcha/api.js" 
+        onLoad={onRecaptchaLoad}
+        strategy="lazyOnload"
+    />
+    <Script id="recaptcha-callbacks" strategy="lazyOnload">
+        {`
+            window.onRecaptchaSuccess = function(token) {
+                window.recaptchaToken = token;
+                // Trigger custom event to notify React component
+                window.dispatchEvent(new CustomEvent('recaptchaSuccess', { detail: token }));
+            };
+            
+            window.onRecaptchaExpired = function() {
+                window.recaptchaToken = null;
+                window.dispatchEvent(new CustomEvent('recaptchaExpired'));
+            };
+        `}
+    </Script>
 
     
 <section>
@@ -407,6 +471,21 @@ find you the right talent</h2>
                                 {errors.service && (
                                     <p className="text-red-500 text-sm">{errors.service}</p>
                                 )}
+                                </div>
+
+                                {/* reCAPTCHA */}
+                                <div className="mb-8 flex justify-center">
+                                    {recaptchaLoaded && (
+                                        <div 
+                                            className="g-recaptcha" 
+                                            data-sitekey="6LcsqxIsAAAAAJqcWPOgXKPKDjB1hNVpb_sNEacQ"
+                                            data-callback="onRecaptchaSuccess"
+                                            data-expired-callback="onRecaptchaExpired"
+                                        ></div>
+                                    )}
+                                    {errors.recaptcha && (
+                                        <p className="text-red-500 text-sm mt-2 text-center">{errors.recaptcha}</p>
+                                    )}
                                 </div>
 
                             <button
