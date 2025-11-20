@@ -1,12 +1,15 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Btn from "@/components/Btn";
+import Script from 'next/script';
 
 const ContactForm = ({ services = [] }) => {
     const [selectedServices, setSelectedServices] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState(null);
+    const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
 
     const [formData, setFormData] = useState({
         fullName: "",
@@ -47,6 +50,7 @@ const ContactForm = ({ services = [] }) => {
         if (!formData.company) newErrors.company = "Company is required";
         if (!formData.phone) newErrors.phone = "Phone is required";
         if (!formData.service) newErrors.service = "Service is required";
+        if (!recaptchaToken) newErrors.recaptcha = "Please complete the reCAPTCHA verification";
         
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -68,7 +72,10 @@ const ContactForm = ({ services = [] }) => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(formData),
+                    body: JSON.stringify({
+                        ...formData,
+                        recaptchaToken: recaptchaToken
+                    }),
                 });
 
                 console.log("Email sent successfully!");
@@ -82,8 +89,53 @@ const ContactForm = ({ services = [] }) => {
         }
     };
 
+    // reCAPTCHA handlers
+    const onRecaptchaLoad = () => {
+        setRecaptchaLoaded(true);
+    };
+
+    // Add event listeners for reCAPTCHA callbacks
+    useEffect(() => {
+        const handleRecaptchaSuccess = (event) => {
+            setRecaptchaToken(event.detail);
+            setErrors(prev => ({ ...prev, recaptcha: null }));
+        };
+
+        const handleRecaptchaExpired = () => {
+            setRecaptchaToken(null);
+        };
+
+        window.addEventListener('recaptchaSuccess', handleRecaptchaSuccess);
+        window.addEventListener('recaptchaExpired', handleRecaptchaExpired);
+
+        return () => {
+            window.removeEventListener('recaptchaSuccess', handleRecaptchaSuccess);
+            window.removeEventListener('recaptchaExpired', handleRecaptchaExpired);
+        };
+    }, []);
+
     return (
         <div>
+            {/* reCAPTCHA Scripts */}
+            <Script 
+                src="https://www.google.com/recaptcha/api.js" 
+                onLoad={() => setRecaptchaLoaded(true)}
+                strategy="lazyOnload"
+            />
+            <Script id="recaptcha-callbacks-contact-form" strategy="lazyOnload">
+                {`
+                    window.onRecaptchaSuccess = function(token) {
+                        window.recaptchaToken = token;
+                        // Trigger custom event to notify React component
+                        window.dispatchEvent(new CustomEvent('recaptchaSuccess', { detail: token }));
+                    };
+                    
+                    window.onRecaptchaExpired = function() {
+                        window.recaptchaToken = null;
+                        window.dispatchEvent(new CustomEvent('recaptchaExpired'));
+                    };
+                `}
+            </Script>
             <h2 className="text-4xl font-bold text-gray-800 mb-2 text-center">
                 Let's help you find talents.
             </h2>
@@ -172,6 +224,21 @@ const ContactForm = ({ services = [] }) => {
                             </svg>
                         </div>
                         {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
+                    </div>
+
+                    {/* reCAPTCHA */}
+                    <div className="flex justify-center">
+                        {recaptchaLoaded && (
+                            <div 
+                                className="g-recaptcha" 
+                                data-sitekey="6LcsqxIsAAAAAJqcWPOgXKPKDjB1hNVpb_sNEacQ"
+                                data-callback="onRecaptchaSuccess"
+                                data-expired-callback="onRecaptchaExpired"
+                            ></div>
+                        )}
+                        {errors.recaptcha && (
+                            <p className="text-red-500 text-sm mt-2 text-center w-full">{errors.recaptcha}</p>
+                        )}
                     </div>
 
                     <button
