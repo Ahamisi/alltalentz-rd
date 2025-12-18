@@ -1,23 +1,16 @@
 "use client"
-import Clients from "@/components/Clients";
-import Hero from "@/components/Hero";
-import MainFooter from "@/components/MainFooter";
-import Offerings from "@/components/Offerings";
-import PageHeader from "@/components/PageHeader";
-import Btn from "@/components/Btn";
 import { useRouter } from 'next/navigation';
-import Header from "@/components/Header";
-import Image from "next/image";
-import TrainingApproach from '@/components/homeRD/TrainingApproach';
-import ConferenceVideo from "@/components/homeRD/ConferenceVideo";
-import ClientVideos from "@/components/homeRD/ClientVideos";
-import ClientWords from "@/components/homeRD/ClientWords";
-import Faq from "@/components/homeRD/Faq";
-
-import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
+import { useEffect } from 'react';
 
 export default function BootCamp() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to professional development programme page
+    router.push('/professional-development-programme');
+  }, [router]);
+
+  return null;
 
   const [isMobile, setIsMobile] = useState(false);
   
