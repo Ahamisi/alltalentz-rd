@@ -33,7 +33,6 @@ export default function BootCamp() {
   const [isOpen, setIsOpen] = useState(false);
   const [countdown, setCountdown] = useState(5); // Initial countdown time
   const [showTestForm, setShowTestForm] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(false);
   const route = useRouter()
 
 
@@ -193,9 +192,9 @@ export default function BootCamp() {
         console.log("Email sent successfully!");
         setIsLoading(false);
 
-        // Show instructions first, then the test form
+        // Show the test form (which includes Savewyze instructions)
         setTimeout(() => {
-          setShowInstructions(true);
+          setShowTestForm(true);
           setIsOpen(false); // Close the modal
         }, 2000);
       } catch (error) {
@@ -316,70 +315,8 @@ export default function BootCamp() {
     },
   ];
 
-  // If instructions should be shown, render instructions modal
-  if (showInstructions && !showTestForm) {
-    return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-          <div className="p-6 md:p-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Important Instructions</h2>
-              <button
-                onClick={() => setShowTestForm(true)}
-                className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
-                aria-label="Close"
-              >
-                ×
-              </button>
-            </div>
-            
-            <div className="space-y-4 mb-6">
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
-                <h3 className="font-semibold text-blue-800 mb-2">To have a seamless onboarding on Savewyze, kindly follow the instructions below:</h3>
-              </div>
-              
-              <div className="space-y-3 text-gray-700">
-                <div className="flex items-start">
-                  <span className="text-[#F99621] font-bold mr-3">1.</span>
-                  <p className="flex-1">Ensure you have your <strong>NIN slip or card</strong> in your possession</p>
-                </div>
-                
-                <div className="flex items-start">
-                  <span className="text-[#F99621] font-bold mr-3">2.</span>
-                  <p className="flex-1">Ensure you fill in your <strong>First Name and Last Name</strong> as seen on your NIN slip or card (<strong>Not your Middle Name</strong>). This makes your NIN verification process seamless</p>
-                </div>
-                
-                <div className="flex items-start">
-                  <span className="text-[#F99621] font-bold mr-3">3.</span>
-                  <p className="flex-1">Your <strong>Wyze tag</strong> is a unique handle (like a Nickname) you can decide what that should be.</p>
-                </div>
-              </div>
-              
-              <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 mt-4">
-                <p className="text-sm text-gray-700">
-                  <strong>Need help?</strong> If you have any challenges, kindly reach out to{' '}
-                  <a href="mailto:info@savewyze.com" className="text-[#F99621] hover:underline font-semibold">
-                    info@savewyze.com
-                  </a>
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex justify-end">
-              <button
-                onClick={() => setShowTestForm(true)}
-                className="bg-[#F99621] text-black px-8 py-3 rounded font-bold hover:bg-opacity-90 transition-all"
-              >
-                Continue to Test
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   // If test form should be shown, render it instead of the main content
+  // SecureTestForm component handles Savewyze instructions internally
   if (showTestForm) {
     return <SecureTestForm />;
   }
