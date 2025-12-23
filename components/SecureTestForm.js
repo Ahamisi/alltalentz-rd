@@ -410,12 +410,23 @@ export default function SecureTestForm() {
               </div>
               
               <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 mt-4">
-                <p className="text-sm text-gray-700">
-                  <strong>Need help?</strong> If you have any challenges, kindly reach out to{' '}
-                  <a href="mailto:info@savewyze.com" className="text-[#F99621] hover:underline font-semibold">
-                    info@savewyze.com
-                  </a>
+                <p className="text-sm text-gray-700 mb-2">
+                  <strong>Need help?</strong>
                 </p>
+                <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>
+                    • For <strong>Savewyze onboarding issues only</strong>, kindly reach out to{' '}
+                    <a href="mailto:info@savewyze.com" className="text-[#F99621] hover:underline font-semibold">
+                      info@savewyze.com
+                    </a>
+                  </li>
+                  <li>
+                    • For <strong>test difficulties or technical issues</strong>, please contact{' '}
+                    <a href="mailto:recruitment@alltalentz.com" className="text-[#F99621] hover:underline font-semibold">
+                      recruitment@alltalentz.com or hr@alltalentz.com
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
             
