@@ -81,7 +81,7 @@ export default function WhyAfrica() {
                 <div>
                   <h3 className="text-xl mb-2">Visit Us</h3>
                   <p className="text-white-800 opacity-70 mb-2">Say hello to us at our head office</p>
-                  <p className="mb-2">2020 Brice Rd, Reynolds-burg, OH 43068, United States (USA)</p>
+                  <p className="mb-2">2020 Brice Road, Suite 180, Reynoldsburg, OH 43068 (USA)</p>
                   <p>151 Herbert Macaulay Way, Yaba, Lagos. (Nigeria)</p>
                 </div>
               </div>

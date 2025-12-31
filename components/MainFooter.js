@@ -97,7 +97,7 @@ const MainFooter = ({hideSub=false,brochure=false,meetWithUs=false}) => {
                                 <h4 className="text-white font-semibold mb-4">Address</h4>
                                 <ul className="text-white">
                                     <li>United States</li>
-                                    <li>2020 Brice Road, Reynoldsburg, OH 43068</li>
+                                    <li>2020 Brice Road, Suite 180, Reynoldsburg, OH 43068</li>
                                 </ul>
                             </div>
                             <div>
