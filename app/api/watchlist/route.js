@@ -11,13 +11,22 @@ export const pkey = process.env.CLIENT_PRIVATEKY;
 const SCOPE = ['https://www.googleapis.com/auth/drive'];
 
 export async function POST(req, res) {
-  const data = await req.formData();
-  const file = data.get('cv');
-  const fullName = data.get('fullName');
-  const email = data.get('email');
-  const career = data.get('career');
-  const phone = data.get('phone');
-  const yoe = data.get('yoe');
+  try {
+    const data = await req.formData();
+    const file = data.get('cv');
+    const fullName = data.get('fullName');
+    const email = data.get('email');
+    const career = data.get('career');
+    const phone = data.get('phone');
+    const yoe = data.get('yoe');
+
+    // Validate required fields
+    if (!file || !fullName || !email) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
 
 
 
@@ -101,7 +110,7 @@ export async function POST(req, res) {
       // Now, you can use `fileLink` to send to your Google Sheet or perform any other actions.
     } catch (error) {
       console.error('Failed to upload CV to Google Drive:', error);
-      // Handle the error as needed
+      throw new Error('Failed to upload CV to Google Drive');
     }
   }
 
@@ -115,13 +124,13 @@ export async function POST(req, res) {
         }
       );
 
-      if (response.ok) {
-        console.log('Data submitted successfully');
-      } else {
-        console.error('Failed to submit data');
+      if (!response.ok) {
+        throw new Error(`Google Sheets API returned status ${response.status}`);
       }
+      console.log('Data submitted successfully');
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error submitting to Google Sheets:', error);
+      throw error;
     }
   };
 
@@ -132,19 +141,19 @@ export async function POST(req, res) {
     html: emailHtml,
   };
 
-  try {
-    // Send email using the transporter
-    await uploadCvToDrive();
-    if (formData.get("CV")) {
-      await sendToSheets();
-    }
+  // Send email using the transporter
+  await uploadCvToDrive();
+  if (formData.get("CV")) {
+    await sendToSheets();
+  }
 
-    // await transporter.sendMail(options);
-    return new Response('SENT');
-    // alert('got here')
-    console.log('sent')
+  // await transporter.sendMail(options);
+  return NextResponse.json({ message: "Application submitted successfully" }, { status: 200 });
   } catch (error) {
-    console.error("Failed to send email:", error);
-    return new Response(error);
+    console.error("Server error in watchlist route:", error);
+    return NextResponse.json(
+      { error: "Internal server error. Please try again later." },
+      { status: 500 }
+    );
   }
 }

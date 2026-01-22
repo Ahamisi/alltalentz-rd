@@ -1,5 +1,31 @@
+# robots.txt for alltalentz.com
+# Updated: 2024-12-19
+
 User-agent: *
-Disallow: /talentz
-Disallow: /find-talentz
 Allow: /
+Disallow: /api/
+Disallow: /pdp-test/
+Disallow: /professional-development-programme/test/
+Disallow: /bootcamp-old/
+Disallow: /alacrity/pageOld.js
+Disallow: /request-talent/pageOld.js
+Disallow: /bootcamp/oldPage.js
+Disallow: /bootcamp/pastBootCamp.js
+Disallow: /bootcamp-old/oldpage.js
+Disallow: /bootcamp-old/pastBootCamp.js
+Disallow: /redesign/
+Disallow: /old-page.js
+Disallow: /find-talent/
+
+# Allow important bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
 Sitemap: https://alltalentz.com/sitemap.xml

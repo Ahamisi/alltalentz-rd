@@ -21,6 +21,9 @@ export const metadata = {
 export default function HackathonLayout({ children }) {
   return (
     <>
+      <head>
+        <link rel="canonical" href="https://alltalentz.com/hackathon" />
+      </head>
       {/* Google tag (gtag.js) - Place as high as possible */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-17208890772"

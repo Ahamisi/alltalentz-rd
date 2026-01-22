@@ -14,12 +14,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-        <meta
-          property="og:image"
-          content="/alltalentz-homebg.jpg"
-        />
-        <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
-        <meta name="description" content="Learn more about Alltalentz and what we do | Your Gateway to Africa's Leading Remote Professionals | Superior Workforce Value" />
+        <head>
+          <link rel="canonical" href="https://alltalentz.com/success-stories" />
+          <meta
+            property="og:image"
+            content="/alltalentz-homebg.jpg"
+          />
+          <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+          <meta name="description" content="Learn more about Alltalentz and what we do | Your Gateway to Africa's Leading Remote Professionals | Superior Workforce Value" />
+        </head>
       
       
     <body className={montserrat.className}>

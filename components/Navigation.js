@@ -15,16 +15,37 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
     // Close dropdowns when clicking outside
     useEffect(() => {
       const handleClickOutside = (event) => {
-        if (!event.target.closest('.about-dropdown')) {
+        const target = event.target;
+        
+        // Check if clicking on a link (Next.js Link or regular anchor)
+        const clickedLink = target.closest('a[href]');
+        
+        // If clicking a link, close dropdowns but let navigation proceed normally
+        if (clickedLink) {
           setShowAboutDropdown(false);
-        }
-        if (!event.target.closest('.talent-dropdown')) {
           setShowTalentDropdown(false);
+          // Explicitly do NOT prevent default or stop propagation
+          return;
         }
+        
+        // Check if clicking inside a dropdown container
+        const clickedInsideAbout = target.closest('.about-dropdown');
+        const clickedInsideTalent = target.closest('.talent-dropdown');
+        
+        // Don't close if clicking inside the dropdown
+        if (clickedInsideAbout || clickedInsideTalent) {
+          return;
+        }
+        
+        // Only close dropdowns if clicking truly outside
+        setShowAboutDropdown(false);
+        setShowTalentDropdown(false);
       };
 
-      document.addEventListener('click', handleClickOutside);
-      return () => document.removeEventListener('click', handleClickOutside);
+      // Use bubble phase (default) - don't use capture phase
+      // This ensures link clicks are processed first
+      document.addEventListener('click', handleClickOutside, false);
+      return () => document.removeEventListener('click', handleClickOutside, false);
     }, []);
 
     const getLinkClassName = (path) => {

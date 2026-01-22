@@ -14,12 +14,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-             <meta
-          property="og:image"
-          content="/alltalentz-homebg.jpg"
-        />
-        <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
-        <meta name="description" content="Find answers to your questions | All Talentz Workforce & Career FAQ." />
+        <head>
+          <link rel="canonical" href="https://alltalentz.com/faq" />
+          <meta
+            property="og:image"
+            content="/alltalentz-homebg.jpg"
+          />
+          <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+          <meta name="description" content="Find answers to your questions | All Talentz Workforce & Career FAQ." />
+        </head>
 
       
       

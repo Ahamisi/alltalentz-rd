@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link";
+import Image from "next/image";
 import Header from "./HeaderHome";
 
 import Btn from "@/components/Btn";
@@ -51,7 +52,12 @@ const HeroNew = () => {
         >
             <section
             className="relative bg-cover bg-top bg-no-repeat px-[0px] md:px-0  h-screen overflow-hidden"
-            style={{ backgroundImage: "url('/alltalentz-homebg.jpg')" }}
+            style={{ 
+              backgroundImage: "url('/alltalentz-homebg.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
             >
                 {/* <div className="md:h-[20px]"></div> */}
                 <Header/>
@@ -82,7 +88,7 @@ const HeroNew = () => {
               transition={{ delay: 0.6 }}
               className="text-4xl md:text-[50px] md:font-[700] md:leading-[65px] font-bold"
             >
-              Scale up your <span className="text-[#F99621]"><br />business operations</span> <br />with the right <br /> remote talents.
+              Your Strategic Partner for <span className="text-[#F99621]"><br />Industry-Specific Talent</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -90,7 +96,7 @@ const HeroNew = () => {
               transition={{ delay: 0.7 }}
               className="text-lg md:text-[20px] text-[#FEF5E9]"
             >
-              Welcome to All Talentz, the leading platform for recruiting the best remote talent from Africa at a fraction of the cost.
+              AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation. Scale your operations with our trained professionals.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -112,18 +118,48 @@ const HeroNew = () => {
                 animate="show"
                 className="grid grid-cols-2 gap-2">
                     <motion.div variants={imageVariant} className="flex">
-                        <motion.img src="/home-img/remote-guy-alltalent.svg" alt="Remote Alltalentz" className="rounded-lg animate-spin-slow w-[95%]"
-                            variants={images}
+                        <Image 
+                            src="/home-img/remote-guy-alltalent.svg" 
+                            alt="Remote Alltalentz" 
+                            width={300}
+                            height={300}
+                            className="rounded-lg animate-spin-slow w-[95%] h-auto"
+                            priority={false}
+                            loading="lazy"
                         />
                     </motion.div>
                     <motion.div variants={imageVariant} className="flex">
-                        <motion.img src="/home-img/remote-woman-at.svg" alt="Remote Staff Alltalentz" className="rounded-lg animate-spin-slow" variants={images}/>
+                        <Image 
+                            src="/home-img/remote-woman-at.svg" 
+                            alt="Remote Staff Alltalentz" 
+                            width={300}
+                            height={300}
+                            className="rounded-lg animate-spin-slow w-full h-auto"
+                            priority={false}
+                            loading="lazy"
+                        />
                     </motion.div>
                     <motion.div variants={imageVariant} className="flex">
-                        <motion.img src="/home-img/remote-woman-3.svg" alt="Remote Software Developer Alltalentz" className="rounded-lg animate-spin-slow w-[95%]" variants={images} />
+                        <Image 
+                            src="/home-img/remote-woman-3.svg" 
+                            alt="Remote Software Developer Alltalentz" 
+                            width={300}
+                            height={300}
+                            className="rounded-lg animate-spin-slow w-[95%] h-auto"
+                            priority={false}
+                            loading="lazy"
+                        />
                     </motion.div>
                     <motion.div variants={imageVariant} className="flex">
-                        <motion.img src="/home-img/remote-woman-4.svg" alt="Remote Estimator Alltalentz" className="rounded-lg animate-spin-slow" variants={images}/>
+                        <Image 
+                            src="/home-img/remote-woman-4.svg" 
+                            alt="Remote Estimator Alltalentz" 
+                            width={300}
+                            height={300}
+                            className="rounded-lg animate-spin-slow w-full h-auto"
+                            priority={false}
+                            loading="lazy"
+                        />
                     </motion.div>
                 </motion.div>
             </div>

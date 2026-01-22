@@ -13,7 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
+        <head>
+          <link rel="canonical" href="https://alltalentz.com/our-watchlist" />
+        </head>
     <body className={montserrat.className}>
       <SocialMedia/>
 

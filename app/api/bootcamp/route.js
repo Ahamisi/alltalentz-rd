@@ -11,14 +11,23 @@ export const pkey = process.env.CLIENT_PRIVATEKY;
 const SCOPE = ['https://www.googleapis.com/auth/drive'];
 
 export async function POST(req, res) {
-  const data = await req.formData();
-  const file = data.get('cv');
-  const fullName = data.get('fullName');
-  const email = data.get('email');
-  const career = data.get('career');
-  const phone = data.get('phone');
-  const yoe = data.get('yoe');
-  const nyscFile = data.get('nysc');
+  try {
+    const data = await req.formData();
+    const file = data.get('cv');
+    const fullName = data.get('fullName');
+    const email = data.get('email');
+    const career = data.get('career');
+    const phone = data.get('phone');
+    const yoe = data.get('yoe');
+    const nyscFile = data.get('nysc');
+
+    // Validate required fields
+    if (!file || !fullName || !email || !nyscFile) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
 
 
 
@@ -101,7 +110,7 @@ export async function POST(req, res) {
       console.log('File Link:', fileLink);
     } catch (error) {
       console.error('Failed to upload CV to Google Drive:', error);
-      // Handle the error as needed
+      throw new Error('Failed to upload CV to Google Drive');
     }
   }
 
@@ -115,8 +124,8 @@ export async function POST(req, res) {
       // Now, you can use `fileLink` to send to your Google Sheet or perform any other actions.
       console.log('File Link:', fileLink);
     } catch (error) {
-      console.error('Failed to upload CV to Google Drive:', error);
-      // Handle the error as needed
+      console.error('Failed to upload NYSC to Google Drive:', error);
+      throw new Error('Failed to upload NYSC to Google Drive');
     }
   }
 
@@ -130,13 +139,13 @@ export async function POST(req, res) {
         }
       );
 
-      if (response.ok) {
-        console.log('Data submitted successfully');
-      } else {
-        console.error('Failed to submit data');
+      if (!response.ok) {
+        throw new Error(`Google Sheets API returned status ${response.status}`);
       }
+      console.log('Data submitted successfully');
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error submitting to Google Sheets:', error);
+      throw error;
     }
   };
 
@@ -147,32 +156,32 @@ export async function POST(req, res) {
     html: emailHtml,
   };
 
-  try {
-    // Send email using the transporter
-    await uploadCvToDrive();
-    await uploadNyscToDrive();
+  // Send email using the transporter
+  await uploadCvToDrive();
+  await uploadNyscToDrive();
 
-    // await transporter.sendMail(options);
-    // Append empty string to formData.CV and formData.Nysc if they are missing
-    // if (!formData.CV) {
-    //   formData.append("CV", ""); // Replace "" with the desired default value
-    // }
-    // if (!formData.Nysc) {
-    //   formData.append("Nysc", ""); // Replace "" with the desired default value
-    // }
+  // await transporter.sendMail(options);
+  // Append empty string to formData.CV and formData.Nysc if they are missing
+  // if (!formData.CV) {
+  //   formData.append("CV", ""); // Replace "" with the desired default value
+  // }
+  // if (!formData.Nysc) {
+  //   formData.append("Nysc", ""); // Replace "" with the desired default value
+  // }
 
-    // Now check if both formData.CV and formData.Nysc exist
-    if (formData.get("CV") && formData.get("Nysc")) {
-      // console.log(formData);
-      await sendToSheets();
-    }
-    // await transporter.sendMail(options);
+  // Now check if both formData.CV and formData.Nysc exist
+  if (formData.get("CV") && formData.get("Nysc")) {
+    // console.log(formData);
+    await sendToSheets();
+  }
+  // await transporter.sendMail(options);
 
-    return new Response('SENT');
-    // alert('got here')
-    console.log('sent')
+  return NextResponse.json({ message: "Application submitted successfully" }, { status: 200 });
   } catch (error) {
-    console.error("Failed to send email:", error);
-    return new Response(error);
+    console.error("Server error in bootcamp route:", error);
+    return NextResponse.json(
+      { error: "Internal server error. Please try again later." },
+      { status: 500 }
+    );
   }
 }

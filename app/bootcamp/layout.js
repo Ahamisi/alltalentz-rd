@@ -14,11 +14,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-             <meta
-          property="og:image"
-          content="/alltalentz-homebg.jpg"
-        />
-        <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+        <head>
+          <link rel="canonical" href="https://alltalentz.com/bootcamp" />
+          <meta
+            property="og:image"
+            content="/alltalentz-homebg.jpg"
+          />
+          <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+        </head>
       
       
     <body className={montserrat.className}>

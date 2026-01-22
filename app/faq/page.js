@@ -1,11 +1,13 @@
 "use client"
 import React, { useState } from 'react';
+import Script from 'next/script';
 import Blog from "@/components/Blog";
 import Clients from "@/components/Clients";
 import Hero from "@/components/Hero";
 import MainFooter from "@/components/MainFooter";
 import Offerings from "@/components/Offerings";
 import PageHeader from "@/components/PageHeader";
+import { generateFAQSchema } from "@/components/SchemaMarkup";
 
 
 
@@ -75,13 +77,22 @@ export default function Faq() {
           setActiveIndex(index);
         }
       };
+
+      const faqSchema = generateFAQSchema(faqData);
     
 
 
   return (
     <main className="relative overflow-hidden overflow-y-hidden" >
-
-
+      {faqSchema && (
+        <Script
+          id="faq-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema)
+          }}
+        />
+      )}
     
     <section>
         <PageHeader showBg={false}>
