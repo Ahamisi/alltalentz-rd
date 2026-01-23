@@ -1,52 +1,77 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
     const pathname = usePathname();
     const [showAboutDropdown, setShowAboutDropdown] = useState(false);
     const [showTalentDropdown, setShowTalentDropdown] = useState(false);
+    
+    // Refs for dropdown containers
+    const aboutDropdownRef = useRef(null);
+    const talentDropdownRef = useRef(null);
+    const aboutButtonRef = useRef(null);
+    const talentButtonRef = useRef(null);
 
     const aboutPaths = ['/about', '/success-stories', '/why-africa'];
     const talentPaths = ['/bootcamp', '/our-watchlist', '/talent-pool'];
     const isAboutActive = aboutPaths.includes(pathname);
     const isTalentActive = talentPaths.includes(pathname);
 
-    // Close dropdowns when clicking outside
+    // Close dropdowns when clicking outside - using refs instead of document listeners
     useEffect(() => {
       const handleClickOutside = (event) => {
         const target = event.target;
         
-        // Check if clicking on a link (Next.js Link or regular anchor)
-        const clickedLink = target.closest('a[href]');
-        
-        // If clicking a link, close dropdowns but let navigation proceed normally
-        if (clickedLink) {
+        // If clicking on a Next.js Link or any anchor, let it handle navigation naturally
+        // Don't interfere with navigation at all
+        if (target.closest('a')) {
+          // Close dropdowns but don't prevent navigation
           setShowAboutDropdown(false);
           setShowTalentDropdown(false);
-          // Explicitly do NOT prevent default or stop propagation
           return;
         }
         
-        // Check if clicking inside a dropdown container
-        const clickedInsideAbout = target.closest('.about-dropdown');
-        const clickedInsideTalent = target.closest('.talent-dropdown');
-        
-        // Don't close if clicking inside the dropdown
-        if (clickedInsideAbout || clickedInsideTalent) {
-          return;
+        // Check if clicking outside the about dropdown
+        if (
+          aboutDropdownRef.current &&
+          !aboutDropdownRef.current.contains(target) &&
+          aboutButtonRef.current &&
+          !aboutButtonRef.current.contains(target)
+        ) {
+          setShowAboutDropdown(false);
         }
         
-        // Only close dropdowns if clicking truly outside
-        setShowAboutDropdown(false);
-        setShowTalentDropdown(false);
+        // Check if clicking outside the talent dropdown
+        if (
+          talentDropdownRef.current &&
+          !talentDropdownRef.current.contains(target) &&
+          talentButtonRef.current &&
+          !talentButtonRef.current.contains(target)
+        ) {
+          setShowTalentDropdown(false);
+        }
       };
 
-      // Use bubble phase (default) - don't use capture phase
-      // This ensures link clicks are processed first
-      document.addEventListener('click', handleClickOutside, false);
-      return () => document.removeEventListener('click', handleClickOutside, false);
-    }, []);
+      // Only attach listener when dropdowns are open
+      if (showAboutDropdown || showTalentDropdown) {
+        // Use a small timeout to avoid interfering with link clicks
+        const timeoutId = setTimeout(() => {
+          document.addEventListener('mousedown', handleClickOutside);
+        }, 0);
+        
+        return () => {
+          clearTimeout(timeoutId);
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+      }
+    }, [showAboutDropdown, showTalentDropdown]);
+
+    // Close dropdowns when pathname changes (navigation occurred)
+    useEffect(() => {
+      setShowAboutDropdown(false);
+      setShowTalentDropdown(false);
+    }, [pathname]);
 
     const getLinkClassName = (path) => {
       if (theme === 'light') {
@@ -67,9 +92,14 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
     return (
       <>
         {/* About Dropdown */}
-        <li className="relative about-dropdown">
+        <li className="relative">
           <button 
-            onClick={() => setShowAboutDropdown(!showAboutDropdown)}
+            ref={aboutButtonRef}
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowAboutDropdown(!showAboutDropdown);
+              setShowTalentDropdown(false);
+            }}
             className={`flex items-center gap-1 ${isAboutActive ? 'text-secondary' : getLinkClassName('/about')}`}
           >
             About
@@ -85,7 +115,17 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
           
           {/* Dropdown Menu */}
           {showAboutDropdown && (
-            <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+            <div 
+              ref={aboutDropdownRef}
+              className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50"
+              onClick={(e) => {
+                // Close dropdown when a link is clicked
+                const link = e.target.closest('a');
+                if (link) {
+                  setShowAboutDropdown(false);
+                }
+              }}
+            >
               <Link 
                 href="/about" 
                 className={getDropdownItemClassName('/about')}
@@ -115,11 +155,11 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
           <Link href="/outsourcing">Agency</Link>
         </li>
         <li className={getLinkClassName('/news')}>
-          <Link href="https://blog.alltalentz.com" target="_blank">Blog</Link>
+          <Link href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer">Blog</Link>
         </li>
 
         <li className={getLinkClassName('https://alltalentzacademy.com')}>
-          <Link href="https://alltalentzacademy.com">Academy</Link>
+          <Link href="https://alltalentzacademy.com" rel="noopener noreferrer">Academy</Link>
         </li>
         <li className={getLinkClassName('/contact-us')}>
           <Link href="/contact-us">Contact</Link>
@@ -132,9 +172,14 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
               <Link href="/faq">FAQs</Link>
             </li>
             {addBootcamp && 
-              <li className="relative talent-dropdown">
+              <li className="relative">
                 <button 
-                  onClick={() => setShowTalentDropdown(!showTalentDropdown)}
+                  ref={talentButtonRef}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowTalentDropdown(!showTalentDropdown);
+                    setShowAboutDropdown(false);
+                  }}
                   className={`flex items-center gap-1 ${isTalentActive ? 'text-secondary' : getLinkClassName('/bootcamp')}`}
                 >
                   Join Talent Pool
@@ -149,7 +194,17 @@ const Navigation = ({addBootcamp = false, theme = 'dark' }) => {
                 </button>
                 
                 {showTalentDropdown && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                  <div 
+                    ref={talentDropdownRef}
+                    className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50"
+                    onClick={(e) => {
+                      // Close dropdown when a link is clicked
+                      const link = e.target.closest('a');
+                      if (link) {
+                        setShowTalentDropdown(false);
+                      }
+                    }}
+                  >
                     <Link 
                       href="/bootcamp" 
                       className={getDropdownItemClassName('/bootcamp')}
