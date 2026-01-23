@@ -2,12 +2,18 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
   const pathname = usePathname();
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showTalentDropdown, setShowTalentDropdown] = useState(false);
+
+  // Close dropdowns when pathname changes (navigation occurred)
+  useEffect(() => {
+    setShowAboutDropdown(false);
+    setShowTalentDropdown(false);
+  }, [pathname]);
 
   const aboutPaths = ['/about', '/success-stories', '/why-africa'];
   const talentPaths = ['/bootcamp', '/our-watchlist', '/talent-pool'];
@@ -62,22 +68,22 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
               <div className="bg-white rounded-md shadow-lg py-1">
                 <Link 
                   href="/about" 
+                  prefetch={false}
                   className={getDropdownItemClassName('/about')}
-                  onClick={() => setShowAboutDropdown(false)}
                 >
                   About Us
                 </Link>
                 <Link 
                   href="/success-stories" 
+                  prefetch={false}
                   className={getDropdownItemClassName('/success-stories')}
-                  onClick={() => setShowAboutDropdown(false)}
                 >
                   Success Stories
                 </Link>
                 <Link 
                   href="/why-africa" 
+                  prefetch={false}
                   className={getDropdownItemClassName('/why-africa-talentz')}
-                  onClick={() => setShowAboutDropdown(false)}
                 >
                   Why Africa Talents
                 </Link>
@@ -88,33 +94,33 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
       </li>
 
       <li className={getLinkClassName('/pricing-model')}>
-        <Link href="/pricing-model">Services</Link>
+        <Link href="/pricing-model" prefetch={false}>Services</Link>
       </li>
       
       <li className={getLinkClassName('/outsourcing')}>
-        <Link href="/outsourcing">Agency</Link>
+        <Link href="/outsourcing" prefetch={false}>Agency</Link>
       </li>
       
       <li className={getLinkClassName('/news')}>
-        <Link href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer">
+        <Link href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer" prefetch={false}>
           Blog
         </Link>
       </li>
 
       <li className={getLinkClassName('https://alltalentzacademy.com')}>
-        <Link href="https://alltalentzacademy.com" rel="noopener noreferrer">
+        <Link href="https://alltalentzacademy.com" rel="noopener noreferrer" prefetch={false}>
           Academy
         </Link>
       </li>
       
       <li className={getLinkClassName('/contact-us')}>
-        <Link href="/contact-us">Contact</Link>
+        <Link href="/contact-us" prefetch={false}>Contact</Link>
       </li>
 
       {theme !== 'light' && (
         <>
           <li className={getLinkClassName('/faq')}>
-            <Link href="/faq">FAQs</Link>
+            <Link href="/faq" prefetch={false}>FAQs</Link>
           </li>
           
           {addBootcamp && (
@@ -143,15 +149,15 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
                     <div className="bg-white rounded-md shadow-lg py-1">
                       <Link 
                         href="/bootcamp" 
+                        prefetch={false}
                         className={getDropdownItemClassName('/bootcamp')}
-                        onClick={() => setShowTalentDropdown(false)}
                       >
                         Join our PDP
                       </Link>
                       <Link 
                         href="/our-watchlist" 
+                        prefetch={false}
                         className={getDropdownItemClassName('/our-watchlist')}
-                        onClick={() => setShowTalentDropdown(false)}
                       >
                         Join Watchlist
                       </Link>
