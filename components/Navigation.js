@@ -68,21 +68,18 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
               <div className="bg-white rounded-md shadow-lg py-1">
                 <Link 
                   href="/about" 
-                  prefetch={false}
                   className={getDropdownItemClassName('/about')}
                 >
                   About Us
                 </Link>
                 <Link 
                   href="/success-stories" 
-                  prefetch={false}
                   className={getDropdownItemClassName('/success-stories')}
                 >
                   Success Stories
                 </Link>
                 <Link 
                   href="/why-africa" 
-                  prefetch={false}
                   className={getDropdownItemClassName('/why-africa-talentz')}
                 >
                   Why Africa Talents
@@ -94,33 +91,33 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
       </li>
 
       <li className={getLinkClassName('/pricing-model')}>
-        <Link href="/pricing-model" prefetch={false}>Services</Link>
+        <Link href="/pricing-model">Services</Link>
       </li>
       
       <li className={getLinkClassName('/outsourcing')}>
-        <Link href="/outsourcing" prefetch={false}>Agency</Link>
+        <Link href="/outsourcing">Agency</Link>
       </li>
       
       <li className={getLinkClassName('/news')}>
-        <Link href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer" prefetch={false}>
+        <Link href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer">
           Blog
         </Link>
       </li>
 
       <li className={getLinkClassName('https://alltalentzacademy.com')}>
-        <Link href="https://alltalentzacademy.com" rel="noopener noreferrer" prefetch={false}>
+        <Link href="https://alltalentzacademy.com" rel="noopener noreferrer">
           Academy
         </Link>
       </li>
       
       <li className={getLinkClassName('/contact-us')}>
-        <Link href="/contact-us" prefetch={false}>Contact</Link>
+        <Link href="/contact-us">Contact</Link>
       </li>
 
       {theme !== 'light' && (
         <>
           <li className={getLinkClassName('/faq')}>
-            <Link href="/faq" prefetch={false}>FAQs</Link>
+            <Link href="/faq">FAQs</Link>
           </li>
           
           {addBootcamp && (
@@ -149,14 +146,12 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
                     <div className="bg-white rounded-md shadow-lg py-1">
                       <Link 
                         href="/bootcamp" 
-                        prefetch={false}
                         className={getDropdownItemClassName('/bootcamp')}
                       >
                         Join our PDP
                       </Link>
                       <Link 
                         href="/our-watchlist" 
-                        prefetch={false}
                         className={getDropdownItemClassName('/our-watchlist')}
                       >
                         Join Watchlist
