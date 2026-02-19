@@ -163,7 +163,7 @@ const RemediationTalents = () => {
     
         <div className='flex flex-col lg:flex-row gap-6'>
           <Link href="/contact-us" className="bg-[#F99621] text-white px-8 py-3 text-center mx-auto hover:bg-[#121212] transition duration-300">Hire Construction/Remediation Support</Link>
-          <Link href="/contact-us" className="bg-[#FEF5E9] text-[#F99621] px-8 py-3 text-center mx-auto hover:bg-[#121212] transition duration-300">Schedule a Workflow Consultation</Link>
+          <Link href="https://calendly.com/mnwoseh" className="bg-[#FEF5E9] text-[#F99621] px-8 py-3 text-center mx-auto hover:bg-[#121212] transition duration-300">Schedule a Workflow Consultation</Link>
         </div>
     </div>
 

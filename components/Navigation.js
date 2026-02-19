@@ -9,13 +9,56 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
   const [showTalentDropdown, setShowTalentDropdown] = useState(false);
+  const [aboutTimeout, setAboutTimeout] = useState(null);
+  const [serviceTimeout, setServiceTimeout] = useState(null);
+  const [talentTimeout, setTalentTimeout] = useState(null);
 
   // Close dropdowns when pathname changes (navigation occurred)
   useEffect(() => {
     setShowAboutDropdown(false);
     setShowServiceDropdown(false);
     setShowTalentDropdown(false);
+    // Clear any pending timeouts
+    if (aboutTimeout) clearTimeout(aboutTimeout);
+    if (serviceTimeout) clearTimeout(serviceTimeout);
+    if (talentTimeout) clearTimeout(talentTimeout);
   }, [pathname]);
+
+  const handleAboutMouseEnter = () => {
+    if (aboutTimeout) clearTimeout(aboutTimeout);
+    setShowAboutDropdown(true);
+  };
+
+  const handleAboutMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setShowAboutDropdown(false);
+    }, 150);
+    setAboutTimeout(timeout);
+  };
+
+  const handleServiceMouseEnter = () => {
+    if (serviceTimeout) clearTimeout(serviceTimeout);
+    setShowServiceDropdown(true);
+  };
+
+  const handleServiceMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setShowServiceDropdown(false);
+    }, 150);
+    setServiceTimeout(timeout);
+  };
+
+  const handleTalentMouseEnter = () => {
+    if (talentTimeout) clearTimeout(talentTimeout);
+    setShowTalentDropdown(true);
+  };
+
+  const handleTalentMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setShowTalentDropdown(false);
+    }, 150);
+    setTalentTimeout(timeout);
+  };
 
   const aboutPaths = ['/about', '/success-stories', '/why-africa', '/contact-us', '/faq'];
   const servicePaths = ['/services', '/tech-talents', '/healthcare-talents', '/finance-talents', '/remediation-talents', '/legal-talents'];
@@ -50,8 +93,8 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
       <li className="relative">
         <div
           className="relative"
-          onMouseEnter={() => setShowAboutDropdown(true)}
-          onMouseLeave={() => setShowAboutDropdown(false)}
+          onMouseEnter={handleAboutMouseEnter}
+          onMouseLeave={handleAboutMouseLeave}
         >
           <button 
             className={`flex items-center gap-1 ${isAboutActive ? 'text-secondary' : getLinkClassName('/about')}`}
@@ -68,8 +111,8 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
           </button>
           
           {showAboutDropdown && (
-            <div className="absolute left-0 top-full pt-2 w-48 z-50">
-              <div className="bg-white rounded-md shadow-lg py-1">
+            <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
+              <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                 <Link 
                   href="/about" 
                   className={getDropdownItemClassName('/about')}
@@ -110,8 +153,8 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
       <li className="relative">
         <div
           className="relative"
-          onMouseEnter={() => setShowServiceDropdown(true)}
-          onMouseLeave={() => setShowServiceDropdown(false)}
+          onMouseEnter={handleServiceMouseEnter}
+          onMouseLeave={handleServiceMouseLeave}
         >
           <button 
             className={`flex items-center gap-1 ${isServiceActive ? 'text-secondary' : getLinkClassName('/services')}`}
@@ -128,13 +171,13 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
           </button>
           
           {showServiceDropdown && (
-            <div className="absolute left-0 top-full pt-2 w-48 z-50">
-              <div className="bg-white rounded-md shadow-lg py-1">
+            <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
+              <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                 <Link 
                   href="/services" 
                   className={getDropdownItemClassName('/services')}
                 >
-                  Services
+                 All Services
                 </Link>
                 <Link 
                   href="/tech-talents" 
@@ -195,8 +238,8 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
             <li className="relative">
               <div
                 className="relative"
-                onMouseEnter={() => setShowTalentDropdown(true)}
-                onMouseLeave={() => setShowTalentDropdown(false)}
+                onMouseEnter={handleTalentMouseEnter}
+                onMouseLeave={handleTalentMouseLeave}
               >
                 <button 
                   className={`flex items-center gap-1 ${isTalentActive ? 'text-secondary' : getLinkClassName('/bootcamp')}`}
@@ -213,8 +256,8 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
                 </button>
                 
                 {showTalentDropdown && (
-                  <div className="absolute left-0 top-full pt-2 w-48 z-50">
-                    <div className="bg-white rounded-md shadow-lg py-1">
+                  <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
+                    <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                       <Link 
                         href="/bootcamp" 
                         className={getDropdownItemClassName('/bootcamp')}
