@@ -24,6 +24,10 @@ export default function RequestTalent() {
     const [redirect, setRedirect] = useState(false)
     const services = [
       'Estimators ',
+      'Tech Talents',
+      'Healthcare Talents',
+      'Financial Talents',,
+      'Construction and Remediation Talents',
       'Administrative Assistants ',
       'Virtual Assistants ',
       'Telemarketing Assistant ',
@@ -334,6 +338,9 @@ export default function RequestTalent() {
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
        <div className="mb-[42px]">
             <h3 className="text-[#F99621] text-[35px] text-center font-normal">Some talent offers you can get from us!</h3>
+            <p className="text-gray-600 text-center mt-4 text-lg">
+                👆 Click on one or more services below to select what you need
+            </p>
        </div>
         <div className="bg-[#F8F8F8] py-7">
 
