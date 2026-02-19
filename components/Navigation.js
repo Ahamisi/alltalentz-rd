@@ -7,17 +7,21 @@ import { useState, useEffect } from 'react';
 const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
   const pathname = usePathname();
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
+  const [showServiceDropdown, setShowServiceDropdown] = useState(false);
   const [showTalentDropdown, setShowTalentDropdown] = useState(false);
 
   // Close dropdowns when pathname changes (navigation occurred)
   useEffect(() => {
     setShowAboutDropdown(false);
+    setShowServiceDropdown(false);
     setShowTalentDropdown(false);
   }, [pathname]);
 
-  const aboutPaths = ['/about', '/success-stories', '/why-africa'];
+  const aboutPaths = ['/about', '/success-stories', '/why-africa', '/contact-us', '/faq'];
+  const servicePaths = ['/services', '/tech-talents', '/healthcare-talents', '/finance-talents', '/remediation-talents', '/legal-talents'];
   const talentPaths = ['/bootcamp', '/our-watchlist', '/talent-pool'];
   const isAboutActive = aboutPaths.includes(pathname);
+  const isServiceActive = servicePaths.includes(pathname);
   const isTalentActive = talentPaths.includes(pathname);
 
   const getLinkClassName = (path) => {
@@ -84,24 +88,92 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
                 >
                   Why Africa Talents
                 </Link>
+                <Link 
+                  href="/contact-us" 
+                  className={getDropdownItemClassName('/contact-us')}
+                >
+                  Contact
+                </Link>
+                <Link 
+                  href="/faq" 
+                  className={getDropdownItemClassName('/faq')}
+                >
+                  FAQs
+                </Link>
               </div>
             </div>
           )}
         </div>
       </li>
 
-      <li className={getLinkClassName('/pricing-model')}>
-        <Link href="/pricing-model">Services</Link>
+      {/* Service Dropdown */}
+      <li className="relative">
+        <div
+          className="relative"
+          onMouseEnter={() => setShowServiceDropdown(true)}
+          onMouseLeave={() => setShowServiceDropdown(false)}
+        >
+          <button 
+            className={`flex items-center gap-1 ${isServiceActive ? 'text-secondary' : getLinkClassName('/services')}`}
+          >
+            Services
+            <svg 
+              className={`w-4 h-4 mt-1 transition-transform ${showServiceDropdown ? 'rotate-180' : ''}`}
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          {showServiceDropdown && (
+            <div className="absolute left-0 top-full pt-2 w-48 z-50">
+              <div className="bg-white rounded-md shadow-lg py-1">
+                <Link 
+                  href="/services" 
+                  className={getDropdownItemClassName('/services')}
+                >
+                  Services
+                </Link>
+                <Link 
+                  href="/tech-talents" 
+                  className={getDropdownItemClassName('/tech-talents')}
+                >
+                  Tech Talents
+                </Link>
+                <Link 
+                  href="/healthcare-talents" 
+                  className={getDropdownItemClassName('/healthcare-talents')}
+                >
+                  Healthcare Talents
+                </Link>
+                <Link 
+                  href="/finance-talents" 
+                  className={getDropdownItemClassName('/finance-talents')}
+                >
+                  Finance Talents
+                </Link>
+                <Link 
+                  href="/remediation-talents" 
+                  className={getDropdownItemClassName('/remediation-talents')}
+                >
+                  Remediation Talents
+                </Link>
+                <Link 
+                  href="/legal-talents" 
+                  className={getDropdownItemClassName('/legal-talents')}
+                >
+                  Legal Talents
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
       </li>
       
       <li className={getLinkClassName('/outsourcing')}>
         <Link href="/outsourcing">Agency</Link>
-      </li>
-      
-      <li className={getLinkClassName('/news')}>
-        <Link href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer">
-          Blog
-        </Link>
       </li>
 
       <li className={getLinkClassName('https://alltalentzacademy.com')}>
@@ -109,16 +181,15 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
           Academy
         </Link>
       </li>
-      
-      <li className={getLinkClassName('/contact-us')}>
-        <Link href="/contact-us">Contact</Link>
+
+      <li className={getLinkClassName('/news')}>
+        <Link href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer">
+          Blog
+        </Link>
       </li>
 
       {theme !== 'light' && (
         <>
-          <li className={getLinkClassName('/faq')}>
-            <Link href="/faq">FAQs</Link>
-          </li>
           
           {addBootcamp && (
             <li className="relative">
