@@ -174,6 +174,12 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
               <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                 <Link 
+                  href="/pricing-model" 
+                  className={getDropdownItemClassName('/pricing-model')}
+                >
+                 Our Solutions
+                </Link>
+                <Link 
                   href="/services" 
                   className={getDropdownItemClassName('/services')}
                 >

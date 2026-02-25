@@ -3,8 +3,73 @@ import Link from 'next/link';
 const pricingModels = [
   {
     id: 1,
+    title: "DATA ANNOTATORS",
+    image: "/redesign-25/pricing/Data Annotators.jpg",
+    description: "Our skilled Data Annotators meticulously label and categorize data, such as images, text, and audio, to create high-quality, structured datasets essential for training and improving machine learning models.",
+    price: "400-1600",
+    benefits: [
+      "Highly trained Data Annotators",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#data-annotators"
+  },
+  {
+    id: 2,
+    title: " AI/ML SPECIALISTS",
+    image: "/redesign-25/pricing/AI/MLSpecialists.jpg",
+    description: "Our AI/ML Specialists design, build, and deploy artificial intelligence and machine learning models to solve complex business challenges, automate processes, and extract valuable insights from your data. ",
+    price: "1500-2500",
+    benefits: [
+      "Highly trained AI/ML Specialists",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#ai-ml-specialists"
+  },
+  {
+    id: 3,
+    title: "MEDICAL BILLING SPECIALISTS",
+    image: "/redesign-25/pricing/MedicalBillingSpecialists.jpg",
+    description: "Our Medical Billing Specialists manage healthcare billing processes, handle insurance claims, and ensure accurate coding to streamline revenue cycles and maintain compliance for medical practices. ",
+    price: "400-1600",
+    benefits: [
+      " Highly trained Medical Billing Specialists ",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#medical-billing-specialists"
+  },
+  {
+    id: 4,
+    title: "SOFTWARE DEVELOPERS",
+    image: "/redesign-25/pricing/SoftwareDevelopers.jpg",
+    description: "Our Software Developers (a dedicated card for this role) analyze requirements to build, test, and maintain scalable software applications and systems, ensuring they are efficient, secure, and meet user needs.",
+    price: "1500-2500",
+    benefits: [
+      "Highly trained Software Developers",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#software-developers"
+  },
+  {
+    id: 5,
+    title: "UI/UX DESIGNERS",
+    image: "/redesign-25/pricing/software-devs.jpg",
+    description: "Our UI/UX Designers create intuitive and engaging user interfaces and experiences for digital products, conducting user research and designing workflows to enhance customer satisfaction and usability.",
+    price: "400-1600",
+    benefits: [
+      "Highly trained UI/UX Designers",
+      "24/7 support",
+      "Vetted Talents"
+    ],
+    ctaLink: "/request-talent#ui-ux-designers"
+  },
+  {
+    id: 5,
     title: "ESTIMATOR",
-    image: "/redesign-25/pricing/estimator.jpg",
+    image: "/redesign-25/pricing/Estimators.jpg",
     description: "Our team of well trained and highly experienced estimators, review and prepare detailed estimates for property restoration projects, ensuring accuracy in cost calculations for materials and labor.",
     price: "400-1600",
     benefits: [
@@ -15,22 +80,22 @@ const pricingModels = [
     ctaLink: "/request-talent#estimators"
   },
   {
-    id: 2,
-    title: "VIRTUAL ASSISTANT",
-    image: "/redesign-25/pricing/virtual-assistants.jpg",
-    description: "Our VAs offer administrative and organizational support remotely, handling tasks like email management, scheduling, and document preparation for our clients.",
+    id: 6,
+    title: "CALL CENTER SUPPORT ",
+    image: "/redesign-25/pricing/CallCenterSupport.jpg",
+    description: "We provide a complete call center solution by professionally recruiting, training, and deploying a dedicated support team tailored to your business within 2 weeks. This service covers inbound/outbound customer service, technical support, and telemarketing to meet your specific operational needs.",
     price: "400-1600",
     benefits: [
-      "Well trained Virtual Assistants",
-      "24/7 support",
-      "Vetted Talents"
+      "A Professionally Trained Call Center Team ",
+      "24/7 Operational Support",
+      "Vetted and Managed Talents"
     ],
-    ctaLink: "/request-talent#virtual-assistant"
+    ctaLink: "/request-talent#call-center-support"
   },
   {
-    id: 3,
+    id: 7,
     title: "ACCOUNT RECEIVABLES SPECIALIST",
-    image: "/redesign-25/pricing/account-reciveables.jpg",
+    image: "/redesign-25/pricing/AccountsReceivablesSpecialists.jpg",
     description: "Our Accounts Receivables Specialist supports businesses in managing invoicing, tracking payments, and ensure timely collections, to maintain a company’s cash flow.",
     price: "400-1600",
     benefits: [
@@ -41,22 +106,22 @@ const pricingModels = [
     ctaLink: "/request-talent#account-receivables"
   },
   {
-    id: 4,
-    title: "DIGITAL MARKETERS",
-    image: "/redesign-25/pricing/digital-marketer.jpg",
-    description: "Our Digital Marketers help businesses to develop and execute online marketing strategies, including SEO, social media, and content creation, to generate quality leads, increase brand visibility and drive engagement.",
+    id: 8,
+    title: "VIRTUAL ASSISTANT",
+    image: "/redesign-25/pricing/VirtualAssistants.jpg",
+    description: "Our VAs offer administrative and organizational support remotely, handling tasks like email management, scheduling, and document preparation for our clients.",
     price: "400-1600",
     benefits: [
-      "Highly trained Digital Marketers",
+      "Well trained Virtual Assistants",
       "24/7 support",
       "Vetted Talents"
     ],
-    ctaLink: "/request-talent#digital-marketers"
+    ctaLink: "/request-talent#virtual-assistant"
   },
   {
-    id: 5,
+    id: 9,
     title: "TELEMARKETING/ADMIN ASSISTANTS",
-    image: "/redesign-25/pricing/telemarketer.jpg",
+    image: "/redesign-25/pricing/TelemarketingAdmin Assistants.jpg",
     description: "Our Telemarketers/Admin Assistants provide customer outreach through calls to generate leads or sales, while also assisting with administrative tasks such as data entry, documentation and appointment setting.",
     price: "400-1600",
     benefits: [
@@ -67,18 +132,31 @@ const pricingModels = [
     ctaLink: "/request-talent#telemarketing-assistant"
   },
   {
-    id: 6,
-    title: "DESIGNERS / DEVELOPERS",
-    image: "/redesign-25/pricing/software-devs.jpg",
-    description: "Our highly experienced team of designers and software engineers, design, develop, test, and maintain software applications and systems on behalf of our clients, ensuring they meet user needs and performance requirements.",
-    price: "1500-2500",
+    id: 10,
+    title: "DIGITAL MARKETERS",
+    image: "/redesign-25/pricing/DigitalMarketers.jpg",
+    description: "Our Digital Marketers help businesses to develop and execute online marketing strategies, including SEO, social media, and content creation, to generate quality leads, increase brand visibility and drive engagement.",
+    price: "400-1600",
     benefits: [
-      "Highly trained Software Developers",
+      "Highly trained Digital Marketers",
       "24/7 support",
       "Vetted Talents"
     ],
-    ctaLink: "/request-talent#designers-and software developers"
+    ctaLink: "/request-talent#digital-marketers"
   },
+  // {
+  //   id: 6,
+  //   title: "DESIGNERS / DEVELOPERS",
+  //   image: "/redesign-25/pricing/software-devs.jpg",
+  //   description: "Our highly experienced team of designers and software engineers, design, develop, test, and maintain software applications and systems on behalf of our clients, ensuring they meet user needs and performance requirements.",
+  //   price: "1500-2500",
+  //   benefits: [
+  //     "Highly trained Software Developers",
+  //     "24/7 support",
+  //     "Vetted Talents"
+  //   ],
+  //   ctaLink: "/request-talent#designers-and software developers"
+  // },
   
 ];
 
