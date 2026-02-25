@@ -1,12 +1,14 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
+// Navbar links must force a full page load so Next.js does NOT intercept the click.
+// Next.js App Router intercepts same-origin <a> clicks for client-side nav → RSC fetch storm on Netlify.
+// Hero "Find Talent" works because it's a plain <a> that sometimes isn't in the intercepted tree.
+// We use preventDefault + window.location.href so the router never sees the click → one request.
 const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
   const pathname = usePathname();
-  const router = useRouter();
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
   const [showTalentDropdown, setShowTalentDropdown] = useState(false);
@@ -14,12 +16,19 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
   const [serviceTimeout, setServiceTimeout] = useState(null);
   const [talentTimeout, setTalentTimeout] = useState(null);
 
+  // Force full page load for same-origin links so Next.js router never intercepts (no RSC storm).
+  const handleNavClick = (e) => {
+    const href = e.currentTarget.getAttribute('href');
+    if (!href || href.startsWith('http') || e.ctrlKey || e.metaKey || e.button === 1) return;
+    e.preventDefault();
+    window.location.href = href;
+  };
+
   // Close dropdowns when pathname changes (navigation occurred)
   useEffect(() => {
     setShowAboutDropdown(false);
     setShowServiceDropdown(false);
     setShowTalentDropdown(false);
-    // Clear any pending timeouts
     if (aboutTimeout) clearTimeout(aboutTimeout);
     if (serviceTimeout) clearTimeout(serviceTimeout);
     if (talentTimeout) clearTimeout(talentTimeout);
@@ -88,15 +97,6 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
     }`;
   };
 
-  // Programmatic navigation for dropdown items to avoid Netlify prefetch/navigation
-  // request storms (thousands of canceled requests). Left-click: single router.push;
-  // middle/ctrl/cmd-click: let default behavior open in new tab.
-  const handleDropdownNav = (e, href) => {
-    if (e.ctrlKey || e.metaKey || e.button === 1) return;
-    e.preventDefault();
-    router.push(href);
-  };
-
   return (
     <>
       {/* About Dropdown */}
@@ -123,11 +123,11 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
           {showAboutDropdown && (
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
               <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
-                <Link href="/about" prefetch={false} className={getDropdownItemClassName('/about')} onClick={(e) => handleDropdownNav(e, '/about')}>About Us</Link>
-                <Link href="/success-stories" prefetch={false} className={getDropdownItemClassName('/success-stories')} onClick={(e) => handleDropdownNav(e, '/success-stories')}>Success Stories</Link>
-                <Link href="/why-africa" prefetch={false} className={getDropdownItemClassName('/why-africa')} onClick={(e) => handleDropdownNav(e, '/why-africa')}>Why Africa Talents</Link>
-                <Link href="/contact-us" prefetch={false} className={getDropdownItemClassName('/contact-us')} onClick={(e) => handleDropdownNav(e, '/contact-us')}>Contact</Link>
-                <Link href="/faq" prefetch={false} className={getDropdownItemClassName('/faq')} onClick={(e) => handleDropdownNav(e, '/faq')}>FAQs</Link>
+                <a href="/about" className={getDropdownItemClassName('/about')} onClick={handleNavClick}>About Us</a>
+                <a href="/success-stories" className={getDropdownItemClassName('/success-stories')} onClick={handleNavClick}>Success Stories</a>
+                <a href="/why-africa" className={getDropdownItemClassName('/why-africa')} onClick={handleNavClick}>Why Africa Talents</a>
+                <a href="/contact-us" className={getDropdownItemClassName('/contact-us')} onClick={handleNavClick}>Contact</a>
+                <a href="/faq" className={getDropdownItemClassName('/faq')} onClick={handleNavClick}>FAQs</a>
               </div>
             </div>
           )}
@@ -158,13 +158,13 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
           {showServiceDropdown && (
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
               <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
-                <Link href="/pricing-model" prefetch={false} className={getDropdownItemClassName('/pricing-model')} onClick={(e) => handleDropdownNav(e, '/pricing-model')}>Our Solutions</Link>
-                <Link href="/services" prefetch={false} className={getDropdownItemClassName('/services')} onClick={(e) => handleDropdownNav(e, '/services')}>All Services</Link>
-                <Link href="/tech-talents" prefetch={false} className={getDropdownItemClassName('/tech-talents')} onClick={(e) => handleDropdownNav(e, '/tech-talents')}>Tech Talents</Link>
-                <Link href="/healthcare-talents" prefetch={false} className={getDropdownItemClassName('/healthcare-talents')} onClick={(e) => handleDropdownNav(e, '/healthcare-talents')}>Healthcare Talents</Link>
-                <Link href="/finance-talents" prefetch={false} className={getDropdownItemClassName('/finance-talents')} onClick={(e) => handleDropdownNav(e, '/finance-talents')}>Finance Talents</Link>
-                <Link href="/remediation-talents" prefetch={false} className={getDropdownItemClassName('/remediation-talents')} onClick={(e) => handleDropdownNav(e, '/remediation-talents')}>Remediation Talents</Link>
-                <Link href="/legal-talents" prefetch={false} className={getDropdownItemClassName('/legal-talents')} onClick={(e) => handleDropdownNav(e, '/legal-talents')}>Legal Talents</Link>
+                <a href="/pricing-model" className={getDropdownItemClassName('/pricing-model')} onClick={handleNavClick}>Our Solutions</a>
+                <a href="/services" className={getDropdownItemClassName('/services')} onClick={handleNavClick}>All Services</a>
+                <a href="/tech-talents" className={getDropdownItemClassName('/tech-talents')} onClick={handleNavClick}>Tech Talents</a>
+                <a href="/healthcare-talents" className={getDropdownItemClassName('/healthcare-talents')} onClick={handleNavClick}>Healthcare Talents</a>
+                <a href="/finance-talents" className={getDropdownItemClassName('/finance-talents')} onClick={handleNavClick}>Finance Talents</a>
+                <a href="/remediation-talents" className={getDropdownItemClassName('/remediation-talents')} onClick={handleNavClick}>Remediation Talents</a>
+                <a href="/legal-talents" className={getDropdownItemClassName('/legal-talents')} onClick={handleNavClick}>Legal Talents</a>
               </div>
             </div>
           )}
@@ -172,19 +172,15 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
       </li>
       
       <li className={getLinkClassName('/outsourcing')}>
-        <Link href="/outsourcing" prefetch={false}>Agency</Link>
+        <a href="/outsourcing" onClick={handleNavClick}>Agency</a>
       </li>
 
       <li className={getLinkClassName('https://alltalentzacademy.com')}>
-        <Link href="https://alltalentzacademy.com" rel="noopener noreferrer" prefetch={false}>
-          Academy
-        </Link>
+        <a href="https://alltalentzacademy.com" rel="noopener noreferrer">Academy</a>
       </li>
 
       <li className={getLinkClassName('/news')}>
-        <Link href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer" prefetch={false}>
-          Blog
-        </Link>
+        <a href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer">Blog</a>
       </li>
 
       {theme !== 'light' && (
@@ -214,8 +210,8 @@ const Navigation = ({ addBootcamp = false, theme = 'dark' }) => {
                 {showTalentDropdown && (
                   <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
                     <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
-                      <Link href="/professional-development-programme" prefetch={false} className={getDropdownItemClassName('/professional-development-programme')} onClick={(e) => handleDropdownNav(e, '/professional-development-programme')}>Join our PDP</Link>
-                      <Link href="/our-watchlist" prefetch={false} className={getDropdownItemClassName('/our-watchlist')} onClick={(e) => handleDropdownNav(e, '/our-watchlist')}>Join Watchlist</Link>
+                      <a href="/professional-development-programme" className={getDropdownItemClassName('/professional-development-programme')} onClick={handleNavClick}>Join our PDP</a>
+                      <a href="/our-watchlist" className={getDropdownItemClassName('/our-watchlist')} onClick={handleNavClick}>Join Watchlist</a>
                     </div>
                   </div>
                 )}
