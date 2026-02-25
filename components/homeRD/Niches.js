@@ -87,36 +87,62 @@ const NicheSection = () => {
 
   const niches = [
     {
+      title: "Data Annotators",
+      imageSrc: "/redesign-25/pricing/Data Annotators.jpg",
+      description: "Our skilled Data Annotators meticulously label and categorize data, such as images, text, and audio, to create high-quality, structured datasets essential for training and improving machine learning models."
+    },
+    {
+      title: "AI/ML Specialists",
+      imageSrc: "/redesign-25/pricing/AI/MLSpecialists.jpg",
+      description: "Our AI/ML Specialists design, build, and deploy artificial intelligence and machine learning models to solve complex business challenges, automate processes, and extract valuable insights from your data."
+    },
+    {
+      title: "Medical Billing Specialists",
+      imageSrc: "/redesign-25/pricing/MedicalBillingSpecialists.jpg",
+      description: "Our Medical Billing Specialists manage healthcare billing processes, handle insurance claims, and ensure accurate coding to streamline revenue cycles and maintain compliance for medical practices."
+    },
+    {
+      title: "Software Developers",
+      imageSrc: "/redesign-25/pricing/SoftwareDevelopers.jpg",
+      description: "Our Software Developers (a dedicated card for this role) analyze requirements to build, test, and maintain scalable software applications and systems, ensuring they are efficient, secure, and meet user needs."
+    },
+    {
+      title: "UI/UX Designers",
+      imageSrc: "/redesign-25/niche/software-developers.jpg",
+      description: "Our UI/UX Designers create intuitive and engaging user interfaces and experiences for digital products, conducting user research and designing workflows to enhance customer satisfaction and usability."
+    },
+    {
       title: "Estimators",
-      imageSrc: "/redesign-25/niche/estimators.png",
+      imageSrc: "/redesign-25/pricing/Estimators.jpg",
       description: "Our team of well trained and highly experienced estimators, review and prepare detailed estimates for property restoration projects, ensuring accuracy in cost calculations for materials and labor."
     },
     {
-      title: "Virtual Assistants",
-      imageSrc: "/redesign-25/niche/virtual-assitants.png",
-      description: "Our VAs offer administrative and organizational support remotely, handling tasks like email management, scheduling, and document preparation for our clients."
+      title: "Call Center Support",
+      imageSrc: "/redesign-25/pricing/CallCenterSupport.jpg",
+      description: "We provide a complete call center solution by professionally recruiting, training, and deploying a dedicated support team tailored to your business within 2 weeks. This service covers inbound/outbound customer service, technical support, and telemarketing to meet your specific operational needs.."
     },
     {
       title: "Account Receivables",
-      imageSrc: "/redesign-25/niche/account-receivables.jpg",
+      imageSrc: "/redesign-25/pricing/AccountsReceivablesSpecialists.jpg",
       description: "Our Accounts Receivables Specialist supports business in managing invoicing, tracking payments, and ensure timely collections, to maintain a company’s cash flow."
     },
     {
-      title: "Digital Marketers",
-      imageSrc: "/redesign-25/niche/digital-marketers.jpg",
-      description: "Our Digital Marketers help businesses to develop and execute online marketing strategies, including SEO, social media, and content creation, to generate quality leads, increase brand visibility and drive engagement."
+      title: "Virtual Assistants",
+      imageSrc: "/redesign-25/pricing/VirtualAssistants.jpg",
+      description: "Our VAs offer administrative and organizational support remotely, handling tasks like email management, scheduling, and document preparation for our clients."
     },
     {
       title: "Telemarketing Assistant",
-      imageSrc: "/redesign-25/niche/data-entry.jpg",
+      imageSrc: "/redesign-25/pricing/TelemarketingAdmin Assistants.jpg",
       description: "Our Telemarketers/Admin Assistants provide customer outreach through calls to generate leads or sales, while also assisting with administrative tasks such as data entry, documentation and appointment setting."
     },
     {
-      title: "Designers and Software Developers",
-      imageSrc: "/redesign-25/niche/software-developers.jpg",
-      description: "Our highly experienced team of designers and software engineers, designs, develops, tests, and maintain software applications and systems on behalf of our clients, ensuring they meet user needs and performance requirements."
+      title: "Digital Marketers",
+      imageSrc: "/redesign-25/pricing/DigitalMarketers.jpg",
+      description: "Our Digital Marketers help businesses to develop and execute online marketing strategies, including SEO, social media, and content creation, to generate quality leads, increase brand visibility and drive engagement."
     },
-    // Add more niches as needed
+    
+ 
   ];
 
   // Create slides with 3 items per slide for desktop

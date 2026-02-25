@@ -11,7 +11,7 @@ export default function HealthcareTalentsPage() {
         <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
           {/* Left Column */}
           <div className="lg:w-[60%] flex flex-col space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">
               Enhance Your Practice with Compliant Legal Support.
             </h1>
             
