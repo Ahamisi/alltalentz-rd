@@ -4,6 +4,7 @@ export const metadata = {
   title: 'All Talentz Hackathon 2025 | Build Solutions That Matter',
   description: 'Join Nigeria\'s leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders.',
   keywords: 'hackathon, Nigeria tech, innovation challenge, tech hackathon, All Talentz, tech competition',
+  alternates: { canonical: 'https://alltalentz.com/hackathon' },
   openGraph: {
     type: 'website',
     title: 'All Talentz Hackathon 2025 | Build Solutions That Matter',
@@ -21,9 +22,6 @@ export const metadata = {
 export default function HackathonLayout({ children }) {
   return (
     <>
-      <head>
-        <link rel="canonical" href="https://alltalentz.com/hackathon" />
-      </head>
       {/* Google tag (gtag.js) - Place as high as possible */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-17208890772"
