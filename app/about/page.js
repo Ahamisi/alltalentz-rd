@@ -52,9 +52,8 @@ export default function About() {
           <h2 className="text-4xl md:text-4xl font-bold mb-8 text-black">
             Our Mission
           </h2>
-          <p className="text-2xl md:text-3xl lg:text-2xl leading-tight max-w-5xl">
-            <span className="text-[#FFB300]">To utilize our talent solutions and technology expertise</span>
-            <span className="text-black"> to develop cutting edge products for businesses across several industries</span>
+          <p className="text-2xl md:text-3xl lg:text-2xl leading-tight max-w-6xl text-black">
+             Our mission is to build and deploy high-quality talent through structured assessments and global training, expanding our footprint to serve clients and professionals across the world.
           </p>
         </div>
 
@@ -85,6 +84,15 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <div className="max-w-7xl mx-auto mt-12">
+        <h2 className="text-4xl md:text-4xl mb-8 text-black">
+            Our Vision
+          </h2>
+          <p className="text-2xl md:text-3xl lg:text-2xl leading-tight max-w-6xl text-black">
+             Restoring excellence globally through innovative outsourcing and transformative technology solutions.
+          </p>
+      </div>
     </section>
 
 
@@ -99,69 +107,80 @@ export default function About() {
 
         {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Service */}
-          <div className="p-6 rounded-[8px] border border-[#EBEBF0]">
+          {/* Teamwork */}
+          <div className="p-6 rounded-[8px] bg-white border border-[#EBEBF0]">
             <div className="mb-6">
               <img src="/icons/service.svg" alt="Service" className="w-12 h-12" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Service</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Teamwork</h3>
             <p className="text-gray-600 leading-relaxed">
-              We're dedicated to providing exceptional service by focusing on what truly matters. We don't overcomplicate solutions or chase unnecessary features. We deliver clear and efficient service, meeting your needs without wasted effort.
+              Together, we go further. We believe the best outcomes are built collectively. We show up for each other, communicate openly, and combine our strengths to deliver results no individual could achieve alone. At AllTalentz, collaboration isn't just encouraged — it's how we work.
             </p>
           </div>
 
-          {/* Growth */}
-          <div className="p-6 rounded-[8px] border border-[#EBEBF0]">
+          {/* Accountability */}
+          <div className="p-6 rounded-[8px] border bg-white border-[#EBEBF0]">
             <div className="mb-6">
               <img src="/icons/growth.svg" alt="Growth" className="w-12 h-12" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Growth</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Accountability</h3>
             <p className="text-gray-600 leading-relaxed">
-              Our approach to growth is purposeful and deliberate. Growth drives us to improve and evolve continuously. We focus on sustainable progress, embracing opportunities to advance while keeping our core values intact
+              We own our outcomes. We take full responsibility for our words, our work, and our results. When we commit, we follow through. When we fall short, we own it and improve. Accountability is the foundation of the trust our clients and teammates place in us every day.
             </p>
           </div>
 
-          {/* Professionalism */}
-          <div className="p-6 rounded-[8px] border border-[#EBEBF0]">
+          {/* Leadership Mindset*/}
+          <div className="p-6 rounded-[8px] bg-white border border-[#EBEBF0]">
             <div className="mb-6">
               <img src="/icons/professionalism.svg" alt="Professionalism" className="w-12 h-12" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Professionalism</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Leadership Mindset</h3>
             <p className="text-gray-600 leading-relaxed">
-              We embody professionalism by streamlining our efforts and avoiding distractions. We deliver high-quality work with integrity, focus, and respect, ensuring excellence and building trust in every interaction.
+              Lead from wherever you stand. Leadership isn't a title — it's a posture. We approach every task with initiative, foresight, and ownership. We don't wait for direction when we can create it. Every member of our team is expected to think like a leader and act with the confidence that drives progress.
             </p>
           </div>
 
-          {/* Consistency */}
-          <div className="p-6 rounded-[8px] border border-[#EBEBF0]">
+          {/* Excellence */}
+          <div className="p-6 rounded-[8px] border bg-white border-[#EBEBF0]">
             <div className="mb-6">
               <img src="/icons/consistency.svg" alt="Consistency" className="w-12 h-12" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Consistency</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Excellence</h3>
             <p className="text-gray-600 leading-relaxed">
-              Consistency is key to our success. We deliver reliable results by maintaining clear, steady practices and adapting as needed to uphold our standards.
+              Good enough never is. We set a high bar and hold ourselves to it — consistently. Excellence at AllTalentz means delivering work that is accurate, thoughtful, and built to last. We sweat the details, refine our process, and never mistake speed for quality.
             </p>
           </div>
 
-          {/* Integrity */}
-          <div className="p-6 rounded-[8px] border border-[#EBEBF0]">
+          {/* Nobility */}
+          <div className="p-6 rounded-[8px] border bg-white border-[#EBEBF0]">
             <div className="mb-6">
               <img src="/icons/integrity.svg" alt="Integrity" className="w-12 h-12" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Integrity</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Nobility</h3>
             <p className="text-gray-600 leading-relaxed">
-              Integrity guides our actions. We make honest decisions and stay true to our values, ensuring transparency and trust in everything we do.
+              Do what's right, especially when it's hard. We act with integrity in every interaction — with clients, partners, and each other. Nobility means honesty over convenience, fairness over shortcuts, and respect as a non-negotiable. We build relationships that last because they are rooted in character.
             </p>
           </div>
 
-          {/* Discipline */}
-          <div className="p-6 rounded-[8px] border border-[#EBEBF0]">
+          {/* Tenacity */}
+          <div className="p-6 rounded-[8px] border bg-white border-[#EBEBF0]">
             <div className="mb-6">
               <img src="/icons/discipline.svg" alt="Discipline" className="w-12 h-12" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Discipline</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Tenacity</h3>
             <p className="text-gray-600 leading-relaxed">
-              Discipline guides our work. We avoid the pitfalls of over-engineering and unnecessary features, maintaining a clear and focused approach. We ensure that every decision is made with purpose and precision.
+              We don't quit when it gets hard. Challenges are not reasons to stop — they are reasons to adapt. We bring persistence, resilience, and a relentless focus on solutions to every obstacle we face. The harder the problem, the harder we work to solve it.
+            </p>
+          </div>
+
+          {/* Zeal */}
+          <div className="p-6 rounded-[8px] lg:col-start-2 border bg-white border-[#EBEBF0]">
+            <div className="mb-6">
+              <img src="/icons/discipline.svg" alt="Discipline" className="w-12 h-12" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-[#121212]">Zeal</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Passion in everything we do. We show up energized, engaged, and genuinely invested in the work. Zeal is what separates going through the motions from making a real impact. We bring enthusiasm to the grind, because we believe that what we do matters — and that belief drives everything.
             </p>
           </div>
         </div>
