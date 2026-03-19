@@ -29,7 +29,7 @@ const Header = ({active='home'}) => {
 
   return (
     <>
-      <div className="w-full bg-[#F99621] text-black py-2 overflow-hidden z-50 absolute">
+      {/* <div className="w-full bg-[#F99621] text-black py-2 overflow-hidden z-50 absolute">
         <div 
           className="whitespace-nowrap font-medium"
           style={{ 
@@ -53,9 +53,9 @@ const Header = ({active='home'}) => {
 
           </span>
         </div>
-      </div>
+      </div> */}
 
-    <header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0 mt-10'>
+    <header className='bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0 mt-5'>
         <nav className="py-4 flex items-center justify-between bg-transparent md:px-[20px] lg:px-0" style={{ zIndex: 10 }} >
       {/* Logo */}
       <div className="text-white text-2xl font-bold cursor-pointer items-center" >
