@@ -12,8 +12,45 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: 'Services | AllTalentz',
-  description: 'AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation. Scale your operations with our trained professionals.',
+  description:
+    'AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation.',
+
+  openGraph: {
+    title: 'All Talentz | Remote Talent & Outsourcing Agency',
+    description:
+      'Connect with the best remote talent from Africa at a fraction of the cost.',
+    url: 'https://alltalentz.com/',
+    siteName: 'All Talentz',
+    images: [
+      {
+        url: 'https://alltalentz.com/alltalentz-homebg.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'All Talentz social preview',
+      },
+    ],
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    site: '@alltalentz',
+    title: 'All Talentz | Remote Talent & Outsourcing Agency',
+    description:
+      'Connect with the best remote talent from Africa at a fraction of the cost.',
+    images: [
+      {
+        url: 'https://alltalentz.com/alltalentz-homebg.jpg',
+        alt: 'All Talentz social preview',
+      },
+    ],
+  },
+
+  verification: {
+    google: 'lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo',
+  },
 }
+
 
 
 export default function RootLayout({ children }) {
@@ -23,11 +60,11 @@ export default function RootLayout({ children }) {
          <link rel="canonical" href="https://alltalentz.com/" />
          <link rel="preconnect" href="https://fonts.googleapis.com" />
          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-         <meta
+         {/* <meta
           property="og:image"
           content="/alltalentz-homebg.jpg"
-        />
-        <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+        /> */}
+        {/* <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" /> */}
         <SchemaMarkup schemas={[OrganizationSchema, WebsiteSchema]} />
        </head>
     <body className={montserrat.className} id="body" style={{overflowY: 'hidden'}}>
