@@ -74,7 +74,7 @@ const Faq = ({
           <div className="md:w-2/3">
             {faqs.map((faq, index) => (
               <FaqItem
-                key={faq.id}
+                key={index}
                 question={faq.question}
                 answer={faq.answer}
                 isOpen={openIndex === index}
