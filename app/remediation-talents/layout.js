@@ -4,6 +4,14 @@ export const metadata = {
   title: 'Outsource Construction Estimating & Remediation | AllTalentz',
   description: 'Certified estimators, takeoff specialists & project coordinators for restoration companies. 70% cost savings.',
   alternates: { canonical: 'https://alltalentz.com/remediation-talents' },
+  openGraph: {
+    type: 'website',
+    siteName: 'AllTalentz',
+    title: 'Outsource Construction Estimating & Remediation | AllTalentz',
+    description: 'Certified estimators, takeoff specialists & project coordinators for restoration companies. 70% cost savings.',
+    url: 'https://alltalentz.com/remediation-talents',
+    images: [{ url: '/twitter/twitter-card.png', width: 1200, height: 630, alt: 'AllTalentz' }],
+  },
 };
 
 const schema = generateServiceSchema(

@@ -7,8 +7,10 @@ export const metadata = {
   alternates: { canonical: 'https://alltalentz.com/hackathon' },
   openGraph: {
     type: 'website',
+    siteName: 'AllTalentz',
     title: 'All Talentz Hackathon 2025 | Build Solutions That Matter',
     description: 'Join Nigeria\'s leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders.',
+    url: 'https://alltalentz.com/hackathon',
     images: ['/hackathon/alltalentz.svg'],
   },
   twitter: {
