@@ -371,7 +371,7 @@ export default function Outsourcing() {
 
 
     <section className="px-[10px] md:px-0 bg-[#131313]">
-      <MainFooter meetWithUs="https://calendly.com/mnwoseh" brochure="/AllTalentzAgencyFlyer.pdf"/>
+      <MainFooter meetWithUs="https://calendly.com/mnwoseh" brochure="https://drive.google.com/uc?export=download&id=1R2_hd4vojiTA59zryjREZkWRKrXWZeon"/>
     </section>
 
     {/* <Script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></Script> */}

@@ -40,7 +40,7 @@ const SubFooter = ({ brochure, meetWithUs }) => {
             </p>
             <div className="flex items-center flex-col md:flex-row">
               <Btn text="Meet with us" otherCSS="w-full text-center" link={`${meetWithUs ? meetWithUs : 'https://calendly.com/mnwoseh'}`}/>&nbsp;&nbsp;
-              <Btn text="Download Brochure" otherCSS="w-full text-center" link={`${brochure ? brochure : '/AllTalentzBrochure.pdf'}`}/>
+              <Btn text="Download Brochure" otherCSS="w-full text-center" link={`${brochure ? brochure : 'https://drive.google.com/uc?export=download&id=1R2_hd4vojiTA59zryjREZkWRKrXWZeon'}`} target="_blank"/>
             </div>
           </div>
         </div>
