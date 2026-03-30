@@ -2,7 +2,7 @@ import './globals.css'
 import { Montserrat } from 'next/font/google'
 import Script from 'next/script'
 import SocialMedia from '@/components/SocialMedia'
-import SchemaMarkup, { OrganizationSchema, WebsiteSchema } from '@/components/SchemaMarkup'
+import { OrganizationSchema, WebsiteSchema, EmploymentAgencySchema } from '@/components/SchemaMarkup'
 
 const montserrat = Montserrat({ 
   subsets: ['latin'],
@@ -28,7 +28,9 @@ export default function RootLayout({ children }) {
           content="/alltalentz-homebg.jpg"
         />
         <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
-        <SchemaMarkup schemas={[OrganizationSchema, WebsiteSchema]} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(OrganizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(WebsiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(EmploymentAgencySchema) }} />
        </head>
     <body className={montserrat.className} id="body" style={{overflowY: 'hidden'}}>
       <SocialMedia/>

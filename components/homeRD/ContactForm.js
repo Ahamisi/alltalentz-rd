@@ -17,27 +17,17 @@ const ContactForm = ({ services = [] }) => {
         email: "",
         company: "",
         phone: "",
-        service: [], // Initialize as an empty array
+        service: "",
         redirect: false
     });
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         
-        if (name === "service") {
-            // Handle multiple selections
-            const selectedOptions = Array.from(event.target.selectedOptions).map(option => option.value);
-            setFormData(prevData => ({
-                ...prevData,
-                [name]: selectedOptions
-            }));
-        } else {
-            // Handle other inputs normally
-            setFormData(prevData => ({
-                ...prevData,
-                [name]: value
-            }));
-        }
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
     };
 
     const validateForm = () => {
@@ -63,11 +53,6 @@ const ContactForm = ({ services = [] }) => {
         if (validateForm()) {
             try {
                 setIsLoading(true);
-                setFormData((prevData) => ({
-                    ...prevData,
-                    service: formData.service.join(', ')
-                }));
-
                 await fetch("/api/contact", {
                     method: "POST",
                     headers: {
@@ -210,7 +195,7 @@ const ContactForm = ({ services = [] }) => {
                             onChange={handleInputChange}
                             className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:border-[#F99621] appearance-none bg-white cursor-pointer text-gray-500"
                         >
-                            <option value="" disabled selected className="text-gray-500">
+                            <option value="" disabled className="text-gray-500">
                                 Talents needed*
                             </option>
                             {services.map((service) => (

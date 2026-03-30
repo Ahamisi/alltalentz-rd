@@ -1,9 +1,24 @@
+import { generateServiceSchema } from '@/components/SchemaMarkup';
+
 export const metadata = {
   title: 'Outsource Construction Estimating & Remediation | AllTalentz',
   description: 'Certified estimators, takeoff specialists & project coordinators for restoration companies. 70% cost savings.',
   alternates: { canonical: 'https://alltalentz.com/remediation-talents' },
 };
 
+const schema = generateServiceSchema(
+  'Construction & Remediation Talent Outsourcing',
+  'Certified estimators, takeoff specialists & project coordinators for restoration companies.',
+  'https://alltalentz.com/remediation-talents'
+);
+
 export default function RemediationTalentsLayout({ children }) {
-  return children;
+  return (
+    <>
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      </head>
+      {children}
+    </>
+  );
 }

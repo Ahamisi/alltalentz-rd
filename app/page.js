@@ -11,7 +11,6 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import Script from "next/script";
 import HeroNew from "@/components/HeroNew";
 import ValueProp from "@/components/homeRD/ValueProp";
 import NicheSection from "@/components/homeRD/Niches";
@@ -77,12 +76,9 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
       {faqSchema && (
-        <Script
-          id="faq-schema"
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema)
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
 
