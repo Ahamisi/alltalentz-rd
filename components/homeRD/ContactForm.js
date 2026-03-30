@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Btn from "@/components/Btn";
 import Script from 'next/script';
 
@@ -146,7 +147,7 @@ const ContactForm = ({ services = [] }) => {
             {isSubmitted ? (
                 <div className="p-4 rounded-lg bg-[#FDDEBA] text-center mt-6 w-full m-0">
                     <div className="flex items-center justify-center">
-                        <img src="/star-shine.svg" alt="Alltalentz Shine"/>
+                        <Image src="/star-shine.svg" alt="Alltalentz Shine" width={80} height={80} />
                     </div>
                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                     <p className="text-gray-600">We will keep you updated via email.</p><br/>

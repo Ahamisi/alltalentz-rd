@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
 import Link from 'next/link';
@@ -24,9 +25,11 @@ export default function TechTalentsPage() {
 
           {/* Right Column - Map */}
           <div className="hidden lg:block absolute bottom-0 right-4 lg:w-[45%] ">
-            <img
+            <Image
                     src="/redesign-25/tech-header.png"
-                    alt="Success Stories"
+                    alt="Tech Talents"
+                    width={800}
+                    height={500}
                     className="w-full h-[500px] object-contain"
                 />
           </div>

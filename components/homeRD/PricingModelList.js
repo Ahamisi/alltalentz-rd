@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const pricingModels = [
@@ -179,9 +180,11 @@ const PricingModelList = () => {
             >
               {/* Image */}
               <div className="rounded-2xl overflow-hidden mb-6">
-                <img 
-                  src={model.image} 
+                <Image
+                  src={model.image}
                   alt={model.title}
+                  width={400}
+                  height={200}
                   className="w-full h-[200px] object-cover"
                 />
               </div>

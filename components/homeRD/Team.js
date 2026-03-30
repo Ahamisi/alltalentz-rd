@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const teamMembers = [
     {
       name: "Sadiq",
@@ -94,9 +96,11 @@ const teamMembers = [
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-[30px] md:mt-[60px] flex justify-center">
               {teamMembers.map((member, index) => (
                 <div key={index} className="relative group overflow-hidden rounded-[12px]">
-                  <img
+                  <Image
                     src={member.image}
                     alt={`${member.name} ${member.lastName}`}
+                    width={300}
+                    height={500}
                     className="w-full h-full object-cover aspect-[3/5]"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent group-hover:opacity-0 transition-opacity">

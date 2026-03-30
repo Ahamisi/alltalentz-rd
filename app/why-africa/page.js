@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import ClientWords from "@/components/homeRD/ClientWords";
 import ClientVideos from "@/components/homeRD/ConferenceVideo";
 import Milestone from "@/components/homeRD/Milestone";
@@ -54,9 +55,11 @@ const Benefits = () => {
               className="p-6 rounded-lg border border-[#EBEBF0] bg-white hover:shadow-lg transition-shadow"
             >
               <div className="mb-6">
-                <img 
-                  src={benefit.icon} 
+                <Image
+                  src={benefit.icon}
                   alt={benefit.title}
+                  width={64}
+                  height={64}
                   className="w-16 h-16"
                 />
               </div>
@@ -118,11 +121,12 @@ export default function WhyAfrica() {
 
             {/* Right Column - Map */}
             <div className="hidden lg:block lg:w-[50%] pl-12">
-                <img
+                <Image
                     src="/redesign-25/africa-map.png"
-                    alt="Success Stories"
+                    alt="Africa Map"
+                    width={800}
+                    height={600}
                     className="w-full h-auto object-contain"
-                    // className="w-full h-auto object-contain"
                 />
             </div>
         </div>
@@ -145,7 +149,7 @@ export default function WhyAfrica() {
             {/* Mail Section */}
             <div className="mb-12">
               <div className="flex items-start gap-4">
-                <img src="/icons/Mailbox.svg" alt="Mail" className="w-8 h-8" />
+                <Image src="/icons/Mailbox.svg" alt="Mail" width={32} height={32} className="w-8 h-8" />
                 <div>
                   <h3 className="text-xl mb-2">Send us a Mail</h3>
                   <p className="text-white-800 opacity-70 mb-1">Our friendly team is here to help. Send us a mail;</p>
@@ -157,7 +161,7 @@ export default function WhyAfrica() {
             {/* Visit Us Section */}
             <div className="mb-12">
               <div className="flex items-start gap-4">
-                <img src="/icons/Home.svg" alt="Location" className="w-8 h-8" />
+                <Image src="/icons/Home.svg" alt="Location" width={32} height={32} className="w-8 h-8" />
                 <div>
                   <h3 className="text-xl mb-2">Visit Us</h3>
                   <p className="text-white-800 opacity-70 mb-2">Say hello to us at our head office</p>
@@ -170,7 +174,7 @@ export default function WhyAfrica() {
             {/* Phone Section */}
             <div>
               <div className="flex items-start gap-4">
-                <img src="/icons/Phone.svg" alt="Phone" className="w-8 h-8" />
+                <Image src="/icons/Phone.svg" alt="Phone" width={32} height={32} className="w-8 h-8" />
                 <div>
                   <h3 className="text-xl mb-2">Phone</h3>
                   <p className="text-white-800 opacity-70 mb-2">Mon - Fri from 8am-5pm</p>

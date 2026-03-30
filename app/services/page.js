@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
 import Link from 'next/link';
@@ -24,9 +25,11 @@ export default function Services() {
 
           {/* Right Column - Map */}
           <div className="hidden lg:block lg:w-[45%] absolute bottom-[-1px] right-4 pl-0">
-            <img
+            <Image
                     src="/redesign-25/service-header.png"
-                    alt="Success Stories"
+                    alt="Services"
+                    width={800}
+                    height={500}
                     className="w-full h-[500px] object-contain"
                 />
           </div>

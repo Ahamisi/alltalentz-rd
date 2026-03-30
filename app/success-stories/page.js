@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import ClientWords from "@/components/homeRD/ClientWords";
 import ClientVideos from "@/components/homeRD/ClientVideos";
 import Milestone from "@/components/homeRD/Milestone";
@@ -46,11 +47,12 @@ export default function About() {
 
             {/* Right Column - Map */}
             <div className="hidden lg:block lg:w-[55%] pl-12">
-                <img
+                <Image
                     src="/redesign-25/success-stories.png"
                     alt="Success Stories"
+                    width={800}
+                    height={400}
                     className="w-full h-[400px] object-contain"
-                    // className="w-full h-auto object-contain"
                 />
             </div>
         </div>

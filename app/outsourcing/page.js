@@ -49,7 +49,7 @@ export default function Outsourcing() {
 
       {/* Second Column (Image) */}
       <div className="lg:w-[40%] ml-auto mt-6 md:mt-0 md:w-0" data-aos="fade-left">
-        <img src="/outsource-bg.svg" alt="Outsource Alltalentz"  className="w-full md:h-[700px] h-auto"/>
+        <Image src="/outsource-bg.svg" alt="Outsource Alltalentz" width={800} height={700} className="w-full md:h-[700px] h-auto" />
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@ export default function Outsourcing() {
             <div class="lg:w-1/2 mb-6 md:mb-0 md:pr-8 flex flex-col items-center opacity-0 animate__animated animate__fadeInRight animate__delay-0s">
                 <div className="relative">
                     <div className="h-[500px] w-[360px] bg-[#4B4B4D] absolute bottom-[-20px] left-5 rounded-[24px] z-10"></div>
-                    <img src="/why-choose-us.png" alt="Why Choose Us at Alltalentz" class="relative mb-2 rounded-md z-20"/>
+                    <Image src="/why-choose-us.png" alt="Why Choose Us at Alltalentz" width={360} height={500} className="relative mb-2 rounded-md z-20" />
                 </div>
             </div>
 

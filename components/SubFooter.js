@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Btn from './Btn';
@@ -29,7 +30,7 @@ const SubFooter = ({ brochure, meetWithUs }) => {
         <div className="flex flex-col md:flex-row items-center">
           {/* Left side (Image) */}
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <img src="/alltalentzwoman-footer.png" alt="All Talents Footer" className="hover:rotate-6 transition duration-200 cursor-pointer" />
+            <Image src="/alltalentzwoman-footer.png" alt="All Talents Footer" width={600} height={500} className="hover:rotate-6 transition duration-200 cursor-pointer w-full h-auto" />
           </div>
 
           {/* Right side (Text and CTAs) */}
