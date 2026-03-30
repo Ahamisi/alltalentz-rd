@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Parser from 'rss-parser';
 import cheerio from 'cheerio';
 
@@ -60,7 +61,7 @@ const Blog = () => {
         {posts.map((post) => (
            <div className="shadow-md rounded-[35px] rounded-tl-none rounded-br-none bg-white" key={post.id}>
               <div className="mb-4">
-              {post.firstImage && <img src={post.firstImage} alt={post.title} className="w-full h-auto " />}
+              {post.firstImage && <Image src={post.firstImage} alt={post.title} width={600} height={400} className="w-full h-auto" />}
 
                  
               </div>

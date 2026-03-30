@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Milestone = () => {
   return (
@@ -30,7 +31,7 @@ const Milestone = () => {
         <div className="relative">
           {/* Center Tree */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full z-0">
-            <img src="/icons/tree.svg" alt="Timeline Tree" className="h-full w-auto" style={{ maxWidth: 'none' }} />
+            <Image src="/icons/tree.svg" alt="Timeline Tree" width={80} height={800} className="h-full w-auto" style={{ maxWidth: 'none' }} />
           </div>
 
           {/* Timeline Items with Stems */}
@@ -39,9 +40,10 @@ const Milestone = () => {
             <motion.div className="flex items-center justify-between relative">
               <div className="w-5/12"></div>
               <div className="w-5/12 relative">
-                <img 
-                  src="/icons/stem-right.svg" 
-                  alt="Right Stem" 
+                <Image
+                  src="/icons/stem-right.svg"
+                  alt="Right Stem"
+                  width={176} height={40}
                   className="absolute -left-[11rem] top-1/2 -translate-y-1/2"
                 />
                 <div className="bg-white rounded-lg p-6 border border-gray-100">
@@ -57,9 +59,10 @@ const Milestone = () => {
             {/* 2023 First Half - Left */}
             <motion.div className="flex items-center justify-between relative">
               <div className="w-[35%] relative">
-                <img 
-                  src="/icons/stem-left.svg" 
-                  alt="Left Stem" 
+                <Image
+                  src="/icons/stem-left.svg"
+                  alt="Left Stem"
+                  width={176} height={40}
                   className="absolute -right-[11rem] top-1/2 -translate-y-1/2"
                 />
                 <div className="bg-white rounded-lg p-6 border border-gray-100">
@@ -77,9 +80,10 @@ const Milestone = () => {
             <motion.div className="flex items-center justify-between relative">
               <div className="w-5/12"></div>
               <div className="w-[33%] relative">
-                <img 
-                  src="/icons/stem-right.svg" 
-                  alt="Right Stem" 
+                <Image
+                  src="/icons/stem-right.svg"
+                  alt="Right Stem"
+                  width={176} height={40}
                   className="absolute -left-[11rem] top-1/2 -translate-y-1/2"
                 />
                 <div className="bg-white rounded-lg p-6 border border-gray-100">
@@ -95,9 +99,10 @@ const Milestone = () => {
             {/* 2024 - Left */}
             <motion.div className="flex items-center justify-between relative">
               <div className="w-5/12 relative">
-                <img 
-                  src="/icons/stem-left.svg" 
-                  alt="Left Stem" 
+                <Image
+                  src="/icons/stem-left.svg"
+                  alt="Left Stem"
+                  width={176} height={40}
                   className="absolute -right-[10rem] top-1/2 -translate-y-1/2"
                 />
                 <div className="bg-white rounded-lg p-6 border border-gray-100">

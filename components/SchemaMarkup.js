@@ -1,6 +1,3 @@
-"use client"
-import Script from 'next/script';
-
 // Organization Schema
 export const OrganizationSchema = {
   "@context": "https://schema.org",
@@ -57,10 +54,31 @@ export const WebsiteSchema = {
   }
 };
 
+// Employment Agency Schema
+export const EmploymentAgencySchema = {
+  "@context": "https://schema.org",
+  "@type": "EmploymentAgency",
+  "name": "All Talentz LLC",
+  "url": "https://alltalentz.com",
+  "description": "AllTalentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
+  "telephone": "+1-614-502-1440",
+  "email": "info@alltalentz.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2020 Brice Road, Suite 180",
+    "addressLocality": "Reynoldsburg",
+    "addressRegion": "OH",
+    "postalCode": "43068",
+    "addressCountry": "US"
+  },
+  "areaServed": ["US", "CA", "GB"],
+  "priceRange": "$400-$2500/month"
+};
+
 // FAQ Schema Generator
 export const generateFAQSchema = (faqs) => {
   if (!faqs || faqs.length === 0) return null;
-  
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -75,24 +93,18 @@ export const generateFAQSchema = (faqs) => {
   };
 };
 
-// Schema Markup Component
-export default function SchemaMarkup({ schemas = [] }) {
-  if (!schemas || schemas.length === 0) return null;
-
-  return (
-    <>
-      {schemas.map((schema, index) => (
-        schema && (
-          <Script
-            key={index}
-            id={`schema-${index}`}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(schema)
-            }}
-          />
-        )
-      ))}
-    </>
-  );
-}
+// Service Schema Generator
+export const generateServiceSchema = (name, description, url) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": name,
+  "description": description,
+  "url": url,
+  "provider": {
+    "@type": "EmploymentAgency",
+    "name": "All Talentz LLC",
+    "url": "https://alltalentz.com"
+  },
+  "areaServed": "US",
+  "serviceType": "Remote Talent Outsourcing"
+});

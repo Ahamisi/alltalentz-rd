@@ -2,7 +2,7 @@ import './globals.css'
 import { Montserrat } from 'next/font/google'
 import Script from 'next/script'
 import SocialMedia from '@/components/SocialMedia'
-import SchemaMarkup, { OrganizationSchema, WebsiteSchema } from '@/components/SchemaMarkup'
+import { OrganizationSchema, WebsiteSchema, EmploymentAgencySchema } from '@/components/SchemaMarkup'
 
 const montserrat = Montserrat({ 
   subsets: ['latin'],
@@ -11,8 +11,17 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
-  title: 'Services | AllTalentz',
-  description: 'AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation. Scale your operations with our trained professionals.',
+  title: 'Outsource to Africa — Save 70% on Staffing | AllTalentz',
+  description: 'AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.',
+  alternates: { canonical: 'https://alltalentz.com' },
+  openGraph: {
+    type: 'website',
+    siteName: 'AllTalentz',
+    title: 'Outsource to Africa — Save 70% on Staffing | AllTalentz',
+    description: 'AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.',
+    url: 'https://alltalentz.com',
+    images: [{ url: '/twitter/twitter-card.png', width: 1200, height: 630, alt: 'AllTalentz — Outsource to Africa' }],
+  },
 }
 
 
@@ -20,15 +29,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
        <head>
-         <link rel="canonical" href="https://alltalentz.com/" />
          <link rel="preconnect" href="https://fonts.googleapis.com" />
          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-         <meta
-          property="og:image"
-          content="/alltalentz-homebg.jpg"
-        />
-        <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
-        <SchemaMarkup schemas={[OrganizationSchema, WebsiteSchema]} />
+ <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(OrganizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(WebsiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(EmploymentAgencySchema) }} />
        </head>
     <body className={montserrat.className} id="body" style={{overflowY: 'hidden'}}>
       <SocialMedia/>

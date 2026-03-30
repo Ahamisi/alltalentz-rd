@@ -7,6 +7,7 @@ import PageHeader from "@/components/PageHeader";
 import Btn from "@/components/Btn";
 import { useRouter } from 'next/navigation';
 
+import Image from "next/image";
 import Link from "next/link";
 
 import React, { useState, useEffect } from 'react';
@@ -224,7 +225,7 @@ export default function RequestTalent() {
                 <div className="flex items-left flex-col space-y-[40px]">
                     <a href="#formInter" className="flex space-x-[17px] gap-[17px] py-[16px] px-[30px] md:px-[52px] rounded-[32px] items-center border-[2px] font-bold border-black text-black hover:bg-black hover:text-white md:w-[60%] md:ml-[90px]">
                         <div>
-                            <img src="/special-events/tampa-build-expo.png" alt="Tampa alltalentz" className="h-[50px]"/>
+                            <Image src="/special-events/tampa-build-expo.png" alt="Tampa alltalentz" width={100} height={50} className="h-[50px] w-auto"/>
                         </div>
                         February 7 - 8, 2024
                     </a>
@@ -249,9 +250,11 @@ export default function RequestTalent() {
 
                     {/* Second Column (40% width) */}
                     <div className="hidden lg:block md:w-5/10 mt-8 md:mt-0">
-                        <img
+                        <Image
                             src="/special-events/tampa-mask.png"
                             alt="Tampa Build Expo"
+                            width={600}
+                            height={400}
                             className="w-full h-auto"
                         />
                     </div>
@@ -259,10 +262,10 @@ export default function RequestTalent() {
             </div>
 
             <div className="absolute top-[-10%] left-0">
-                <img src="star-vector-left.svg" alt="Star Alltalentz"/>
+                <Image src="/star-vector-left.svg" alt="Star Alltalentz" width={100} height={100}/>
             </div>
             <div className="absolute top-[-20%] right-0 hidden lg:block">
-                <img src="star-vector-top.svg" alt="Star Alltalentz"/>
+                <Image src="/star-vector-top.svg" alt="Star Alltalentz" width={100} height={100}/>
             </div>
     </section>
 
@@ -303,7 +306,7 @@ export default function RequestTalent() {
                             {isSubmitted ? (
                                 <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
                                     <div className="flex items-center justify-center">
-                                        <img src="/star-shine.svg" alt="alltalentz shine"/>
+                                        <Image src="/star-shine.svg" alt="alltalentz shine" width={48} height={48}/>
                                     </div>
                                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                                     <p className="text-gray-600">We will keep you updated via email.</p><br/>

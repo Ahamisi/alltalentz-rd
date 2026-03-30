@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Milestone from "@/components/homeRD/Milestone";
 import MobileMilestone from "@/components/homeRD/MobileMilestone";
 import Team from "@/components/homeRD/Team";
@@ -28,9 +29,11 @@ export default function About() {
 
             {/* Right Column - Map */}
             <div className="hidden lg:block lg:w-[55%] pl-12">
-                <img
+                <Image
                     src="/african-maps.png"
                     alt="Global Talent Map"
+                    width={800}
+                    height={600}
                     className="w-full h-auto object-contain"
                 />
             </div>
@@ -44,9 +47,11 @@ export default function About() {
       <div className="max-w-7xl mx-auto">
         {/* Icon and Mission Statement */}
         <div className="mb-16">
-          <img 
-            src="/icons/target.svg" 
-            alt="Mission Target" 
+          <Image
+            src="/icons/target.svg"
+            alt="Mission Target"
+            width={64}
+            height={64}
             className="w-16 h-16 mb-6"
           />
           <h2 className="text-4xl md:text-4xl font-bold mb-8 text-black">
@@ -110,7 +115,7 @@ export default function About() {
           {/* Teamwork */}
           <div className="p-6 rounded-[8px] bg-white border border-[#EBEBF0]">
             <div className="mb-6">
-              <img src="/icons/service.svg" alt="Service" className="w-12 h-12" />
+              <Image src="/icons/service.svg" alt="Service" width={48} height={48} className="w-12 h-12" />
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[#121212]">Teamwork</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -121,7 +126,7 @@ export default function About() {
           {/* Accountability */}
           <div className="p-6 rounded-[8px] border bg-white border-[#EBEBF0]">
             <div className="mb-6">
-              <img src="/icons/growth.svg" alt="Growth" className="w-12 h-12" />
+              <Image src="/icons/growth.svg" alt="Growth" width={48} height={48} className="w-12 h-12" />
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[#121212]">Accountability</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -132,7 +137,7 @@ export default function About() {
           {/* Leadership Mindset*/}
           <div className="p-6 rounded-[8px] bg-white border border-[#EBEBF0]">
             <div className="mb-6">
-              <img src="/icons/professionalism.svg" alt="Professionalism" className="w-12 h-12" />
+              <Image src="/icons/professionalism.svg" alt="Professionalism" width={48} height={48} className="w-12 h-12" />
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[#121212]">Leadership Mindset</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -143,7 +148,7 @@ export default function About() {
           {/* Excellence */}
           <div className="p-6 rounded-[8px] border bg-white border-[#EBEBF0]">
             <div className="mb-6">
-              <img src="/icons/consistency.svg" alt="Consistency" className="w-12 h-12" />
+              <Image src="/icons/consistency.svg" alt="Consistency" width={48} height={48} className="w-12 h-12" />
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[#121212]">Excellence</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -154,7 +159,7 @@ export default function About() {
           {/* Nobility */}
           <div className="p-6 rounded-[8px] border bg-white border-[#EBEBF0]">
             <div className="mb-6">
-              <img src="/icons/integrity.svg" alt="Integrity" className="w-12 h-12" />
+              <Image src="/icons/integrity.svg" alt="Integrity" width={48} height={48} className="w-12 h-12" />
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[#121212]">Nobility</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -165,7 +170,7 @@ export default function About() {
           {/* Tenacity */}
           <div className="p-6 rounded-[8px] border bg-white border-[#EBEBF0]">
             <div className="mb-6">
-              <img src="/icons/discipline.svg" alt="Discipline" className="w-12 h-12" />
+              <Image src="/icons/discipline.svg" alt="Discipline" width={48} height={48} className="w-12 h-12" />
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[#121212]">Tenacity</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -176,7 +181,7 @@ export default function About() {
           {/* Zeal */}
           <div className="p-6 rounded-[8px] lg:col-start-2 border bg-white border-[#EBEBF0]">
             <div className="mb-6">
-              <img src="/icons/discipline.svg" alt="Discipline" className="w-12 h-12" />
+              <Image src="/icons/discipline.svg" alt="Discipline" width={48} height={48} className="w-12 h-12" />
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[#121212]">Zeal</h3>
             <p className="text-gray-600 leading-relaxed">

@@ -1,7 +1,15 @@
 export const metadata = {
-  title: "About",
-  description: "Your Gateway to Africa's Leading Remote Professionals | Superior Workforce Value",
+  title: "About AllTalentz — Africa's Premier Remote Talent Partner",
+  description: "Learn how AllTalentz connects US businesses with Africa's top remote professionals. Our mission, values, and the team behind 100+ satisfied clients worldwide.",
   alternates: { canonical: "https://alltalentz.com/about" },
+  openGraph: {
+    type: 'website',
+    siteName: 'AllTalentz',
+    title: "About AllTalentz — Africa's Premier Remote Talent Partner",
+    description: "Learn how AllTalentz connects US businesses with Africa's top remote professionals. Our mission, values, and the team behind 100+ satisfied clients worldwide.",
+    url: 'https://alltalentz.com/about',
+    images: [{ url: '/twitter/twitter-card.png', width: 1200, height: 630, alt: 'AllTalentz' }],
+  },
 };
 
 export default function AboutLayout({ children }) {

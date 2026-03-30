@@ -7,6 +7,7 @@ import PageHeader from "@/components/PageHeader";
 import Btn from "@/components/Btn";
 import { useRouter } from 'next/navigation';
 
+import Image from "next/image";
 import Link from "next/link";
 
 import React, { useState, useEffect } from 'react';
@@ -224,15 +225,17 @@ export default function RequestTalent() {
                             <Link href="https://calendly.com/mnwoseh/" className="bg-[#F99621] text-black px-8 py-3  font-medium">
                                 Meet with us!
                             </Link>
-                            <img src="/alacrity-logo.png" alt="Alacrity Solutions" className="h-12" />
+                            <Image src="/alacrity-logo.png" alt="Alacrity Solutions" width={120} height={48} className="h-12 w-auto" />
                         </div>
                     </div>
 
                     {/* Image Column */}
                     <div className="lg:w-1/2 relative mt-12 lg:mt-0">
-                        <img 
-                            src="/social-media-talentz-alltalentz.png" 
-                            alt="Remote Worker" 
+                        <Image
+                            src="/social-media-talentz-alltalentz.png"
+                            alt="Remote Worker"
+                            width={500}
+                            height={400}
                             className="relative z-10 rounded-lg w-full h-auto max-w-[500px]"
                         />
                     </div>
@@ -261,7 +264,7 @@ export default function RequestTalent() {
                     {/* Mail Section */}
                     <div className="mb-12">
                         <div className="flex items-start gap-4">
-                            <img src="/icons/Mailbox.svg" alt="Mail" className="w-8 h-8" />
+                            <Image src="/icons/Mailbox.svg" alt="Mail" width={32} height={32} className="w-8 h-8" />
                             <div>
                                 <h3 className="text-xl mb-2">Send us a Mail</h3>
                                 <p className="text-white-800 opacity-70 mb-1">Our friendly team is here to help. Send us a mail;</p>
@@ -273,7 +276,7 @@ export default function RequestTalent() {
                     {/* Visit Us Section */}
                     <div className="mb-12">
                         <div className="flex items-start gap-4">
-                            <img src="/icons/Home.svg" alt="Location" className="w-8 h-8" />
+                            <Image src="/icons/Home.svg" alt="Location" width={32} height={32} className="w-8 h-8" />
                             <div>
                                 <h3 className="text-xl mb-2">Visit Us</h3>
                                 <p className="text-white-800 opacity-70 mb-2">Say hello to us at our head office</p>
@@ -286,7 +289,7 @@ export default function RequestTalent() {
                     {/* Phone Section */}
                     <div>
                         <div className="flex items-start gap-4">
-                            <img src="/icons/Phone.svg" alt="Phone" className="w-8 h-8" />
+                            <Image src="/icons/Phone.svg" alt="Phone" width={32} height={32} className="w-8 h-8" />
                             <div>
                                 <h3 className="text-xl mb-2">Phone</h3>
                                 <p className="text-white-800 opacity-70 mb-2">Mon - Fri from 8am-5pm</p>

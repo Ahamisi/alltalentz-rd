@@ -5,6 +5,7 @@ import MainFooter from "@/components/MainFooter";
 import Offerings from "@/components/Offerings";
 import PageHeader from "@/components/PageHeader";
 import Btn from "@/components/Btn";
+import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
 
@@ -229,11 +230,11 @@ export default function Watchlist() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                             </button>
-                            <img src="/logo.svg" alt="Logo" className="mx-auto mb-8 h-12" />
+                            <Image src="/logo.svg" alt="Logo" width={120} height={48} className="mx-auto mb-8 h-12 w-auto" />
                             {isSubmitted ? (
                                <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
                                     <div className="flex items-center justify-center">
-                                        <img src="/star-shine.svg" alt="Alltalentz Logo"/>
+                                        <Image src="/star-shine.svg" alt="Alltalentz Logo" width={48} height={48} />
                                     </div>
                                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                                     <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>
@@ -391,9 +392,11 @@ export default function Watchlist() {
 
                 {/* Second Column (40% width) */}
                 <div className="hidden lg:block md:w-4/10 mt-8 md:mt-0">
-                    <img
+                    <Image
                         src="/alltalent-star.png"
                         alt="All Talents Star"
+                        width={500}
+                        height={500}
                         className="w-full h-auto"
                     />
                 </div>
@@ -416,10 +419,12 @@ export default function Watchlist() {
           
           {/* Great Place to Work Badge */}
           <div className="flex justify-center mb-8">
-            <img 
-              src="/gptw-badge-alltalentz.svg" 
-              alt="Great Place to Work Certified" 
-              className="h-20 md:h-24 object-contain"
+            <Image
+              src="/gptw-badge-alltalentz.svg"
+              alt="Great Place to Work Certified"
+              width={96}
+              height={96}
+              className="h-20 md:h-24 w-auto object-contain"
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-6xl mt-[25px]">

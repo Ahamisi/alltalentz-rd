@@ -30,14 +30,7 @@ const NewServices = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-7xl mx-auto">
         <div className="bg-white p-8 rounded-lg shadow-sm border hover:shadow-md transition duration-300">
           <div className="mb-6">
-            <img 
-              alt="Highly-Skilled Employees" 
-              loading="lazy" 
-              width="48" 
-              height="48" 
-              decoding="async" 
-              src="/redesign-25/icons/skill.svg"
-            />
+            <Image alt="Highly-Skilled Employees" width={48} height={48} src="/redesign-25/icons/skill.svg" />
           </div>
           <h3 className="text-xl font-semibold mb-4 text-black">Highly Trained & Vetted</h3>
           <p className="text-gray-600">Rigorous screening and role-specific training.</p>
@@ -45,14 +38,7 @@ const NewServices = () => {
 
         <div className="bg-white p-8 rounded-lg shadow-sm border hover:shadow-md transition duration-300">
           <div className="mb-6">
-            <img 
-              alt="Affordable Cost" 
-              loading="lazy" 
-              width="48" 
-              height="48" 
-              decoding="async" 
-              src="/redesign-25/icons/affordable.svg"
-            />
+            <Image alt="Affordable Cost" width={48} height={48} src="/redesign-25/icons/affordable.svg" />
           </div>
           <h3 className="text-xl font-semibold mb-4 text-black">24/7 Operational Support</h3>
           <p className="text-gray-600">We are always here to ensure seamless delivery</p>
@@ -60,14 +46,7 @@ const NewServices = () => {
 
         <div className="bg-white p-8 rounded-lg shadow-sm border hover:shadow-md transition duration-300">
           <div className="mb-6">
-            <img 
-              alt="Vetted &amp; Reliable Employees" 
-              loading="lazy" 
-              width="48" 
-              height="48" 
-              decoding="async" 
-              src="/redesign-25/icons/reliable.svg"
-            />
+            <Image alt="Vetted & Reliable Employees" width={48} height={48} src="/redesign-25/icons/reliable.svg" />
           </div>
           <h3 className="text-xl font-semibold mb-4 text-black">Scalable & Flexible</h3>
           <p className="text-gray-600">Teams built to match your project pace and needs.</p>
@@ -84,13 +63,7 @@ const NewServices = () => {
 
           <div className="flex flex-col gap-6">
             <Link href="/tech-talents" className="relative overflow-hidden rounded-xl h-[280px] group cursor-pointer">
-              <img 
-                alt="Technology & Startups" 
-                loading="lazy"  
-                decoding="async" 
-                src="/redesign-25/new-services/tech&startup.png" 
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-              />
+              <Image alt="Technology & Startups" fill sizes="(max-width: 768px) 100vw, 33vw" src="/redesign-25/new-services/tech&startup.png" className="object-cover group-hover:scale-105 transition duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
               <div className="absolute top-0 text-white p-6">
                 <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">Technology & Startups</h2>
@@ -99,13 +72,7 @@ const NewServices = () => {
             </Link>
 
             <Link href="/finance-talents" className="relative overflow-hidden rounded-xl h-[280px] group cursor-pointer">
-              <img 
-                alt="Finance" 
-                loading="lazy"  
-                decoding="async" 
-                src="/redesign-25/new-services/finance.png" 
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-              />
+              <Image alt="Finance" fill sizes="(max-width: 768px) 100vw, 33vw" src="/redesign-25/new-services/finance.png" className="object-cover group-hover:scale-105 transition duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
               <div className="absolute top-0 text-white p-6">
                 <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">Finance</h2>
@@ -116,13 +83,7 @@ const NewServices = () => {
 
           <div className="flex flex-col gap-6">
             <Link href="/healthcare-talents" className="relative overflow-hidden rounded-xl h-[280px] group cursor-pointer">
-              <img 
-                alt="Healthcare & Life Sciences" 
-                loading="lazy"  
-                decoding="async" 
-                src="/redesign-25/new-services/healthcare.png" 
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-              />
+              <Image alt="Healthcare & Life Sciences" fill sizes="(max-width: 768px) 100vw, 33vw" src="/redesign-25/new-services/healthcare.png" className="object-cover group-hover:scale-105 transition duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
               <div className="absolute top-0 text-white p-6">
                 <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">Healthcare & Life Sciences</h2>
@@ -131,13 +92,7 @@ const NewServices = () => {
             </Link>
 
             <Link href="/remediation-talents" className="relative overflow-hidden rounded-xl h-[280px] group cursor-pointer">
-              <img 
-                alt="Construction & Remediation" 
-                loading="lazy"  
-                decoding="async" 
-                src="/redesign-25/new-services/construction.png" 
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-              />
+              <Image alt="Construction & Remediation" fill sizes="(max-width: 768px) 100vw, 33vw" src="/redesign-25/new-services/construction.png" className="object-cover group-hover:scale-105 transition duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
               <div className="absolute top-0 text-white p-6">
                 <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">Construction & Remediation</h2>
@@ -147,13 +102,7 @@ const NewServices = () => {
           </div>
 
           <Link href="/legal-talents" className="relative overflow-hidden rounded-xl h-[576px] group cursor-pointer">
-            <img 
-              alt="Legal Talent & Paralegal Services" 
-              loading="lazy"  
-              decoding="async" 
-              src="/redesign-25/new-services/legal.png" 
-              className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            />
+            <Image alt="Legal Talent & Paralegal Services" fill sizes="(max-width: 768px) 100vw, 33vw" src="/redesign-25/new-services/legal.png" className="object-cover group-hover:scale-105 transition duration-500" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
             <div className="absolute top-0 text-white p-6">
               <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">Legal Talent & Paralegal Services</h2>

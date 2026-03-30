@@ -84,7 +84,7 @@ const LegalTalents = () => {
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
       >
-        <img src={src} alt={alt} className="max-w-xs h-[60px] cursor-pointer" />
+        <Image src={src} alt={alt} width={240} height={60} className="max-w-xs h-[60px] cursor-pointer" />
       </motion.div>
     );
   };
@@ -116,9 +116,11 @@ const LegalTalents = () => {
                   {talent.title}
                 </h3>
                 <p className="text-sm py-4">{talent.description}</p>
-                <img 
+                <Image
                   src={talent.image}
                   alt={talent.title}
+                  width={400}
+                  height={300}
                   className="w-full mt-4"
                 />
               </div>
@@ -143,10 +145,12 @@ const LegalTalents = () => {
 
           <div className="absolute w-[90%] h-[99%] bg-black/20 rounded-[24px] left-1/2 -translate-x-1/2 translate-y-4 md:translate-y-6"></div>
 
-            <img 
-            src="/redesign-25/legal-talents/legal-trust.png" 
-            alt="Legal Trust" 
-            className="relative rounded-[24px] w-full h-auto object-cover shadow-lg" 
+            <Image
+            src="/redesign-25/legal-talents/legal-trust.png"
+            alt="Legal Trust"
+            width={460}
+            height={600}
+            className="relative rounded-[24px] w-full h-auto object-cover shadow-lg"
             />
           </div>
         </div>

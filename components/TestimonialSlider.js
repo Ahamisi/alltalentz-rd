@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react";
+import Image from "next/image";
 
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -54,9 +55,11 @@ const TestimonialSlider = () => {
       <div className="flex items-start gap-8">
         {/* Company Logo */}
         <div className="w-[80px] h-[80px] rounded-full border border-gray-200 flex-shrink-0 p-4 hidden md:block">
-          <img 
-            src={testimonials[currentIndex].logo} 
-            alt="Company Logo" 
+          <Image
+            src={testimonials[currentIndex].logo}
+            alt="Company Logo"
+            width={48}
+            height={48}
             className="w-full h-full object-contain"
           />
         </div>

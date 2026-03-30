@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Image from 'next/image';
 
 const ClientLogo = ({ src, alt }) => {
   const { ref, inView } = useInView();
@@ -28,7 +29,7 @@ const ClientLogo = ({ src, alt }) => {
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
     >
-      <img src={src} alt={alt} className="max-w-xs h-[60px] cursor-pointer" />
+      <Image src={src} alt={alt} width={180} height={60} sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw" className="object-contain cursor-pointer w-full h-auto" />
     </motion.div>
   );
 };

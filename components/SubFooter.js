@@ -1,35 +1,24 @@
 "use client"
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import Btn from './Btn';
 
 const SubFooter = ({ brochure, meetWithUs }) => {
-  const { ref, inView } = useInView();
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeInOut' }
-    }
-  };
-
   return (
     <motion.div
       className="bg-[#131313] py-[100px]"
-      ref={ref}
-      variants={containerVariants}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      viewport={{ once: true }}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           {/* Left side (Image) */}
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <img src="/alltalentzwoman-footer.png" alt="All Talents Footer" className="hover:rotate-6 transition duration-200 cursor-pointer" />
+            <Image src="/alltalentzwoman-footer.png" alt="All Talents Footer" width={600} height={500} className="hover:rotate-6 transition duration-200 cursor-pointer w-full h-auto" />
           </div>
 
           {/* Right side (Text and CTAs) */}
@@ -40,7 +29,7 @@ const SubFooter = ({ brochure, meetWithUs }) => {
             </p>
             <div className="flex items-center flex-col md:flex-row">
               <Btn text="Meet with us" otherCSS="w-full text-center" link={`${meetWithUs ? meetWithUs : 'https://calendly.com/mnwoseh'}`}/>&nbsp;&nbsp;
-              <Btn text="Download Brochure" otherCSS="w-full text-center" link={`${brochure ? brochure : '/AllTalentzBrochure.pdf'}`}/>
+              <Btn text="Download Brochure" otherCSS="w-full text-center" link={`${brochure ? brochure : 'https://drive.google.com/uc?export=download&id=1R2_hd4vojiTA59zryjREZkWRKrXWZeon'}`} target="_blank"/>
             </div>
           </div>
         </div>

@@ -1,7 +1,15 @@
 export const metadata = {
-  title: 'Our Watchlist',
-  description: 'Join All Talentz and begin your remote global career adventure today.',
+  title: 'Join Our Talent Watchlist — Get Noticed by Top US Employers | AllTalentz',
+  description: "Get on AllTalentz's radar. Add yourself to our talent watchlist and be the first considered when new remote roles open with US clients.",
   alternates: { canonical: 'https://alltalentz.com/our-watchlist' },
+  openGraph: {
+    type: 'website',
+    siteName: 'AllTalentz',
+    title: 'Join Our Talent Watchlist — Get Noticed by Top US Employers | AllTalentz',
+    description: "Get on AllTalentz's radar. Add yourself to our talent watchlist and be the first considered when new remote roles open with US clients.",
+    url: 'https://alltalentz.com/our-watchlist',
+    images: [{ url: '/twitter/twitter-card.png', width: 1200, height: 630, alt: 'AllTalentz' }],
+  },
 };
 
 export default function OurWatchlistLayout({ children }) {
