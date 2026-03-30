@@ -7,6 +7,7 @@ import PageHeader from "@/components/PageHeader";
 import Btn from "@/components/Btn";
 import { useRouter } from 'next/navigation';
 import Header from "@/components/Header";
+import Image from "next/image";
 
 
 
@@ -16,41 +17,11 @@ import BootcmpOver from "@/components/BootcmpOver";
 
 export default function BootCamp() {
 
-  const [isMobile, setIsMobile] = useState(false);
-
-
-
-
 
   const [isOpen, setIsOpen] = useState(false);
   const [countdown, setCountdown] = useState(5); // Initial countdown time
   const route = useRouter()
 
-
-  useEffect(() => {
-    // Function to update the isMobile state based on screen width
-    function handleResize() {
-      setIsMobile(window.innerWidth <= 640); // Adjust the breakpoint as needed
-    }
-
-    // Initial check on component mount
-    handleResize();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-
-
-  // Define the image source based on the screen size
-  const bootcampImg = isMobile ? "/bootcamp-mobile.svg" : "/bootcamp.svg";
-
-  const bootcampImg1 = isMobile ? "/bootcamp-mobile.jpg" : "/bootcamp-banner.jpg";
 
 
 
@@ -210,7 +181,9 @@ export default function BootCamp() {
 
       <div className={`flex h-[100%] flex-col`}>
         
-        <div style={{ backgroundImage: `url(${bootcampImg1})`,  }} className="bg-contain bg-no-repeat h-[500px] md:h-[300px] lg:h-[380px] xl:h-[500px] w-full cursor-pointer md:bg-center" onClick={toggleModal}>
+        <div style={{ backgroundImage: `url(/bootcamp-mobile.jpg)` }} className="sm:hidden bg-contain bg-no-repeat h-[500px] w-full cursor-pointer" onClick={toggleModal}>
+        </div>
+        <div style={{ backgroundImage: `url(/bootcamp-banner.jpg)` }} className="hidden sm:block bg-contain bg-no-repeat md:h-[300px] lg:h-[380px] xl:h-[500px] w-full cursor-pointer md:bg-center" onClick={toggleModal}>
         </div>
 
       <div className="hidden">
@@ -218,7 +191,8 @@ export default function BootCamp() {
           <div className="w-full lg:w-1/2 p-6 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
           <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 
-                    <img src={bootcampImg} alt="Alltalentz Bootcamp" className="h-[287px] w-[327px] sm:h-auto sm:w-auto"/>
+                    <Image src="/bootcamp-mobile.svg" alt="Alltalentz Bootcamp" width={327} height={287} className="h-[287px] w-[327px] sm:hidden"/>
+                    <Image src="/bootcamp.svg" alt="Alltalentz Bootcamp" width={327} height={287} className="hidden sm:block sm:h-auto sm:w-auto"/>
                     <p className="text-[#FEF5E9] text-md md:text-[20px]">
                      Join the ALL TALENTZ Estimate writing bootcamp and embark on a transformative journey over the next 3 months.
                      </p>
@@ -249,7 +223,7 @@ export default function BootCamp() {
             <div className="bg-cover bg-center h-64 sm:h-auto">
               <div className="h-full flex items-center justify-center ">
                 <div className="relative lg:absolute lg:h-[500px] lg:w-[600px]  xl:h-[530px] right-0 xl:w-[750px] bottom-[-20px]">
-                  <img src="/bootcamp-hero.png" alt="Bootcamp Hero All Talentz"/>
+                  <Image src="/bootcamp-hero.png" alt="Bootcamp Hero All Talentz" width={750} height={530} className="w-full h-auto"/>
                 </div>
               </div>
             </div>
@@ -278,11 +252,11 @@ export default function BootCamp() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                             </button>
-                            <img src="/logo.svg" alt="Alltalentz Logo" className="mx-auto mb-8 h-12" />
+                            <Image src="/logo.svg" alt="Alltalentz Logo" width={120} height={48} className="mx-auto mb-8 h-12 w-auto" />
                             {isSubmitted ? (
                                <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
                                     <div className="flex items-center justify-center">
-                                        <img src="/star-shine.svg"/>
+                                        <Image src="/star-shine.svg" alt="Success" width={48} height={48}/>
                                     </div>
                                     <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                                     <p className="text-gray-600">Wait while we redirect you to the test portal in {countdown} seconds.</p><br/>

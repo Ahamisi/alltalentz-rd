@@ -23,9 +23,7 @@ const schema = generateServiceSchema(
 export default function TechTalentsLayout({ children }) {
   return (
     <>
-      <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      </head>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       {children}
     </>
   );

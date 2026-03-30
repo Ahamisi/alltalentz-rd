@@ -7,34 +7,22 @@ import Script from "next/script";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 const MainFooter = ({
 	hideSub = false,
 	brochure = false,
 	meetWithUs = false,
 }) => {
-	const { ref, inView } = useInView();
-
-	const containerVariants = {
-		hidden: { opacity: 0, y: 50 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: { duration: 0.5, ease: "easeInOut" },
-		},
-	};
-
 	return (
 		<>
 			{!hideSub && <SubFooter brochure={brochure} meetWithUs={meetWithUs} />}
 
 			<motion.div
 				className="bg-[#131313] py-12"
-				ref={ref}
-				variants={containerVariants}
-				initial="hidden"
-				animate={inView ? "visible" : "hidden"}
+				initial={{ opacity: 0, y: 50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5, ease: "easeInOut" }}
+				viewport={{ once: true }}
 			>
 				{" "}
 				{/* First Row */}

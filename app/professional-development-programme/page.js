@@ -20,13 +20,8 @@ import SecureTestForm from '@/components/SecureTestForm';
 
 export default function BootCamp() {
 
-  const [isMobile, setIsMobile] = useState(false);
-  
-
   const [isDuplicate, setIsDuplicate] = useState(null);
   const [bootCampOver, setBootCampOver] = useState(true);
-
-
 
 
 
@@ -36,30 +31,6 @@ export default function BootCamp() {
   const route = useRouter()
 
 
-  useEffect(() => {
-    // Function to update the isMobile state based on screen width
-    function handleResize() {
-      setIsMobile(window.innerWidth <= 640); // Adjust the breakpoint as needed
-    }
-
-    // Initial check on component mount
-    handleResize();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-
-
-  // Define the image source based on the screen size
-  const bootcampImg = isMobile ? "/bootcamp-mobile.svg" : "/bootcamp.svg";
-
-  const bootcampImg1 = isMobile ? "/bootcamp/mobile-banner-bootcamp5.jpg" : "/bootcamp/alltalentzbanne5.jpg";
 
 
 
@@ -367,9 +338,11 @@ export default function BootCamp() {
             <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-white opacity-10"></div>
             <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full bg-[#F99621] opacity-10"></div>
             <div className="relative z-8">
-              <img 
-                src="/redesign-25/estimator-bootcamp.png" 
-                alt="Student learning" 
+              <Image
+                src="/redesign-25/estimator-bootcamp.png"
+                alt="Student learning"
+                width={450}
+                height={600}
                 className="w-auto h-[600px]"
               />
             
@@ -412,11 +385,11 @@ export default function BootCamp() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
           </button>
-          <img src="/logo.svg" alt="Logo" className="mx-auto mb-8 h-12" />
+          <Image src="/logo.svg" alt="Logo" width={120} height={48} className="mx-auto mb-8 h-12 w-auto" />
           {isSubmitted ? (
               <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
                   <div className="flex items-center justify-center">
-                      <img src="/star-shine.svg" alt="Logo"/>
+                      <Image src="/star-shine.svg" alt="Logo" width={48} height={48} />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
                   <p className="text-gray-600">Preparing your test portal...</p>

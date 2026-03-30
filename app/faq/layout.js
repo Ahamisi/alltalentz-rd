@@ -62,9 +62,7 @@ const faqSchema = generateFAQSchema(faqData);
 export default function FaqLayout({ children }) {
   return (
     <>
-      <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      </head>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {children}
     </>
   );
