@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Services | AllTalentz',
-  description: 'AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation. Scale your operations with our trained professionals.',
+  title: 'Outsource Tech Talent — Developers, AI/ML & QA | AllTalentz',
+  description: 'Hire vetted software developers, AI/ML specialists & QA engineers from Africa. 70% cost savings. Deployed in 2 weeks.',
   alternates: { canonical: 'https://alltalentz.com/tech-talents' },
 };
 

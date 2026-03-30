@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Services | AllTalentz',
-  description: 'AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation. Scale your operations with our trained professionals.',
+  title: 'Industry-Specific Outsourcing Solutions | AllTalentz',
+  description: 'Explore tailored outsourcing solutions for Tech, Healthcare, Finance, Legal & Construction. Vetted specialists. 70% savings. Deployed in 2 weeks.',
   alternates: { canonical: 'https://alltalentz.com/services' },
 };
 

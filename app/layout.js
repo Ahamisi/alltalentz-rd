@@ -11,8 +11,9 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
-  title: 'Services | AllTalentz',
-  description: 'AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation. Scale your operations with our trained professionals.',
+  title: 'Outsource to Africa — Save 70% on Staffing | AllTalentz',
+  description: 'AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.',
+  alternates: { canonical: 'https://alltalentz.com' },
 }
 
 
@@ -20,7 +21,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
        <head>
-         <link rel="canonical" href="https://alltalentz.com/" />
          <link rel="preconnect" href="https://fonts.googleapis.com" />
          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
          <meta

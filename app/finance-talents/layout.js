@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Services | AllTalentz',
-  description: 'AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation. Scale your operations with our trained professionals.',
+  title: 'Outsource Finance & Accounting Talent | AllTalentz',
+  description: 'Accounts receivable, bookkeeping & financial analysis professionals from Africa. 70% cost savings. SOC 2 aware.',
   alternates: { canonical: 'https://alltalentz.com/finance-talents' },
 };
 

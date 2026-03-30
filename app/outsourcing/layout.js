@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Outsourcing',
-  description: 'All talentz offers comprehensive outsourcing solutions to improve your business operations.',
+  title: 'Outsourcing Agency for US Businesses | AllTalentz',
+  description: 'Skip the overhead. AllTalentz builds and deploys your dedicated remote team from Africa in 2 weeks. Full outsourcing solutions for any business size.',
   alternates: { canonical: 'https://alltalentz.com/outsourcing' },
 };
 

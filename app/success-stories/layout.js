@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Success Stories",
-  description: "Your Gateway to Africa's Leading Remote Professionals | Superior Workforce Value",
+  title: "Client Success Stories — Real Results with AllTalentz",
+  description: "See how US businesses across restoration, healthcare, tech & finance scaled operations and cut costs by 70% with AllTalentz remote talent.",
   alternates: { canonical: "https://alltalentz.com/success-stories" },
 };
 

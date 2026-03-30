@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Services | AllTalentz',
-  description: 'AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation. Scale your operations with our trained professionals.',
+  title: 'Outsource Medical Billing & Healthcare Talent | AllTalentz',
+  description: 'HIPAA-trained medical billing specialists, coders & admin support from Africa. 70% savings. Scale your healthcare operations.',
   alternates: { canonical: 'https://alltalentz.com/healthcare-talents' },
 };
 

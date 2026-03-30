@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Why Africa Talents",
-  description: "Your Gateway to Africa's Leading Remote Professionals | Superior Workforce Value",
+  title: "Why Hire African Talent? 70% Savings & World-Class Skills | AllTalentz",
+  description: "Discover why 100+ US companies choose African talent. Multilingual, highly skilled, culturally compatible professionals at a fraction of local hiring costs.",
   alternates: { canonical: "https://alltalentz.com/why-africa" },
 };
 

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'FAQ',
-  description: 'Find answers to your questions | All Talentz Workforce & Career FAQ.',
+  title: 'Frequently Asked Questions | AllTalentz',
+  description: 'Got questions about hiring remote talent from Africa? Find answers about our process, pricing, onboarding, and what makes AllTalentz different.',
   alternates: { canonical: 'https://alltalentz.com/faq' },
 };
 
