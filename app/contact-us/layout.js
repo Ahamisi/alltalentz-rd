@@ -1,3 +1,5 @@
+import { generateBreadcrumbSchema } from '@/components/SchemaMarkup';
+
 export const metadata = {
   title: "Contact AllTalentz — Talk to Our Talent Experts",
   description: "Get in touch with AllTalentz. Reach our team by email, phone, or visit our offices in Ohio, USA or Lagos, Nigeria. We respond fast.",
@@ -12,6 +14,16 @@ export const metadata = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://alltalentz.com' },
+  { name: 'Contact Us', url: 'https://alltalentz.com/contact-us' },
+]);
+
 export default function ContactLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

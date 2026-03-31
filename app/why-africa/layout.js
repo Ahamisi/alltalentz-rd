@@ -1,3 +1,5 @@
+import { generateBreadcrumbSchema } from '@/components/SchemaMarkup';
+
 export const metadata = {
   title: "Why Hire African Talent? 70% Savings & World-Class Skills | AllTalentz",
   description: "Discover why 100+ US companies choose African talent. Multilingual, highly skilled, culturally compatible professionals at a fraction of local hiring costs.",
@@ -12,6 +14,16 @@ export const metadata = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://alltalentz.com' },
+  { name: 'Why Africa', url: 'https://alltalentz.com/why-africa' },
+]);
+
 export default function WhyAfricaLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

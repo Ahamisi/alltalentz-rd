@@ -1,3 +1,5 @@
+import { generateBreadcrumbSchema } from '@/components/SchemaMarkup';
+
 export const metadata = {
   title: "Transparent Talent Pricing — Starting from $400/mo | AllTalentz",
   description: "Clear, flexible pricing for every role — from Virtual Assistants to AI/ML Specialists. No hidden fees. Vetted talent deployed in 2 weeks.",
@@ -12,6 +14,16 @@ export const metadata = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://alltalentz.com' },
+  { name: 'Pricing', url: 'https://alltalentz.com/pricing-model' },
+]);
+
 export default function PricingModelLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

@@ -1,4 +1,4 @@
-import { generateFAQSchema } from '@/components/SchemaMarkup';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/components/SchemaMarkup';
 
 export const metadata = {
   title: 'Frequently Asked Questions | AllTalentz',
@@ -59,10 +59,16 @@ const faqData = [
 
 const faqSchema = generateFAQSchema(faqData);
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://alltalentz.com' },
+  { name: 'FAQ', url: 'https://alltalentz.com/faq' },
+]);
+
 export default function FaqLayout({ children }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {children}
     </>
   );
