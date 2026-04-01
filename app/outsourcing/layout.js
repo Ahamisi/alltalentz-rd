@@ -1,3 +1,5 @@
+import { generateBreadcrumbSchema } from '@/components/SchemaMarkup';
+
 export const metadata = {
   title: 'Outsourcing Agency for US Businesses | AllTalentz',
   description: 'Skip the overhead. AllTalentz builds and deploys your dedicated remote team from Africa in 2 weeks. Full outsourcing solutions for any business size.',
@@ -12,6 +14,16 @@ export const metadata = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://alltalentz.com' },
+  { name: 'Outsourcing', url: 'https://alltalentz.com/outsourcing' },
+]);
+
 export default function OutsourcingLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

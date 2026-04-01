@@ -93,6 +93,18 @@ export const generateFAQSchema = (faqs) => {
   };
 };
 
+// BreadcrumbList Schema Generator
+export const generateBreadcrumbSchema = (items) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.url,
+  })),
+});
+
 // Service Schema Generator
 export const generateServiceSchema = (name, description, url) => ({
   "@context": "https://schema.org",

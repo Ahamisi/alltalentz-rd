@@ -1,3 +1,5 @@
+import { generateBreadcrumbSchema } from '@/components/SchemaMarkup';
+
 export const metadata = {
   title: 'Industry-Specific Outsourcing Solutions | AllTalentz',
   description: 'Explore tailored outsourcing solutions for Tech, Healthcare, Finance, Legal & Construction. Vetted specialists. 70% savings. Deployed in 2 weeks.',
@@ -12,6 +14,16 @@ export const metadata = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://alltalentz.com' },
+  { name: 'Services', url: 'https://alltalentz.com/services' },
+]);
+
 export default function ServicesLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

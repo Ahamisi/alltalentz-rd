@@ -1,4 +1,4 @@
-import { generateServiceSchema } from '@/components/SchemaMarkup';
+import { generateServiceSchema, generateBreadcrumbSchema } from '@/components/SchemaMarkup';
 
 export const metadata = {
   title: 'Outsource Finance & Accounting Talent | AllTalentz',
@@ -20,10 +20,16 @@ const schema = generateServiceSchema(
   'https://alltalentz.com/finance-talents'
 );
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://alltalentz.com' },
+  { name: 'Finance Talents', url: 'https://alltalentz.com/finance-talents' },
+]);
+
 export default function FinanceTalentsLayout({ children }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {children}
     </>
   );

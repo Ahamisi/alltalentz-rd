@@ -1,3 +1,5 @@
+import { generateBreadcrumbSchema } from '@/components/SchemaMarkup';
+
 export const metadata = {
   title: 'Request Talent — Hire Vetted Remote Professionals | AllTalentz',
   description: 'Ready to hire? Tell us what you need. AllTalentz matches you with vetted African professionals in Tech, Healthcare, Finance, Legal & Construction.',
@@ -12,6 +14,16 @@ export const metadata = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://alltalentz.com' },
+  { name: 'Request Talent', url: 'https://alltalentz.com/request-talent' },
+]);
+
 export default function RequestTalentLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }
