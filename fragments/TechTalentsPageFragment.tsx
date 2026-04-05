@@ -1,7 +1,7 @@
-import Image from 'next/image';
+import Image from "next/image";
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
-import Link from 'next/link';
+import Link from "next/link";
 import TechTalents from "@/components/homeRD/techTalents";
 
 export default function TechTalentsPage() {
@@ -14,9 +14,9 @@ export default function TechTalentsPage() {
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">
               Build the Future with Agile, Technical Talent
             </h1>
-            
-            <a 
-              href="/request-talent" 
+
+            <a
+              href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-[63px] py-[23px] transition duration-300 w-fit"
             >
               Hire Talent
@@ -26,12 +26,12 @@ export default function TechTalentsPage() {
           {/* Right Column - Map */}
           <div className="hidden lg:block absolute bottom-0 right-4 lg:w-[45%] ">
             <Image
-                    src="/redesign-25/tech-header.png"
-                    alt="Tech Talents"
-                    width={800}
-                    height={500}
-                    className="w-full h-[500px] object-contain"
-                />
+              src="/redesign-25/tech-header.png"
+              alt="Tech Talents"
+              width={800}
+              height={500}
+              className="w-full h-[500px] object-contain"
+            />
           </div>
         </div>
       </PageHeader>

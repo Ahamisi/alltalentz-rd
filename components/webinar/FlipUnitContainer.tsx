@@ -1,6 +1,6 @@
 // components/FlipUnitContainer.js
-import React from 'react';
-import './FlipUnitContainer.css';
+import React from "react";
+import "./FlipUnitContainer.css";
 
 const FlipUnitContainer = ({ digit, unit }: { digit: number | undefined; unit: string }) => {
   return (

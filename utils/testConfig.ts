@@ -6,6 +6,5 @@ export const USE_EMBEDDED_FORM: boolean = false; // Change this to true to use e
 export const MICROSOFT_FORM_URL: string =
   "https://forms.cloud.microsoft/r/FtvZzg8EjS?origin=lprLink";
 
-
 // export const MICROSOFT_FORM_URL: string =
 //   "https://forms.cloud.microsoft/r/S6sxduh4um?origin=lprLink";

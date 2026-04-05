@@ -17,7 +17,6 @@ export async function POST(req, res) {
   formData.append("Phone", phone);
   formData.append("Yoe", yoe);
 
-
   const message = `
     Hi, I Want to join All Talentz Pool
     Phone Number: ${phone}\r\n"
@@ -26,11 +25,8 @@ export async function POST(req, res) {
   `;
 
   const emailHtml = render(
-    <EmailWaitlist  name={fullName} email={email} yoe={yoe}  phone ={phone} career ={career}/>
+    <EmailWaitlist name={fullName} email={email} yoe={yoe} phone={phone} career={career} />
   );
-
-
-
 
   const sendToSheets = async () => {
     try {
@@ -43,15 +39,14 @@ export async function POST(req, res) {
       );
 
       if (response.ok) {
-        console.log('Data submitted successfully');
+        console.log("Data submitted successfully");
       } else {
-        console.error('Failed to submit data');
+        console.error("Failed to submit data");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
-  
 
   const options = {
     from: smtpEmail,
@@ -64,12 +59,12 @@ export async function POST(req, res) {
     // Send email using the transporter
     await sendToSheets();
     await transporter.sendMail(options);
-    return new Response('SENT');
+    return new Response("SENT");
     // alert('got here')
-    console.log('sent')
+    console.log("sent");
   } catch (error) {
     console.error("Failed to send email:", error);
-  return new Response(error);
-}
-//   return new Response("OK");
+    return new Response(error);
+  }
+  //   return new Response("OK");
 }

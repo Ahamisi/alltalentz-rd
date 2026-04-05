@@ -23,16 +23,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const nyscFileRaw = data.get("nysc");
 
     // Validate required fields
-    if (
-      !(fileRaw instanceof File) ||
-      !fullNameRaw ||
-      !emailRaw ||
-      !(nyscFileRaw instanceof File)
-    ) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
+    if (!(fileRaw instanceof File) || !fullNameRaw || !emailRaw || !(nyscFileRaw instanceof File)) {
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
     const file = fileRaw;
@@ -102,7 +94,10 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
             },
             fields: "id",
           },
-          function (error: Error | null, file: GaxiosResponse<drive_v3.Schema$File> | null | undefined) {
+          function (
+            error: Error | null,
+            file: GaxiosResponse<drive_v3.Schema$File> | null | undefined
+          ) {
             if (error) {
               return rejected(error);
             }
@@ -157,9 +152,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         );
 
         if (!response.ok) {
-          throw new Error(
-            `Google Sheets API returned status ${response.status}`
-          );
+          throw new Error(`Google Sheets API returned status ${response.status}`);
         }
         console.log("Data submitted successfully");
       } catch (error) {
@@ -182,10 +175,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       await sendToSheets();
     }
 
-    return NextResponse.json(
-      { message: "Application submitted successfully" },
-      { status: 200 }
-    );
+    return NextResponse.json({ message: "Application submitted successfully" }, { status: 200 });
   } catch (error) {
     console.error("Server error in bootcamp route:", error);
     return NextResponse.json(

@@ -1,68 +1,92 @@
 import type { ReactNode } from "react";
-import './globals.css'
-import { Montserrat } from 'next/font/google'
-import Script from 'next/script'
-import SocialMedia from '@/components/SocialMedia'
-import { OrganizationSchema, WebsiteSchema, EmploymentAgencySchema } from '@/components/SchemaMarkup'
+import "./globals.css";
+import { Montserrat } from "next/font/google";
+import Script from "next/script";
+import SocialMedia from "@/components/SocialMedia";
+import {
+  OrganizationSchema,
+  WebsiteSchema,
+  EmploymentAgencySchema,
+} from "@/components/SchemaMarkup";
 
-const montserrat = Montserrat({ 
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true
-})
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
 
 export const metadata = {
-  title: 'Outsource to Africa — Save 70% on Staffing | AllTalentz',
-  description: 'AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.',
-  alternates: { canonical: 'https://alltalentz.com' },
+  title: "Outsource to Africa — Save 70% on Staffing | AllTalentz",
+  description:
+    "AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
+  alternates: { canonical: "https://alltalentz.com" },
   openGraph: {
-    type: 'website',
-    siteName: 'AllTalentz',
-    title: 'Outsource to Africa — Save 70% on Staffing | AllTalentz',
-    description: 'AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.',
-    url: 'https://alltalentz.com',
-    images: [{ url: '/twitter/twitter-card.png', width: 1200, height: 630, alt: 'AllTalentz — Outsource to Africa' }],
+    type: "website",
+    siteName: "AllTalentz",
+    title: "Outsource to Africa — Save 70% on Staffing | AllTalentz",
+    description:
+      "AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
+    url: "https://alltalentz.com",
+    images: [
+      {
+        url: "/twitter/twitter-card.png",
+        width: 1200,
+        height: 630,
+        alt: "AllTalentz — Outsource to Africa",
+      },
+    ],
   },
-}
-
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-       <head>
-         <link rel="preconnect" href="https://fonts.googleapis.com" />
-         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
- <meta name="google-site-verification" content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(OrganizationSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(WebsiteSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(EmploymentAgencySchema) }} />
-       </head>
-    <body className={montserrat.className} id="body" style={{overflowY: 'hidden'}}>
-      <SocialMedia/>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <meta
+          name="google-site-verification"
+          content="lYMDAYOc3Se9uAkUoehfNd6vA7MfyKMJtvNc8gKOAQo"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(OrganizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(WebsiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(EmploymentAgencySchema) }}
+        />
+      </head>
+      <body className={montserrat.className} id="body" style={{ overflowY: "hidden" }}>
+        <SocialMedia />
 
-      <main className=''>
-        {/* <Header/> */}
-        {children}
-      </main>
+        <main className="">
+          {/* <Header/> */}
+          {children}
+        </main>
 
-      {/* Analytics Scripts - Load only once site-wide */}
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-L3HFMLR4MD"
-      />
-      <Script id="google-analytics-config" strategy="afterInteractive">
-        {`
+        {/* Analytics Scripts - Load only once site-wide */}
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-L3HFMLR4MD"
+        />
+        <Script id="google-analytics-config" strategy="afterInteractive">
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-L3HFMLR4MD');
         `}
-      </Script>
-      
-      {/* LinkedIn Insight Tag - Load only once, prevent duplicate loads */}
-      <Script id="linkedin-insight" strategy="afterInteractive">
-        {`
+        </Script>
+
+        {/* LinkedIn Insight Tag - Load only once, prevent duplicate loads */}
+        <Script id="linkedin-insight" strategy="afterInteractive">
+          {`
           if (!window._linkedin_loaded) {
             window._linkedin_loaded = true;
             _linkedin_partner_id = "4798922";
@@ -81,11 +105,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             })(window.lintrk);
           }
         `}
-      </Script>
-      
-      {/* Tawk.to Chat - Load only once, prevent duplicate loads */}
-      <Script id="tawk-chat" strategy="lazyOnload">
-        {`
+        </Script>
+
+        {/* Tawk.to Chat - Load only once, prevent duplicate loads */}
+        <Script id="tawk-chat" strategy="lazyOnload">
+          {`
           if (!window._tawk_loaded) {
             window._tawk_loaded = true;
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -99,9 +123,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             })();
           }
         `}
-      </Script>
-    </body>
-    
-  </html>
-  )
+        </Script>
+      </body>
+    </html>
+  );
 }

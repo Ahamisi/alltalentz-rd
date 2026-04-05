@@ -1,18 +1,17 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Parser from 'rss-parser';
-import cheerio from 'cheerio';
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import Parser from "rss-parser";
+import cheerio from "cheerio";
 
 const Blog = () => {
   const [posts, setPosts] = useState<any[]>([]);
-
 
   // useEffect(() => {
   //   const fetchPosts = async () => {
   //     const parser = new Parser();
   //     const feed = await parser.parseURL('https://ubernation.substack.com/feed');
-      
+
   //     const postsWithImages = await Promise.all(
   //       feed.items.map(async (item) => {
   //         const { content } = await parser.parseString(item['content:encoded']);
@@ -28,13 +27,6 @@ const Blog = () => {
   //   fetchPosts();
   // }, []);
 
-
-
-
-
-
-
-
   // useEffect(() => {
   //   const fetchPosts = async () => {
   //     try {
@@ -49,37 +41,37 @@ const Blog = () => {
   //   fetchPosts();
   // }, []);
 
-
-
   return (
     <section className="py-10">
       <div className="container px-[15px] md:mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-
-
-        {posts.map((post) => (
-           <div className="shadow-md rounded-[35px] rounded-tl-none rounded-br-none bg-white" key={post.id}>
+          {posts.map((post) => (
+            <div
+              className="shadow-md rounded-[35px] rounded-tl-none rounded-br-none bg-white"
+              key={post.id}
+            >
               <div className="mb-4">
-              {post.firstImage && <Image src={post.firstImage} alt={post.title} width={600} height={400} className="w-full h-auto" />}
-
-                 
+                {post.firstImage && (
+                  <Image
+                    src={post.firstImage}
+                    alt={post.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                )}
               </div>
-              <div className='p-[27px]'>
-              <h3 className="text-lg font-semibold mb-2 text-secondary">{post.title}</h3>
-                  <p className="text-gray-600 mb-4">{post.contentSnippet}
-                  </p>
-                  <div className='text-right'>
-                      <a href={post.link} className="text-secondary font-bold hover:">
-                          Read More 
-                          
-                      </a>
-                  </div>
+              <div className="p-[27px]">
+                <h3 className="text-lg font-semibold mb-2 text-secondary">{post.title}</h3>
+                <p className="text-gray-600 mb-4">{post.contentSnippet}</p>
+                <div className="text-right">
+                  <a href={post.link} className="text-secondary font-bold hover:">
+                    Read More
+                  </a>
+                </div>
               </div>
-          </div>
-        ))}
-
-
+            </div>
+          ))}
         </div>
       </div>
     </section>

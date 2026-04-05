@@ -37,8 +37,8 @@ const SubFooter = ({ brochure, meetWithUs }: SubFooterProps) => {
               Need customised solutions to meet your peculiar Talent needs?
             </h3>
             <p className="text-white mb-6">
-              Kindly take a moment to schedule meeting with us via Teams or
-              download our company brochure.
+              Kindly take a moment to schedule meeting with us via Teams or download our company
+              brochure.
             </p>
             <div className="flex items-center flex-col md:flex-row">
               <Btn

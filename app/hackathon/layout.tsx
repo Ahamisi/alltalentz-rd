@@ -1,26 +1,30 @@
 import type { ReactNode } from "react";
-import Script from 'next/script'
+import Script from "next/script";
 
 export const metadata = {
-  title: 'All Talentz Hackathon 2025 | Build Solutions That Matter',
-  description: 'Join Nigeria\'s leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders.',
-  keywords: 'hackathon, Nigeria tech, innovation challenge, tech hackathon, All Talentz, tech competition',
-  alternates: { canonical: 'https://alltalentz.com/hackathon' },
+  title: "All Talentz Hackathon 2025 | Build Solutions That Matter",
+  description:
+    "Join Nigeria's leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders.",
+  keywords:
+    "hackathon, Nigeria tech, innovation challenge, tech hackathon, All Talentz, tech competition",
+  alternates: { canonical: "https://alltalentz.com/hackathon" },
   openGraph: {
-    type: 'website',
-    siteName: 'AllTalentz',
-    title: 'All Talentz Hackathon 2025 | Build Solutions That Matter',
-    description: 'Join Nigeria\'s leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders.',
-    url: 'https://alltalentz.com/hackathon',
-    images: ['/hackathon/alltalentz.svg'],
+    type: "website",
+    siteName: "AllTalentz",
+    title: "All Talentz Hackathon 2025 | Build Solutions That Matter",
+    description:
+      "Join Nigeria's leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders.",
+    url: "https://alltalentz.com/hackathon",
+    images: ["/hackathon/alltalentz.svg"],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'All Talentz Hackathon 2025',
-    description: 'Join Nigeria\'s leading tech hackathon. Build solutions that matter, compete for ₦10M in prizes.',
-    images: ['/hackathon/alltalentz.svg'],
+    card: "summary_large_image",
+    title: "All Talentz Hackathon 2025",
+    description:
+      "Join Nigeria's leading tech hackathon. Build solutions that matter, compete for ₦10M in prizes.",
+    images: ["/hackathon/alltalentz.svg"],
   },
-}
+};
 
 export default function HackathonLayout({ children }: { children: ReactNode }) {
   return (
@@ -68,18 +72,25 @@ export default function HackathonLayout({ children }: { children: ReactNode }) {
 
       {/* Google Tag Manager (noscript) - Immediately after opening body tag */}
       <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCPKB87F"
-          height="0" width="0" style={{display:'none', visibility:'hidden'}}></iframe>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-TCPKB87F"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        ></iframe>
       </noscript>
 
       {/* Meta Pixel Noscript */}
       <noscript>
-        <img height="1" width="1" style={{display:'none'}}
+        <img
+          height="1"
+          width="1"
+          style={{ display: "none" }}
           src="https://www.facebook.com/tr?id=426834159682080&ev=PageView&noscript=1"
         />
       </noscript>
 
       {children}
     </>
-  )
-} 
+  );
+}

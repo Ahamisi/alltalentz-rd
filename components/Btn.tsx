@@ -10,14 +10,7 @@ interface BtnProps {
   otherCSS?: string;
 }
 
-const Btn = ({
-  action,
-  text,
-  border = false,
-  link = false,
-  target,
-  otherCSS,
-}: BtnProps) => {
+const Btn = ({ action, text, border = false, link = false, target, otherCSS }: BtnProps) => {
   return (
     <>
       {link ? (

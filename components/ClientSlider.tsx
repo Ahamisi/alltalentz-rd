@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the carousel styles
 import { Carousel } from "react-responsive-carousel";
 import { useState } from "react";
@@ -20,22 +20,70 @@ const ClientCarousel = () => {
         autoPlay={true}
       >
         <div>
-          <div className="relative h-[400px]"><Image src="/clients/client-puroclean.jpg" alt="Puro Clean" fill sizes="(max-width: 512px) 100vw, 512px" className="object-contain" /></div>
+          <div className="relative h-[400px]">
+            <Image
+              src="/clients/client-puroclean.jpg"
+              alt="Puro Clean"
+              fill
+              sizes="(max-width: 512px) 100vw, 512px"
+              className="object-contain"
+            />
+          </div>
         </div>
         <div>
-          <div className="relative h-[400px]"><Image src="/clients/client-servicemaster.jpg" alt="Service Master" fill sizes="(max-width: 512px) 100vw, 512px" className="object-contain" /></div>
+          <div className="relative h-[400px]">
+            <Image
+              src="/clients/client-servicemaster.jpg"
+              alt="Service Master"
+              fill
+              sizes="(max-width: 512px) 100vw, 512px"
+              className="object-contain"
+            />
+          </div>
         </div>
         <div>
-          <div className="relative h-[400px]"><Image src="/clients/client-crdn.jpg" alt="CRDN" fill sizes="(max-width: 512px) 100vw, 512px" className="object-contain" /></div>
+          <div className="relative h-[400px]">
+            <Image
+              src="/clients/client-crdn.jpg"
+              alt="CRDN"
+              fill
+              sizes="(max-width: 512px) 100vw, 512px"
+              className="object-contain"
+            />
+          </div>
         </div>
         <div>
-          <div className="relative h-[400px]"><Image src="/clients/client-rs.jpg" alt="RS" fill sizes="(max-width: 512px) 100vw, 512px" className="object-contain" /></div>
+          <div className="relative h-[400px]">
+            <Image
+              src="/clients/client-rs.jpg"
+              alt="RS"
+              fill
+              sizes="(max-width: 512px) 100vw, 512px"
+              className="object-contain"
+            />
+          </div>
         </div>
         <div>
-          <div className="relative h-[400px]"><Image src="/clients/client-servpro.jpg" alt="Serve Pro" fill sizes="(max-width: 512px) 100vw, 512px" className="object-contain" /></div>
+          <div className="relative h-[400px]">
+            <Image
+              src="/clients/client-servpro.jpg"
+              alt="Serve Pro"
+              fill
+              sizes="(max-width: 512px) 100vw, 512px"
+              className="object-contain"
+            />
+          </div>
         </div>
         <div>
-          <div className="relative h-[400px]"><Image src="/clients/client-cleanslate.jpg" alt="Clean Slate" fill sizes="(max-width: 512px) 100vw, 512px" className="object-contain" /></div>
+          <div className="relative h-[400px]">
+            <Image
+              src="/clients/client-cleanslate.jpg"
+              alt="Clean Slate"
+              fill
+              sizes="(max-width: 512px) 100vw, 512px"
+              className="object-contain"
+            />
+          </div>
         </div>
         {/* Add more carousel items as needed */}
       </Carousel>

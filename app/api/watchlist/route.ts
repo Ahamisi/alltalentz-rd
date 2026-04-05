@@ -23,10 +23,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     // Validate required fields
     if (!(fileRaw instanceof File) || !fullNameRaw || !emailRaw) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
     const file = fileRaw;
@@ -94,7 +91,10 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
             },
             fields: "id",
           },
-          function (error: Error | null, file: GaxiosResponse<drive_v3.Schema$File> | null | undefined) {
+          function (
+            error: Error | null,
+            file: GaxiosResponse<drive_v3.Schema$File> | null | undefined
+          ) {
             if (error) {
               return rejected(error);
             }
@@ -132,9 +132,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         );
 
         if (!response.ok) {
-          throw new Error(
-            `Google Sheets API returned status ${response.status}`
-          );
+          throw new Error(`Google Sheets API returned status ${response.status}`);
         }
         console.log("Data submitted successfully");
       } catch (error) {
@@ -155,10 +153,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       await sendToSheets();
     }
 
-    return NextResponse.json(
-      { message: "Application submitted successfully" },
-      { status: 200 }
-    );
+    return NextResponse.json({ message: "Application submitted successfully" }, { status: 200 });
   } catch (error) {
     console.error("Server error in watchlist route:", error);
     return NextResponse.json(

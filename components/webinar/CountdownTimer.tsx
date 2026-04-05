@@ -1,6 +1,6 @@
 // components/CountdownTimer.js
-import React, { useEffect, useState } from 'react';
-import './CountdownTimer.css';
+import React, { useEffect, useState } from "react";
+import "./CountdownTimer.css";
 
 interface TimeLeft {
   days?: number;
@@ -49,10 +49,10 @@ const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
 
   return (
     <div className="countdown-timer">
-      {renderFlipUnit(timeLeft.days, 'Days')}
-      {renderFlipUnit(timeLeft.hours, 'Hours')}
-      {renderFlipUnit(timeLeft.minutes, 'Minutes')}
-      {renderFlipUnit(timeLeft.seconds, 'Seconds')}
+      {renderFlipUnit(timeLeft.days, "Days")}
+      {renderFlipUnit(timeLeft.hours, "Hours")}
+      {renderFlipUnit(timeLeft.minutes, "Minutes")}
+      {renderFlipUnit(timeLeft.seconds, "Seconds")}
     </div>
   );
 };

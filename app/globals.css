@@ -4,8 +4,8 @@
 
 /* Digital Numbers Font */
 @font-face {
-  font-family: 'Digital Numbers';
-  src: url('/fonts/DigitalNumbers-Regular.ttf') format('truetype');
+  font-family: "Digital Numbers";
+  src: url("/fonts/DigitalNumbers-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -15,8 +15,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  font-family: 'Montserrat';
-
+  font-family: "Montserrat";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,7 +26,8 @@
   }
 }
 
-body, html{
+body,
+html {
   width: 100%;
   overflow-x: hidden;
   max-width: 100%;
@@ -38,17 +38,12 @@ body {
   overflow-y: hidden;
 
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
-
 }
 
-.fm{
-  font-family: 'Montserrat' !important;
+.fm {
+  font-family: "Montserrat" !important;
 }
 
 /* Example CSS for styling the modal */
@@ -90,7 +85,7 @@ body {
   cursor: pointer;
 }
 
-.thumbs-wrapper{
+.thumbs-wrapper {
   display: none !important;
 }
 
@@ -115,21 +110,20 @@ body {
   right: 20px;
 }
 
-
 .feature-box:hover:before {
-  content: '';
+  content: "";
   border-left: 3px solid;
   border-top: 3px solid;
   top: 0;
   left: 0;
-  color: #F4461E;
-  transition: all .5s;
+  color: #f4461e;
+  transition: all 0.5s;
   z-index: -1;
   position: absolute;
 }
 
-
-.feature-box:hover:before, .feature-box:hover:after {
+.feature-box:hover:before,
+.feature-box:hover:after {
   transform: scale(1);
   width: 45px;
   height: 45px;
@@ -137,25 +131,24 @@ body {
 }
 
 .feature-box:after {
-  content: '';
+  content: "";
   border-right: 3px solid;
   border-bottom: 3px solid;
   bottom: 0;
   right: 0;
-  color: #F4461E;
+  color: #f4461e;
 }
 
-
-.feature-box:before, .feature-box:after {
-  transition: all .5s;
+.feature-box:before,
+.feature-box:after {
+  transition: all 0.5s;
   z-index: -1;
   position: absolute;
-  content: '';
+  content: "";
   width: 0px;
   height: 0px;
   opacity: 0;
 }
-
 
 .multi-select-container {
   position: relative;
@@ -175,7 +168,7 @@ body {
 .tag {
   display: flex;
   align-items: center;
-  background-color: #F99621;
+  background-color: #f99621;
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 14px;
@@ -192,26 +185,18 @@ body {
   display: none;
 }
 
-
-
-
-
-
-
-
-
 .available-services {
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
-} 
+}
 
 .service-option {
   padding: 9px 18px;
   /* background-color: #e2e8f0; */
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
   color: #000;
   border-radius: 27px;
   font-size: 14px;
@@ -221,10 +206,9 @@ body {
 }
 
 .service-option.selected {
-  background-color: #F99621;
+  background-color: #f99621;
   color: #000;
 }
-
 
 @media (min-width: 640px) and (max-width: 770px) {
   section.md-padding {
@@ -233,16 +217,13 @@ body {
   }
 }
 
-li.dot.selected{
-  background-color: #F99621 !important;
+li.dot.selected {
+  background-color: #f99621 !important;
 }
 
-.survey-page-body{
+.survey-page-body {
   margin-top: 500px;
 }
-
-
-
 
 /* home animations */
 /* CSS for animations */
@@ -251,21 +232,24 @@ li.dot.selected{
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .slide-in {
   transition: transform 0.5s ease-out;
 }
 
-
 @keyframes spin-slow {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 

@@ -110,11 +110,7 @@ export const generateBreadcrumbSchema = (items: BreadcrumbItem[]) => ({
 });
 
 // Service Schema Generator
-export const generateServiceSchema = (
-  name: string,
-  description: string,
-  url: string
-) => ({
+export const generateServiceSchema = (name: string, description: string, url: string) => ({
   "@context": "https://schema.org",
   "@type": "Service",
   name,

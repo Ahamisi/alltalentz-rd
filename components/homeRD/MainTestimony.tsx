@@ -1,11 +1,10 @@
-"use client"
-import { motion } from 'framer-motion';
-import TestimonialSlider from '../TestimonialSlider';
+"use client";
+import { motion } from "framer-motion";
+import TestimonialSlider from "../TestimonialSlider";
 
 const MainTestimony = () => {
   return (
-      <section className="relative bg-white py-20 bg-[url('/redesign-25/backgrounds/pattern-partners.svg')] bg-center bg-contain bg-no-repeat px-6 md:px-0">
-
+    <section className="relative bg-white py-20 bg-[url('/redesign-25/backgrounds/pattern-partners.svg')] bg-center bg-contain bg-no-repeat px-6 md:px-0">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

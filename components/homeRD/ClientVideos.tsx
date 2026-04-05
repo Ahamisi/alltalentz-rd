@@ -1,13 +1,17 @@
-"use client"
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-interface VideoItem { id: number; videoUrl: string; videoId?: string; }
+interface VideoItem {
+  id: number;
+  videoUrl: string;
+  videoId?: string;
+}
 
 const ClientVideos = ({
   title = "Some Words from our Clients",
   description = "Here are some video clips from our Clients",
-  videos = [] as VideoItem[]
+  videos = [] as VideoItem[],
 }: {
   title?: string;
   description?: string;
@@ -20,7 +24,7 @@ const ClientVideos = ({
   const getYouTubeVideoId = (url: string) => {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
-    return (match && match[2].length === 11) ? match[2] : null;
+    return match && match[2].length === 11 ? match[2] : null;
   };
 
   // Get current video ID
@@ -40,7 +44,7 @@ const ClientVideos = ({
   return (
     <section className="py-24 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -48,7 +52,7 @@ const ClientVideos = ({
         >
           {title}
         </motion.h2>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -74,7 +78,7 @@ const ClientVideos = ({
                 alt="Video thumbnail"
                 className="w-full h-full object-cover"
               />
-              <button 
+              <button
                 onClick={() => setIsPlaying(true)}
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-black/50 hover:bg-black/75 rounded-full flex items-center justify-center text-white transition-all transform hover:scale-110"
               >
@@ -86,16 +90,21 @@ const ClientVideos = ({
           )}
 
           {/* Navigation Arrows */}
-          <button 
+          <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/75 rounded-full flex items-center justify-center text-white transition-colors"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
 
-          <button 
+          <button
             onClick={nextSlide}
             className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/75 rounded-full flex items-center justify-center text-white transition-colors"
           >
@@ -115,9 +124,7 @@ const ClientVideos = ({
                 setIsPlaying(false);
               }}
               className={`w-6 h-6 rounded-full transition-colors duration-300 ${
-                index === currentSlide 
-                  ? 'bg-[#FFB300] scale-110' 
-                  : 'bg-black hover:bg-black/80'
+                index === currentSlide ? "bg-[#FFB300] scale-110" : "bg-black hover:bg-black/80"
               }`}
               aria-label={`Go to video ${index + 1}`}
             />

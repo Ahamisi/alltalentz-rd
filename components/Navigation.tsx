@@ -24,14 +24,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
   // Force full page load for same-origin links so Next.js router never intercepts (no RSC storm).
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const href = e.currentTarget.getAttribute("href");
-    if (
-      !href ||
-      href.startsWith("http") ||
-      e.ctrlKey ||
-      e.metaKey ||
-      e.button === 1
-    )
-      return;
+    if (!href || href.startsWith("http") || e.ctrlKey || e.metaKey || e.button === 1) return;
     e.preventDefault();
     window.location.href = href;
   };
@@ -82,13 +75,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
     setTalentTimeout(timeout);
   };
 
-  const aboutPaths = [
-    "/about",
-    "/success-stories",
-    "/why-africa",
-    "/contact-us",
-    "/faq",
-  ];
+  const aboutPaths = ["/about", "/success-stories", "/why-africa", "/contact-us", "/faq"];
   const servicePaths = [
     "/services",
     "/tech-talents",
@@ -121,9 +108,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
 
   const getDropdownItemClassName = (path: string) => {
     return `block px-4 py-2 text-sm ${
-      pathname === path
-        ? "text-secondary bg-gray-50"
-        : "text-gray-700 hover:bg-gray-100"
+      pathname === path ? "text-secondary bg-gray-50" : "text-gray-700 hover:bg-gray-100"
     }`;
   };
 
@@ -296,11 +281,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
       </li>
 
       <li className={getLinkClassName("/news")}>
-        <a
-          href="https://blog.alltalentz.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer">
           Blog
         </a>
       </li>
@@ -338,9 +319,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
                     <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                       <a
                         href="/contact-us"
-                        className={getDropdownItemClassName(
-                          "/professional-development-programme"
-                        )}
+                        className={getDropdownItemClassName("/professional-development-programme")}
                         onClick={handleNavClick}
                       >
                         Contact Us

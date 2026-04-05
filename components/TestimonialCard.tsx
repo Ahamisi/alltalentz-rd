@@ -1,8 +1,14 @@
 // components/TestimonialCard.js
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-const TestimonialCard = ({ testimonial, testifyer }: { testimonial: string; testifyer: { avatar: string; name: string; title?: string; rating?: string | number } }) => {
+const TestimonialCard = ({
+  testimonial,
+  testifyer,
+}: {
+  testimonial: string;
+  testifyer: { avatar: string; name: string; title?: string; rating?: string | number };
+}) => {
   return (
     <div className="bg-white text-black rounded-lg p-6">
       <p className="text-lg mb-6">{testimonial}</p>

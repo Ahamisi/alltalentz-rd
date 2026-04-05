@@ -1,7 +1,6 @@
-"use client"
-import SecureTestForm from '@/components/SecureTestForm';
+"use client";
+import SecureTestForm from "@/components/SecureTestForm";
 
 export default function TestPage() {
   return <SecureTestForm />;
 }
-

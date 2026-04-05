@@ -17,38 +17,26 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   // Verify reCAPTCHA token
   if (!recaptchaToken) {
-    return NextResponse.json(
-      { error: "reCAPTCHA token is required" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "reCAPTCHA token is required" }, { status: 400 });
   }
 
   try {
-    const recaptchaResponse = await fetch(
-      `https://www.google.com/recaptcha/api/siteverify`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
-      }
-    );
+    const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+    });
 
     const recaptchaData = await recaptchaResponse.json();
 
     if (!recaptchaData.success) {
-      return NextResponse.json(
-        { error: "reCAPTCHA verification failed" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 400 });
     }
   } catch (error) {
     console.error("reCAPTCHA verification error:", error);
-    return NextResponse.json(
-      { error: "reCAPTCHA verification failed" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 500 });
   }
 
   const formData = new FormData();
@@ -93,9 +81,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Failed to send email:", error);
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }

@@ -1,8 +1,7 @@
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
-import Link from 'next/link';
+import Link from "next/link";
 import FinanceTalents from "@/components/homeRD/financeTalents";
-
 
 export default function FinanceTalentsPage() {
   return (
@@ -14,9 +13,9 @@ export default function FinanceTalentsPage() {
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">
               Secure, Scale, and Succeed with Financial Operations Talent
             </h1>
-            
-            <a 
-              href="/request-talent" 
+
+            <a
+              href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-[63px] py-[23px] transition duration-300 w-fit"
             >
               Hire Talent
@@ -26,14 +25,14 @@ export default function FinanceTalentsPage() {
           {/* Right Column - Map */}
           <div className="hidden lg:block lg:w-[40%] pl-0">
             <img
-                    src="/redesign-25/finance-header.png"
-                    alt="Success Stories"
-                    className="w-full h-[500px] object-contain"
-                />
+              src="/redesign-25/finance-header.png"
+              alt="Success Stories"
+              className="w-full h-[500px] object-contain"
+            />
           </div>
         </div>
       </PageHeader>
-      
+
       <FinanceTalents />
 
       <section className="px-[10px] md:px-0 bg-[#131313]">

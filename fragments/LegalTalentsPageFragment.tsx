@@ -1,8 +1,7 @@
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
-import Link from 'next/link';
+import Link from "next/link";
 import LegalTalents from "@/components/homeRD/LegalTalents";
-
 
 export default function HealthcareTalentsPage() {
   return (
@@ -14,9 +13,9 @@ export default function HealthcareTalentsPage() {
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">
               Enhance Your Practice with Compliant Legal Support.
             </h1>
-            
-            <a 
-              href="/request-talent" 
+
+            <a
+              href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-[63px] py-[23px] transition duration-300 w-fit"
             >
               Hire Talent
@@ -26,15 +25,15 @@ export default function HealthcareTalentsPage() {
           {/* Right Column - Map */}
           <div className="hidden lg:block lg:w-[40%] pl-0">
             <img
-                    src="/redesign-25/legal-header.png"
-                    alt="Success Stories"
-                    className="w-full h-[500px] object-contain"
-                />
+              src="/redesign-25/legal-header.png"
+              alt="Success Stories"
+              className="w-full h-[500px] object-contain"
+            />
           </div>
         </div>
       </PageHeader>
-      
-      <LegalTalents/>
+
+      <LegalTalents />
 
       <section className="px-[10px] md:px-0 bg-[#131313]">
         <MainFooter />
