@@ -75,7 +75,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
     setTalentTimeout(timeout);
   };
 
-  const aboutPaths = ["/about", "/success-stories", "/why-africa", "/contact-us", "/faq"];
+  const aboutPaths = ["/about-us", "/success-stories", "/why-african-talents", "/contact-us", "/faq"];
   const servicePaths = [
     "/services",
     "/tech-talents",
@@ -122,7 +122,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
           onMouseLeave={handleAboutMouseLeave}
         >
           <button
-            className={`flex items-center gap-1 ${isAboutActive ? "text-secondary" : getLinkClassName("/about")}`}
+            className={`flex items-center gap-1 ${isAboutActive ? "text-secondary" : getLinkClassName("/about-us")}`}
           >
             About
             <svg
@@ -144,8 +144,8 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
               <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                 <a
-                  href="/about"
-                  className={getDropdownItemClassName("/about")}
+                  href="/about-us"
+                  className={getDropdownItemClassName("/about-us")}
                   onClick={handleNavClick}
                 >
                   About Us
@@ -158,8 +158,8 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
                   Success Stories
                 </a>
                 <a
-                  href="/why-africa"
-                  className={getDropdownItemClassName("/why-africa")}
+                  href="/why-african-talents"
+                  className={getDropdownItemClassName("/why-african-talents")}
                   onClick={handleNavClick}
                 >
                   Why Africa Talents
@@ -194,7 +194,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
           <button
             className={`flex items-center gap-1 ${isServiceActive ? "text-secondary" : getLinkClassName("/services")}`}
           >
-            Services
+            Hire Talents
             <svg
               className={`w-4 h-4 mt-1 transition-transform ${showServiceDropdown ? "rotate-180" : ""}`}
               fill="none"
@@ -213,13 +213,13 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
           {showServiceDropdown && (
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
               <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
-                <a
+                {/* <a
                   href="/pricing-model"
                   className={getDropdownItemClassName("/pricing-model")}
                   onClick={handleNavClick}
                 >
                   Our Solutions
-                </a>
+                </a> */}
                 <a
                   href="/services"
                   className={getDropdownItemClassName("/services")}
@@ -268,9 +268,15 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
         </div>
       </li>
 
-      <li className={getLinkClassName("/outsourcing")}>
-        <a href="/outsourcing" onClick={handleNavClick}>
+      <li className={getLinkClassName("/outsource-with-agency")}>
+        <a href="/outsource-with-agency" onClick={handleNavClick}>
           Agency
+        </a>
+      </li>
+
+      <li className={getLinkClassName("/pricing-model")}>
+        <a href="/pricing-model" onClick={handleNavClick}>
+          Pricing Model
         </a>
       </li>
 

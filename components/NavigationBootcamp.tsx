@@ -21,12 +21,12 @@ const NavigationBootcamp = ({ addBootcamp = false }: NavigationBootcampProps) =>
       </li>
       <li
         className={
-          pathname === "/about"
+          pathname === "/about-us"
             ? "text-secondary hover:text-[#FEF5E9]"
             : "text-black hover:text-secondary lg:text-[#FEF5E9]"
         }
       >
-        <Link href="/about">About</Link>
+        <Link href="/about-us">About</Link>
       </li>
 
       <li
