@@ -180,9 +180,9 @@ const Header = ({ active = "home" }) => {
 					{/* CTA Button */}
 					{/* <Btn text="Meet with us" border={true} link="https://calendly.com/mnwoseh" target="_blank" otherCSS="hidden lg:block"/> */}
 					<Btn
-						text="Contact Us"
+						text="Join our PDP"
 						border={true}
-						link="/contact-us"
+						link="/professional-development-programme"
 						otherCSS="hidden lg:block"
 					/>
 

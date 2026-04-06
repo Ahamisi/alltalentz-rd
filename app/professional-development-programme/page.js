@@ -21,7 +21,7 @@ import SecureTestForm from '@/components/SecureTestForm';
 export default function BootCamp() {
 
   const [isDuplicate, setIsDuplicate] = useState(null);
-  const [bootCampOver, setBootCampOver] = useState(true);
+  const [bootCampOver, setBootCampOver] = useState(false);
 
 
 
