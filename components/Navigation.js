@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 // Next.js App Router intercepts same-origin <a> clicks for client-side nav → RSC fetch storm on Netlify.
 // Hero "Find Talent" works because it's a plain <a> that sometimes isn't in the intercepted tree.
 // We use preventDefault + window.location.href so the router never sees the click → one request.
-const Navigation = ({ addBootcamp = false, theme = "dark" }) => {
+const Navigation = ({ addBootcamp = true, theme = "dark" }) => {
 	const pathname = usePathname();
 	const [showAboutDropdown, setShowAboutDropdown] = useState(false);
 	const [showServiceDropdown, setShowServiceDropdown] = useState(false);
@@ -332,13 +332,13 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }) => {
 									<div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
 										<div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
 											<a
-												href="/contact-us"
+												href="/professional-development-programme"
 												className={getDropdownItemClassName(
 													"/professional-development-programme",
 												)}
 												onClick={handleNavClick}
 											>
-												Contact Us
+												Join our PDP
 											</a>
 											<a
 												href="/our-watchlist"
