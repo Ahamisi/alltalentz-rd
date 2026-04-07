@@ -75,7 +75,13 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
     setTalentTimeout(timeout);
   };
 
-  const aboutPaths = ["/about-us", "/success-stories", "/why-african-talents", "/contact-us", "/faq"];
+  const aboutPaths = [
+    "/about-us",
+    "/success-stories",
+    "/why-african-talents",
+    "/contact-us",
+    "/faq",
+  ];
   const servicePaths = [
     "/hiring-services",
     "/hire-tech-talents",

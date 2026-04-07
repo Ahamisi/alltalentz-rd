@@ -57,7 +57,9 @@ const OurClients = () => {
     <section className="bg-black py-12 md:py-[116px] px-[40px] md:px-0">
       <div className="container mx-auto">
         {/* Section Title */}
-        <h2 className="text-3xl font-semibold text-center mb-8">Trusted by top brands</h2>
+        <h2 className="text-3xl font-semibold text-center mb-8">
+          Trusted by growing businesses across the U.S.
+        </h2>
 
         {/* Logos */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-4xl mx-auto">

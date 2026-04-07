@@ -1,22 +1,32 @@
 export const homepageFAQs = [
   {
-    question: "What is All Talentz?",
+    question: "What industries does All Talentz serve?",
     answer:
-      "All Talentz connects Employers with highly skilled remote workers from Africa at a low cost. Our service is flexible and helps you grow your business with the right talent for your needs.",
+      "We place remote professionals across five core verticals: Healthcare, Technology, Finance, Construction & Restoration, and Legal. Each placement is industry-trained and role-specific. ",
   },
   {
-    question: "Is All Talentz a Job Board?",
+    question: "How quickly can I get a remote team member started?",
     answer:
-      "All Talentz is more than a job board. It is a platform that connects you with the best Talents for your specific needs. Whether you are looking for talent in a certain industry, skill, or role, we have a curated pool of qualified professionals ready to work with you. You don't have to waste time browsing through resumes or posting ads. Just tell us what you need and we will match you with the right talent.",
+      "Most placements are live within 7 days of contract signing. Our talent is pre-vetted and role-trained, so onboarding is fast and structured.",
   },
   {
-    question: "Can I find any type of Remote Talent here?",
+    question: "How much can I save compared to hiring locally?",
     answer:
-      "At All Talentz, we offer a range of Talents for various needs, such as Administrative, Digital, Software development and Marketing roles. If you need Talents for other roles that are not listed on our website, you can contact us for a customised role and we will find a suitable professional for you.",
+      "U.S. businesses typically save 50–75% on labour costs when working with All Talentz, accounting for salary, benefits, payroll taxes, and recruitment costs.",
   },
   {
-    question: "My needs aren't fully remote, more of hybrid; What do I do ?",
+    question: "Is my data secure with remote staff?",
     answer:
-      "All Talentz only provides remote workers for various businesses at the moment. However, we can discuss your hybrid needs and might be able to work with you on an Immigration visa for on-site talent that suits your specific situation.",
+      "Yes. All Talentz is ISO 27001 certified and SOC-2 Type 2 certified. Data security and compliance are built into every engagement. ",
+  },
+  {
+    question: "Do you offer outsourced medical billing services?",
+    answer:
+      "Yes. Our HIPAA-compliant medical billing specialists handle claims processing, denial management, revenue cycle management, and coding support. ",
+  },
+  {
+    question: "Can I outsource software development or IT support?",
+    answer:
+      "Absolutely. We place developers, AI engineers, data annotators, UI/UX designers, and IT support professionals for tech companies and startups.",
   },
 ];

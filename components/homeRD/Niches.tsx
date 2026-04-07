@@ -5,25 +5,25 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const NicheItem = ({
-  title,
-  imageSrc,
-  description,
-}: {
+interface NicheItemProp {
   title: string;
   imageSrc: string;
   description: string;
-}) => {
+  path: string;
+}
+
+const NicheItem = ({ title, imageSrc, description, path }: NicheItemProp) => {
   const router = useRouter();
 
-  const handleHireNow = () => {
-    router.push(`/request-talent#${title.toLowerCase().replace(" ", "-")}`);
+  const handleHireNow = (path: string) => {
+    // router.push(`/request-talent#${title.toLowerCase().replace(" ", "-")}`);
+    router.push(`${path}`);
   };
 
   return (
     <div
       className="relative rounded-[24px] overflow-hidden bg-neutral-900/90 w-full cursor-pointer group"
-      onClick={handleHireNow}
+      onClick={() => handleHireNow(path)}
     >
       {/* Default State */}
       <div className="relative w-full" style={{ aspectRatio: "4/5" }}>
@@ -97,72 +97,41 @@ const NicheSection = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { ref, inView } = useInView();
 
-  const niches = [
+  const niches: NicheItemProp[] = [
     {
-      title: "Data Annotators",
-      imageSrc: "/redesign-25/pricing/Data-Annotators.webp",
-      description:
-        "Our skilled Data Annotators meticulously label and categorize data, such as images, text, and audio, to create high-quality, structured datasets essential for training and improving machine learning models.",
-    },
-    {
-      title: "AI/ML Specialists",
-      imageSrc: "/redesign-25/pricing/AI/MLSpecialists.webp",
-      description:
-        "Our AI/ML Specialists design, build, and deploy artificial intelligence and machine learning models to solve complex business challenges, automate processes, and extract valuable insights from your data.",
-    },
-    {
-      title: "Medical Billing Specialists",
+      title: "Healthcare",
       imageSrc: "/redesign-25/pricing/MedicalBillingSpecialists.webp",
       description:
-        "Our Medical Billing Specialists manage healthcare billing processes, handle insurance claims, and ensure accurate coding to streamline revenue cycles and maintain compliance for medical practices.",
+        "Medical billing specialists, revenue cycle managers, healthcare admins, and HIPAA-compliant support staff.",
+      path: "/hire-healthcare-talents",
     },
     {
-      title: "Software Developers",
+      title: "Technology",
       imageSrc: "/redesign-25/pricing/SoftwareDevelopers.webp",
       description:
-        "Our Software Developers (a dedicated card for this role) analyze requirements to build, test, and maintain scalable software applications and systems, ensuring they are efficient, secure, and meet user needs.",
+        "Data Annotators, AI Engineers, Software Developers, UI/UX designers, and IT support professionals.",
+      path: "/hire-tech-talents",
     },
     {
-      title: "UI/UX Designers",
-      imageSrc: "/redesign-25/pricing/SoftwareDevelopers.webp",
-      description:
-        "Our UI/UX Designers create intuitive and engaging user interfaces and experiences for digital products, conducting user research and designing workflows to enhance customer satisfaction and usability.",
-    },
-    {
-      title: "Estimators",
+      title: " Construction & Restoration",
       imageSrc: "/redesign-25/pricing/Estimators.webp",
       description:
-        "Our team of well trained and highly experienced estimators, review and prepare detailed estimates for property restoration projects, ensuring accuracy in cost calculations for materials and labor.",
+        "Estimators, project administrators, AR specialists, call center agents, and digital marketing support. ",
+      path: "/hire-remediation-talents",
     },
     {
-      title: "Call Center Support",
-      imageSrc: "/redesign-25/pricing/CallCenterSupport.webp",
-      description:
-        "We provide a complete call center solution by professionally recruiting, training, and deploying a dedicated support team tailored to your business within 2 weeks. This service covers inbound/outbound customer service, technical support, and telemarketing to meet your specific operational needs..",
-    },
-    {
-      title: "Account Receivables",
+      title: "Finance",
       imageSrc: "/redesign-25/pricing/AccountsReceivablesSpecialists.webp",
       description:
-        "Our Accounts Receivables Specialist supports business in managing invoicing, tracking payments, and ensure timely collections, to maintain a company’s cash flow.",
+        "Bookkeepers, AR/AP specialists, payroll processors, financial analysts, and outsourced CFO support.",
+      path: "/hire-remediation-talents",
     },
     {
-      title: "Virtual Assistants",
-      imageSrc: "/redesign-25/pricing/VirtualAssistants.webp",
-      description:
-        "Our VAs offer administrative and organizational support remotely, handling tasks like email management, scheduling, and document preparation for our clients.",
-    },
-    {
-      title: "Telemarketing Assistant",
+      title: "Legal",
       imageSrc: "/redesign-25/pricing/TelemarketingAdminAssistants.webp",
       description:
-        "Our Telemarketers/Admin Assistants provide customer outreach through calls to generate leads or sales, while also assisting with administrative tasks such as data entry, documentation and appointment setting.",
-    },
-    {
-      title: "Digital Marketers",
-      imageSrc: "/redesign-25/pricing/DigitalMarketers.webp",
-      description:
-        "Our Digital Marketers help businesses to develop and execute online marketing strategies, including SEO, social media, and content creation, to generate quality leads, increase brand visibility and drive engagement.",
+        "Paralegals, legal virtual assistants, transcriptionists, contract managers, and legal researchers.",
+      path: "/hire-remediation-talents",
     },
   ];
 
@@ -302,7 +271,7 @@ const NicheSection = () => {
             href="/pricing-model"
             className="inline-flex items-center space-x-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 px-8 py-3 "
           >
-            <span>Check out our Pricing Model</span>
+            <span>See our Pricing</span>
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
               <path
                 d="M5 12H19M19 12L12 5M19 12L12 19"

@@ -113,22 +113,22 @@ const TheAgency = () => {
         <Section
           imageSrc="/home-img/outsourcing-agency.png"
           altText="Outsourcing Agency alltalentz"
-          title={["All Talentz", "Outsourcing", "Agency"]}
-          description="All Talentz is more than just a recruitment company; We connect you with the best remote talent in Africa. Whether you need skilled, experienced, or reliable talent, we have the perfect match for you. And the best part is, you get amazing value for your money!"
+          title={["Built for Your Industry."]}
+          description="All Talentz places professionals who understand your workflows, speak your industry's language, and integrate into your operation within days — not months."
           buttonLabel="Get Started"
         />
         <Section
           imageSrc="/home-img/quality-talents.png"
           altText="Quality Talents"
-          title={["Quality", "Talents", "at a bargain"]}
-          description="Flexible labor that scales with your company. We employ the talent, therefore there are no payroll costs, benefit costs, or high overhead costs that accrue to you."
+          title={["Premium Talent. Predictable Costs."]}
+          description="Our remote professionals deliver the same quality output, backed by ISO 27001 and SOC-2 Type 2 certifications, for up to 75% less than an equivalent local hire."
           reverse
         />
         <Section
           imageSrc="/home-img/top-tier-talents.png"
           altText="Top-Tier Talents"
-          title={["Top-Tier", "Talents", "from Day one."]}
-          description="Our talents are on the money, and we're determined to meet your company's demands and keep them in line with best practices. If you are not satisfied with our Talent after 30 days, we'll replace them."
+          title={["Deployed in 7 Days. Performing From Day One."]}
+          description="Our talents are pre-vetted, role-trained, and ready. We match your operational requirements, align on workflow, and have your new team member ready for productivity.  "
         />
       </div>
     </section>

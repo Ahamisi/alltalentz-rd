@@ -34,24 +34,19 @@ const SubFooter = ({ brochure, meetWithUs }: SubFooterProps) => {
           {/* Right side (Text and CTAs) */}
           <div className="md:w-1/2 md:pl-8">
             <h3 className="text-white text-3xl lg:text-[40px] xl:text-[65px] lg:leading-[50px] xl:leading-[80px] font-semibold mb-4">
-              Need customised solutions to meet your peculiar Talent needs?
+              Ready to Build Your Remote Team?
             </h3>
             <p className="text-white mb-6">
-              Kindly take a moment to schedule meeting with us via Teams or download our company
-              brochure.
+              Tell us what you need. We'll have the right talent matched, vetted, and ready to
+              deploy within 7 days.
             </p>
             <div className="flex items-center flex-col md:flex-row">
-              <Btn
-                text="Meet with us"
-                otherCSS="w-full text-center"
-                link={`${meetWithUs ? meetWithUs : "https://calendly.com/mnwoseh"}`}
-              />
+              <Btn text="Build my Team" otherCSS="w-full text-center" link="/request-talent" />
               &nbsp;&nbsp;
               <Btn
-                text="Download Brochure"
+                text="Talk to our team"
                 otherCSS="w-full text-center"
-                link={`${brochure ? brochure : "https://drive.google.com/uc?export=download&id=1R2_hd4vojiTA59zryjREZkWRKrXWZeon"}`}
-                target="_blank"
+                link={`${meetWithUs ? meetWithUs : "https://calendly.com/mnwoseh"}`}
               />
             </div>
           </div>

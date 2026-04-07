@@ -279,12 +279,18 @@ export default function RequestTalent() {
       <section>
         <PageHeader>
           {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-          <div className="max-w-6xl mx-auto py-12 lg:flex relative h-fit mt-0 items-center px-2 lg:px-[20px] md:px-4 ">
+          <div className="max-w-7xl mx-auto py-12 lg:flex relative h-fit mt-0 items-center px-2 lg:px-[20px] md:px-4 ">
             {/* First Column (60% width) */}
             <div className="md:w-6/10 pr-6 md:w-full">
-              <h2 className="text-2xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
-                Slash your payroll cost by over <span className="text-secondary">75%</span>
-              </h2>
+              <h1 className="text-2xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
+                Reqest Talent - Your Remote Team,{" "}
+                <span className="text-secondary">Ready in 7 Days</span>.
+              </h1>
+              <div className="mt-10">
+                <Btn text="Build my Team" otherCSS="w-full text-center" link="/request-talent" />
+                &nbsp;&nbsp;
+                <Btn text="Talk to our Team" otherCSS="w-full text-center" link="/contact-us" />
+              </div>
 
               {/* <div className="text-center flex justify-center">
                     <img src="/special-events/gaylord-levelup.png" className="h-auto md:h-[130px]"/>
@@ -303,6 +309,28 @@ export default function RequestTalent() {
             </div>
           </div>
         </PageHeader>
+        <div className="bg-[#F99621] py-4 overflow-hidden">
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex items-center shrink-0">
+                {[
+                  "ISO 27001 Certified",
+                  "SOC-2 Type 2 Certified",
+                  "7-Day Deployment",
+                  "24/7 Operational Support",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="flex items-center mx-8 text-white font-bold text-xl"
+                  >
+                    <span className="mr-3">✦</span>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[40px] md:px-0">

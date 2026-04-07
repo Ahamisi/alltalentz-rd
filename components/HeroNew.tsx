@@ -85,11 +85,14 @@ const HeroNew = () => {
                   transition={{ delay: 0.6 }}
                   className="text-4xl md:text-[50px] md:font-[700] md:leading-[65px] font-bold"
                 >
-                  Your Strategic Partner for{" "}
+                  Scale Better. <span className="text-[#F99621]">Hire Better.</span>
+                  <br />
+                  Save up to 75%.
+                  {/* Your Strategic Partner for{" "}
                   <span className="text-[#F99621]">
                     <br />
                     Industry-Specific Talent
-                  </span>
+                  </span> */}
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -97,9 +100,9 @@ const HeroNew = () => {
                   transition={{ delay: 0.7 }}
                   className="text-lg md:text-[20px] text-[#FEF5E9]"
                 >
-                  AllTalentz delivers expert, vetted talent solutions tailored to the unique demands
-                  of Technology, Healthcare, Finance, and Remediation. Scale your operations with
-                  our trained professionals.
+                  All Talentz connects U.S. businesses with pre-vetted, industry-trained remote
+                  professionals across Healthcare, Technology, Finance, Construction, and legal—at a
+                  fraction of the cost.
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -111,7 +114,7 @@ const HeroNew = () => {
                     href="/request-talent"
                     className="bg-[#F99621] hover:bg-white text-[#121212] px-[63px] py-[23px] transition duration-300"
                   >
-                    Find Talent
+                    Build your team
                   </a>
                 </motion.div>
               </motion.div>

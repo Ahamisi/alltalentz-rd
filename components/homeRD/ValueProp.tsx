@@ -66,7 +66,7 @@ const ValueProp = () => {
 
         {/* Updated Grid Layout */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
           variants={itemVariants}
         >
           {/* Card 1: Highly-Skilled Employees */}
@@ -80,10 +80,10 @@ const ValueProp = () => {
               />
               {/* Insert new icon SVG here */}
             </div>
-            <h3 className="text-2xl font-semibold mb-4 text-black">Highly-Skilled Employees</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-black">Industry-Trained Talent</h3>
             <p className="text-gray-600">
-              All Talentz boasts a pool of highly skilled, highly trained and well experienced
-              professionals, carefully selected to meet your specific needs.
+              Every professional we place is vetted, trained, and ready to integrate into your
+              workflow from Day 1. No lengthy onboarding process.
             </p>
           </motion.div>
 
@@ -91,17 +91,19 @@ const ValueProp = () => {
           <motion.div className="bg-white p-8 rounded-lg shadow-sm border" variants={itemVariants}>
             <div className="mb-6">
               <Image
-                src="/redesign-25/icons/affordable.svg"
+                src="/redesign-25/icons/reliable.svg"
                 alt="Affordable Cost"
                 width={48}
                 height={48}
               />
               {/* Insert new icon SVG here */}
             </div>
-            <h3 className="text-2xl font-semibold mb-4 text-black">Affordable Cost</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-black">
+              Built-In Compliance & Security
+            </h3>
             <p className="text-gray-600">
-              Enjoy cost-effective hiring solutions without compromising quality. At All Talentz,
-              you save up to 70% on staffing costs while still maintaining maximum efficiency.
+              ISO 27001 certified. SOC-2 Type 2 certified. Your data, your clients, and your
+              operations are in safe hands.
             </p>
           </motion.div>
 
@@ -109,22 +111,22 @@ const ValueProp = () => {
           <motion.div className="bg-white p-8 rounded-lg shadow-sm border" variants={itemVariants}>
             <div className="mb-6">
               <Image
-                src="/redesign-25/icons/reliable.svg"
+                src="/redesign-25/icons/affordable.svg"
                 alt="Vetted & Reliable Employees"
                 width={48}
                 height={48}
               />
               {/* Insert new icon SVG here */}
             </div>
-            <h3 className="text-2xl font-semibold mb-4 text-black">Vetted & Reliable Employees</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-black">Real Cost Savings</h3>
             <p className="text-gray-600">
-              Our rigorous screening process ensures that you get reliable, efficient hard working
-              and trustworthy employees.
+              Cut labor costs by up to 75% without cutting quality. Our remote professionals deliver
+              the same output as a US hire, at a fraction of the overhead.
             </p>
           </motion.div>
 
           {/* Card 4: Contribute to Success */}
-          <motion.div className="bg-white p-8 rounded-lg shadow-sm border" variants={itemVariants}>
+          {/* <motion.div className="bg-white p-8 rounded-lg shadow-sm border" variants={itemVariants}>
             <div className="mb-6">
               <Image
                 src="/redesign-25/icons/success.svg"
@@ -132,14 +134,13 @@ const ValueProp = () => {
                 width={48}
                 height={48}
               />
-              {/* Insert new icon SVG here */}
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-black">Contribute to Success</h3>
             <p className="text-gray-600">
               Our talented workforce is dedicated to understanding your business goals and working
               with you to deliver exceptional results and helping your business thrive!
             </p>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </motion.div>
     </section>

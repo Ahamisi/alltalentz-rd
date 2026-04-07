@@ -12,7 +12,6 @@ import PdpModal from "@/components/PdpModal";
 import { homepageFAQs } from "@/lib/homepage-faqs";
 
 export default function Home() {
-
   const clientVideos = [
     {
       id: 1,
@@ -52,18 +51,24 @@ export default function Home() {
       <TheAgency />
 
       {/* conference Video */}
-      <ConferenceVideo
+      {/* <ConferenceVideo
         title="Take a first glance about all Talentz"
         description="Here are some video clips from our Clients"
         videos={clientVideos}
-      />
+      /> */}
 
       {/* how we work */}
       <HowWeWork />
 
       <OurClients />
 
-      <MainTestimony />
+      {/* <MainTestimony /> */}
+
+      <ConferenceVideo
+        title="What our partners say"
+        description="Here are some video clips from our Clients"
+        videos={clientVideos}
+      />
 
       <Faq
         title="Frequently Asked Questions"
