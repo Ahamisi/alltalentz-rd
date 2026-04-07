@@ -75,7 +75,7 @@ const NewServices = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pb-24 max-w-7xl mx-auto w-full px-4">
           <div className="flex flex-col gap-6">
             <Link
-              href="/tech-talents"
+              href="/hire-tech-talents"
               className="relative overflow-hidden rounded-xl h-[280px] group cursor-pointer"
             >
               <Image
@@ -97,7 +97,7 @@ const NewServices = () => {
             </Link>
 
             <Link
-              href="/finance-talents"
+              href="/hire-finance-talents"
               className="relative overflow-hidden rounded-xl h-[280px] group cursor-pointer"
             >
               <Image
@@ -120,7 +120,7 @@ const NewServices = () => {
 
           <div className="flex flex-col gap-6">
             <Link
-              href="/healthcare-talents"
+              href="/hire-healthcare-talents"
               className="relative overflow-hidden rounded-xl h-[280px] group cursor-pointer"
             >
               <Image
@@ -143,7 +143,7 @@ const NewServices = () => {
             </Link>
 
             <Link
-              href="/remediation-talents"
+              href="/hire-remediation-talents"
               className="relative overflow-hidden rounded-xl h-[280px] group cursor-pointer"
             >
               <Image
@@ -166,7 +166,7 @@ const NewServices = () => {
           </div>
 
           <Link
-            href="/legal-talents"
+            href="/hire-legal-talents"
             className="relative overflow-hidden rounded-xl h-[576px] group cursor-pointer"
           >
             <Image
@@ -190,7 +190,7 @@ const NewServices = () => {
 
         <div className="mt-32">
           <Link
-            href="/services"
+            href="/hiring-services"
             className="bg-[#F99621] text-black text-center font-semibold px-16 py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions

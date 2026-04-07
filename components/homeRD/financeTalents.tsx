@@ -141,7 +141,7 @@ const FinanceTalents = () => {
 
         <div className="pt-24 flex justify-center">
           <Link
-            href="/services"
+            href="/hiring-services"
             className="bg-[#F99621] text-black font-semibold text-center px-16 py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions

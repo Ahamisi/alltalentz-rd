@@ -77,12 +77,12 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
 
   const aboutPaths = ["/about-us", "/success-stories", "/why-african-talents", "/contact-us", "/faq"];
   const servicePaths = [
-    "/services",
-    "/tech-talents",
-    "/healthcare-talents",
-    "/finance-talents",
-    "/remediation-talents",
-    "/legal-talents",
+    "/hiring-services",
+    "/hire-tech-talents",
+    "/hire-healthcare-talents",
+    "/hire-finance-talents",
+    "/hire-remediation-talents",
+    "/hire-legal-talents",
   ];
   const talentPaths = [
     "/bootcamp",
@@ -107,7 +107,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
   };
 
   const getDropdownItemClassName = (path: string) => {
-    return `block px-4 py-2 text-sm ${
+    return `block px-4 py-2 text-sm lg:text-[12px] ${
       pathname === path ? "text-secondary bg-gray-50" : "text-gray-700 hover:bg-gray-100"
     }`;
   };
@@ -192,7 +192,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
           onMouseLeave={handleServiceMouseLeave}
         >
           <button
-            className={`flex items-center gap-1 ${isServiceActive ? "text-secondary" : getLinkClassName("/services")}`}
+            className={`flex items-center gap-1 ${isServiceActive ? "text-secondary" : getLinkClassName("/hiring-services")}`}
           >
             Hire Talents
             <svg
@@ -221,46 +221,46 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
                   Our Solutions
                 </a> */}
                 <a
-                  href="/services"
-                  className={getDropdownItemClassName("/services")}
+                  href="/hiring-services"
+                  className={getDropdownItemClassName("/hiring-services")}
                   onClick={handleNavClick}
                 >
-                  All Services
+                  Hiring services
                 </a>
                 <a
-                  href="/tech-talents"
-                  className={getDropdownItemClassName("/tech-talents")}
+                  href="/hire-tech-talents"
+                  className={getDropdownItemClassName("/hire-tech-talents")}
                   onClick={handleNavClick}
                 >
-                  Tech Talents
+                  Hire Tech Talents
                 </a>
                 <a
-                  href="/healthcare-talents"
-                  className={getDropdownItemClassName("/healthcare-talents")}
+                  href="/hire-healthcare-talents"
+                  className={getDropdownItemClassName("/hire-healthcare-talents")}
                   onClick={handleNavClick}
                 >
-                  Healthcare Talents
+                  Hire Healthcare Talents
                 </a>
                 <a
-                  href="/finance-talents"
-                  className={getDropdownItemClassName("/finance-talents")}
+                  href="/hire-finance-talents"
+                  className={getDropdownItemClassName("/hire-finance-talents")}
                   onClick={handleNavClick}
                 >
-                  Finance Talents
+                  Hire Finance Talents
                 </a>
                 <a
-                  href="/remediation-talents"
-                  className={getDropdownItemClassName("/remediation-talents")}
+                  href="/hire-remediation-talents"
+                  className={getDropdownItemClassName("/hire-remediation-talents")}
                   onClick={handleNavClick}
                 >
-                  Remediation Talents
+                  Hire Remediation Talents
                 </a>
                 <a
-                  href="/legal-talents"
-                  className={getDropdownItemClassName("/legal-talents")}
+                  href="/hire-legal-talents"
+                  className={getDropdownItemClassName("/hire-legal-talents")}
                   onClick={handleNavClick}
                 >
-                  Legal Talents
+                  Hire Legal Talents
                 </a>
               </div>
             </div>
