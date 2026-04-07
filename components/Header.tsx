@@ -240,9 +240,13 @@ const Header = ({ active = "home", type = "", theme = "dark" }: HeaderProps) => 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <MobileMenu isOpen={mobileMenuOpen} onClose={toggleMobileMenu}>
-            <ul className="space-y-2 text-primary text-lg">
-              {type == "bootcamp" ? <NavigationBootcamp /> : <Navigation addBootcamp={true} />}
-            </ul>
+            {type == "bootcamp" ? (
+              <ul className="space-y-2 text-primary text-lg">
+                <NavigationBootcamp />
+              </ul>
+            ) : (
+              <Navigation addBootcamp={true} isMobile={true} />
+            )}
           </MobileMenu>
         )}
       </nav>

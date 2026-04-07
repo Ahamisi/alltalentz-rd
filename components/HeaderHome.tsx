@@ -159,9 +159,7 @@ const Header = ({ active = "home" }: HeaderHomeProps) => {
           {/* Mobile Menu */}
           {mobileMenuOpen && (
             <MobileMenu isOpen={mobileMenuOpen} onClose={toggleMobileMenu}>
-              <ul className="space-y-2 text-primary text-lg">
-                <Navigation addBootcamp={true} />
-              </ul>
+              <Navigation addBootcamp={true} isMobile={true} />
             </MobileMenu>
           )}
         </nav>

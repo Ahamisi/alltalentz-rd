@@ -10,9 +10,10 @@ import { useState, useEffect } from "react";
 interface NavigationProps {
   addBootcamp?: boolean;
   theme?: string;
+  isMobile?: boolean;
 }
 
-const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) => {
+const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: NavigationProps) => {
   const pathname = usePathname();
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
@@ -118,6 +119,120 @@ const Navigation = ({ addBootcamp = false, theme = "dark" }: NavigationProps) =>
     }`;
   };
 
+  // ── Mobile accordion layout ──────────────────────────────────────────────
+  if (isMobile) {
+    const mobileLink =
+      "flex items-center px-5 py-3 text-base text-gray-800 hover:text-[#f99622] hover:bg-orange-50 transition-colors";
+    const mobileSubLink = (path: string) =>
+      `flex items-center pl-9 pr-5 py-2.5 text-sm transition-colors ${
+        pathname === path
+          ? "text-[#f99622] bg-orange-50 font-medium"
+          : "text-gray-600 hover:text-[#f99622] hover:bg-orange-50"
+      }`;
+    const mobileSectionBtn = (active: boolean, open: boolean) =>
+      `flex items-center justify-between w-full px-5 py-3 text-base font-medium transition-colors ${
+        active ? "text-[#f99622]" : "text-gray-800 hover:text-[#f99622]"
+      }`;
+
+    return (
+      <>
+        {/* About accordion */}
+        <div className="border-b border-gray-100">
+          <button
+            className={mobileSectionBtn(isAboutActive, showAboutDropdown)}
+            onClick={() => setShowAboutDropdown((p) => !p)}
+          >
+            About
+            <svg
+              className={`w-4 h-4 transition-transform duration-200 ${showAboutDropdown ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {showAboutDropdown && (
+            <div className="pb-1">
+              <a href="/about-us" className={mobileSubLink("/about-us")} onClick={handleNavClick}>About Us</a>
+              <a href="/success-stories" className={mobileSubLink("/success-stories")} onClick={handleNavClick}>Success Stories</a>
+              <a href="/why-african-talents" className={mobileSubLink("/why-african-talents")} onClick={handleNavClick}>Why Africa Talents</a>
+              <a href="/contact-us" className={mobileSubLink("/contact-us")} onClick={handleNavClick}>Contact</a>
+              <a href="/faq" className={mobileSubLink("/faq")} onClick={handleNavClick}>FAQs</a>
+            </div>
+          )}
+        </div>
+
+        {/* Hire Talents accordion */}
+        <div className="border-b border-gray-100">
+          <button
+            className={mobileSectionBtn(isServiceActive, showServiceDropdown)}
+            onClick={() => setShowServiceDropdown((p) => !p)}
+          >
+            Hire Talents
+            <svg
+              className={`w-4 h-4 transition-transform duration-200 ${showServiceDropdown ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {showServiceDropdown && (
+            <div className="pb-1">
+              <a href="/hiring-services" className={mobileSubLink("/hiring-services")} onClick={handleNavClick}>Hiring Services</a>
+              <a href="/hire-tech-talents" className={mobileSubLink("/hire-tech-talents")} onClick={handleNavClick}>Hire Tech Talents</a>
+              <a href="/hire-healthcare-talents" className={mobileSubLink("/hire-healthcare-talents")} onClick={handleNavClick}>Hire Healthcare Talents</a>
+              <a href="/hire-finance-talents" className={mobileSubLink("/hire-finance-talents")} onClick={handleNavClick}>Hire Finance Talents</a>
+              <a href="/hire-remediation-talents" className={mobileSubLink("/hire-remediation-talents")} onClick={handleNavClick}>Hire Remediation Talents</a>
+              <a href="/hire-legal-talents" className={mobileSubLink("/hire-legal-talents")} onClick={handleNavClick}>Hire Legal Talents</a>
+            </div>
+          )}
+        </div>
+
+        <div className="border-b border-gray-100">
+          <a href="/outsource-with-agency" className={mobileLink} onClick={handleNavClick}>Agency</a>
+        </div>
+        <div className="border-b border-gray-100">
+          <a href="/pricing-model" className={mobileLink} onClick={handleNavClick}>Pricing Model</a>
+        </div>
+        <div className="border-b border-gray-100">
+          <a href="https://alltalentzacademy.com" className={mobileLink} rel="noopener noreferrer">Academy</a>
+        </div>
+        <div className="border-b border-gray-100">
+          <a href="https://blog.alltalentz.com" className={mobileLink} target="_blank" rel="noopener noreferrer">Blog</a>
+        </div>
+
+        {addBootcamp && (
+          <div className="border-b border-gray-100">
+            <button
+              className={mobileSectionBtn(isTalentActive, showTalentDropdown)}
+              onClick={() => setShowTalentDropdown((p) => !p)}
+            >
+              Join Talent Pool
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${showTalentDropdown ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {showTalentDropdown && (
+              <div className="pb-1">
+                <a href="/contact-us" className={mobileSubLink("/contact-us")} onClick={handleNavClick}>Contact Us</a>
+                <a href="/our-watchlist" className={mobileSubLink("/our-watchlist")} onClick={handleNavClick}>Join Watchlist</a>
+              </div>
+            )}
+          </div>
+        )}
+      </>
+    );
+  }
+
+  // ── Desktop hover-dropdown layout ────────────────────────────────────────
   return (
     <>
       {/* About Dropdown */}

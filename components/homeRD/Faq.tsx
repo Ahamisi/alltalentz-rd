@@ -16,7 +16,7 @@ const FaqItem = ({
   return (
     <div className="border-b border-gray-200">
       <button className="w-full py-6 flex items-center justify-between text-left" onClick={onClick}>
-        <span className="text-xl text-black">{question}</span>
+        <span className="md:text-xl text-lg text-black">{question}</span>
         <span className={`ml-4 transition-transform duration-300 ${isOpen ? "-rotate-90" : ""}`}>
           <svg
             width="22"
@@ -82,7 +82,7 @@ const Faq = ({
         <div className="flex flex-col md:flex-row gap-12 md:gap-24">
           {/* Left side - Title and CTA */}
           <div className="md:w-1/3">
-            <h2 className="text-[40px] font-medium italic mb-6 text-black">{title}</h2>
+            <h2 className="md:text-[40px] text-[30px] font-medium italic mb-6 text-black">{title}</h2>
             <a href="/faq" className="text-[#E5B47B] hover:underline">
               {description}
             </a>

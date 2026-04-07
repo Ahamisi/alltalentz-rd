@@ -172,7 +172,7 @@ const NicheSection = () => {
       <div className="absolute inset-0 bg-[url('/redesign-25/bg/vetted.svg')] opacity-10 mix-blend-overlay"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-4xl md:text-5xl text-white text-center mb-16">
+        <h2 className="text-2xl md:text-5xl text-white text-center mb-16">
           Our range of vetted remote employees cut
           <br />
           across varied business needs and niches.
