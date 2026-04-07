@@ -145,7 +145,7 @@ const RemediationTalents = () => {
         <div className="pt-24 flex justify-center">
           <Link
             href="/hiring-services"
-            className="bg-[#F99621] text-black text-center font-semibold px-16 py-6 hover:bg-[#e88710] transition duration-300 inline-block"
+            className="bg-[#F99621] text-black text-center font-semibold px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions
           </Link>

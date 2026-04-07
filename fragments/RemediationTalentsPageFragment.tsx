@@ -14,12 +14,12 @@ export default function HealthcareTalentsPage() {
               Rebuild and Restore with Certified Project Expertise.
             </h1>
 
-            <a
+            <Link
               href="/request-talent"
-              className="bg-[#F99621] hover:bg-white text-[#121212] px-[63px] py-[23px] transition duration-300 w-fit"
+              className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300 w-fit"
             >
               Hire Talent
-            </a>
+            </Link>
           </div>
 
           {/* Right Column - Map */}

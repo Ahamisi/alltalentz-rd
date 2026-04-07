@@ -142,7 +142,7 @@ const TechTalents = () => {
         <div className="pt-24 flex justify-center">
           <Link
             href="/hiring-services"
-            className="bg-[#F99621] text-black font-semibold max-auto px-16 py-6 hover:bg-[#e88710] transition duration-300 inline-block"
+            className="bg-[#F99621] text-black font-semibold max-auto px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions
           </Link>
@@ -177,7 +177,7 @@ const TechTalents = () => {
 
           <Link
             href="/contact-us"
-            className="bg-[#F99621] text-white text-center text-sm md:text-base px-8 py-3 hover:bg-[#121212] transition duration-300 rounded-md"
+            className="bg-[#F99621] text-white text-center text-sm md:text-base px-8 py-3 hover:bg-[#121212] transition duration-300"
           >
             Hire Tech Talents
           </Link>

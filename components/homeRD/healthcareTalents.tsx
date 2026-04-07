@@ -120,7 +120,7 @@ const HealthcareTalents = () => {
             Our Solutions for Healthcare & Life Sciences
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 md:gap-y-20 mt-12 max-w-7xl mx-auto w-full px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 md:gap-y-20 mt-12 max-w-7xl mx-auto w-full lg:px-4">
             {Talents.map((talent) => (
               <div
                 key={talent.id}
@@ -143,7 +143,7 @@ const HealthcareTalents = () => {
         <div className="pt-24 flex justify-center">
           <Link
             href="/hiring-services"
-            className="bg-[#F99621] text-black font-semibold text-center px-16 py-6 hover:bg-[#e88710] transition duration-300 inline-block"
+            className="bg-[#F99621] text-black font-semibold text-center px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions
           </Link>

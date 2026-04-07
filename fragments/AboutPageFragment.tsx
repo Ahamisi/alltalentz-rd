@@ -58,7 +58,7 @@ export default function About() {
               className="w-16 h-16 mb-6"
             />
             <h2 className="text-4xl md:text-4xl font-bold mb-8 text-black">Our Mission</h2>
-            <p className="text-2xl md:text-3xl lg:text-2xl leading-tight max-w-6xl text-black">
+            <p className="text-xl md:text-3xl lg:text-2xl leading-tight max-w-6xl text-black">
               Our mission is to build and deploy high-quality talent through structured assessments
               and global training, expanding our footprint to serve clients and professionals across
               the world.
@@ -66,29 +66,29 @@ export default function About() {
           </div>
 
           {/* Statistics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {/* Stat Card 1 */}
-            <div className="bg-[#F99621] rounded-xl p-8 text-white">
-              <div className="text-5xl font-bold mb-2">100+</div>
-              <div className="text-xl">Clients</div>
+            <div className="bg-[#F99621] rounded-xl p-4 md:p-8 text-white">
+              <div className="text-3xl md:text-5xl font-bold mb-1 md:mb-2">100+</div>
+              <div className="text-sm md:text-xl">Clients</div>
             </div>
 
             {/* Stat Card 2 */}
-            <div className="bg-[#F99621] rounded-xl p-8 text-white">
-              <div className="text-5xl font-bold mb-2">50+</div>
-              <div className="text-xl">Locations</div>
+            <div className="bg-[#F99621] rounded-xl p-4 md:p-8 text-white">
+              <div className="text-3xl md:text-5xl font-bold mb-1 md:mb-2">50+</div>
+              <div className="text-sm md:text-xl">Locations</div>
             </div>
 
             {/* Stat Card 3 */}
-            <div className="bg-[#F99621] rounded-xl p-8 text-white">
-              <div className="text-5xl font-bold mb-2">99%</div>
-              <div className="text-xl">Positive feedbacks</div>
+            <div className="bg-[#F99621] rounded-xl p-4 md:p-8 text-white">
+              <div className="text-3xl md:text-5xl font-bold mb-1 md:mb-2">99%</div>
+              <div className="text-sm md:text-xl">Positive feedbacks</div>
             </div>
 
             {/* Stat Card 4 */}
-            <div className="bg-[#F99621] rounded-xl p-8 text-white">
-              <div className="text-5xl font-bold mb-2">5000+</div>
-              <div className="text-xl">Quality Professionals</div>
+            <div className="bg-[#F99621] rounded-xl p-4 md:p-8 text-white">
+              <div className="text-3xl md:text-5xl font-bold mb-1 md:mb-2">5000+</div>
+              <div className="text-sm md:text-xl">Quality Professionals</div>
             </div>
           </div>
         </div>

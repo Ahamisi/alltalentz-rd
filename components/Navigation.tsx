@@ -13,7 +13,7 @@ interface NavigationProps {
   isMobile?: boolean;
 }
 
-const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: NavigationProps) => {
+const Navigation = ({ addBootcamp = true, theme = "dark", isMobile = false }: NavigationProps) => {
   const pathname = usePathname();
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
@@ -445,11 +445,11 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
                   <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
                     <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                       <a
-                        href="/contact-us"
+                        href="/professional-development-programme"
                         className={getDropdownItemClassName("/professional-development-programme")}
                         onClick={handleNavClick}
                       >
-                        Contact Us
+                       Join our PDP
                       </a>
                       <a
                         href="/our-watchlist"

@@ -123,7 +123,7 @@ const ClientVideos = ({
                 setCurrentSlide(index);
                 setIsPlaying(false);
               }}
-              className={`w-6 h-6 rounded-full transition-colors duration-300 ${
+              className={`lg:w-6 lg:h-6 h-3 w-3 rounded-full transition-colors duration-300 ${
                 index === currentSlide ? "bg-[#FFB300] scale-110" : "bg-black hover:bg-black/80"
               }`}
               aria-label={`Go to video ${index + 1}`}

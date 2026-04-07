@@ -27,16 +27,16 @@ export default function Outsourcing() {
             <div className="container lg:ml-[100px] flex flex-col md:flex-row items-center">
               {/* First Column */}
               <motion.div
-                className="lg:w-[50%] md:pr-8 gap-[25px] flex flex-col md:pl-[30px] xl:pl-0"
+                className="lg:w-[50%] md:pr-8 gap-[25px] flex flex-col md:pl-[30px] xl:pl-0 w-full pt-8 pb-4"
                 initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h1 className="text-4xl md:text-[55px] font-bold mb-4 md:leading-[65px]">
+                <h1 className="text-[32px] leading-[42px] md:text-[55px] font-bold mb-4 md:leading-[65px]">
                   Outsource your <span className="text-[#F99621]">Business process</span> to us for
                   great results!
                 </h1>
-                <p className="text-lg mb-6 text-[#121212]">
+                <p className="text-base md:text-lg mb-6 text-[#121212]">
                   We are a dynamic and results-driven agency that specializes in managing various
                   aspects of the business operations for our clients. Some of our services include
                   Xactimate Estimating, Digital Marketing, Project Management, Creative Design,
@@ -45,7 +45,7 @@ export default function Outsourcing() {
                 <div>
                   <a
                     href="https://calendly.com/mnwoseh/"
-                    className="bg-[#F99621] hover:bg-black text-black hover:text-white font-bold py-[23px] px-[64px] transition-all duration-300"
+                    className="bg-[#F99621] hover:bg-black text-black hover:text-white font-bold py-3 px-8 md:py-[23px] md:px-[64px] transition-all duration-300 inline-block"
                   >
                     Get Started
                   </a>
@@ -54,7 +54,7 @@ export default function Outsourcing() {
 
               {/* Second Column (Image) */}
               <motion.div
-                className="lg:w-[40%] ml-auto mt-6 md:mt-0 md:w-0"
+                className="lg:w-[40%] ml-auto mt-6 md:mt-0 md:w-0 hidden md:block"
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -64,7 +64,7 @@ export default function Outsourcing() {
                   alt="Outsource Alltalentz"
                   width={800}
                   height={700}
-                  className="w-full md:h-[700px] h-auto"
+                  className="w-full md:h-[700px] h-auto max-h-[320px] md:max-h-none object-contain"
                 />
               </motion.div>
             </div>
@@ -121,26 +121,26 @@ export default function Outsourcing() {
       >
         {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">What we offer</h1>
-            <p className="text-lg mb-6">
-              We are your one-stop destination for a comprehensive suite of digital <br /> services
-              designed to catapult your business to the next level.
+          <div className="text-center md:px-0 px-4">
+            <h1 className="text-[28px] leading-[36px] md:text-5xl font-bold mb-4">What we offer</h1>
+            <p className="text-base md:text-lg mb-6">
+              We are your one-stop destination for a comprehensive suite of digital{" "}
+              <br className="hidden md:block" /> services designed to catapult your business to the next level.
             </p>
           </div>
 
-          <div className="bg-[#F8F8F8] py-16 md:py-20 md:p-[48px] rounded-[31px]">
+          <div className="bg-[#F8F8F8] py-10 px-4 md:py-20 md:p-[48px] rounded-[31px] md:w-auto md:mx-auto w-[calc(100%-32px)]">
             <div className="container mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 gap-2">
                 {/* <!-- First Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="fill-current hover:fill-white transition-all duration-300"
+                    className="fill-current hover:fill-white transition-all duration-300 w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <g opacity="0.5">
                       <path
@@ -174,13 +174,14 @@ export default function Outsourcing() {
                 </div>
 
                 {/* <!-- Second Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -201,15 +202,16 @@ export default function Outsourcing() {
                   <h3 className="text-xl font-semibold">Content Creation</h3>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 gap-2">
                 {/* <!-- First Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -236,13 +238,14 @@ export default function Outsourcing() {
                 </div>
 
                 {/* <!-- Second Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -261,15 +264,16 @@ export default function Outsourcing() {
                   <h3 className="text-xl font-semibold">Book Keeping Services</h3>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 gap-2">
                 {/* <!-- Second Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -288,13 +292,14 @@ export default function Outsourcing() {
                   <h3 className="text-xl font-semibold">Accounting Services</h3>
                 </div>
 
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -321,15 +326,16 @@ export default function Outsourcing() {
                   <h3 className="text-xl font-semibold">Creative Design</h3>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 gap-2">
                 {/* <!-- First Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -354,13 +360,14 @@ export default function Outsourcing() {
                 </div>
 
                 {/* <!-- Second Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -379,15 +386,16 @@ export default function Outsourcing() {
                   <h3 className="text-xl font-semibold">Brand Strategy</h3>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 gap-2">
                 {/* <!-- First Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       fillRule="evenodd"
@@ -406,13 +414,14 @@ export default function Outsourcing() {
                 </div>
 
                 {/* <!-- Second Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 75 76"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -449,15 +458,16 @@ export default function Outsourcing() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 gap-2">
                 {/* <!-- First Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       d="M12 10C16.4183 10 20 8.20914 20 6C20 3.79086 16.4183 2 12 2C7.58172 2 4 3.79086 4 6C4 8.20914 7.58172 10 12 10Z"
@@ -479,13 +489,14 @@ export default function Outsourcing() {
                 </div>
 
                 {/* <!-- Second Offering --> */}
-                <div className="bg-white py-[16px] px-[32px] flex items-center space-x-4 mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
+                <div className="bg-white py-3 px-4 md:py-[16px] md:px-[32px] flex items-center space-x-4 mb-4 md:mb-8 rounded-[16px] hover:bg-[#F99621] hover:text-white cursor-pointer transition-all duration-300">
                   <svg
                     width="75"
                     height="76"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-10 h-10 md:w-[75px] md:h-[76px]"
                   >
                     <path
                       opacity="0.5"
@@ -506,12 +517,12 @@ export default function Outsourcing() {
         </div>
       </section>
 
-      <section className=" relative bg-center bg-no-repeat text-[#4C4C4C] py-[60px] bg-[#F8F8F8]  ">
+      <section className=" relative bg-center bg-no-repeat text-[#4C4C4C] py-[60px] bg-[#F8F8F8]">
         <div className="container mx-auto flex flex-col md:flex-row md:w-[95%] lg:w-[70%] md:space-x-[85px]">
           {/* <!-- First Column --> */}
           <div className="md:w-1/2 mb-8 md:mb-0 p-[32px] bg-white" data-aos="fade-right">
             {/* <!-- Item 1 --> */}
-            <div className="bg-[#F8F8F8] p-[32px] rounded-[24px] pb-8 flex flex-col gap-[8px] mb-[82px]">
+            <div className="bg-[#F8F8F8] p-[32px] rounded-[24px] pb-8 flex flex-col gap-[8px] mb-[20px] lg:mb-[82px]">
               <svg
                 width="76"
                 height="76"
@@ -538,7 +549,7 @@ export default function Outsourcing() {
             </div>
 
             {/* <!-- Item 2 --> */}
-            <div className="bg-[#F8F8F8] p-[32px] rounded-[24px] pb-8 flex flex-col gap-[8px] mb-[82px]">
+            <div className="bg-[#F8F8F8] p-[32px] rounded-[24px] pb-8 flex flex-col gap-[8px] mb-[20px] lg:mb-[82px]">
               <svg
                 width="76"
                 height="76"
@@ -624,7 +635,7 @@ export default function Outsourcing() {
           {/* <!-- Second Column --> */}
           <div className="md:w-1/2 mb-8 md:mb-0 p-[32px] bg-white" data-aos="fade-left">
             {/* <!-- Item 1 --> */}
-            <div className="bg-[#F8F8F8] p-[32px] rounded-[24px] pb-8 flex flex-col gap-[8px] mb-[82px]">
+            <div className="bg-[#F8F8F8] p-[32px] rounded-[24px] pb-8 flex flex-col gap-[8px] mb-[20px] lg:mb-[82px]">
               <svg
                 width="76"
                 height="76"
@@ -661,7 +672,7 @@ export default function Outsourcing() {
             </div>
 
             {/* <!-- Item 2 --> */}
-            <div className="bg-[#F8F8F8] p-[32px] rounded-[24px] pb-8 flex flex-col gap-[8px] mb-[82px]">
+            <div className="bg-[#F8F8F8] p-[32px] rounded-[24px] pb-8 flex flex-col gap-[8px] mb-[20px] lg:mb-[82px]">
               <svg
                 width="76"
                 height="76"

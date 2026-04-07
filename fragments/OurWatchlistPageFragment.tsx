@@ -185,10 +185,10 @@ export default function Watchlist() {
                 isOpen={isOpen}
                 onRequestClose={toggleModal}
                 contentLabel="Service Request Form"
-                className="modal shadow-md w-[80%] md:w-[50%] overflow-y-scroll"
+                className="modal shadow-md w-[95%] lg:w-[80%] xl:w-[50%] overflow-y-scroll max-h-[90vh] lg:max-h-none"
                 overlayClassName="overlay"
               >
-                <div className="modal-content p-3 w-[100] md:w-[80%] mx-auto overflow-y-auto">
+                <div className="modal-content p-4 lg:p-3 lg:w-[80%] mx-auto overflow-y-auto">
                   <button
                     onClick={toggleModal}
                     className="absolute top-2 right-2 text-dark bg-[#4C4C4C] p-3 rounded-full"
@@ -352,7 +352,7 @@ export default function Watchlist() {
 
                       <button
                         type="submit"
-                        className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
+                        className="request-button bg-secondary text-black w-full lg:w-auto px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
                         disabled={isLoading}
                       >
                         {isLoading ? (

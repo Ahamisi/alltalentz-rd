@@ -384,23 +384,23 @@ export default function SecureTestForm() {
   // Show Savewyze instructions first
   if (showInstructions && !readyForTest) {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-          <div className="p-6 md:p-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end lg:items-center justify-center z-50 p-0 lg:p-4">
+        <div className="bg-white rounded-t-2xl lg:rounded-lg shadow-xl lg:max-w-2xl w-full max-h-[92vh] lg:max-h-[90vh] overflow-y-auto">
+          <div className="p-5 lg:p-8">
+            <div className="flex items-center justify-between mb-5 lg:mb-6">
+              <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold text-gray-800">
                 Important Instructions
               </h2>
             </div>
 
             <div className="space-y-4 mb-6">
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
-                <h3 className="font-semibold text-blue-800 mb-2">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-3 lg:p-4">
+                <h3 className="font-semibold text-blue-800 text-sm lg:text-base mb-2">
                   To have a seamless onboarding on Savewyze, kindly follow the instructions below:
                 </h3>
               </div>
 
-              <div className="space-y-3 text-gray-700">
+              <div className="space-y-3 text-gray-700 text-sm lg:text-base">
                 <div className="flex items-start">
                   <span className="text-[#F99621] font-bold mr-3">1.</span>
                   <p className="flex-1">
@@ -426,7 +426,7 @@ export default function SecureTestForm() {
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 mt-4">
+              <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3 lg:p-4 mt-4">
                 <p className="text-sm text-gray-700 mb-2">
                   <strong>Need help?</strong>
                 </p>
@@ -459,7 +459,7 @@ export default function SecureTestForm() {
                   setShowInstructions(false);
                   setReadyForTest(true);
                 }}
-                className="bg-[#F99621] text-black px-8 py-3 rounded font-bold hover:bg-opacity-90 transition-all"
+                className="bg-[#F99621] text-black w-full lg:w-auto px-8 py-3 rounded font-bold hover:bg-opacity-90 transition-all"
               >
                 Continue to Test
               </button>

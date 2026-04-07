@@ -6,6 +6,7 @@ import Team from "@/components/homeRD/Team";
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/homeRD/ContactForm";
+import Link from "next/link";
 
 const benefits = [
   {
@@ -117,12 +118,12 @@ export default function WhyAfrica() {
               problem-solving. 
             </p>
 
-            <a
+            <Link
               href="/request-talent"
-              className="bg-[#F99621] hover:bg-white text-[#121212] px-[63px] py-[23px] transition duration-300 w-fit"
+              className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300 w-fit"
             >
               Hire Talents
-            </a>
+            </Link>
           </div>
 
           {/* Right Column - Map */}

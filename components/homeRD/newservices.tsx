@@ -167,14 +167,14 @@ const NewServices = () => {
 
           <Link
             href="/hire-legal-talents"
-            className="relative overflow-hidden rounded-xl h-[576px] group cursor-pointer"
+            className="relative overflow-hidden rounded-xl h-[280px] md:h-[576px] group cursor-pointer"
           >
             <Image
               alt="Legal Talent & Paralegal Services"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               src="/redesign-25/new-services/legal.png"
-              className="object-cover group-hover:scale-105 transition duration-500"
+              className="object-cover group-hover:scale-105 transition duration-500 max-md:object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
             <div className="absolute top-0 text-white p-6">
@@ -191,7 +191,7 @@ const NewServices = () => {
         <div className="mt-32">
           <Link
             href="/hiring-services"
-            className="bg-[#F99621] text-black text-center font-semibold px-16 py-6 hover:bg-[#e88710] transition duration-300 inline-block"
+            className="bg-[#F99621] text-black text-center font-semibold px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions
           </Link>

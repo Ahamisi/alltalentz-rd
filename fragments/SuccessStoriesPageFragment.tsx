@@ -30,6 +30,102 @@ export default function About() {
     },
   ];
 
+  const testimonials = [
+    {
+      name: "Robert Jordan",
+      company: "Puroclean of Lynwood",
+      location: "Washington, USA",
+      companyLogo: "/clients/puroclean-icon.png",
+      quote:
+        "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella.",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "Hiring from All Talentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
+      name: "Bryan Towne",
+      company: "Puroclean of Lynwood",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella.",
+      name: "Robert Jordan",
+      company: "Puroclean of Lynwood",
+      location: "Puroclean of Lynwood, Washington, USA",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "The reliability, accountability, accuracy and communication style at AllTalentz has been very top notch.",
+      name: "Johnetta Johnson",
+      location: "SVP Operations, Alacrity Solutions.",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "The reliability, accountability, accuracy and communication style at AllTalentz has been very top notch.",
+      name: "Craig Hawkins",
+      location: "Owner, Puroclean of Redmond",
+      company: "Puroclean of Lynwood",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!",
+      name: "Robert Jordan",
+      location: "Puroclean of Lynwood, Washington, USA",
+      company: "Puroclean of Lynwood",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "It's been amazing; I appreciate the tenacity and the focus and the drive to keep learning and growing and getting things done",
+      name: "Jenny Hawkins",
+      location: "Puroclean of Redmond",
+      company: "Puroclean of Redmond",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "Hiring from All Talentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
+      name: "Bryan Towne",
+      location: "Puroclean of Burlington, USA",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!",
+      name: "Robert Jordan",
+      location: "Puroclean of Lynwood, Washington, USA",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!",
+      name: "Robert Jordan",
+      location: "Puroclean of Lynwood, Washington, USA",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+    {
+      quote:
+        "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!",
+      name: "Robert Jordan",
+      location: "Puroclean of Lynwood, Washington, USA",
+      companyLogo: "/clients/puroclean-icon.png",
+      thankYou: "Thank you!",
+    },
+  ];
+
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
       <PageHeader showBg={false}>
@@ -64,101 +160,7 @@ export default function About() {
         title="What Our Clients Say"
         description="Hear directly from our clients about their experiences"
         theme="light"
-        testimonials={[
-          {
-            name: "Robert Jordan",
-            company: "Puroclean of Lynwood",
-            location: "Washington, USA",
-            companyLogo: "/clients/puroclean-icon.png",
-            quote:
-              "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella.",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "Hiring from All Talentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it’s been fantastic so far",
-            name: "Bryan Towne",
-            company: "Puroclean of Lynwood",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella.",
-            name: "Robert Jordan",
-            company: "Puroclean of Lynwood",
-            location: "Puroclean of Lynwood, Washington, USA",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "The reliability, accountability, accuracy and communication style at AllTalentz has been very top notch.",
-            name: "Johnetta Johnson",
-            location: "SVP Operations, Alacrity Solutions.",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "The reliability, accountability, accuracy and communication style at AllTalentz has been very top notch.",
-            name: "Craig Hawkins",
-            location: "Owner, Puroclean of Redmond",
-            company: "Puroclean of Lynwood",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!",
-            name: "Robert Jordan",
-            location: "Puroclean of Lynwood, Washington, USA",
-            company: "Puroclean of Lynwood",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "It's been amazing; I appreciate the tenacity and the focus and the drive to keep learning and growing and getting things done",
-            name: "Jenny Hawkins",
-            location: "Puroclean of Redmond",
-            company: "Puroclean of Redmond",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "Hiring from All Talentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
-            name: "Bryan Towne",
-            location: "Puroclean of Burlington, USA",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!",
-            name: "Robert Jordan",
-            location: "Puroclean of Lynwood, Washington, USA",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!",
-            name: "Robert Jordan",
-            location: "Puroclean of Lynwood, Washington, USA",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-          {
-            quote:
-              "Ella has been doing fantastic and we are so pleased with her performances. She has been responsive to our request and is supplying quality estimates. We are very pleased with Ella. Thank you!",
-            name: "Robert Jordan",
-            location: "Puroclean of Lynwood, Washington, USA",
-            companyLogo: "/clients/puroclean-icon.png",
-            thankYou: "Thank you!",
-          },
-        ]}
+        testimonials={testimonials}
       />
 
       <section className="px-[10px] md:px-0 bg-[#131313]">

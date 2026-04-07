@@ -69,25 +69,21 @@ const WHAT_HAPPENS_NEXT = [
   {
     step: "01",
     title: "We Review Your Request",
-    badge: "Within 24 hours",
     body: "Our team reviews your submission and reaches out to confirm your requirements and timeline.",
   },
   {
     step: "02",
     title: "We Match Your Role",
-    badge: "Within 48 hours",
     body: "We identify the right professional from our pre-vetted talent pool — trained for your industry, matched to your specific role.",
   },
   {
     step: "03",
     title: "You Meet Your Match",
-    badge: "Day 3–5",
     body: "We introduce your matched professional, walk through the onboarding plan, and lock in your start date.",
   },
   {
     step: "04",
     title: "You're Live Within 7 Days",
-    badge: "Day 7",
     body: "Your new team member is integrated, operational, and delivering from their first week.",
   },
 ];
@@ -426,9 +422,8 @@ export default function RequestTalent() {
                 Request Talent - Your Remote Team,{" "}
                 <span className="text-secondary">Ready in 7 Days</span>.
               </h1>
-              <div className="mt-10">
+              <div className="mt-10 flex flex-col lg:flex-row gap-4">
                 <Btn text="Build my Team" otherCSS="w-full text-center" link="/request-talent" />
-                &nbsp;&nbsp;
                 <Btn text="Talk to our Team" otherCSS="w-full text-center" link="/contact-us" />
               </div>
             </div>
@@ -767,9 +762,6 @@ export default function RequestTalent() {
                 <div className="flex items-start justify-between">
                   <span className="text-6xl font-black text-gray-100 group-hover:text-[#FEF3E2] transition-colors leading-none select-none">
                     {item.step}
-                  </span>
-                  <span className="text-xs font-semibold text-[#C97D10] bg-[#FEF3E2] px-3 py-1.5 whitespace-nowrap">
-                    {item.badge}
                   </span>
                 </div>
                 <div>
