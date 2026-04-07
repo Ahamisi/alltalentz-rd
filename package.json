@@ -24,6 +24,7 @@
     "framer-motion": "^11.0.24",
     "fs": "^0.0.1-security",
     "googleapis": "^126.0.1",
+    "lucide-react": "^1.7.0",
     "next": "13.4.12",
     "next-connect": "^1.0.0-next.4",
     "nod": "^0.2.0",

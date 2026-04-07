@@ -1,5 +1,10 @@
+import { Suspense } from "react";
 import RequestTalentPageFragment from "@/fragments/RequestTalentPageFragment";
 
 export default function RequestTalentPage() {
-  return <RequestTalentPageFragment />;
+  return (
+    <Suspense>
+      <RequestTalentPageFragment />
+    </Suspense>
+  );
 }

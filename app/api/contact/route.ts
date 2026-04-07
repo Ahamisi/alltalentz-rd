@@ -7,15 +7,29 @@ interface ContactBody {
   email: string;
   company: string;
   phone: string;
-  service: string;
+  industry: string;
+  roles: string[];
+  numberOfProfessionals: string;
+  timeline: string;
+  additionalRequirements?: string;
   recaptchaToken: string;
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const body = (await req.json()) as ContactBody;
-  const { fullName, email, company, phone, service, recaptchaToken } = body;
+  const {
+    fullName,
+    email,
+    company,
+    phone,
+    industry,
+    roles,
+    numberOfProfessionals,
+    timeline,
+    additionalRequirements,
+    recaptchaToken,
+  } = body;
 
-  // Verify reCAPTCHA token
   if (!recaptchaToken) {
     return NextResponse.json({ error: "reCAPTCHA token is required" }, { status: 400 });
   }
@@ -23,14 +37,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
     });
 
     const recaptchaData = await recaptchaResponse.json();
-
     if (!recaptchaData.success) {
       return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 400 });
     }
@@ -39,32 +50,38 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 500 });
   }
 
-  const formData = new FormData();
-  formData.append("Fullname", fullName);
-  formData.append("Email", email);
-  formData.append("Company", company);
-  formData.append("Phone", phone);
-  formData.append("Service", service);
+  const sheetsData = new FormData();
+  sheetsData.append("Fullname", fullName);
+  sheetsData.append("Email", email);
+  sheetsData.append("Company", company);
+  sheetsData.append("Phone", phone);
+  sheetsData.append("Industry", industry);
+  sheetsData.append("Roles", roles.join(", ") ?? "");
+  sheetsData.append("NumberOfProfessionals", numberOfProfessionals ?? "");
+  sheetsData.append("Timeline", timeline ?? "");
+  sheetsData.append("AdditionalRequirements", additionalRequirements ?? "");
 
-  const emailHtml = renderContactEmail({ fullName, email, company, phone, service });
+  const emailHtml = renderContactEmail({
+    fullName,
+    email,
+    company,
+    phone,
+    industry,
+    roles,
+    numberOfProfessionals,
+    timeline,
+    additionalRequirements,
+  });
 
   const sendToSheets = async () => {
     try {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycby7IROKA_FHn0_aFYYPMNa6Iw_37o8G18_1sbIzMBjJSl30wmpE5HjLTgYkzxOxcXJVbA/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
+        { method: "POST", body: sheetsData }
       );
-
-      if (response.ok) {
-        console.log("Data submitted successfully");
-      } else {
-        console.error("Failed to submit data");
-      }
+      if (!response.ok) console.error("Failed to submit data to sheets");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error submitting to sheets:", error);
     }
   };
 

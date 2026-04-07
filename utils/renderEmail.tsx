@@ -7,7 +7,11 @@ interface ContactEmailProps {
   email: string;
   company: string;
   phone: string;
-  service: string;
+  industry: string;
+  roles: string[];
+  numberOfProfessionals: string;
+  timeline: string;
+  additionalRequirements?: string;
 }
 
 interface WaitlistEmailProps {
@@ -25,7 +29,11 @@ export function renderContactEmail(props: ContactEmailProps): string {
       email={props.email}
       company={props.company}
       phone={props.phone}
-      service={props.service}
+      industry={props.industry}
+      roles={props.roles}
+      numberOfProfessionals={props.numberOfProfessionals}
+      timeline={props.timeline}
+      additionalRequirements={props.additionalRequirements}
     />
   );
 }

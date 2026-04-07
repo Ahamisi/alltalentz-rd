@@ -1,249 +1,384 @@
 "use client";
 import Image from "next/image";
-import Clients from "@/components/Clients";
-import Hero from "@/components/Hero";
-import MainFooter from "@/components/MainFooter";
-import Offerings from "@/components/Offerings";
 import PageHeader from "@/components/PageHeader";
 import Btn from "@/components/Btn";
+import MainFooter from "@/components/MainFooter";
 import { useRouter } from "next/navigation";
-
-import Link from "next/link";
-
-import React, { useState, useEffect } from "react";
-import Modal from "react-modal";
+import React, { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import Header from "@/components/Header";
 import Script from "next/script";
+import { Loader2, ChevronDown, Sparkles } from "lucide-react";
+
+// Industry roles mapping
+const INDUSTRY_ROLES: Record<string, string[]> = {
+  Technology: [
+    "Data Annotator",
+    "AI/Machine Learning Engineer",
+    "Software Dev",
+    "IT Support",
+    "UI/UX",
+    "Digital Marketing",
+    "Other",
+  ],
+  Healthcare: [
+    "Medical Billing Specialists",
+    "Revenue Cycle Managers",
+    "Healthcare Admins",
+    "HIPAA-Compliant Support",
+    "Other",
+  ],
+  Finance: [
+    "Bookkeepers",
+    "AR/AP Specialists",
+    "Payroll Processors",
+    "Financial Analysts",
+    "QuickBooks Specialists",
+    "Digital Marketing",
+    "Other",
+  ],
+  "Construction & Restoration": [
+    "Estimators",
+    "Project Administrators",
+    "AR Specialists",
+    "Telemarketing Agents",
+    "Digital Marketing Support",
+    "Other",
+  ],
+  Legal: [
+    "Paralegals",
+    "Legal Virtual Assistants",
+    "Transcriptionist",
+    "Contract Managers",
+    "Legal Researchers",
+    "Other",
+  ],
+};
+
+const INDUSTRIES = [
+  "Technology",
+  "Healthcare",
+  "Finance",
+  "Construction & Restoration",
+  "Legal",
+  "Other",
+];
+
+const TIMELINES = ["ASAP", "Within 30 days", "Within 90 days", "Planning ahead"];
+
+const WHAT_HAPPENS_NEXT = [
+  {
+    step: "01",
+    title: "We Review Your Request",
+    badge: "Within 24 hours",
+    body: "Our team reviews your submission and reaches out to confirm your requirements and timeline.",
+  },
+  {
+    step: "02",
+    title: "We Match Your Role",
+    badge: "Within 48 hours",
+    body: "We identify the right professional from our pre-vetted talent pool — trained for your industry, matched to your specific role.",
+  },
+  {
+    step: "03",
+    title: "You Meet Your Match",
+    badge: "Day 3–5",
+    body: "We introduce your matched professional, walk through the onboarding plan, and lock in your start date.",
+  },
+  {
+    step: "04",
+    title: "You're Live Within 7 Days",
+    badge: "Day 7",
+    body: "Your new team member is integrated, operational, and delivering from their first week.",
+  },
+];
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  company: string;
+  email: string;
+  phone: string;
+  industry: string;
+  otherIndustry: string;
+  roles: string[];
+  otherRole: string;
+  numberOfProfessionals: string;
+  timeline: string;
+  additionalRequirements: string;
+}
+
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  company?: string;
+  email?: string;
+  phone?: string;
+  industry?: string;
+  roles?: string;
+  numberOfProfessionals?: string;
+  timeline?: string;
+  recaptcha?: string | null;
+}
+
+// Custom multi-select checkbox dropdown
+function RolesDropdown({
+  roles,
+  selected,
+  onChange,
+  error,
+}: {
+  roles: string[];
+  selected: string[];
+  onChange: (roles: string[]) => void;
+  error?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const toggle = (role: string) => {
+    if (selected.includes(role)) {
+      onChange(selected.filter((r) => r !== role));
+    } else {
+      onChange([...selected, role]);
+    }
+  };
+
+  const displayText =
+    selected.length === 0
+      ? "Select roles"
+      : selected.length === 1
+        ? selected[0]
+        : `${selected.length} roles selected`;
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className={`w-full border px-4 py-3 text-left bg-white flex items-center justify-between transition-colors focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] ${
+          error ? "border-red-400" : "border-gray-200 hover:border-[#F99621]"
+        } ${selected.length === 0 ? "text-gray-400" : "text-gray-800"}`}
+      >
+        <span className="truncate">{displayText}</span>
+        <ChevronDown
+          className={`w-4 h-4 text-gray-400 flex-shrink-0 ml-2 transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {/* Selected tags */}
+      {selected.length > 0 && (
+        <div className="flex flex-wrap gap-2 mt-2">
+          {selected.map((role) => (
+            <span
+              key={role}
+              className="inline-flex items-center gap-1 bg-[#FEF3E2] text-[#C97D10] text-sm px-3 py-1 font-medium"
+            >
+              {role}
+              <button
+                type="button"
+                onClick={() => toggle(role)}
+                className="hover:text-[#F99621] ml-1"
+              >
+                ×
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Dropdown panel */}
+      {open && (
+        <div className="absolute z-50 mt-1 w-full bg-white border border-gray-200 shadow-lg max-h-60 overflow-y-auto">
+          {roles.map((role) => (
+            <label
+              key={role}
+              className="flex items-center gap-3 px-4 py-3 hover:bg-[#FEF3E2] cursor-pointer transition-colors"
+            >
+              <input
+                type="checkbox"
+                checked={selected.includes(role)}
+                onChange={() => toggle(role)}
+                className="w-4 h-4 accent-[#F99621] rounded"
+              />
+              <span className="text-gray-700 text-sm">{role}</span>
+            </label>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Reusable field wrapper
+function Field({
+  label,
+  required,
+  error,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  error?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label className="text-sm font-medium text-gray-700">
+        {label}
+        {required && <span className="text-[#F99621] ml-0.5">*</span>}
+      </label>
+      {children}
+      {error && <p className="text-red-500 text-xs mt-0.5">{error}</p>}
+    </div>
+  );
+}
 
 export default function RequestTalent() {
   const route = useRouter();
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
-  const [redirect, setRedirect] = useState(false);
-  const services = [
-    "Estimators ",
-    "Tech Talents",
-    "Healthcare Talents",
-    "Financial Talents",
-    "Construction and Remediation Talents",
-    "Administrative Assistants ",
-    "Virtual Assistants ",
-    "Telemarketing Assistant ",
-    "Digital Marketers",
-    "Account Receivables ",
-    "Designers and Software Developers ",
-    "Quick book Specialists ",
-    "Compliance Specialists",
-  ];
-  // Check if a specific query parameter exists in the URL
   const searchParams = useSearchParams();
   const search = searchParams.get("popup");
 
-  // const handleServiceToggle = (service,event) => {
-  //     if (selectedServices.includes(service)) {
-  //       setSelectedServices(selectedServices.filter((s) => s !== service));
-  //     } else {
-  //       setSelectedServices([...selectedServices, service]);
-  //     }
-  //     setFormData((prevData) => ({
-  //         ...prevData,
-  //         "service" : value,
-  //     }));
-  // };
-
   const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    // Perform an action based on the query parameter
-    if (search === "true") {
-      setIsOpen(true);
-      // Do something when the query parameter is 'someValue'
-    } else {
-      setIsOpen(false);
-    }
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [customRoleOpen, setCustomRoleOpen] = useState(false);
+  const [customRoleText, setCustomRoleText] = useState("");
+  const [customRoleSent, setCustomRoleSent] = useState(false);
+  const [redirect, setRedirect] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
-    // Add event listeners for reCAPTCHA callbacks
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    company: "",
+    email: "",
+    phone: "",
+    industry: "",
+    otherIndustry: "",
+    roles: [],
+    otherRole: "",
+    numberOfProfessionals: "",
+    timeline: "",
+    additionalRequirements: "",
+  });
+
+  useEffect(() => {
+    if (search === "true") setIsOpen(true);
+    else setIsOpen(false);
+
     const handleRecaptchaSuccess = (event: Event) => {
       setRecaptchaToken((event as CustomEvent<string>).detail);
       setErrors((prev) => ({ ...prev, recaptcha: null }));
     };
-
-    const handleRecaptchaExpired = () => {
-      setRecaptchaToken(null);
-    };
+    const handleRecaptchaExpired = () => setRecaptchaToken(null);
 
     window.addEventListener("recaptchaSuccess", handleRecaptchaSuccess);
     window.addEventListener("recaptchaExpired", handleRecaptchaExpired);
-
     return () => {
       window.removeEventListener("recaptchaSuccess", handleRecaptchaSuccess);
       window.removeEventListener("recaptchaExpired", handleRecaptchaExpired);
     };
-  }, []);
+  }, [search]);
 
-  const [formData, setFormData] = useState<{
-    fullName: string;
-    email: string;
-    company: string;
-    phone: string;
-    service: string | string[];
-    redirect: boolean;
-  }>({
-    fullName: "",
-    email: "",
-    company: "",
-    phone: "",
-    service: [], // Initialize as an empty array
-    redirect: false,
-  });
+  const handleInput = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
-  // Check URL hash on component mount
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash) {
-      // First decode the URL to handle %20 and other encoded characters
-      const decodedHash = decodeURIComponent(hash);
-
-      // Convert hyphens to spaces and clean up the string
-      const searchTerm = decodedHash.replace(/-/g, " ").toLowerCase().trim();
-
-      // Find matching service (case-insensitive and trimmed)
-      const matchingService = services.find(
-        (service) => service.trim().toLowerCase() === searchTerm
-      );
-
-      if (matchingService) {
-        handleServiceToggle(matchingService);
-      }
+    // Reset roles when industry changes
+    if (name === "industry") {
+      setFormData((prev) => ({ ...prev, industry: value, roles: [], otherRole: "" }));
     }
-  }, []);
+  };
 
-  const handleServiceToggle = (service: string, _e?: unknown) => {
-    if (selectedServices.includes(service)) {
-      setSelectedServices(selectedServices.filter((s) => s !== service));
-    } else {
-      setSelectedServices([...selectedServices, service]);
-    }
-
-    const serviceArr = formData.service as string[];
-    const updatedService = selectedServices.includes(service)
-      ? serviceArr.filter((s) => s !== service)
-      : [...serviceArr, service];
-
-    setFormData((prevData) => ({
-      ...prevData,
-      service: updatedService,
+  const handleRolesChange = (roles: string[]) => {
+    setFormData((prev) => ({
+      ...prev,
+      roles,
+      // Clear otherRole if "Other" is deselected
+      otherRole: roles.includes("Other") ? prev.otherRole : "",
     }));
   };
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  const [errors, setErrors] = useState<Record<string, string | null>>({});
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
-
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  // Validate form fields
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formData.fullName) {
-      newErrors.fullName = "Full Name is required";
-    }
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
-    }
-    if (!formData.company) {
-      newErrors.company = "Company is required";
-    }
-    if (!formData.phone) {
-      newErrors.phone = "Phone is required";
-    }
-    if (!formData.service) {
-      newErrors.service = "Service is required";
-    }
-    if (!recaptchaToken) {
-      newErrors.recaptcha = "Please complete the reCAPTCHA verification";
-    }
+  const validate = (): boolean => {
+    const newErrors: FormErrors = {};
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.company.trim()) newErrors.company = "Company name is required";
+    if (!formData.email.trim()) newErrors.email = "Business email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Invalid email format";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.industry) newErrors.industry = "Industry is required";
+    if (formData.industry !== "Other" && formData.roles.length === 0)
+      newErrors.roles = "Please select at least one role";
+    if (!formData.numberOfProfessionals.trim())
+      newErrors.numberOfProfessionals = "Number of professionals is required";
+    if (!formData.timeline) newErrors.timeline = "Timeline is required";
+    if (!recaptchaToken) newErrors.recaptcha = "Please complete the reCAPTCHA verification";
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // Return true if no errors
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const buildPayload = () => {
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+    const industryLabel =
+      formData.industry === "Other" ? formData.otherIndustry || "Other" : formData.industry;
+    const rolesList = formData.roles.map((r) =>
+      r === "Other" ? formData.otherRole || "Other" : r
+    );
 
-    if (validateForm()) {
-      try {
-        setIsLoading(true);
-        setFormData((prevData) => ({
-          ...prevData,
-          service: (formData.service as string[]).join(", "),
-        }));
-        // console.log(formData,  formData.service.join(', ')); return;
+    return {
+      fullName,
+      email: formData.email,
+      company: formData.company,
+      phone: formData.phone,
+      industry: industryLabel,
+      roles: rolesList,
+      numberOfProfessionals: formData.numberOfProfessionals,
+      timeline: formData.timeline,
+      additionalRequirements: formData.additionalRequirements,
+      recaptchaToken,
+    };
+  };
 
-        // Send email using Nodemailer with reCAPTCHA token
-        await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...formData,
-            recaptchaToken: recaptchaToken,
-          }),
-        });
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validate()) return;
 
-        // console.log('sending'); return;
-
-        // Reset the form
-        // resetForm();
-
-        // Show success message or redirect to a thank you page
-        console.log("Email sent successfully!");
-
-        if (redirect) {
-          route.push("https://calendly.com/mnwoseh");
-        }
-
-        // Add any further logic here for success actions
-        // setShowConfetti(true);
-      } catch (error) {
-        // Handle error
-        console.error("Failed to send email:", error);
-        // Add any further logic here for error actions
-      } finally {
-        setIsSubmitted(true);
-        setIsLoading(false);
-      }
-
-      // Set form submitted state
+    try {
+      setIsLoading(true);
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(buildPayload()),
+      });
+      if (redirect) route.push("https://calendly.com/mnwoseh");
+    } catch (error) {
+      console.error("Failed to send email:", error);
+    } finally {
       setIsSubmitted(true);
-    } else {
-      console.log("Form has errors");
+      setIsLoading(false);
     }
   };
 
   // reCAPTCHA handlers
-  const onRecaptchaLoad = () => {
-    setRecaptchaLoaded(true);
-  };
+  const onRecaptchaLoad = () => {};
 
   const onRecaptchaChange = (token: string | null) => {
     setRecaptchaToken(token);
-    // Clear recaptcha error when user completes it
     if (errors.recaptcha) {
       setErrors((prev) => ({ ...prev, recaptcha: null }));
     }
@@ -252,6 +387,15 @@ export default function RequestTalent() {
   const onRecaptchaExpired = () => {
     setRecaptchaToken(null);
   };
+
+  const availableRoles = formData.industry && formData.industry !== "Other"
+    ? INDUSTRY_ROLES[formData.industry] ?? []
+    : [];
+
+  const inputClass = (field: keyof FormErrors) =>
+    `w-full border px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors ${
+      errors[field] ? "border-red-400 bg-red-50" : "border-gray-200 bg-white hover:border-gray-300"
+    }`;
 
   return (
     <>
@@ -263,27 +407,23 @@ export default function RequestTalent() {
       />
       <Script id="recaptcha-callbacks" strategy="lazyOnload">
         {`
-            window.onRecaptchaSuccess = function(token) {
-                window.recaptchaToken = token;
-                // Trigger custom event to notify React component
-                window.dispatchEvent(new CustomEvent('recaptchaSuccess', { detail: token }));
-            };
-            
-            window.onRecaptchaExpired = function() {
-                window.recaptchaToken = null;
-                window.dispatchEvent(new CustomEvent('recaptchaExpired'));
-            };
+          window.onRecaptchaSuccess = function(token) {
+            window.recaptchaToken = token;
+            window.dispatchEvent(new CustomEvent('recaptchaSuccess', { detail: token }));
+          };
+          window.onRecaptchaExpired = function() {
+            window.recaptchaToken = null;
+            window.dispatchEvent(new CustomEvent('recaptchaExpired'));
+          };
         `}
       </Script>
 
       <section>
         <PageHeader>
-          {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-          <div className="max-w-7xl mx-auto py-12 lg:flex relative h-fit mt-0 items-center px-2 lg:px-[20px] md:px-4 ">
-            {/* First Column (60% width) */}
+          <div className="max-w-7xl mx-auto py-12 lg:flex relative h-fit mt-0 items-center px-2 lg:px-[20px] md:px-4">
             <div className="md:w-6/10 pr-6 md:w-full">
               <h1 className="text-2xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
-                Reqest Talent - Your Remote Team,{" "}
+                Request Talent - Your Remote Team,{" "}
                 <span className="text-secondary">Ready in 7 Days</span>.
               </h1>
               <div className="mt-10">
@@ -291,13 +431,7 @@ export default function RequestTalent() {
                 &nbsp;&nbsp;
                 <Btn text="Talk to our Team" otherCSS="w-full text-center" link="/contact-us" />
               </div>
-
-              {/* <div className="text-center flex justify-center">
-                    <img src="/special-events/gaylord-levelup.png" className="h-auto md:h-[130px]"/>
-                  </div> */}
             </div>
-
-            {/* Second Column (40% width) */}
             <div className="hidden lg:block md:w-4/10 mt-8 md:mt-0">
               <Image
                 src="/star-payroll-alltalentz.png"
@@ -309,256 +443,375 @@ export default function RequestTalent() {
             </div>
           </div>
         </PageHeader>
+
+        {/* Marquee bar */}
         <div className="bg-[#F99621] py-4 overflow-hidden">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center shrink-0">
-                {[
-                  "ISO 27001 Certified",
-                  "SOC-2 Type 2 Certified",
-                  "7-Day Deployment",
-                  "24/7 Operational Support",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="flex items-center mx-8 text-white font-bold text-xl"
-                  >
-                    <span className="mr-3">✦</span>
-                    {item}
-                  </span>
-                ))}
+                {["ISO 27001 Certified", "SOC-2 Type 2 Certified", "7-Day Deployment", "24/7 Operational Support"].map(
+                  (item) => (
+                    <span key={item} className="flex items-center mx-8 text-white font-bold text-xl">
+                      <span className="mr-3">✦</span>
+                      {item}
+                    </span>
+                  )
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white px-[40px] md:px-0">
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
-        <div className="mb-[42px]">
-          <h3 className="text-[#F99621] text-[35px] text-center font-normal">
-            Some talent offers you can get from us!
-          </h3>
-          <p className="text-gray-600 text-center mt-4 text-lg">
-            👆 Click on one or more services below to select what you need
-          </p>
-        </div>
-        <div className="bg-[#F8F8F8] py-7">
-          <div className="available-services md:w-[50%] mx-auto">
-            {services.map((service) => (
-              <span
-                key={service}
-                className={`service-option ${selectedServices.includes(service) ? "selected" : ""}`}
-                onClick={(e) => handleServiceToggle(service, e)}
-              >
-                {service}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div
-          className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C] "
-          id="formInter"
-        >
-          <div
-            className={`modal-content w-[100] overflow-y-auto ${isSubmitted ? "w-full pt-7" : "bg-white md:w-[60%] p-3 mx-auto"}`}
-          >
-            {isSubmitted ? (
-              <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
-                <div className="flex items-center justify-center">
-                  <Image src="/star-shine.svg" alt="Alltalentz Shine" width={80} height={80} />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
-                <p className="text-gray-600">We will keep you updated via email.</p>
-                <br />
-                <Btn
-                  link="https://calendly.com/mnwoseh"
-                  target="_blank"
-                  text="Meet With Us"
-                  otherCSS="mt-6"
-                />
+      {/* Form Section */}
+      <section className="bg-[#F8F8F8] py-16 px-4">
+        <div className="max-w-2xl mx-auto">
+          {isSubmitted ? (
+            <div className="bg-white shadow-sm border border-gray-100 p-10 text-center">
+              <div className="flex items-center justify-center mb-4">
+                <Image src="/star-shine.svg" alt="Alltalentz Shine" width={80} height={80} />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="text-[#A6A6A6]">
-                <h2 className="text-[25px] font-normal text-center mb-8 text-[#4C4C4C]">
-                  Kindly fill this form to help us find you the right talent
-                </h2>
-                <div className="mb-8">
-                  {/* <label className="block text-gray-700 font-semibold mb-1">Full Name</label> */}
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Thank you!</h3>
+              <p className="text-gray-500 text-base">We will keep you updated via email.</p>
+              <Btn link="https://calendly.com/mnwoseh" target="_blank" text="Meet With Us" otherCSS="mt-6" />
+            </div>
+          ) : (
+            <div className="bg-white shadow-sm border border-gray-100 overflow-hidden">
+              {/* Form header */}
+              <div className="px-8 pt-8 pb-6 border-b border-gray-100">
+                <h2 className="text-2xl font-bold text-gray-900">{"Let's Find Your Talentz."}</h2>
+                <p className="text-gray-500 mt-1 text-sm">
+                  Fill in the details below. Our team will respond within 24 business hours.
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="px-8 py-8 space-y-6">
+                {/* Row: First Name + Last Name */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Field label="First Name" required error={errors.firstName}>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInput}
+                      placeholder="John"
+                      className={inputClass("firstName")}
+                    />
+                  </Field>
+                  <Field label="Last Name" required error={errors.lastName}>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInput}
+                      placeholder="Doe"
+                      className={inputClass("lastName")}
+                    />
+                  </Field>
+                </div>
+
+                {/* Company Name */}
+                <Field label="Company Name" required error={errors.company}>
                   <input
                     type="text"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                      errors.fullName ? "border-red-500" : ""
-                    }`}
-                    placeholder="Enter your full name"
-                    onChange={handleInputChange}
-                    name="fullName"
-                    value={formData.fullName}
-                  />
-                  {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
-                </div>
-                <div className="mb-8">
-                  {/* <label className="block text-gray-700 font-semibold mb-1">Email</label> */}
-                  <input
-                    type="email"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                      errors.email ? "border-red-500" : ""
-                    }`}
-                    placeholder="Enter your email"
-                    onChange={handleInputChange}
-                    name="email"
-                    value={formData.email}
-                  />
-                  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-                </div>
-                <div className="mb-8">
-                  {/* <label className="block text-gray-700 font-semibold mb-1">Company</label> */}
-                  <input
-                    type="text"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                      errors.company ? "border-red-500" : ""
-                    }`}
-                    placeholder="Enter your company name"
-                    onChange={handleInputChange}
                     name="company"
                     value={formData.company}
+                    onChange={handleInput}
+                    placeholder="Acme Inc."
+                    className={inputClass("company")}
                   />
-                  {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
+                </Field>
+
+                {/* Row: Business Email + Phone Number */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Field label="Business Email" required error={errors.email}>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInput}
+                      placeholder="you@company.com"
+                      className={inputClass("email")}
+                    />
+                  </Field>
+                  <Field label="Phone Number" required error={errors.phone}>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInput}
+                      placeholder="+1 (555) 000-0000"
+                      className={inputClass("phone")}
+                    />
+                  </Field>
                 </div>
-                <div className="mb-8">
-                  {/* <label className="block text-gray-700 font-semibold mb-1">Phone</label> */}
-                  <input
-                    type="tel"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
-                      errors.phone ? "border-red-500" : ""
-                    }`}
-                    placeholder="Enter your phone number"
-                    onChange={handleInputChange}
-                    name="phone"
-                    value={formData.phone}
-                  />
-                  {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
-                </div>
-                <div className="mb-8">
-                  <div className="multi-select-container w-[100%] m-0">
-                    <div className="multi-select-tags">
-                      {selectedServices.map((service) => (
-                        <div
-                          key={service}
-                          className="tag"
-                          onClick={() => handleServiceToggle(service)}
-                        >
-                          {service}
-                          <span className="close-icon">×</span>
-                        </div>
-                      ))}
-                    </div>
+
+                {/* Industry / Vertical */}
+                <Field label="Industry / Vertical" required error={errors.industry}>
+                  <select
+                    name="industry"
+                    value={formData.industry}
+                    onChange={handleInput}
+                    className={inputClass("industry")}
+                  >
+                    <option value="" disabled>
+                      Choose Industry
+                    </option>
+                    {INDUSTRIES.map((ind) => (
+                      <option key={ind} value={ind}>
+                        {ind}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+
+                {/* Other Industry textbox */}
+                {formData.industry === "Other" && (
+                  <Field label="Specify your industry" required>
+                    <input
+                      type="text"
+                      name="otherIndustry"
+                      value={formData.otherIndustry}
+                      onChange={handleInput}
+                      placeholder="Enter your industry"
+                      className="w-full border border-gray-200 px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors"
+                    />
+                  </Field>
+                )}
+
+                {/* Role(s) You Need — only if industry is selected and not "Other" */}
+                {formData.industry && formData.industry !== "Other" && (
+                  <Field label="Role(s) You Need" required error={errors.roles}>
+                    <RolesDropdown
+                      roles={availableRoles}
+                      selected={formData.roles}
+                      onChange={handleRolesChange}
+                      error={errors.roles}
+                    />
+                  </Field>
+                )}
+
+                {/* Other Role textbox */}
+                {formData.roles.includes("Other") && (
+                  <Field label="Specify the role(s)" required>
+                    <input
+                      type="text"
+                      name="otherRole"
+                      value={formData.otherRole}
+                      onChange={handleInput}
+                      placeholder="Describe the role you need"
+                      className="w-full border border-gray-200 px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors"
+                    />
+                  </Field>
+                )}
+
+                {/* Row: Number of Professionals + Timeline */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Field label="Number of Professionals" required error={errors.numberOfProfessionals}>
+                    <input
+                      type="number"
+                      name="numberOfProfessionals"
+                      value={formData.numberOfProfessionals}
+                      onChange={handleInput}
+                      placeholder="e.g. 3"
+                      min="1"
+                      className={inputClass("numberOfProfessionals")}
+                    />
+                  </Field>
+                  <Field label="Timeline" required error={errors.timeline}>
                     <select
-                      className="hidden-select"
-                      onChange={(e) => handleServiceToggle(e.target.value, e)}
-                      multiple
-                      value={formData.service}
-                      name="service"
+                      name="timeline"
+                      value={formData.timeline}
+                      onChange={handleInput}
+                      className={inputClass("timeline")}
                     >
-                      {services.map((service) => (
-                        <option key={service} value={service}>
-                          {service}
+                      <option value="" disabled>
+                        Select timeline
+                      </option>
+                      {TIMELINES.map((t) => (
+                        <option key={t} value={t}>
+                          {t}
                         </option>
                       ))}
                     </select>
-                  </div>
+                  </Field>
+                </div>
 
-                  {errors.service && <p className="text-red-500 text-sm">{errors.service}</p>}
-                </div>
+                {/* Additional Requirements */}
+                <Field label="Additional Requirements">
+                  <textarea
+                    name="additionalRequirements"
+                    value={formData.additionalRequirements}
+                    onChange={handleInput}
+                    placeholder="Any specific skills, certifications, or requirements..."
+                    rows={4}
+                    className="w-full border border-gray-200 px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors resize-none hover:border-gray-300"
+                  />
+                  <p className="text-xs text-gray-400">Optional</p>
+                </Field>
+
                 {/* reCAPTCHA */}
-                <div className="mb-8 flex justify-center">
-                  {recaptchaLoaded && (
-                    <div
-                      className="g-recaptcha"
-                      data-sitekey="6LcsqxIsAAAAAJqcWPOgXKPKDjB1hNVpb_sNEacQ"
-                      data-callback="onRecaptchaSuccess"
-                      data-expired-callback="onRecaptchaExpired"
-                    ></div>
-                  )}
+                <div className="flex flex-col items-center gap-2">
+                  <div
+                    className="g-recaptcha"
+                    data-sitekey="6LcsqxIsAAAAAJqcWPOgXKPKDjB1hNVpb_sNEacQ"
+                    data-callback="onRecaptchaSuccess"
+                    data-expired-callback="onRecaptchaExpired"
+                  />
                   {errors.recaptcha && (
-                    <p className="text-red-500 text-sm mt-2 text-center">{errors.recaptcha}</p>
+                    <p className="text-red-500 text-sm text-center">{errors.recaptcha}</p>
                   )}
                 </div>
-                <button
-                  type="submit"
-                  className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
-                  disabled={isLoading}
-                  onClick={() => {
-                    setRedirect(false);
-                  }}
-                >
-                  {isLoading && redirect == false ? (
-                    <svg
-                      className="animate-spin h-5 w-5 mx-auto"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.86 3.018 7.97l2.018-2.68z"
-                      />
-                    </svg>
-                  ) : (
-                    "Submit"
-                  )}
-                </button>
-                &nbsp;
-                <button
-                  type="submit"
-                  className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
-                  disabled={isLoading}
-                  onClick={() => {
-                    setRedirect(true);
-                  }}
-                >
-                  {isLoading && redirect == true ? (
-                    <svg
-                      className="animate-spin h-5 w-5 mx-auto"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.86 3.018 7.97l2.018-2.68z"
-                      />
-                    </svg>
-                  ) : (
-                    "Meet With Us"
-                  )}
-                </button>
-                {/* <Link href="https://calendly.com/mnwoseh" className="request-button bg-secondary text-black px-[43px] py-[16px] mt-[10px] font-bold hover:bg-opacity-90">Meet With Us</Link> */}
-                {/* <button type="submit" className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90">Submit</button> */}
+
+                {/* Submit buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    onClick={() => setRedirect(false)}
+                    className="flex-1 bg-[#F99621] text-black font-bold py-3 px-6 hover:bg-[#e8881a] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {isLoading && !redirect ? <Loader2 className="animate-spin h-5 w-5 mx-auto" /> : "Submit My Request →"}
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    onClick={() => setRedirect(true)}
+                    className="flex-1 border-2 border-[#F99621] text-[#F99621] font-bold py-3 px-6 hover:bg-[#FEF3E2] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {isLoading && redirect ? <Loader2 className="animate-spin h-5 w-5 mx-auto" /> : "Meet With Us"}
+                  </button>
+                </div>
+
+                {/* Microcopy */}
+                <p className="text-xs text-gray-400 text-center">
+                  No commitment required. We&apos;ll review your request and be in touch within 24 hours.
+                </p>
               </form>
-            )}
+            </div>
+          )}
+
+          {/* Don't see your role — collapsible panel */}
+          {!isSubmitted && (
+            <div className="mt-4 bg-white border border-gray-100 shadow-sm overflow-hidden">
+              {/* Trigger row */}
+              <button
+                type="button"
+                onClick={() => setCustomRoleOpen((v) => !v)}
+                className="w-full flex items-center justify-between px-6 py-4 hover:bg-[#FEF3E2] transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="flex items-center justify-center w-8 h-8 bg-[#FEF3E2] group-hover:bg-white transition-colors">
+                    <Sparkles className="w-4 h-4 text-[#F99621]" />
+                  </span>
+                  <div className="text-left">
+                    <p className="text-sm font-semibold text-gray-800">{"Don't see your role?"}</p>
+                    <p className="text-xs text-gray-400">{"Tell us what you need — we'll source it."}</p>
+                  </div>
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-300 ${customRoleOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {/* Expandable body */}
+              <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${customRoleOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
+              >
+                <div className="px-6 pb-6 pt-2 border-t border-gray-100">
+                  {customRoleSent ? (
+                    <div className="flex items-center gap-2 py-3 text-sm text-[#C97D10] font-medium">
+                      <Sparkles className="w-4 h-4" />
+                      Got it! {"We'll"} reach out with matching options.
+                    </div>
+                  ) : (
+                    <>
+                      <textarea
+                        value={customRoleText}
+                        onChange={(e) => setCustomRoleText(e.target.value)}
+                        placeholder="e.g. A bilingual customer support lead with healthcare experience..."
+                        rows={3}
+                        className="w-full border border-gray-200 px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors resize-none hover:border-gray-300 text-sm mt-3"
+                      />
+                      <button
+                        type="button"
+                        disabled={!customRoleText.trim()}
+                        onClick={() => setCustomRoleSent(true)}
+                        className="mt-3 bg-[#F99621] text-black text-sm font-bold px-5 py-2 hover:bg-[#e8881a] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                      >
+                        Send us a note →
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Section 6 — What Happens Next */}
+      <section className="bg-[#F8F8F8] py-20 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12">
+            <p className="text-[#F99621] text-xs font-bold uppercase tracking-[0.2em] mb-3">After you submit</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What Happens Next</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {WHAT_HAPPENS_NEXT.map((item, i) => (
+              <div
+                key={i}
+                className="bg-white border border-gray-100 p-8 flex flex-col gap-5 hover:border-[#F99621]/40 hover:shadow-sm transition-all group"
+              >
+                <div className="flex items-start justify-between">
+                  <span className="text-6xl font-black text-gray-100 group-hover:text-[#FEF3E2] transition-colors leading-none select-none">
+                    {item.step}
+                  </span>
+                  <span className="text-xs font-semibold text-[#C97D10] bg-[#FEF3E2] px-3 py-1.5 whitespace-nowrap">
+                    {item.badge}
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-gray-900 font-bold text-lg mb-2">{item.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Section 7 — CTA */}
+      {/* <section className="bg-[#131313] py-16 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Not Sure Where to Start?
+          </h2>
+          <p className="text-gray-400 mb-8 leading-relaxed">
+            Our team will walk you through everything. Schedule a 15-minute call and we&apos;ll map
+            the right talent solution for your operation — no commitment required.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="https://calendly.com/mnwoseh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#F99621] text-black font-bold py-3 px-8 hover:bg-[#e8881a] transition-colors"
+            >
+              Schedule a Call →
+            </a>
+            <a
+              href="/alltalentz-brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white font-bold py-3 px-8 hover:bg-white hover:text-black transition-colors"
+            >
+              Download Our Brochure
+            </a>
+          </div>
+        </div>
+      </section> */}
 
       <section className="px-[10px] md:px-0 bg-[#131313]">
         <MainFooter />
