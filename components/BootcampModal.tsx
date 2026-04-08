@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { motion, useAnimate } from "framer-motion";
 
 const AUTO_CLOSE_MS = 5000;
 
 export default function BootcampModal() {
   const [isOpen, setIsOpen] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [progressScope, animate] = useAnimate();
 
   useEffect(() => {
     setIsOpen(true);
@@ -15,6 +17,11 @@ export default function BootcampModal() {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    animate(progressScope.current, { scaleX: 0 }, { duration: AUTO_CLOSE_MS / 1000, ease: "linear" });
+  }, [isOpen, animate, progressScope]);
 
   function handleClose() {
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -136,9 +143,10 @@ export default function BootcampModal() {
 
         {/* Auto-close progress bar */}
         <div className="h-1 bg-gray-100">
-          <div
-            className="h-full bg-[#F99621] origin-left"
-            style={{ animation: `shrink ${AUTO_CLOSE_MS}ms linear forwards` }}
+          <motion.div
+            ref={progressScope}
+            className="h-full bg-[#F99621]"
+            style={{ transformOrigin: "left" }}
           />
         </div>
       </div>

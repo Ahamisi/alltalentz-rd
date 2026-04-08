@@ -320,6 +320,8 @@ export default function RequestTalent() {
     if (!formData.industry) newErrors.industry = "Industry is required";
     if (formData.industry !== "Other" && formData.roles.length === 0)
       newErrors.roles = "Please select at least one role";
+    if (formData.industry === "Other" && !formData.otherRole.trim())
+      newErrors.roles = "Please describe the role(s) you need";
     if (!formData.numberOfProfessionals.trim())
       newErrors.numberOfProfessionals = "Number of professionals is required";
     if (!formData.timeline) newErrors.timeline = "Timeline is required";
@@ -332,9 +334,10 @@ export default function RequestTalent() {
     const fullName = `${formData.firstName} ${formData.lastName}`.trim();
     const industryLabel =
       formData.industry === "Other" ? formData.otherIndustry || "Other" : formData.industry;
-    const rolesList = formData.roles.map((r) =>
-      r === "Other" ? formData.otherRole || "Other" : r
-    );
+    const rolesList =
+      formData.industry === "Other"
+        ? formData.otherRole ? [formData.otherRole] : []
+        : formData.roles.map((r) => (r === "Other" ? formData.otherRole || "Other" : r));
 
     return {
       fullName,
@@ -569,6 +572,20 @@ export default function RequestTalent() {
                       value={formData.otherIndustry}
                       onChange={handleInput}
                       placeholder="Enter your industry"
+                      className="w-full border border-gray-200 px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors"
+                    />
+                  </Field>
+                )}
+
+                {/* Role textbox when industry is "Other" */}
+                {formData.industry === "Other" && (
+                  <Field label="Role(s) You Need" required error={errors.roles}>
+                    <input
+                      type="text"
+                      name="otherRole"
+                      value={formData.otherRole}
+                      onChange={handleInput}
+                      placeholder="Describe the role(s) you need"
                       className="w-full border border-gray-200 px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors"
                     />
                   </Field>
