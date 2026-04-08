@@ -17,70 +17,32 @@ import HowWeWork from "@/components/homeRD/HowWeWork";
 import OurClients from "@/components/homeRD/OurClients";
 import MainTestimony from "@/components/homeRD/MainTestimony";
 export default function Home() {
-
-   
- 
-
   return (
     <>
+      <HeroNew />
 
-    <HeroNew/>
+      {/* our value proposition */}
+      <ValueProp />
 
+      {/* vetted niche */}
+      <NicheSection />
 
+      {/* alltalentz agency */}
+      <TheAgency />
 
-    {/* our value proposition */}
-    <ValueProp/>
+      {/* conference Video */}
+      <ConferenceVideo />
 
+      {/* how we work */}
+      <HowWeWork />
 
+      <OurClients />
 
+      <MainTestimony />
 
-    {/* vetted niche */}
-    <NicheSection/>
-
-
-
-    {/* alltalentz agency */}
-    <TheAgency/>
-
-    {/* conference Video */}
-    <ConferenceVideo/>
-
-    {/* how we work */}
-    <HowWeWork/>
-
-
-    <OurClients/>
-
-
-
-
-
-
-
-
-
-    <MainTestimony/>
-
-
-    <section className="px-[10px] md:px-0 bg-[#131313]">
-      <MainFooter/>
-    </section>
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
+      <section className="px-[10px] md:px-0 bg-[#131313]">
+        <MainFooter />
+      </section>
     </>
-  )
+  );
 }

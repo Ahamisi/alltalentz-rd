@@ -8,19 +8,18 @@ import { google } from "googleapis";
 export const clientEmail = process.env.CLIENT_EMAIL;
 export const pkey = process.env.CLIENT_PRIVATEKY;
 
-const SCOPE = ['https://www.googleapis.com/auth/drive'];
+const SCOPE = ["https://www.googleapis.com/auth/drive"];
 
 export async function POST(req, res) {
   const data = await req.formData();
-  const file = data.get('cv');
-  const fullName = data.get('fullName');
-  const email = data.get('email');
-  const career = data.get('career');
-  const phone = data.get('phone');
-  const yoe = data.get('yoe');
- 
-  const cvBuffer = await file.arrayBuffer();
+  const file = data.get("cv");
+  const fullName = data.get("fullName");
+  const email = data.get("email");
+  const career = data.get("career");
+  const phone = data.get("phone");
+  const yoe = data.get("yoe");
 
+  const cvBuffer = await file.arrayBuffer();
 
   const formData = new FormData();
   formData.append("Fullname", fullName);
@@ -37,7 +36,7 @@ export async function POST(req, res) {
     const jwtClient = new google.auth.JWT(
       clientEmail,
       null,
-      pkey.split(String.raw`\n`).join('\n'),
+      pkey.split(String.raw`\n`).join("\n"),
       SCOPE
     );
 
@@ -48,29 +47,29 @@ export async function POST(req, res) {
 
   const uploadFile = async (authClient, fileBuffer, fileType) => {
     return new Promise((resolve, rejected) => {
-      const drive = google.drive({ version: 'v3', auth: authClient });
+      const drive = google.drive({ version: "v3", auth: authClient });
 
-      const mimeType = fileType === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-      const fileExtension = fileType === 'pdf' ? 'pdf' : 'docx';
+      const mimeType =
+        fileType === "pdf"
+          ? "application/pdf"
+          : "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+      const fileExtension = fileType === "pdf" ? "pdf" : "docx";
       const fileName = `mydrivetext.${fileExtension}`;
 
       const fileMetaData = {
         name: fileName,
-        parents: ['1-Ky5OmRH2XgNsjN7jEYQ48OhKGgFs2Ni'],
+        parents: ["1-Ky5OmRH2XgNsjN7jEYQ48OhKGgFs2Ni"],
       };
-
-
 
       // if (fileBuffer.length === 0) {
       //   return rejected(new Error('File buffer is empty'));
       // }
 
-      const { Readable } = require('stream'); // Import the Readable class
+      const { Readable } = require("stream"); // Import the Readable class
       const readableStream = new Readable(); // Create a new Readable stream
 
       readableStream.push(Buffer.from(fileBuffer)); // Push the file buffer to the stream
       readableStream.push(null); // Signal the end of the stream
-
 
       drive.files.create(
         {
@@ -79,7 +78,7 @@ export async function POST(req, res) {
             mimeType: mimeType,
             body: readableStream, // Use the readable stream
           },
-          fields: 'id',
+          fields: "id",
         },
         function (error, file) {
           if (error) {
@@ -94,12 +93,12 @@ export async function POST(req, res) {
   const uploadCvToDrive = async () => {
     try {
       const authClient = await authorize();
-      await uploadFile(authClient, cvBuffer, file.type.includes('pdf') ? 'pdf' : 'docx');
+      await uploadFile(authClient, cvBuffer, file.type.includes("pdf") ? "pdf" : "docx");
     } catch (error) {
-      console.error('Failed to upload CV to Google Drive:', error);
+      console.error("Failed to upload CV to Google Drive:", error);
       // Handle the error as needed
     }
-  }
+  };
 
   const sendToSheets = async () => {
     try {
@@ -112,12 +111,12 @@ export async function POST(req, res) {
       );
 
       if (response.ok) {
-        console.log('Data submitted successfully');
+        console.log("Data submitted successfully");
       } else {
-        console.error('Failed to submit data');
+        console.error("Failed to submit data");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
@@ -134,9 +133,9 @@ export async function POST(req, res) {
     await uploadCvToDrive();
 
     // await transporter.sendMail(options);
-    return new Response('SENT');
+    return new Response("SENT");
     // alert('got here')
-    console.log('sent')
+    console.log("sent");
   } catch (error) {
     console.error("Failed to send email:", error);
     return new Response(error);

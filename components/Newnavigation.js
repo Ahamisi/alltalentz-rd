@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -14,38 +14,34 @@ const Navigation = () => {
     <>
       <li
         className={
-          pathname === '/'
-            ? 'text-secondary hover:text-[#FEF5E9]'
-            : 'text-black hover:text-secondary lg:text-[#FEF5E9]'
+          pathname === "/"
+            ? "text-secondary hover:text-[#FEF5E9]"
+            : "text-black hover:text-secondary lg:text-[#FEF5E9]"
         }
       >
         <Link href="/">Home</Link>
       </li>
       <li
         className={
-          pathname === '/about'
-            ? 'text-secondary hover:text-[#FEF5E9]'
-            : 'text-black hover:text-secondary lg:text-[#FEF5E9]'
+          pathname === "/about-us"
+            ? "text-secondary hover:text-[#FEF5E9]"
+            : "text-black hover:text-secondary lg:text-[#FEF5E9]"
         }
       >
-        <Link href="/about">About</Link>
+        <Link href="/about-us">About</Link>
       </li>
-      <li
-        className="relative group"
-        onMouseEnter={toggleServices}
-        onMouseLeave={toggleServices}
-      >
+      <li className="relative group" onMouseEnter={toggleServices} onMouseLeave={toggleServices}>
         <span
           className={
-            (pathname === '/request-talent' || pathname === '/our-watchlist') &&
-            'text-secondary hover:text-[#FEF5E9] group-hover:text-[#FEF5E9]'
+            (pathname === "/request-talent" || pathname === "/our-watchlist") &&
+            "text-secondary hover:text-[#FEF5E9] group-hover:text-[#FEF5E9]"
           }
         >
-          Services{' '}
+          Services{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={`h-5 w-5 inline-block text-[#FEF5E9] transform transition-transform ${
-              isServicesOpen ? 'rotate-180' : ''
+              isServicesOpen ? "rotate-180" : ""
             }`}
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -59,7 +55,7 @@ const Navigation = () => {
         </span>
         <ul
           className={`absolute mt-2 space-y-2 bg-black text-white border rounded-lg shadow-lg border-none w-[200px] ${
-            isServicesOpen ? 'block' : 'hidden'
+            isServicesOpen ? "block" : "hidden"
           }`}
         >
           <li>
@@ -80,9 +76,9 @@ const Navigation = () => {
       </li>
       <li
         className={
-          pathname === '/news'
-            ? 'text-secondary hover:text-[#FEF5E9]'
-            : 'text-black hover:text-secondary lg:text-[#FEF5E9]'
+          pathname === "/news"
+            ? "text-secondary hover:text-[#FEF5E9]"
+            : "text-black hover:text-secondary lg:text-[#FEF5E9]"
         }
       >
         <Link href="https://blog.alltalentz.com" target="_blank">
@@ -91,18 +87,18 @@ const Navigation = () => {
       </li>
       <li
         className={
-          pathname === '/faq'
-            ? 'text-secondary hover:text-[#FEF5E9]'
-            : 'text-black hover:text-secondary lg:text-[#FEF5E9]'
+          pathname === "/faq"
+            ? "text-secondary hover:text-[#FEF5E9]"
+            : "text-black hover:text-secondary lg:text-[#FEF5E9]"
         }
       >
         <Link href="/faq">FAQs</Link>
       </li>
       <li
         className={
-          pathname === 'https://alltalentzacademy.com'
-            ? 'text-secondary hover:text-[#FEF5E9]'
-            : 'text-black hover:text-secondary lg:text-[#FEF5E9]'
+          pathname === "https://alltalentzacademy.com"
+            ? "text-secondary hover:text-[#FEF5E9]"
+            : "text-black hover:text-secondary lg:text-[#FEF5E9]"
         }
       >
         <Link href="https://alltalentzacademy.com">Academy</Link>
