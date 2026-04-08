@@ -336,7 +336,9 @@ export default function RequestTalent() {
       formData.industry === "Other" ? formData.otherIndustry || "Other" : formData.industry;
     const rolesList =
       formData.industry === "Other"
-        ? formData.otherRole ? [formData.otherRole] : []
+        ? formData.otherRole
+          ? [formData.otherRole]
+          : []
         : formData.roles.map((r) => (r === "Other" ? formData.otherRole || "Other" : r));
 
     return {
@@ -387,9 +389,10 @@ export default function RequestTalent() {
     setRecaptchaToken(null);
   };
 
-  const availableRoles = formData.industry && formData.industry !== "Other"
-    ? INDUSTRY_ROLES[formData.industry] ?? []
-    : [];
+  const availableRoles =
+    formData.industry && formData.industry !== "Other"
+      ? (INDUSTRY_ROLES[formData.industry] ?? [])
+      : [];
 
   const inputClass = (field: keyof FormErrors) =>
     `w-full border px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors ${
@@ -447,14 +450,17 @@ export default function RequestTalent() {
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center shrink-0">
-                {["ISO 27001 Certified", "SOC-2 Type 2 Certified", "7-Day Deployment", "24/7 Operational Support"].map(
-                  (item) => (
-                    <span key={item} className="flex items-center mx-8 text-white font-bold text-xl">
-                      <span className="mr-3">✦</span>
-                      {item}
-                    </span>
-                  )
-                )}
+                {[
+                  "ISO 27001 Certified",
+                  "SOC-2 Type 2 Certified",
+                  "7-Day Deployment",
+                  "24/7 Operational Support",
+                ].map((item) => (
+                  <span key={item} className="flex items-center mx-8 text-white font-bold text-xl">
+                    <span className="mr-3">✦</span>
+                    {item}
+                  </span>
+                ))}
               </div>
             ))}
           </div>
@@ -471,7 +477,12 @@ export default function RequestTalent() {
               </div>
               <h3 className="text-2xl font-bold mb-2 text-gray-900">Thank you!</h3>
               <p className="text-gray-500 text-base">We will keep you updated via email.</p>
-              <Btn link="https://calendly.com/mnwoseh" target="_blank" text="Meet With Us" otherCSS="mt-6" />
+              <Btn
+                link="https://calendly.com/mnwoseh"
+                target="_blank"
+                text="Meet With Us"
+                otherCSS="mt-6"
+              />
             </div>
           ) : (
             <div className="bg-white shadow-sm border border-gray-100 overflow-hidden">
@@ -619,7 +630,11 @@ export default function RequestTalent() {
 
                 {/* Row: Number of Professionals + Timeline */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Field label="Number of Professionals" required error={errors.numberOfProfessionals}>
+                  <Field
+                    label="Number of Professionals"
+                    required
+                    error={errors.numberOfProfessionals}
+                  >
                     <input
                       type="number"
                       name="numberOfProfessionals"
@@ -683,7 +698,11 @@ export default function RequestTalent() {
                     onClick={() => setRedirect(false)}
                     className="flex-1 bg-[#F99621] text-black font-bold py-3 px-6 hover:bg-[#e8881a] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {isLoading && !redirect ? <Loader2 className="animate-spin h-5 w-5 mx-auto" /> : "Submit My Request →"}
+                    {isLoading && !redirect ? (
+                      <Loader2 className="animate-spin h-5 w-5 mx-auto" />
+                    ) : (
+                      "Submit My Request →"
+                    )}
                   </button>
                   <button
                     type="submit"
@@ -691,13 +710,18 @@ export default function RequestTalent() {
                     onClick={() => setRedirect(true)}
                     className="flex-1 border-2 border-[#F99621] text-[#F99621] font-bold py-3 px-6 hover:bg-[#FEF3E2] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {isLoading && redirect ? <Loader2 className="animate-spin h-5 w-5 mx-auto" /> : "Meet With Us"}
+                    {isLoading && redirect ? (
+                      <Loader2 className="animate-spin h-5 w-5 mx-auto" />
+                    ) : (
+                      "Meet With Us"
+                    )}
                   </button>
                 </div>
 
                 {/* Microcopy */}
                 <p className="text-xs text-gray-400 text-center">
-                  No commitment required. We&apos;ll review your request and be in touch within 24 hours.
+                  No commitment required. We&apos;ll review your request and be in touch within 24
+                  hours.
                 </p>
               </form>
             </div>
@@ -718,7 +742,9 @@ export default function RequestTalent() {
                   </span>
                   <div className="text-left">
                     <p className="text-sm font-semibold text-gray-800">{"Don't see your role?"}</p>
-                    <p className="text-xs text-gray-400">{"Tell us what you need — we'll source it."}</p>
+                    <p className="text-xs text-gray-400">
+                      {"Tell us what you need — we'll source it."}
+                    </p>
                   </div>
                 </div>
                 <ChevronDown
@@ -766,7 +792,9 @@ export default function RequestTalent() {
       <section className="bg-[#F8F8F8] py-20 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
-            <p className="text-[#F99621] text-xs font-bold uppercase tracking-[0.2em] mb-3">After you submit</p>
+            <p className="text-[#F99621] text-xs font-bold uppercase tracking-[0.2em] mb-3">
+              After you submit
+            </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What Happens Next</h2>
           </div>
 

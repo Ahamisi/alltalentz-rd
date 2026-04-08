@@ -20,7 +20,11 @@ export default function BootcampModal() {
 
   useEffect(() => {
     if (!isOpen) return;
-    animate(progressScope.current, { scaleX: 0 }, { duration: AUTO_CLOSE_MS / 1000, ease: "linear" });
+    animate(
+      progressScope.current,
+      { scaleX: 0 },
+      { duration: AUTO_CLOSE_MS / 1000, ease: "linear" }
+    );
   }, [isOpen, animate, progressScope]);
 
   function handleClose() {
@@ -57,7 +61,15 @@ export default function BootcampModal() {
             className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             style={{ touchAction: "manipulation" }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              aria-hidden="true"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2.5}
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -76,14 +88,27 @@ export default function BootcampModal() {
             className="text-white text-[28px] font-bold leading-snug"
             style={{ textWrap: "balance" } as React.CSSProperties}
           >
-            AllTalentz Bootcamp<br />
+            AllTalentz Bootcamp
+            <br />
             <span className="text-[#F99621]">is Now Open!</span>
           </h2>
 
           {/* Date pill */}
           <div className="inline-flex items-center gap-2 mt-4 bg-white/10 rounded-full px-4 py-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#F99621]" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 text-[#F99621]"
+              aria-hidden="true"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
             </svg>
             <span className="text-white text-sm font-semibold">April 6th &ndash; 12th, 2026</span>
           </div>
@@ -99,9 +124,21 @@ export default function BootcampModal() {
               "Limited cohort — spots are filling fast",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
-                <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#FEF5E9] flex items-center justify-center" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-2.5 text-[#F99621]" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                <span
+                  className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#FEF5E9] flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-2.5 w-2.5 text-[#F99621]"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </span>
                 {item}

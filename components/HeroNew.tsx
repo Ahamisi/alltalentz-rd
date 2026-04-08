@@ -182,14 +182,17 @@ const HeroNew = () => {
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center shrink-0">
-                {["Bootcamp Registration Now Open", "April 6th – 12th, 2026", "Limited Spots Available", "Register Today"].map(
-                  (item) => (
-                    <span key={item} className="flex items-center mx-8 text-white font-bold text-xl">
-                      <span className="mr-3">✦</span>
-                      {item}
-                    </span>
-                  )
-                )}
+                {[
+                  "Bootcamp Registration Now Open",
+                  "April 6th – 12th, 2026",
+                  "Limited Spots Available",
+                  "Register Today",
+                ].map((item) => (
+                  <span key={item} className="flex items-center mx-8 text-white font-bold text-xl">
+                    <span className="mr-3">✦</span>
+                    {item}
+                  </span>
+                ))}
               </div>
             ))}
           </div>

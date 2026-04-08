@@ -125,7 +125,8 @@ export default function Outsourcing() {
             <h1 className="text-[28px] leading-[36px] md:text-5xl font-bold mb-4">What we offer</h1>
             <p className="text-base md:text-lg mb-6">
               We are your one-stop destination for a comprehensive suite of digital{" "}
-              <br className="hidden md:block" /> services designed to catapult your business to the next level.
+              <br className="hidden md:block" /> services designed to catapult your business to the
+              next level.
             </p>
           </div>
 

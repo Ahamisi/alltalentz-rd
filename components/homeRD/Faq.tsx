@@ -82,7 +82,9 @@ const Faq = ({
         <div className="flex flex-col md:flex-row gap-12 md:gap-24">
           {/* Left side - Title and CTA */}
           <div className="md:w-1/3">
-            <h2 className="md:text-[40px] text-[30px] font-medium italic mb-6 text-black">{title}</h2>
+            <h2 className="md:text-[40px] text-[30px] font-medium italic mb-6 text-black">
+              {title}
+            </h2>
             <a href="/faq" className="text-[#E5B47B] hover:underline">
               {description}
             </a>

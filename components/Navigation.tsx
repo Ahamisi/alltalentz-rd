@@ -149,16 +149,43 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
           {showAboutDropdown && (
             <div className="pb-1">
-              <a href="/about-us" className={mobileSubLink("/about-us")} onClick={handleNavClick}>About Us</a>
-              <a href="/success-stories" className={mobileSubLink("/success-stories")} onClick={handleNavClick}>Success Stories</a>
-              <a href="/why-african-talents" className={mobileSubLink("/why-african-talents")} onClick={handleNavClick}>Why Africa Talents</a>
-              <a href="/contact-us" className={mobileSubLink("/contact-us")} onClick={handleNavClick}>Contact</a>
-              <a href="/faq" className={mobileSubLink("/faq")} onClick={handleNavClick}>FAQs</a>
+              <a href="/about-us" className={mobileSubLink("/about-us")} onClick={handleNavClick}>
+                About Us
+              </a>
+              <a
+                href="/success-stories"
+                className={mobileSubLink("/success-stories")}
+                onClick={handleNavClick}
+              >
+                Success Stories
+              </a>
+              <a
+                href="/why-african-talents"
+                className={mobileSubLink("/why-african-talents")}
+                onClick={handleNavClick}
+              >
+                Why Africa Talents
+              </a>
+              <a
+                href="/contact-us"
+                className={mobileSubLink("/contact-us")}
+                onClick={handleNavClick}
+              >
+                Contact
+              </a>
+              <a href="/faq" className={mobileSubLink("/faq")} onClick={handleNavClick}>
+                FAQs
+              </a>
             </div>
           )}
         </div>
@@ -176,32 +203,86 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
           {showServiceDropdown && (
             <div className="pb-1">
-              <a href="/hiring-services" className={mobileSubLink("/hiring-services")} onClick={handleNavClick}>Hiring Services</a>
-              <a href="/hire-tech-talents" className={mobileSubLink("/hire-tech-talents")} onClick={handleNavClick}>Hire Tech Talents</a>
-              <a href="/hire-healthcare-talents" className={mobileSubLink("/hire-healthcare-talents")} onClick={handleNavClick}>Hire Healthcare Talents</a>
-              <a href="/hire-finance-talents" className={mobileSubLink("/hire-finance-talents")} onClick={handleNavClick}>Hire Finance Talents</a>
-              <a href="/hire-remediation-talents" className={mobileSubLink("/hire-remediation-talents")} onClick={handleNavClick}>Hire Remediation Talents</a>
-              <a href="/hire-legal-talents" className={mobileSubLink("/hire-legal-talents")} onClick={handleNavClick}>Hire Legal Talents</a>
+              <a
+                href="/hiring-services"
+                className={mobileSubLink("/hiring-services")}
+                onClick={handleNavClick}
+              >
+                Hiring Services
+              </a>
+              <a
+                href="/hire-tech-talents"
+                className={mobileSubLink("/hire-tech-talents")}
+                onClick={handleNavClick}
+              >
+                Hire Tech Talents
+              </a>
+              <a
+                href="/hire-healthcare-talents"
+                className={mobileSubLink("/hire-healthcare-talents")}
+                onClick={handleNavClick}
+              >
+                Hire Healthcare Talents
+              </a>
+              <a
+                href="/hire-finance-talents"
+                className={mobileSubLink("/hire-finance-talents")}
+                onClick={handleNavClick}
+              >
+                Hire Finance Talents
+              </a>
+              <a
+                href="/hire-remediation-talents"
+                className={mobileSubLink("/hire-remediation-talents")}
+                onClick={handleNavClick}
+              >
+                Hire Remediation Talents
+              </a>
+              <a
+                href="/hire-legal-talents"
+                className={mobileSubLink("/hire-legal-talents")}
+                onClick={handleNavClick}
+              >
+                Hire Legal Talents
+              </a>
             </div>
           )}
         </div>
 
         <div className="border-b border-gray-100">
-          <a href="/outsource-with-agency" className={mobileLink} onClick={handleNavClick}>Agency</a>
+          <a href="/outsource-with-agency" className={mobileLink} onClick={handleNavClick}>
+            Agency
+          </a>
         </div>
         <div className="border-b border-gray-100">
-          <a href="/pricing-model" className={mobileLink} onClick={handleNavClick}>Pricing Model</a>
+          <a href="/pricing-model" className={mobileLink} onClick={handleNavClick}>
+            Pricing Model
+          </a>
         </div>
         <div className="border-b border-gray-100">
-          <a href="https://alltalentzacademy.com" className={mobileLink} rel="noopener noreferrer">Academy</a>
+          <a href="https://alltalentzacademy.com" className={mobileLink} rel="noopener noreferrer">
+            Academy
+          </a>
         </div>
         <div className="border-b border-gray-100">
-          <a href="https://blog.alltalentz.com" className={mobileLink} target="_blank" rel="noopener noreferrer">Blog</a>
+          <a
+            href="https://blog.alltalentz.com"
+            className={mobileLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Blog
+          </a>
         </div>
 
         {addBootcamp && (
@@ -217,13 +298,30 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </button>
             {showTalentDropdown && (
               <div className="pb-1">
-                <a href="/professional-development-programme" className={mobileSubLink("/contact-us")} onClick={handleNavClick}>Join our PDP</a>
-                <a href="/our-watchlist" className={mobileSubLink("/our-watchlist")} onClick={handleNavClick}>Join Watchlist</a>
+                <a
+                  href="/professional-development-programme"
+                  className={mobileSubLink("/contact-us")}
+                  onClick={handleNavClick}
+                >
+                  Join our PDP
+                </a>
+                <a
+                  href="/our-watchlist"
+                  className={mobileSubLink("/our-watchlist")}
+                  onClick={handleNavClick}
+                >
+                  Join Watchlist
+                </a>
               </div>
             )}
           </div>
@@ -449,7 +547,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
                         className={getDropdownItemClassName("/professional-development-programme")}
                         onClick={handleNavClick}
                       >
-                       Join our PDP
+                        Join our PDP
                       </a>
                       <a
                         href="/our-watchlist"
