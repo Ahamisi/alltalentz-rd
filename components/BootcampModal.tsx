@@ -43,25 +43,13 @@ export default function BootcampModal() {
         style={{ overscrollBehavior: "contain" }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header — pure CSS, no image */}
+        {/* Header */}
         <div
           className="relative px-6 pt-8 pb-10 overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)",
           }}
         >
-          {/* Decorative circles */}
-          <div
-            className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-10"
-            style={{ background: "radial-gradient(circle, #F99621, transparent)" }}
-            aria-hidden="true"
-          />
-          <div
-            className="absolute -bottom-8 -left-8 w-36 h-36 rounded-full opacity-10"
-            style={{ background: "radial-gradient(circle, #F99621, transparent)" }}
-            aria-hidden="true"
-          />
-
           {/* Close button */}
           <button
             onClick={handleClose}
