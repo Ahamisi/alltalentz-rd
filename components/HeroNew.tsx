@@ -85,7 +85,7 @@ const HeroNew = () => {
                   transition={{ delay: 0.6 }}
                   className="text-4xl md:text-[50px] md:font-[700] md:leading-[65px] font-bold"
                 >
-                  Scale Better. <span className="text-[#F99621]">Hire Better.</span>
+                  Scale Smarter. <span className="text-[#F99621]">Hire Better.</span>
                   <br />
                   Save up to 75%.
                   {/* Your Strategic Partner for{" "}
@@ -176,6 +176,24 @@ const HeroNew = () => {
             </div>
           </div>
         </section>
+
+        {/* Bootcamp Marquee */}
+        <div className="bg-[#F99621] py-4 overflow-hidden">
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex items-center shrink-0">
+                {["Bootcamp Registration Now Open", "April 6th – 12th, 2026", "Limited Spots Available", "Register Today"].map(
+                  (item) => (
+                    <span key={item} className="flex items-center mx-8 text-white font-bold text-xl">
+                      <span className="mr-3">✦</span>
+                      {item}
+                    </span>
+                  )
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

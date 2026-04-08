@@ -154,7 +154,7 @@ const Header = ({ active = "home" }: HeaderHomeProps) => {
             </button>
           </div>
 
-          <Btn text="Join our PDP" border={true} link="/professional-development-programme" otherCSS="hidden lg:block" />
+          <Btn text="Hire Talents" border={true} link="/request-talent" otherCSS="hidden lg:block" />
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
