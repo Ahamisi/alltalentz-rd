@@ -1,17 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { USE_EMBEDDED_FORM, MICROSOFT_FORM_URL } from "@/utils/testConfig";
 
 export default function SecureTestForm() {
-  const [showInstructions, setShowInstructions] = useState(true);
-  const [readyForTest, setReadyForTest] = useState(false);
-
-  // If not using embedded form, redirect immediately after instructions
+  // If not using embedded form, redirect immediately on mount
   useEffect(() => {
-    if (!USE_EMBEDDED_FORM && readyForTest) {
+    if (!USE_EMBEDDED_FORM) {
       window.location.href = MICROSOFT_FORM_URL;
     }
-  }, [readyForTest]);
+  }, []);
   // Only apply security measures if using embedded form
   useEffect(() => {
     if (!USE_EMBEDDED_FORM) {
@@ -381,97 +378,8 @@ export default function SecureTestForm() {
     };
   }, []);
 
-  // Show Savewyze instructions first
-  if (showInstructions && !readyForTest) {
-    return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end lg:items-center justify-center z-50 p-0 lg:p-4">
-        <div className="bg-white rounded-t-2xl lg:rounded-lg shadow-xl lg:max-w-2xl w-full max-h-[92vh] lg:max-h-[90vh] overflow-y-auto">
-          <div className="p-5 lg:p-8">
-            <div className="flex items-center justify-between mb-5 lg:mb-6">
-              <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold text-gray-800">
-                Important Instructions
-              </h2>
-            </div>
-
-            <div className="space-y-4 mb-6">
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-3 lg:p-4">
-                <h3 className="font-semibold text-blue-800 text-sm lg:text-base mb-2">
-                  To have a seamless onboarding on Savewyze, kindly follow the instructions below:
-                </h3>
-              </div>
-
-              <div className="space-y-3 text-gray-700 text-sm lg:text-base">
-                <div className="flex items-start">
-                  <span className="text-[#F99621] font-bold mr-3">1.</span>
-                  <p className="flex-1">
-                    Ensure you have your <strong>NIN slip or card</strong> in your possession
-                  </p>
-                </div>
-
-                <div className="flex items-start">
-                  <span className="text-[#F99621] font-bold mr-3">2.</span>
-                  <p className="flex-1">
-                    Ensure you fill in your <strong>First Name and Last Name</strong> as seen on
-                    your NIN slip or card (<strong>Not your Middle Name</strong>). This makes your
-                    NIN verification process seamless
-                  </p>
-                </div>
-
-                <div className="flex items-start">
-                  <span className="text-[#F99621] font-bold mr-3">3.</span>
-                  <p className="flex-1">
-                    Your <strong>Wyze tag</strong> is a unique handle (like a Nickname) you can
-                    decide what that should be.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3 lg:p-4 mt-4">
-                <p className="text-sm text-gray-700 mb-2">
-                  <strong>Need help?</strong>
-                </p>
-                <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                  <li>
-                    • For <strong>Savewyze onboarding issues only</strong>, kindly reach out to{" "}
-                    <a
-                      href="mailto:info@savewyze.com"
-                      className="text-[#F99621] hover:underline font-semibold"
-                    >
-                      info@savewyze.com
-                    </a>
-                  </li>
-                  <li>
-                    • For <strong>test difficulties or technical issues</strong>, please contact{" "}
-                    <a
-                      href="mailto:recruitment@alltalentz.com"
-                      className="text-[#F99621] hover:underline font-semibold"
-                    >
-                      recruitment@alltalentz.com or hr@alltalentz.com
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="flex justify-end">
-              <button
-                onClick={() => {
-                  setShowInstructions(false);
-                  setReadyForTest(true);
-                }}
-                className="bg-[#F99621] text-black w-full lg:w-auto px-8 py-3 rounded font-bold hover:bg-opacity-90 transition-all"
-              >
-                Continue to Test
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // If redirecting, show loading state (redirect happens in useEffect)
-  if (!USE_EMBEDDED_FORM && readyForTest) {
+  // If redirecting (non-embedded mode), show loading state while useEffect handles redirect
+  if (!USE_EMBEDDED_FORM) {
     return (
       <div className="w-full h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
         <div className="w-full max-w-6xl bg-white rounded-lg shadow-lg overflow-hidden p-8 text-center">
@@ -501,7 +409,7 @@ export default function SecureTestForm() {
         <div className="w-full h-full relative" style={{ height: "calc(90vh - 80px)" }}>
           <iframe
             id="microsoft-form-iframe"
-            src="https://forms.office.com/r/S6sxduh4um?embed=true"
+            src="https://forms.office.com/r/FtvZzg8EjS?embed=true"
             className="w-full h-full border-0"
             title="Assessment Test"
             allow="camera; microphone; fullscreen"

@@ -17,6 +17,7 @@ import Faq from "@/components/homeRD/Faq";
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import SecureTestForm from "@/components/SecureTestForm";
+import PreTestNoticeModal from "@/components/PreTestNoticeModal";
 
 export default function BootCamp() {
   const [isDuplicate, setIsDuplicate] = useState<boolean | null>(null);
@@ -25,6 +26,9 @@ export default function BootCamp() {
   const [isOpen, setIsOpen] = useState(false);
   const [countdown, setCountdown] = useState(5); // Initial countdown time
   const [showTestForm, setShowTestForm] = useState(false);
+  const [showNoticeModal, setShowNoticeModal] = useState(false);
+  const [showMobileWarning, setShowMobileWarning] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const route = useRouter();
 
   const [formData, setFormData] = useState({
@@ -45,6 +49,13 @@ export default function BootCamp() {
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -140,10 +151,10 @@ export default function BootCamp() {
         console.log("Email sent successfully!");
         setIsLoading(false);
 
-        // Show the test form (which includes Savewyze instructions)
+        // Close the form modal and go directly to test
         setTimeout(() => {
+          setIsOpen(false);
           setShowTestForm(true);
-          setIsOpen(false); // Close the modal
         }, 2000);
       } catch (error) {
         // Handle error
@@ -288,7 +299,7 @@ export default function BootCamp() {
 
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <button
-                onClick={toggleModal}
+                onClick={() => (isMobile ? setShowMobileWarning(true) : setShowNoticeModal(true))}
                 className="bg-[#F99621] text-black px-8 py-4 rounded font-bold hover:bg-opacity-90 transition-all"
               >
                 Apply to our PDP
@@ -338,220 +349,321 @@ export default function BootCamp() {
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="Service Request Form"
-        className="modal shadow-md w-[80%] md:w-[50%] overflow-y-scroll"
+        className="modal !p-0 !rounded-none shadow-2xl w-[95%] md:w-[580px] overflow-y-auto max-h-[92vh]"
         overlayClassName="overlay"
       >
         {bootCampOver ? (
-          <div className="flex flex-col items-center text-black">
-            <div className="text-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100"
-                height="100"
-                viewBox="0 0 100 100"
-              >
-                <circle cx="50" cy="50" r="40" fill="#FFCC00" />
-                <circle cx="35" cy="35" r="5" fill="black" />
-                <circle cx="65" cy="35" r="5" fill="black" />
-                <path d="M40 55 Q50 70 60 55" stroke="black" strokeWidth="2" fill="transparent" />
-              </svg>
-            </div>
-            <h1 className="text-[22px] text-center font-bold">
-              Oops, the professional development programme application period is over.
-            </h1>
-            <p>Please be on the lookout for the next cycle of applications...</p>
+          /* ── Application closed ── */
+          <div className="p-10 flex flex-col items-center text-center gap-4">
+            <div className="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center text-3xl">😔</div>
+            <h1 className="text-xl font-bold text-gray-900">Applications Closed</h1>
+            <p className="text-gray-500 text-sm max-w-xs">
+              The professional development programme application period is over. Please be on the lookout for the next cycle.
+            </p>
+            <button onClick={toggleModal} className="mt-2 text-sm text-gray-400 hover:text-gray-600 underline underline-offset-2">
+              Close
+            </button>
           </div>
         ) : (
-          <div className="modal-content p-3 w-[100] md:w-[80%] mx-auto overflow-y-auto">
-            <button
-              onClick={toggleModal}
-              className="absolute top-2 right-2 text-dark bg-[#4C4C4C] p-3 rounded-full"
+          <div className="flex flex-col">
+            {/* ── Modal header ── */}
+            <div
+              className="relative px-6 pt-7 pb-7 flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)" }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <button
+                onClick={toggleModal}
+                aria-label="Close"
+                className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <Image
-              src="/logo.svg"
-              alt="Logo"
-              width={120}
-              height={48}
-              className="mx-auto mb-8 h-12 w-auto"
-            />
-            {isSubmitted ? (
-              <div className=" p-4 rounded-lg bg-[##FDDEBA] text-center mt-6 bg-white w-full m-0">
-                <div className="flex items-center justify-center">
-                  <Image src="/star-shine.svg" alt="Logo" width={48} height={48} />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-black">Thank you!</h3>
-                <p className="text-gray-600">Preparing your test portal...</p>
-                <div className="mt-4">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#F99621] mx-auto"></div>
-                </div>
-              </div>
-            ) : isDuplicate ? (
-              <div
-                className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-                role="alert"
-              >
-                <strong className="font-bold">Error:&nbsp;</strong>
-                <span className="block sm:inline">
-                  We have already received your application. <br />
-                  Please contact support for further assistance.
-                </span>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                encType="multipart/form-data"
-                method="post"
-                className="text-[#A6A6A6]"
-              >
-                {/* <h2 className="text-lg font-normal text-center mb-8 text-[#939393]">Kindly fill this form and upload your CV to keep yourself in the loop</h2> */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <Image src="/logo.svg" alt="All Talentz" width={100} height={36} className="h-8 w-auto mb-4 brightness-0 invert" />
+              <h2 className="text-white text-xl font-bold leading-snug">PDP Application</h2>
+              <p className="text-white/55 text-sm mt-1">Fill in your details to apply for the Professional Development Programme.</p>
+            </div>
 
-                <div className="mb-8">
-                  <input
-                    type="text"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.fullName ? "border-red-500" : ""}`}
-                    placeholder="Enter your full name"
-                    onChange={handleInputChange}
-                    name="fullName"
-                    value={formData.fullName}
-                  />
-                  {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
-                </div>
-
-                <div className="mb-8">
-                  <input
-                    type="email"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.email ? "border-red-500" : ""}`}
-                    placeholder="Enter your email"
-                    onChange={handleInputChange}
-                    name="email"
-                    value={formData.email}
-                  />
-                  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-                </div>
-
-                <div className="mb-8">
-                  <input
-                    type="tel"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.phone ? "border-red-500" : ""}`}
-                    placeholder="Enter your phone number"
-                    onChange={handleInputChange}
-                    name="phone"
-                    value={formData.phone}
-                  />
-                  {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
-                </div>
-
-                <div className="mb-8">
-                  <input
-                    type="number"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.yoe ? "border-red-500" : ""}`}
-                    placeholder="Years of Experience"
-                    onChange={handleInputChange}
-                    name="yoe"
-                    value={formData.yoe}
-                  />
-                  {errors.yoe && <p className="text-red-500 text-sm">{errors.yoe}</p>}
-                </div>
-
-                <div className="mb-8">
-                  <input
-                    type="text"
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.career ? "border-red-500" : ""}`}
-                    placeholder="Career Field"
-                    onChange={handleInputChange}
-                    name="career"
-                    value={formData.career}
-                  />
-                  {errors.career && <p className="text-red-500 text-sm">{errors.career}</p>}
-                </div>
-
-                <div className="mb-8">
-                  <label className="block text-gray-700 mb-1">Upload CV</label>
-                  <input
-                    type="file"
-                    name="cv"
-                    accept=".pdf,.doc,.docx"
-                    onChange={handleFileChange}
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.cv ? "border-red-500" : ""}`}
-                  />
-                  {errors.cv && <p className="text-red-500 text-sm">{errors.cv}</p>}
-                </div>
-
-                <div className="mb-8">
-                  <label className="block text-gray-700 mb-1">Upload NYSC Cert.</label>
-                  <input
-                    type="file"
-                    name="nysc"
-                    accept=".pdf,.doc,.docx"
-                    onChange={handleFileChangeNysc}
-                    className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.nysc ? "border-red-500" : ""}`}
-                  />
-                  {errors.nysc && <p className="text-red-500 text-sm">{errors.nysc}</p>}
-                  <div
-                    className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 mt-3"
-                    role="alert"
-                  >
-                    <svg
-                      className="fill-current w-4 h-4 mr-2"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+            {/* ── Body ── */}
+            <div className="bg-white flex-1 overflow-y-auto">
+              {isSubmitted ? (
+                /* ── Success state ── */
+                <div className="px-6 py-12 flex flex-col items-center text-center gap-3">
+                  <div className="w-16 h-16 rounded-full bg-green-50 border border-green-200 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p>
-                      Hey there, once you click submit, you would be redirected to take a compulsory
-                      test as the final stage.
-                    </p>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">Application Received!</h3>
+                  <p className="text-gray-500 text-sm">Preparing your test portal, please wait a moment...</p>
+                  <div className="mt-2">
+                    <div className="animate-spin rounded-full h-7 w-7 border-b-2 border-[#F99621] mx-auto"></div>
                   </div>
                 </div>
+              ) : isDuplicate ? (
+                /* ── Duplicate state ── */
+                <div className="px-6 py-10 flex flex-col items-center text-center gap-3">
+                  <div className="w-14 h-14 rounded-full bg-red-50 border border-red-200 flex items-center justify-center text-2xl">⚠️</div>
+                  <h3 className="text-base font-bold text-gray-900">Application Already Submitted</h3>
+                  <p className="text-gray-500 text-sm max-w-xs">
+                    We have already received your application. Please contact support for further assistance.
+                  </p>
+                  <button onClick={toggleModal} className="mt-2 text-sm text-gray-400 hover:text-gray-600 underline underline-offset-2">
+                    Close
+                  </button>
+                </div>
+              ) : (
+                /* ── Application form ── */
+                <form onSubmit={handleSubmit} encType="multipart/form-data" method="post" className="px-6 py-6 space-y-6">
 
-                <button
-                  type="submit"
-                  className="request-button bg-secondary text-black px-[43px] py-[13px] mt-[10px] font-bold hover:bg-opacity-90"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <svg
-                      className="animate-spin h-5 w-5 mx-auto"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.86 3.018 7.97l2.018-2.68z"
-                      />
-                    </svg>
-                  ) : (
-                    "Submit"
-                  )}
-                </button>
-              </form>
-            )}
+                  {/* Personal information */}
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Personal Information</p>
+                    <div className="space-y-4">
+
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                          Full Name <span className="text-red-400">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="fullName"
+                          value={formData.fullName}
+                          onChange={handleInputChange}
+                          placeholder="e.g. Adaeze Okonkwo"
+                          className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.fullName ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                        />
+                        {errors.fullName && (
+                          <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                            {errors.fullName}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                            Email <span className="text-red-400">*</span>
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            placeholder="you@example.com"
+                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.email ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                          />
+                          {errors.email && (
+                            <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                              {errors.email}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                            Phone <span className="text-red-400">*</span>
+                          </label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            placeholder="+234 800 000 0000"
+                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.phone ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                          />
+                          {errors.phone && (
+                            <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                              {errors.phone}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                            Years of Experience <span className="text-red-400">*</span>
+                          </label>
+                          <input
+                            type="number"
+                            name="yoe"
+                            value={formData.yoe}
+                            onChange={handleInputChange}
+                            placeholder="e.g. 2"
+                            min="0"
+                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.yoe ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                          />
+                          {errors.yoe && (
+                            <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                              {errors.yoe}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                            Career Field <span className="text-red-400">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            name="career"
+                            value={formData.career}
+                            onChange={handleInputChange}
+                            placeholder="e.g. Software Engineering"
+                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.career ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                          />
+                          {errors.career && (
+                            <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                              {errors.career}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="border-t border-gray-100" />
+
+                  {/* Documents */}
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Documents</p>
+                    <div className="space-y-4">
+
+                      {/* CV upload */}
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                          CV / Résumé <span className="text-red-400">*</span>
+                          <span className="ml-1.5 text-xs font-normal text-gray-400">PDF, DOC, DOCX</span>
+                        </label>
+                        <label
+                          className={`flex items-center gap-4 border-2 border-dashed px-4 py-4 cursor-pointer transition-colors ${
+                            selectedFile
+                              ? "border-green-400 bg-green-50"
+                              : errors.cv
+                              ? "border-red-300 bg-red-50"
+                              : "border-gray-200 bg-gray-50 hover:border-[#F99621] hover:bg-amber-50/40"
+                          }`}
+                        >
+                          <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${selectedFile ? "bg-green-100" : "bg-white border border-gray-200"}`}>
+                            {selectedFile ? (
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                            ) : (
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            {selectedFile ? (
+                              <>
+                                <p className="text-sm font-semibold text-green-700 truncate">{selectedFile.name}</p>
+                                <p className="text-xs text-green-600 mt-0.5">File selected — click to change</p>
+                              </>
+                            ) : (
+                              <>
+                                <p className="text-sm font-medium text-gray-700">Click to upload your CV</p>
+                                <p className="text-xs text-gray-400 mt-0.5">PDF, DOC, or DOCX</p>
+                              </>
+                            )}
+                          </div>
+                          <input type="file" name="cv" accept=".pdf,.doc,.docx" onChange={handleFileChange} className="hidden" />
+                        </label>
+                        {errors.cv && (
+                          <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                            {errors.cv}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* NYSC upload */}
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                          NYSC Certificate <span className="text-red-400">*</span>
+                          <span className="ml-1.5 text-xs font-normal text-gray-400">PDF, DOC, DOCX</span>
+                        </label>
+                        <label
+                          className={`flex items-center gap-4 border-2 border-dashed px-4 py-4 cursor-pointer transition-colors ${
+                            nyscFile
+                              ? "border-green-400 bg-green-50"
+                              : errors.nysc
+                              ? "border-red-300 bg-red-50"
+                              : "border-gray-200 bg-gray-50 hover:border-[#F99621] hover:bg-amber-50/40"
+                          }`}
+                        >
+                          <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${nyscFile ? "bg-green-100" : "bg-white border border-gray-200"}`}>
+                            {nyscFile ? (
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                            ) : (
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            {nyscFile ? (
+                              <>
+                                <p className="text-sm font-semibold text-green-700 truncate">{nyscFile.name}</p>
+                                <p className="text-xs text-green-600 mt-0.5">File selected — click to change</p>
+                              </>
+                            ) : (
+                              <>
+                                <p className="text-sm font-medium text-gray-700">Click to upload your NYSC certificate</p>
+                                <p className="text-xs text-gray-400 mt-0.5">PDF, DOC, or DOCX</p>
+                              </>
+                            )}
+                          </div>
+                          <input type="file" name="nysc" accept=".pdf,.doc,.docx" onChange={handleFileChangeNysc} className="hidden" />
+                        </label>
+                        {errors.nysc && (
+                          <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                            {errors.nysc}
+                          </p>
+                        )}
+                      </div>
+
+                    </div>
+                  </div>
+
+                  {/* Notice */}
+                  <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 px-4 py-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" /></svg>
+                    <p className="text-xs text-amber-800 leading-relaxed">
+                      Once you submit, you&apos;ll be redirected to take a compulsory assessment test as the final stage of your application.
+                    </p>
+                  </div>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold py-4 text-sm tracking-wide transition-colors disabled:opacity-60 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
+                  >
+                    {isLoading ? (
+                      <>
+                        <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.86 3.018 7.97l2.018-2.68z" />
+                        </svg>
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Submit Application
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                      </>
+                    )}
+                  </button>
+
+                </form>
+              )}
+            </div>
           </div>
         )}
       </Modal>
@@ -661,6 +773,73 @@ export default function BootCamp() {
       <section className="px-[10px] md:px-0 bg-[#131313]">
         <MainFooter hideSub={true} />
       </section>
+
+      {/* Mobile warning modal */}
+      {showMobileWarning && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/65 backdrop-blur-sm"
+          onClick={() => setShowMobileWarning(false)}
+        >
+          <div
+            className="w-full md:max-w-sm overflow-hidden rounded-t-2xl md:rounded-2xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div
+              className="px-6 pt-7 pb-6"
+              style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)" }}
+            >
+              <div className="w-12 h-12 rounded-full bg-amber-400/20 flex items-center justify-center mb-4 text-2xl">
+                💻
+              </div>
+              <h2 className="text-white text-xl font-bold leading-snug">
+                Switch to a Laptop
+              </h2>
+              <p className="text-white/60 text-sm mt-1.5 leading-relaxed">
+                For the best experience, the PDP application process and assessment test are designed for laptops and desktop computers.
+              </p>
+            </div>
+
+            {/* Body */}
+            <div className="bg-white px-6 py-5 space-y-3">
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-sm text-amber-800">
+                <strong>Mobile devices are not recommended.</strong> The test may not function optimally on a phone screen.
+              </div>
+              <div className="flex flex-col gap-2.5 pt-1">
+                <button
+                  onClick={() => {
+                    setShowMobileWarning(false);
+                    setShowNoticeModal(true);
+                  }}
+                  className="w-full text-sm text-gray-500 hover:text-gray-700 font-medium py-3 rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
+                  style={{ touchAction: "manipulation" }}
+                >
+                  Continue Anyway
+                </button>
+                <button
+                  onClick={() => setShowMobileWarning(false)}
+                  className="w-full bg-[#F99621] hover:bg-[#e8870e] text-white font-bold py-3 rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
+                  style={{ touchAction: "manipulation" }}
+                >
+                  Got it
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Pre-test notice modal */}
+      <PreTestNoticeModal
+        isOpen={showNoticeModal}
+        onClose={() => setShowNoticeModal(false)}
+        onBeginTest={() => {
+          setShowNoticeModal(false);
+          setIsOpen(true);
+        }}
+      />
     </main>
   );
 }

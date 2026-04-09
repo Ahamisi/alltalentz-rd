@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, useAnimate } from "framer-motion";
 
-const AUTO_CLOSE_MS = 5000;
+const AUTO_CLOSE_MS = 10000;
 
 export default function BootcampModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -88,7 +88,7 @@ export default function BootcampModal() {
             className="text-white text-[28px] font-bold leading-snug"
             style={{ textWrap: "balance" } as React.CSSProperties}
           >
-            AllTalentz Bootcamp
+            All Talentz Professional Development Program
             <br />
             <span className="text-[#F99621]">is Now Open!</span>
           </h2>
