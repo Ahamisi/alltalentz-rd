@@ -177,8 +177,8 @@ const HeroNew = () => {
           </div>
         </section>
 
-        {/* Bootcamp Marquee */}
-        <div className="bg-[#F99621] py-4 overflow-hidden">
+        {/* Bootcamp Marquee — hidden */}
+        {/* <div className="bg-[#F99621] py-4 overflow-hidden">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center shrink-0">
@@ -196,7 +196,7 @@ const HeroNew = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </motion.div>
     </AnimatePresence>
   );

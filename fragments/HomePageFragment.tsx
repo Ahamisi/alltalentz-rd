@@ -9,7 +9,6 @@ import OurClients from "@/components/homeRD/OurClients";
 import MainTestimony from "@/components/homeRD/MainTestimony";
 import Faq from "@/components/homeRD/Faq";
 import PdpModal from "@/components/PdpModal";
-import BootcampModal from "@/components/BootcampModal";
 import { homepageFAQs } from "@/lib/homepage-faqs";
 
 export default function Home() {
@@ -82,7 +81,7 @@ export default function Home() {
       </section>
 
       <PdpModal />
-      <BootcampModal />
+      {/* <BootcampModal /> */}
     </main>
   );
 }
