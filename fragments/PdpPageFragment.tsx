@@ -21,7 +21,7 @@ import PreTestNoticeModal from "@/components/PreTestNoticeModal";
 
 export default function BootCamp() {
   const [isDuplicate, setIsDuplicate] = useState<boolean | null>(null);
-  const [bootCampOver, setBootCampOver] = useState(false);
+  const [bootCampOver, setBootCampOver] = useState(true);
 
   const [isOpen, setIsOpen] = useState(false);
   const [countdown, setCountdown] = useState(5); // Initial countdown time
@@ -299,7 +299,10 @@ export default function BootCamp() {
 
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <button
-                onClick={() => (isMobile ? setShowMobileWarning(true) : setShowNoticeModal(true))}
+                onClick={() => {
+                  if (bootCampOver) return setIsOpen(true);
+                  isMobile ? setShowMobileWarning(true) : setShowNoticeModal(true);
+                }}
                 className="bg-[#F99621] text-black px-8 py-4 rounded font-bold hover:bg-opacity-90 transition-all"
               >
                 Apply to our PDP
@@ -811,7 +814,7 @@ export default function BootCamp() {
                 <button
                   onClick={() => {
                     setShowMobileWarning(false);
-                    setShowNoticeModal(true);
+                    bootCampOver ? setIsOpen(true) : setShowNoticeModal(true);
                   }}
                   className="w-full text-sm text-gray-500 hover:text-gray-700 font-medium py-3 rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
                   style={{ touchAction: "manipulation" }}
