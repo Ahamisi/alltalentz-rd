@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Btn from "@/components/Btn";
 import Milestone from "@/components/homeRD/Milestone";
 import MobileMilestone from "@/components/homeRD/MobileMilestone";
 import Team from "@/components/homeRD/Team";
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
+import NicheSection from "@/components/homeRD/Niches";
 
 export default function About() {
   return (
@@ -13,23 +15,21 @@ export default function About() {
           {/* Left Column */}
           <div className="lg:w-[45%] flex flex-col">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              The Best{" "}
+              Scale Smarter with{" "}
               <span className="text-[#FFB300]">
-                Value
-                <br />
-                Solution
+                Pre-Trained
               </span>{" "}
-              for your
-              <br />
-              workforce needs.
+              Remote Talent. 
             </h1>
 
             <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-              All Talentz is more than just a recruitment company; We connect you with the best
-              remote talent in Africa. Whether you need skilled, experienced, or reliable talent, we
-              have the perfect match for you. And the best part is, you get amazing value for your
-              money!
+              All Talentz is a remote staffing company connecting businesses with pre-vetted, industry-trained professionals. We place talents with precision and deploy with speed.
             </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Btn text="Build Your Team" otherCSS="w-full text-center" link="/request-talent" />
+              <Btn text="Talk to Our Team" otherCSS="w-full text-center" link="/contact-us" />
+            </div>
           </div>
 
           {/* Right Column - Map */}
@@ -45,11 +45,40 @@ export default function About() {
         </div>
       </PageHeader>
 
-      {/* our value proposition */}
+      {/* Our Story */}
       <section className="relative bg-white py-20 px-4 bg-[url('/redesign-25/backgrounds/partners.svg')] bg-center bg-cover bg-no-repeat">
         <div className="max-w-7xl mx-auto">
-          {/* Icon and Mission Statement */}
-          <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 text-black">Our Story</h2>
+          <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
+            <p>
+              All Talentz was founded on a simple observation: the global talent gap is a
+              distribution problem, not a supply problem.
+            </p>
+            <p>
+              Africa has one of the fastest-growing professional workforces in the world — trained,
+              ambitious, and largely untapped by the businesses that need them most. Meanwhile, U.S.
+              companies in Healthcare, Technology, Finance, Construction, and Legal are spending too
+              much, waiting too long, and still struggling to find the right people.
+            </p>
+            <p>
+              We built All Talentz to close that gap. Not by sending businesses a list of résumés,
+              but by matching them with professionals who are already trained for their industry,
+              screened for their role, and ready to integrate within days.
+            </p>
+            <p>
+              Today, All Talentz operates as a full-service remote staffing agency, placing talent,
+              managing compliance, and providing ongoing operational support so that every engagement
+              runs smoothly from day one.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="relative bg-white py-20 px-4 bg-[url('/redesign-25/backgrounds/partners.svg')] bg-center bg-cover bg-no-repeat">
+        <div className="max-w-7xl mx-auto">
+          {/* Mission */}
+          <div className="mb-12">
             <Image
               src="/icons/target.svg"
               alt="Mission Target"
@@ -57,55 +86,52 @@ export default function About() {
               height={64}
               className="w-16 h-16 mb-6"
             />
-            <h2 className="text-4xl md:text-4xl font-bold mb-8 text-black">Our Mission</h2>
-            <p className="text-xl md:text-3xl lg:text-2xl leading-tight max-w-6xl text-black">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">Our Mission</h2>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               Our mission is to build and deploy high-quality talent through structured assessments
               and global training, expanding our footprint to serve clients and professionals across
               the world.
             </p>
           </div>
 
+          {/* Divider */}
+          <div className="border-t border-gray-200 mb-12" />
+
+          {/* Vision */}
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">Our Vision</h2>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+              Restoring excellence globally through innovative outsourcing and transformative
+              technology solutions.
+            </p>
+          </div>
+
           {/* Statistics Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {/* Stat Card 1 */}
             <div className="bg-[#F99621] rounded-xl p-4 md:p-8 text-white">
               <div className="text-3xl md:text-5xl font-bold mb-1 md:mb-2">100+</div>
               <div className="text-sm md:text-xl">Clients</div>
             </div>
-
-            {/* Stat Card 2 */}
             <div className="bg-[#F99621] rounded-xl p-4 md:p-8 text-white">
               <div className="text-3xl md:text-5xl font-bold mb-1 md:mb-2">50+</div>
               <div className="text-sm md:text-xl">Locations</div>
             </div>
-
-            {/* Stat Card 3 */}
             <div className="bg-[#F99621] rounded-xl p-4 md:p-8 text-white">
               <div className="text-3xl md:text-5xl font-bold mb-1 md:mb-2">99%</div>
               <div className="text-sm md:text-xl">Positive feedbacks</div>
             </div>
-
-            {/* Stat Card 4 */}
             <div className="bg-[#F99621] rounded-xl p-4 md:p-8 text-white">
               <div className="text-3xl md:text-5xl font-bold mb-1 md:mb-2">5000+</div>
               <div className="text-sm md:text-xl">Quality Professionals</div>
             </div>
           </div>
         </div>
-
-        <div className="max-w-7xl mx-auto mt-12">
-          <h2 className="text-4xl md:text-4xl mb-8 text-black">Our Vision</h2>
-          <p className="text-2xl md:text-3xl lg:text-2xl leading-tight max-w-6xl text-black">
-            Restoring excellence globally through innovative outsourcing and transformative
-            technology solutions.
-          </p>
-        </div>
       </section>
 
       <section className="relative bg-white py-24 px-4  bg-[url('/redesign-25/backgrounds/frame-pattern-1.svg')] bg-center bg-cover bg-no-repeat">
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
-          <h2 className="text-4xl font-bold text-center mb-16 text-[#121212]">Our core Value</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 text-[#121212]">What We Stand For</h2>
 
           {/* Values Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -262,7 +288,55 @@ export default function About() {
         <MobileMilestone />
       </div>
 
+      <NicheSection title="Industries We Serve" subtitle="We place trained, vetted professionals across five core verticals. Each practice is staffed by specialists, not generalists."/>
+
       <Team />
+
+      {/* Certifications */}
+      <section className="bg-[#0D0D0D] py-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            Certified. Compliant. Trusted.
+          </h2>
+          <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-16">
+            Every engagement with All Talentz is backed by enterprise-grade compliance and data
+            security protocols.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-16">
+            {/* ISO 27001 */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="bg-white rounded-2xl p-6 w-36 h-36 flex items-center justify-center">
+                <Image
+                  src="/certs/iso-badge.png"
+                  alt="ISO 27001 Certified"
+                  width={96}
+                  height={96}
+                  className="w-24 h-24 object-contain"
+                />
+              </div>
+              <p className="text-white font-semibold text-sm tracking-wide">ISO 27001 Certified</p>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-24 bg-white/10" />
+
+            {/* SOC-2 Type 2 */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="bg-white rounded-2xl p-6 w-36 h-36 flex items-center justify-center">
+                <Image
+                  src="/certs/AssurancePoint.png"
+                  alt="SOC-2 Type 2 Certified"
+                  width={96}
+                  height={96}
+                  className="w-24 h-24 object-contain"
+                />
+              </div>
+              <p className="text-white font-semibold text-sm tracking-wide">SOC-2 Type 2 Certified</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="px-[10px] md:px-0 bg-[#131313]">
         <MainFooter />

@@ -88,7 +88,7 @@ const NicheItem = ({ title, imageSrc, description, path }: NicheItemProp) => {
   );
 };
 
-const NicheSection = () => {
+const NicheSection = ({title, subtitle}: {title?: string, subtitle?: string}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const { ref, inView } = useInView();
@@ -132,11 +132,16 @@ const NicheSection = () => {
       <div className="absolute inset-0 bg-[url('/redesign-25/bg/vetted.svg')] opacity-10 mix-blend-overlay"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-2xl md:text-5xl text-white text-center mb-16">
+        {title ? (
+          <h2 className="text-2xl md:text-5xl text-white text-center mb-16">
+          {title}
+        </h2>
+        ): <h2 className="text-2xl md:text-5xl text-white text-center mb-16">
           Our range of vetted remote employees cut
           <br />
           across varied business needs and niches.
-        </h2>
+        </h2>}
+        {subtitle && <p className="text-white/70 text-center text-lg md:text-xl -mt-10 mb-16">{subtitle}</p>}
 
         {/* Social Media Links */}
         <div className="fixed left-8 top-1/2 -translate-y-1/2 flex flex-col space-y-4 z-10">
