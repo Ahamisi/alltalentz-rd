@@ -1,68 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Blog from "@/components/Blog";
-import Clients from "@/components/Clients";
-import Hero from "@/components/Hero";
 import MainFooter from "@/components/MainFooter";
-import Offerings from "@/components/Offerings";
 import PageHeader from "@/components/PageHeader";
+import { faqData } from "@/data/faqData";
 
 export default function Faq() {
-  const faqData = [
-    {
-      question: "What is All Talentz?",
-      answer:
-        "All Talentz connects Employers with highly skilled remote workers from Africa at a low cost. Our service is flexible and helps you grow your business with the right talent for your needs.",
-    },
-    {
-      question: "Is All Talentz a Job board?",
-      answer:
-        "All Talentz is more than a job board. It is a platform that connects you with the best Talents for your specific needs. Whether you are looking for talent in a certain industry, skill, or role, we have a curated pool of qualified professionals ready to work with you. You don't have to waste time browsing through resumes or posting ads. Just tell us what you need and we will match you with the right talent.",
-    },
-    {
-      question: "Can I find any type of Remote Talent here?",
-      answer:
-        "At All Talentz, we offer a range of Talents for various needs, such as Administrative, Digital, Software development and Marketing roles. If you need Talents for other roles that are not listed on our website, you can contact us for a customised role and we will find a suitable professional for you.",
-    },
-    {
-      question: "My needs aren’t fully remote, more of a hybrid; what do I do?",
-      answer:
-        "All Talentz only provides remote workers for various businesses at the moment. However, we can discuss your hybrid needs and might be able to work with you on an Immigration visa for  on-site talent that suits your specific situation.",
-    },
-    {
-      question: "Is there someone I can talk to for a customised solution?",
-      answer:
-        "Yes! You can schedule a meeting with a representative here. We are available to help you out with your custom needs.",
-    },
-    {
-      question: "I have requested Talent and have not heard back, what do I do?",
-      answer:
-        "We apologize for any inconvenience caused by the delay in our response. This is a very uncommon situation and we are working hard to prevent it from happening again. Please contact us once more and we will do our best to assist you promptly.",
-    },
-    {
-      question: " have applied to join the Talent pool but I have not heard back, what do I do?",
-      answer:
-        "We apologize for any inconvenience caused by the delay in our response. Hiring managers are usually very busy. Please contact us once more and we will do our best to assist you promptly. And remember, kindness always wins.",
-    },
-    {
-      question:
-        "I scheduled a meeting with an All Talentz representative but I missed the meeting, what do I do?",
-      answer:
-        "If you missed a meeting with an All Talentz representative, you can reschedule for another meeting at the next available time. Our representatives are quite understanding and are ever ready to help you.",
-    },
-    {
-      question: "How reliable are the services All Talentz provides?",
-      answer:
-        "Our reviews and ratings speak for themselves! We have a 5-star rating all around and our current clients give us a 5-star rating month-on-month.",
-    },
-    {
-      question: "Do I need an account to use All Talentz?",
-      answer:
-        "You do not need an account to use All Talentz. When you get on the website, you can fill the form and provide your details and we will reach out to you. Alternatively, you could schedule a meeting with a representative on our website.",
-    },
-
-    // Add more FAQ data here
-  ];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -81,20 +23,18 @@ export default function Faq() {
           {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
           <div className="max-w-6xl mx-auto justify-center align-middle md:flex relative h-[100%] items-center px-[20px] md:px-4 ">
             {/* First Column (60% width) */}
-            <div className="md:w-[40%] pr-6">
+            <div className="md:w-[50%] pr-6">
               <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white ">
-                FAQ
+                Everything You’re Wondering. Answered.
               </h2>
 
               <p className="text-white  text-sm md:text-md">
-                Wondering how to get the best-value solution for your workforce needs? or are you
-                looking to begin your journey to a global career? Check out the most commonly asked
-                questions and answers below
+                If you don’t find your question here, our team is one message away.
               </p>
             </div>
 
             {/* Second Column (40% width) */}
-            <div className="hidden md:block md:w-[60%] h-[60%] mt-8 md:mt-0">
+            <div className="hidden md:block md:w-[50%] h-[60%] mt-8 md:mt-0">
               <img src="/faq.png" alt="FAQ Alltalentz" className="h-[450px] w-auto mx-auto" />
             </div>
           </div>
@@ -171,7 +111,7 @@ export default function Faq() {
       </section>
 
       <section className="px-[10px] md:px-0 bg-[#131313]">
-        <MainFooter />
+        <MainFooter subHeading="Didn’t find your answer?" subSubheading="Reach out directly. Our team responds within one business day." />
       </section>
     </main>
   );

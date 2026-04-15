@@ -7,9 +7,16 @@ import Btn from "./Btn";
 interface SubFooterProps {
   brochure?: string;
   meetWithUs?: string;
+  heading?: string;
+  subheading?: string;
 }
 
-const SubFooter = ({ brochure, meetWithUs }: SubFooterProps) => {
+const SubFooter = ({
+  brochure,
+  meetWithUs,
+  heading = "Ready to Build Your Remote Team?",
+  subheading = "Tell us what you need. We'll have the right talent matched, vetted, and ready to deploy within 7 days.",
+}: SubFooterProps) => {
   return (
     <motion.div
       className="bg-[#131313] py-[100px]"
@@ -34,11 +41,10 @@ const SubFooter = ({ brochure, meetWithUs }: SubFooterProps) => {
           {/* Right side (Text and CTAs) */}
           <div className="md:w-1/2 md:pl-8">
             <h3 className="text-white text-3xl lg:text-[40px] xl:text-[65px] lg:leading-[50px] xl:leading-[80px] font-semibold mb-4">
-              Ready to Build Your Remote Team?
+              {heading}
             </h3>
             <p className="text-white mb-6">
-              Tell us what you need. We'll have the right talent matched, vetted, and ready to
-              deploy within 7 days.
+              {subheading}
             </p>
             <div className="flex items-center flex-col md:flex-row">
               <Btn text="Build my Team" otherCSS="w-full text-center" link="/request-talent" />

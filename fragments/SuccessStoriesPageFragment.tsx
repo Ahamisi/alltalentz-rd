@@ -133,8 +133,9 @@ export default function About() {
           {/* Left Column */}
           <div className="lg:w-[45%] flex flex-col">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              We have Stories to <span className="text-[#FFB300]">inspire you</span>
+              What Our Partners Say
             </h1>
+            <p className="text-lg text-white/80 leading-relaxed max-w-md">These are businesses that made the decision to hire differently. Here is what they found on the other side. </p>
           </div>
 
           {/* Right Column - Map */}
