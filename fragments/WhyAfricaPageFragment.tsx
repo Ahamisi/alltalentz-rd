@@ -5,7 +5,7 @@ import Milestone from "@/components/homeRD/Milestone";
 import Team from "@/components/homeRD/Team";
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
-import ContactForm from "@/components/homeRD/ContactForm";
+import Script from "next/script";
 import Link from "next/link";
 
 const benefits = [
@@ -83,17 +83,17 @@ const Benefits = () => {
 };
 
 export default function WhyAfrica() {
-  const services = [
-    "Estimators ",
-    "Administrative Assistants ",
-    "Virtual Assistants ",
-    "Telemarketing Assistant ",
-    "Digital Marketers",
-    "Account Receivables ",
-    "Designers / Software Developers ",
-    "Quick book Specialists ",
-    "Compliance Specialists",
-  ];
+  // const services = [
+  //   "Estimators ",
+  //   "Administrative Assistants ",
+  //   "Virtual Assistants ",
+  //   "Telemarketing Assistant ",
+  //   "Digital Marketers",
+  //   "Account Receivables ",
+  //   "Designers / Software Developers ",
+  //   "Quick book Specialists ",
+  //   "Compliance Specialists",
+  // ];
 
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
@@ -101,8 +101,8 @@ export default function WhyAfrica() {
         <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
           {/* Left Column */}
           <div className="lg:w-[50%] flex flex-col space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              Why African <span className="text-[#FFB300]">Talents</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-normal">
+              Why African <span className="text-[#FFB300]">Talent</span>
             </h1>
 
             <p className="text-white text-md md:text-lg font-light leading-relaxed max-w-xl">
@@ -149,7 +149,7 @@ export default function WhyAfrica() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Left Column - Contact Info */}
-            <div className="lg:w-1/2 bg-black rounded-3xl p-12 text-white">
+            <div className="lg:w-1/2 bg-black rounded-3xl p-12 text-white lg:self-start">
               <p className="text-[#F99621] mb-2">Get in Touch</p>
               <h2 className="text-3xl font-bold mb-12">We will like to hear from you</h2>
 
@@ -216,9 +216,24 @@ export default function WhyAfrica() {
               </div>
             </div>
 
-            {/* Right Column - Form */}
+            {/* Right Column - HubSpot Form */}
             <div className="lg:w-1/2">
-              <ContactForm services={services} />
+              <h2 className="text-4xl font-bold text-gray-800 mb-2 text-center">
+                {"Let's help you find talents."}
+              </h2>
+              <p className="text-gray-600 mb-8 text-center">
+                Kindly complete the form below, and we will respond as soon as possible
+              </p>
+              <Script
+                src="https://js-eu1.hsforms.net/forms/embed/148232192.js"
+                strategy="afterInteractive"
+              />
+              <div
+                className="hs-form-frame"
+                data-region="eu1"
+                data-form-id="b4753a7a-7d91-4f61-8ab9-72034c619816"
+                data-portal-id="148232192"
+              />
             </div>
           </div>
         </div>

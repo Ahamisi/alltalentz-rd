@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import Link from "next/link";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -139,13 +140,13 @@ const MobileMenu = ({ isOpen, onClose, children }: MobileMenuProps) => {
 
         {/* Footer CTA */}
         <div className="px-5 py-4 border-t border-gray-100 shrink-0">
-          <a
+          <Link
             href="/professional-development-programme"
             onClick={onClose}
             className="block w-full text-center py-3 px-4 bg-[#f99622] text-white font-semibold rounded-lg hover:bg-[#e8870f] transition-colors text-base"
           >
             Join Talent Pool
-          </a>
+          </Link>
         </div>
       </div>
     </>

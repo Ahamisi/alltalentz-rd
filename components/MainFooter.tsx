@@ -11,13 +11,26 @@ interface MainFooterProps {
   hideSub?: boolean;
   brochure?: string | false;
   meetWithUs?: string | false;
+  subHeading?: string;
+  subSubheading?: string;
 }
 
-const MainFooter = ({ hideSub = false, brochure = false, meetWithUs = false }: MainFooterProps) => {
+const MainFooter = ({
+  hideSub = false,
+  brochure = false,
+  meetWithUs = false,
+  subHeading,
+  subSubheading,
+}: MainFooterProps) => {
   return (
     <>
       {!hideSub && (
-        <SubFooter brochure={brochure || undefined} meetWithUs={meetWithUs || undefined} />
+        <SubFooter
+          brochure={brochure || undefined}
+          meetWithUs={meetWithUs || undefined}
+          heading={subHeading}
+          subheading={subSubheading}
+        />
       )}
 
       <motion.div

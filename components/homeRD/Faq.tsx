@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FaqItem = ({
@@ -85,9 +86,9 @@ const Faq = ({
             <h2 className="md:text-[40px] text-[30px] font-medium italic mb-6 text-black">
               {title}
             </h2>
-            <a href="/faq" className="text-[#E5B47B] hover:underline">
+            <Link href="/faq" className="text-[#E5B47B] hover:underline">
               {description}
-            </a>
+            </Link>
           </div>
 
           {/* Right side - FAQ items */}

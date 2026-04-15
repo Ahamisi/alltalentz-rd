@@ -27,12 +27,11 @@ export default function WhyAfrica() {
           {/* Left Column */}
           <div className="lg:w-[40%] flex flex-col">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              Say <span className="text-[#FFB300]">Hello</span>
+              Let&apos;s <span className="text-[#FFB300]">Talk</span>
             </h1>
 
             <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-              Feel free to send us a message, call us or visit our office. We’d love to hear from
-              you.
+              Whether you’re ready to hire or just exploring your options, our team is available to answer your questions and walk you through the process.
             </p>
             <br />
           </div>

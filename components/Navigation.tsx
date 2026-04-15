@@ -1,12 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-// Navbar links must force a full page load so Next.js does NOT intercept the click.
-// Next.js App Router intercepts same-origin <a> clicks for client-side nav → RSC fetch storm on Netlify.
-// Hero "Find Talent" works because it's a plain <a> that sometimes isn't in the intercepted tree.
-// We use preventDefault + window.location.href so the router never sees the click → one request.
 interface NavigationProps {
   addBootcamp?: boolean;
   theme?: string;
@@ -18,62 +15,51 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
   const [showTalentDropdown, setShowTalentDropdown] = useState(false);
-  const [aboutTimeout, setAboutTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
-  const [serviceTimeout, setServiceTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
-  const [talentTimeout, setTalentTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
-
-  // Force full page load for same-origin links so Next.js router never intercepts (no RSC storm).
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const href = e.currentTarget.getAttribute("href");
-    if (!href || href.startsWith("http") || e.ctrlKey || e.metaKey || e.button === 1) return;
-    e.preventDefault();
-    window.location.href = href;
-  };
+  const aboutTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const serviceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const talentTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Close dropdowns when pathname changes (navigation occurred)
   useEffect(() => {
     setShowAboutDropdown(false);
     setShowServiceDropdown(false);
     setShowTalentDropdown(false);
-    if (aboutTimeout) clearTimeout(aboutTimeout);
-    if (serviceTimeout) clearTimeout(serviceTimeout);
-    if (talentTimeout) clearTimeout(talentTimeout);
+    if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
+    if (serviceTimeoutRef.current) clearTimeout(serviceTimeoutRef.current);
+    if (talentTimeoutRef.current) clearTimeout(talentTimeoutRef.current);
   }, [pathname]);
 
   const handleAboutMouseEnter = () => {
-    if (aboutTimeout) clearTimeout(aboutTimeout);
+    if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
     setShowAboutDropdown(true);
   };
 
   const handleAboutMouseLeave = () => {
-    const timeout = setTimeout(() => {
+    aboutTimeoutRef.current = setTimeout(() => {
       setShowAboutDropdown(false);
     }, 150);
-    setAboutTimeout(timeout);
   };
 
   const handleServiceMouseEnter = () => {
-    if (serviceTimeout) clearTimeout(serviceTimeout);
+    if (serviceTimeoutRef.current) clearTimeout(serviceTimeoutRef.current);
     setShowServiceDropdown(true);
   };
 
   const handleServiceMouseLeave = () => {
-    const timeout = setTimeout(() => {
+    serviceTimeoutRef.current = setTimeout(() => {
       setShowServiceDropdown(false);
     }, 150);
-    setServiceTimeout(timeout);
   };
 
   const handleTalentMouseEnter = () => {
-    if (talentTimeout) clearTimeout(talentTimeout);
+    if (talentTimeoutRef.current) clearTimeout(talentTimeoutRef.current);
     setShowTalentDropdown(true);
   };
 
   const handleTalentMouseLeave = () => {
-    const timeout = setTimeout(() => {
+    talentTimeoutRef.current = setTimeout(() => {
       setShowTalentDropdown(false);
     }, 150);
-    setTalentTimeout(timeout);
   };
 
   const aboutPaths = [
@@ -142,7 +128,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
             className={mobileSectionBtn(isAboutActive, showAboutDropdown)}
             onClick={() => setShowAboutDropdown((p) => !p)}
           >
-            About
+            Company
             <svg
               className={`w-4 h-4 transition-transform duration-200 ${showAboutDropdown ? "rotate-180" : ""}`}
               fill="none"
@@ -159,33 +145,30 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           </button>
           {showAboutDropdown && (
             <div className="pb-1">
-              <a href="/about-us" className={mobileSubLink("/about-us")} onClick={handleNavClick}>
+              <Link href="/about-us" className={mobileSubLink("/about-us")}>
                 About Us
-              </a>
-              <a
-                href="/success-stories"
-                className={mobileSubLink("/success-stories")}
-                onClick={handleNavClick}
-              >
-                Success Stories
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/why-african-talents"
                 className={mobileSubLink("/why-african-talents")}
-                onClick={handleNavClick}
               >
-                Why Africa Talents
-              </a>
-              <a
+                Why African Talent
+              </Link>
+              <Link
+                href="/success-stories"
+                className={mobileSubLink("/success-stories")}
+              >
+                Success Stories
+              </Link>
+              <Link
                 href="/contact-us"
                 className={mobileSubLink("/contact-us")}
-                onClick={handleNavClick}
               >
-                Contact
-              </a>
-              <a href="/faq" className={mobileSubLink("/faq")} onClick={handleNavClick}>
+                Contact Us
+              </Link>
+              <Link href="/faq" className={mobileSubLink("/faq")}>
                 FAQs
-              </a>
+              </Link>
             </div>
           )}
         </div>
@@ -213,61 +196,55 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           </button>
           {showServiceDropdown && (
             <div className="pb-1">
-              <a
+              <Link
                 href="/hiring-services"
                 className={mobileSubLink("/hiring-services")}
-                onClick={handleNavClick}
               >
                 Hiring Services
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/hire-tech-talents"
                 className={mobileSubLink("/hire-tech-talents")}
-                onClick={handleNavClick}
               >
                 Hire Tech Talents
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/hire-healthcare-talents"
                 className={mobileSubLink("/hire-healthcare-talents")}
-                onClick={handleNavClick}
               >
                 Hire Healthcare Talents
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/hire-finance-talents"
                 className={mobileSubLink("/hire-finance-talents")}
-                onClick={handleNavClick}
               >
                 Hire Finance Talents
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/hire-remediation-talents"
                 className={mobileSubLink("/hire-remediation-talents")}
-                onClick={handleNavClick}
               >
                 Hire Remediation Talents
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/hire-legal-talents"
                 className={mobileSubLink("/hire-legal-talents")}
-                onClick={handleNavClick}
               >
                 Hire Legal Talents
-              </a>
+              </Link>
             </div>
           )}
         </div>
 
         <div className="border-b border-gray-100">
-          <a href="/outsource-with-agency" className={mobileLink} onClick={handleNavClick}>
+          <Link href="/outsource-with-agency" className={mobileLink}>
             Agency
-          </a>
+          </Link>
         </div>
         <div className="border-b border-gray-100">
-          <a href="/pricing-model" className={mobileLink} onClick={handleNavClick}>
+          <Link href="/pricing-model" className={mobileLink}>
             Pricing Model
-          </a>
+          </Link>
         </div>
         <div className="border-b border-gray-100">
           <a href="https://alltalentzacademy.com" className={mobileLink} rel="noopener noreferrer">
@@ -308,20 +285,18 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
             </button>
             {showTalentDropdown && (
               <div className="pb-1">
-                <a
+                <Link
                   href="/professional-development-programme"
                   className={mobileSubLink("/contact-us")}
-                  onClick={handleNavClick}
                 >
                   Join our PDP
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/our-watchlist"
                   className={mobileSubLink("/our-watchlist")}
-                  onClick={handleNavClick}
                 >
                   Join Watchlist
-                </a>
+                </Link>
               </div>
             )}
           </div>
@@ -343,7 +318,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           <button
             className={`flex items-center gap-1 ${isAboutActive ? "text-secondary" : getLinkClassName("/about-us")}`}
           >
-            About
+            Company
             <svg
               className={`w-4 h-4 mt-1 transition-transform ${showAboutDropdown ? "rotate-180" : ""}`}
               fill="none"
@@ -362,41 +337,36 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           {showAboutDropdown && (
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
               <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
-                <a
+                <Link
                   href="/about-us"
                   className={getDropdownItemClassName("/about-us")}
-                  onClick={handleNavClick}
                 >
                   About Us
-                </a>
-                <a
-                  href="/success-stories"
-                  className={getDropdownItemClassName("/success-stories")}
-                  onClick={handleNavClick}
-                >
-                  Success Stories
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/why-african-talents"
                   className={getDropdownItemClassName("/why-african-talents")}
-                  onClick={handleNavClick}
                 >
-                  Why Africa Talents
-                </a>
-                <a
+                  Why African Talent
+                </Link>
+                <Link
+                  href="/success-stories"
+                  className={getDropdownItemClassName("/success-stories")}
+                >
+                  Success Stories
+                </Link>
+                <Link
                   href="/contact-us"
                   className={getDropdownItemClassName("/contact-us")}
-                  onClick={handleNavClick}
                 >
-                  Contact
-                </a>
-                <a
+                  Contact Us
+                </Link>
+                <Link
                   href="/faq"
                   className={getDropdownItemClassName("/faq")}
-                  onClick={handleNavClick}
                 >
                   FAQs
-                </a>
+                </Link>
               </div>
             </div>
           )}
@@ -432,55 +402,48 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           {showServiceDropdown && (
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
               <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
-                {/* <a
+                {/* <Link
                   href="/pricing-model"
                   className={getDropdownItemClassName("/pricing-model")}
-                  onClick={handleNavClick}
                 >
                   Our Solutions
-                </a> */}
-                <a
+                </Link> */}
+                <Link
                   href="/hiring-services"
                   className={getDropdownItemClassName("/hiring-services")}
-                  onClick={handleNavClick}
                 >
                   Hiring services
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/hire-tech-talents"
                   className={getDropdownItemClassName("/hire-tech-talents")}
-                  onClick={handleNavClick}
                 >
                   Hire Tech Talents
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/hire-healthcare-talents"
                   className={getDropdownItemClassName("/hire-healthcare-talents")}
-                  onClick={handleNavClick}
                 >
                   Hire Healthcare Talents
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/hire-finance-talents"
                   className={getDropdownItemClassName("/hire-finance-talents")}
-                  onClick={handleNavClick}
                 >
                   Hire Finance Talents
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/hire-remediation-talents"
                   className={getDropdownItemClassName("/hire-remediation-talents")}
-                  onClick={handleNavClick}
                 >
                   Hire Remediation Talents
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/hire-legal-talents"
                   className={getDropdownItemClassName("/hire-legal-talents")}
-                  onClick={handleNavClick}
                 >
                   Hire Legal Talents
-                </a>
+                </Link>
               </div>
             </div>
           )}
@@ -488,15 +451,15 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
       </li>
 
       <li className={getLinkClassName("/outsource-with-agency")}>
-        <a href="/outsource-with-agency" onClick={handleNavClick}>
+        <Link href="/outsource-with-agency">
           Agency
-        </a>
+        </Link>
       </li>
 
       <li className={getLinkClassName("/pricing-model")}>
-        <a href="/pricing-model" onClick={handleNavClick}>
+        <Link href="/pricing-model">
           Pricing Model
-        </a>
+        </Link>
       </li>
 
       <li className={getLinkClassName("https://alltalentzacademy.com")}>
@@ -542,20 +505,18 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
                 {showTalentDropdown && (
                   <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
                     <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
-                      <a
+                      <Link
                         href="/professional-development-programme"
                         className={getDropdownItemClassName("/professional-development-programme")}
-                        onClick={handleNavClick}
                       >
                         Join our PDP
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href="/our-watchlist"
                         className={getDropdownItemClassName("/our-watchlist")}
-                        onClick={handleNavClick}
                       >
                         Join Watchlist
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 )}
