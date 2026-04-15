@@ -1,6 +1,5 @@
 "use client";
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navigation from "./Navigation";
 import { useRouter } from "next/navigation";
 import Btn from "@/components/Btn";
@@ -14,19 +13,10 @@ const Header = ({ active = "home" }: HeaderHomeProps) => {
   const route = useRouter();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prevState) => !prevState);
   };
-
-  useEffect(() => {
-    const animation = setInterval(() => {
-      setScrollPosition((prev) => (prev <= -100 ? 100 : prev - 0.2));
-    }, 50);
-
-    return () => clearInterval(animation);
-  }, []);
 
   return (
     <>
