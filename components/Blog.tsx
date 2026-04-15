@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Parser from "rss-parser";
 import cheerio from "cheerio";
 
@@ -65,9 +66,9 @@ const Blog = () => {
                 <h3 className="text-lg font-semibold mb-2 text-secondary">{post.title}</h3>
                 <p className="text-gray-600 mb-4">{post.contentSnippet}</p>
                 <div className="text-right">
-                  <a href={post.link} className="text-secondary font-bold hover:">
+                  <Link href={post.link} className="text-secondary font-bold hover:">
                     Read More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

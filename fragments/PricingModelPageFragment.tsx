@@ -103,12 +103,12 @@ export default function About() {
               <span className="text-[#FFB300]"> World Class Talents</span>
             </h1>
 
-            <a
+            <Link
               href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300 w-fit"
             >
               Find Talent
-            </a>
+            </Link>
           </div>
 
           {/* Right Column - Map */}
