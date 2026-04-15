@@ -12,15 +12,15 @@ export default function Services() {
           {/* Left Column */}
           <div className="lg:w-[55%] flex flex-col space-y-8 py-20">
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">
-              Your Strategic Partner for{" "}
-              <span className="text-[#FFB300]">Industry-Specific Talents</span>
+              Outsourcing & Hiring Solutions{" "}
+              <span className="text-[#FFB300]">Built for Your Industry</span>
             </h1>
 
             <Link
               href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300 w-fit"
             >
-              Explore Talent
+              Request Talent
             </Link>
           </div>
 
