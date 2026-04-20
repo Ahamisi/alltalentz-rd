@@ -11,6 +11,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@intercom/messenger-js-sdk": "^0.0.19",
     "@react-email/components": "^0.0.7",
     "aos": "^2.3.4",
     "autoprefixer": "10.4.14",
