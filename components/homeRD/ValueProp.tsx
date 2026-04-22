@@ -21,7 +21,7 @@ const ValueProp = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     },
   };
@@ -33,7 +33,7 @@ const ValueProp = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     },
   };
