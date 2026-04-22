@@ -22,7 +22,7 @@ const SubFooter = ({
       className="bg-[#131313] py-[100px]"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      transition={{ duration: 0.5, ease: "easeInOut" as const }}
       viewport={{ once: true }}
     >
       <div className="max-w-7xl mx-auto px-4">

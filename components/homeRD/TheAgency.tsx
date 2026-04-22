@@ -35,7 +35,7 @@ const Section = ({
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8, ease: "easeInOut" },
+      transition: { duration: 0.8, ease: "easeInOut" as const },
     },
   };
 

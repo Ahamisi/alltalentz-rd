@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ["@react-email/components", "@react-email/render"],
   async redirects() {
     return [
+      { source: "/news", destination: "/blog", permanent: true },
+      { source: "/news/:path*", destination: "/blog/:path*", permanent: true },
       { source: "/about", destination: "/about-us", permanent: true },
       { source: "/why-africa", destination: "/why-african-talents", permanent: true },
       { source: "/services", destination: "/hiring-services", permanent: true },
@@ -29,7 +32,6 @@ const nextConfig = {
         hostname: "**",
       },
     ],
-    domains: ["localhost"],
   },
 };
 

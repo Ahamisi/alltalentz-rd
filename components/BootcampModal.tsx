@@ -23,7 +23,7 @@ export default function BootcampModal() {
     animate(
       progressScope.current,
       { scaleX: 0 },
-      { duration: AUTO_CLOSE_MS / 1000, ease: "linear" }
+      { duration: AUTO_CLOSE_MS / 1000, ease: "linear" as const }
     );
   }, [isOpen, animate, progressScope]);
 

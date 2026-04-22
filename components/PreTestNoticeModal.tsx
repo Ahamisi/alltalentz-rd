@@ -90,7 +90,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 40, opacity: 0 }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
+        transition={{ duration: 0.25, ease: "easeOut" as const }}
         className="relative w-full md:max-w-lg overflow-hidden rounded-t-2xl md:rounded-none shadow-2xl"
         style={{ overscrollBehavior: "contain" }}
         onClick={(e) => e.stopPropagation()}
@@ -162,7 +162,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.22, ease: "easeInOut" }}
+                transition={{ duration: 0.22, ease: "easeInOut" as const }}
                 className="px-6 pt-5 pb-6 space-y-4"
               >
                 <ul className="space-y-4">
@@ -208,7 +208,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.22, ease: "easeInOut" }}
+                transition={{ duration: 0.22, ease: "easeInOut" as const }}
                 className="px-6 pt-5 pb-6 space-y-4"
               >
                 {/* Blue info banner */}
