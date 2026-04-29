@@ -11,14 +11,14 @@ export default function FinanceTalentsPage() {
           {/* Left Column */}
           <div className="lg:w-[60%] flex flex-col space-y-8">
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">
-              Secure, Scale, and Succeed with Financial Operations Talent
+              Outsource Finance & Accounting Talent — AR, Payroll & Beyond
             </h1>
 
             <Link
               href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300 w-fit"
             >
-              Hire Talent
+              Hire Finance Talent
             </Link>
           </div>
 

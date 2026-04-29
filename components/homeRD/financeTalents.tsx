@@ -9,9 +9,9 @@ const FinanceTalents = () => {
   const Talents = [
     {
       id: 1,
-      title: "Account Receivable Specialists",
+      title: "Accounts Receivable Specialists",
       description:
-        "Improve cash flow with expert invoicing, payment tracking, and collections management.",
+        "Our AR specialists manage your invoicing, payment tracking, and collections with the precision that keeps your cash flow consistent and your client relationships intact.",
       image: "/redesign-25/finance-talents/account-receivable-specialists.png",
       bgColor: "bg-[#F1E9FE]",
     },
@@ -19,15 +19,15 @@ const FinanceTalents = () => {
       id: 2,
       title: "Data Annotators & AI/ML Specialists",
       description:
-        "Power fraud detection algorithms and financial models with clean, structured data and analytical insights.",
+        "Our data annotators and AI/ML specialists structure and label financial datasets with the accuracy your risk and compliance infrastructure depends on.",
       image: "/redesign-25/finance-talents/finance-data-annotator.png",
       bgColor: "bg-[#FFF4C8]",
     },
     {
       id: 3,
-      title: "Virtual Assistants & Telemarketing Assistants",
+      title: "Virtual Assistants & Client Outreach Specialists",
       description:
-        "Handle client correspondence, lead generation, KYC outreach, and executive support.Manage financial scheduling, records coordination, and provider communication with discretion and efficiency.",
+        "From KYC outreach and lead generation to executive scheduling and client correspondence, our finance VAs handle the relationship and administrative layer of your operations — professionally, confidentially, and without the overhead of a full-time hire.",
       image: "/redesign-25/finance-talents/virtual-finance-assist.png",
       bgColor: "bg-[#CFF8D6]",
     },
@@ -35,7 +35,7 @@ const FinanceTalents = () => {
       id: 4,
       title: "Call Center Support",
       description:
-        "Manage high-volume client inquiries, loan servicing, and customer support with clarity and compliance.",
+        "Our finance call center agents handle client inquiries, loan servicing queries, and customer support with the clarity, patience, and regulatory awareness financial services clients expect.",
       image: "/redesign-25/finance-talents/finance-call-center-support.png",
       bgColor: "bg-[#DEFFFD]",
     },
@@ -43,7 +43,7 @@ const FinanceTalents = () => {
       id: 5,
       title: "Software Developers",
       description:
-        "Develop and maintain secure trading platforms, banking apps, and internal financial analysis tools.",
+        "Our developers design and maintain trading platforms, banking applications, and internal financial tools with security and compliance built in from the start.",
       image: "/redesign-25/finance-talents/finance-developers.png",
       bgColor: "bg-[#FED4FF]",
     },
@@ -72,7 +72,7 @@ const FinanceTalents = () => {
         scale: 1,
         transition: {
           duration: 0.5,
-          ease: "easeInOut",
+          ease: "easeInOut" as const,
         },
       },
     };
@@ -101,22 +101,19 @@ const FinanceTalents = () => {
       <section className="py-24  bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            Precision, trust, and client relationship management are the pillars of finance. All
-            Talentz supplies the certified specialists and support staff to enhance your back-office
-            accuracy, strengthen client communication, and protect sensitive data, allowing you to
-            focus on strategy and growth.
+            Back-office errors don't stay in the back office. They show up in your cash flow, your client relationships, and your audit trail. All Talentz provides trained, vetted finance professionals who handle your receivables, payroll, data management, and client outreach with the accuracy and discretion of your operations demand.
           </p>
           <Link
             href="/request-talents"
             className="bg-[#F99621] text-black text-center font-semibold px-16 py-6 hover:bg-[#e88710] transition duration-300 w-fit"
           >
-            Explore Talent
+            Explore Our Finance Roles
           </Link>
         </div>
 
         <div className="flex flex-col space-y-8 items-center text-black mt-24">
           <h2 className="text-4xl md:text-5xl font-semibold max-w-5xl text-center w-full mb-12">
-            Our Solutions for Finance
+            The Finance Roles We Place
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 md:gap-y-20 mt-12 max-w-7xl mx-auto w-full px-4">
@@ -134,19 +131,25 @@ const FinanceTalents = () => {
                   height={300}
                   className="w-full mt-4"
                 />
+                <Link
+                  href="/request-talent"
+                  className="mt-4 w-full text-center bg-[#F99621] text-black font-semibold px-6 py-3 hover:bg-[#e88710] transition duration-300 text-sm"
+                >
+                  Hire Talent
+                </Link>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="pt-24 flex justify-center">
+        {/* <div className="pt-24 flex justify-center">
           <Link
             href="/hiring-services"
             className="bg-[#F99621] text-black font-semibold text-center px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions
           </Link>
-        </div>
+        </div> */}
       </section>
 
       <section className="bg-white grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-4 md:px-8 lg:px-16 items-center my-16 md:my-24 lg:my-32">
@@ -166,17 +169,16 @@ const FinanceTalents = () => {
 
         <div className="flex flex-col justify-center items-center md:items-start px-6 md:w-[95%] md:col-span-2 false">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-black text-center md:text-left">
-            Why Financial Institutions Partner With Us
+            Why Finance Teams Trust Us with Their Operations
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 md:mb-8 text-center md:text-left max-w-xl">
-            We vet for an understanding of financial confidentiality and train for accuracy. Our
-            professionals are equipped to handle sensitive data and interact with clients in a
-            manner that upholds your firm's reputation.
+            In financial services, reputation is infrastructure. Every professional we place is vetted for their understanding of financial confidentiality, data sensitivity, and the client communication standards your firm is holding to.
+            We don't just screen for skills; we screen for people who understand what's at stake if they get it wrong. 
           </p>
 
           <Link
-            href="/contact-us"
+            href="/request-talent"
             className="bg-[#F99621] text-white text-center text-sm md:text-base px-8 py-3 hover:bg-[#121212] transition duration-300 rounded-md"
           >
             Hire Finance Talent
