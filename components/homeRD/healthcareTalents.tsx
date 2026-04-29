@@ -11,7 +11,7 @@ const HealthcareTalents = () => {
       id: 1,
       title: "Medical Billing Specialists",
       description:
-        "Ensure accurate coding, timely claims submission, and optimized revenue cycle management.",
+        "Our medical billing specialists handle accurate coding, timely submissions, and revenue cycle management, so your cash flow stays healthy, and your compliance stays intact.",
       image: "/redesign-25/healthcare-talents/medical-billing-specialists.png",
       bgColor: "bg-[#70440F]",
       textColor: "text-white",
@@ -20,15 +20,15 @@ const HealthcareTalents = () => {
       id: 2,
       title: "Data Annotators",
       description:
-        "Support medical research and AI diagnostics by meticulously labeling medical imaging, genomic data, and clinical notes.",
+        "Our medical data annotators label imaging, genomic data, and clinical notes with the precision that healthcare AI and research workflows demand.",
       image: "/redesign-25/healthcare-talents/data-annotator.png",
       bgColor: "bg-[#FFF4C8]",
     },
     {
       id: 3,
-      title: "Virtual Assistants & Admin Assistants",
+      title: "Virtual Assistants & Admin Support",
       description:
-        "Manage patient scheduling, records coordination, and provider communication with discretion and efficiency.",
+        "From patient scheduling and records coordination to provider communication, our healthcare virtual assistants handle the administrative layer of your practice with the discretion and accuracy this environment requires.",
       image: "/redesign-25/healthcare-talents/virtual-healthcare-assit.png",
       bgColor: "bg-[#CFF8D6]",
     },
@@ -36,7 +36,7 @@ const HealthcareTalents = () => {
       id: 4,
       title: "Call Center Support",
       description:
-        "Provide patient outreach, appointment reminders, and triage support with empathy and professionalism.",
+        "Every patient interaction shapes trust. Our trained healthcare call center agents handle appointment reminders, patient outreach, and front-line triage support — with the empathy and professionalism your patients deserve.",
       image: "/redesign-25/healthcare-talents/call-center-support.png",
       bgColor: "bg-[#E1DEFF]",
     },
@@ -44,7 +44,7 @@ const HealthcareTalents = () => {
       id: 5,
       title: "Software Developers",
       description:
-        "Build and maintain secure, HIPAA-compliant platforms, patient portals, and internal systems.",
+        "Our healthcare software developers build and maintain HIPAA-aware patient portals, internal systems, and clinical platforms built for the regulatory demands of the sector.",
       image: "/redesign-25/healthcare-talents/healthcare-developers.png",
       bgColor: "bg-[#FFD8D4]",
     },
@@ -73,7 +73,7 @@ const HealthcareTalents = () => {
         scale: 1,
         transition: {
           duration: 0.5,
-          ease: "easeInOut",
+          ease: "easeInOut" as const,
         },
       },
     };
@@ -102,22 +102,19 @@ const HealthcareTalents = () => {
       <section className="py-24 px-4 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            The healthcare and life sciences sector demands unparalleled accuracy, strict
-            compliance, and specialized knowledge. All Talentz delivers trained professionals who
-            understand these stakes, helping you streamline administrative functions, support
-            research, and maintain patient focus without compromising on quality or regulations.
+            Administrative overload is one of the biggest threats to quality patient care. All Talentz provides trained, compliance-aware healthcare professionals from medical billing specialists to virtual admin support so your clinical team can focus on patients, not paperwork.
           </p>
           <Link
             href="/request-talent"
             className="bg-[#F99621] text-black font-semibold px-16 py-6 hover:bg-[#e88710] transition duration-300 w-fit"
           >
-            Explore Talent
+            Explore Our Healthcare Roles
           </Link>
         </div>
 
         <div className="flex flex-col space-y-8 items-center text-black mt-24">
           <h2 className="text-4xl md:text-5xl font-semibold  text-center w-full mb-12">
-            Our Solutions for Healthcare & Life Sciences
+            The Healthcare Roles We Place
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 md:gap-y-20 mt-12 max-w-7xl mx-auto w-full lg:px-4">
@@ -135,19 +132,25 @@ const HealthcareTalents = () => {
                   height={300}
                   className="w-full mt-4"
                 />
+                <Link
+                  href="/request-talent"
+                  className="mt-4 w-full text-center bg-[#F99621] text-black font-semibold px-6 py-3 hover:bg-[#e88710] transition duration-300 text-sm"
+                >
+                  Hire Talent
+                </Link>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="pt-24 flex justify-center">
+        {/* <div className="pt-24 flex justify-center">
           <Link
             href="/hiring-services"
             className="bg-[#F99621] text-black font-semibold text-center px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions
           </Link>
-        </div>
+        </div> */}
       </section>
 
       <section className="bg-white grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 px-4 md:px-8 lg:px-16 items-center my-16 md:my-24 lg:my-32">
@@ -167,20 +170,18 @@ const HealthcareTalents = () => {
 
         <div className="flex flex-col justify-center items-center md:items-start px-4 md:px-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-black text-center md:text-left">
-            Why Healthcare Providers Trust Us
+            We Understand What's at Stake in Healthcare 
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 md:mb-8 text-center md:text-left max-w-xl">
-            We prioritize training in compliance basics (like HIPAA awareness), terminological
-            accuracy, and the sensitive nature of healthcare data. Our talent acts as a seamless,
-            secure extension of your team.
+            Every professional we place is trained in compliance awareness, medical terminology, and the confidentiality standards this sector demands. They understand that the data they handle belongs to real patients — and they treat it accordingly. Our talent doesn't just fill a seat. They integrate into your team as a secure, reliable extension of your operations. 
           </p>
 
           <Link
-            href="/contact-us"
+            href="/request-talent"
             className="bg-[#F99621] text-white text-center text-sm md:text-base px-8 py-3 hover:bg-[#121212] transition duration-300 rounded-md"
           >
-            Speak to a Healthcare Specialist
+            Hire Healthcare Talents
           </Link>
         </div>
       </section>
