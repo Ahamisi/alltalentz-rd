@@ -3,6 +3,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import SocialMedia from "@/components/SocialMedia";
+import IntercomProvider from "@/components/IntercomProvider";
 import {
   OrganizationSchema,
   WebsiteSchema,
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className={montserrat.className} id="body" style={{ overflowY: "hidden" }}>
         <SocialMedia />
+        <IntercomProvider />
 
         <main className="">
           {/* <Header/> */}
