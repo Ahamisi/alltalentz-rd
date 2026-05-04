@@ -90,6 +90,7 @@ const WHAT_HAPPENS_NEXT = [
 ];
 
 interface FormData {
+  [key: string]: unknown;
   firstName: string;
   lastName: string;
   company: string;
@@ -264,7 +265,7 @@ export default function RequestTalent() {
     additionalRequirements: "",
   });
 
-  const { clearPersisted, onEmailBlur } = useFormPersist("request-talent", formData, setFormData);
+  const { clearPersisted, onEmailBlur } = useFormPersist("request-talent", formData);
 
   // ── reCAPTCHA listeners ───────────────────────────────────────────────────
   useEffect(() => {

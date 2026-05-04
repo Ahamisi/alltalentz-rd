@@ -22,7 +22,7 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
     redirect: false,
   });
 
-  const { clearPersisted, onEmailBlur } = useFormPersist("contact-us", formData, setFormData);
+  const { clearPersisted, onEmailBlur } = useFormPersist("contact-us", formData);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
