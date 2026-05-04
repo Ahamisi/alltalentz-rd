@@ -249,9 +249,6 @@ export default function RequestTalent() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
-  // Controls the brief "Draft saved" opacity flash in the form footer
-  const [showDraftSaved, setShowDraftSaved] = useState(false);
-
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -267,19 +264,7 @@ export default function RequestTalent() {
     additionalRequirements: "",
   });
 
-  // ── Partial capture ───────────────────────────────────────────────────────
-  // Saves every keystroke to localStorage; fires a beacon to /api/capture-partial
-  // on page leave if the user hasn't submitted. Call clearPersisted() on success.
   const { clearPersisted, onEmailBlur } = useFormPersist("request-talent", formData, setFormData);
-
-  // ── "Draft saved" indicator ───────────────────────────────────────────────
-  // Only show after email is entered — that's when beacons become meaningful.
-  useEffect(() => {
-    if (!formData.email) return;
-    setShowDraftSaved(true);
-    const t = setTimeout(() => setShowDraftSaved(false), 1500);
-    return () => clearTimeout(t);
-  }, [formData]);
 
   // ── reCAPTCHA listeners ───────────────────────────────────────────────────
   useEffect(() => {
@@ -381,8 +366,6 @@ export default function RequestTalent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(buildPayload()),
       });
-      // Clear the localStorage draft so the beacon doesn't fire stale data
-      // if the user navigates away after a successful submission.
       clearPersisted();
       setIsSubmitted(true);
     } catch (error) {
@@ -672,15 +655,7 @@ export default function RequestTalent() {
                   By entering your details, you agree that we may save your progress and contact you about your enquiry.
                 </p>
 
-                {/* Footer row: "Draft saved" flash on the left, submit button on the right */}
-                <div className="flex items-center justify-between pt-2">
-                  <p
-                    className={`text-xs text-gray-400 transition-opacity duration-500 ${
-                      showDraftSaved ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    Draft saved
-                  </p>
+                <div className="flex items-center justify-end pt-2">
                   <button
                     type="submit"
                     disabled={isLoading}
