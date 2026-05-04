@@ -12,14 +12,14 @@ export default function TechTalentsPage() {
           {/* Left Column */}
           <div className="lg:w-[55%] flex flex-col space-y-8 py-20">
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">
-              Build the Future with Agile, Technical Talent
+              Hire Vetted Tech Talent — Developers, AI Engineers & More
             </h1>
 
             <Link
               href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300 w-fit"
             >
-              Hire Talent
+              Hire Tech Talent
             </Link>
           </div>
 

@@ -4,14 +4,14 @@ import { generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 export const metadata = {
   title: "About AllTalentz — Africa's Premier Remote Talent Partner",
   description:
-    "Learn how AllTalentz connects US businesses with Africa's top remote professionals. Our mission, values, and the team behind 100+ satisfied clients worldwide.",
+    "All Talentz connects U.S. and global businesses with pre-vetted remote professionals in IT, Healthcare, Finance, Restoration, and Legal — saving up to 70% on hiring costs. Learn how we work.",
   alternates: { canonical: "https://alltalentz.com/about" },
   openGraph: {
     type: "website",
     siteName: "AllTalentz",
     title: "About AllTalentz — Africa's Premier Remote Talent Partner",
     description:
-      "Learn how AllTalentz connects US businesses with Africa's top remote professionals. Our mission, values, and the team behind 100+ satisfied clients worldwide.",
+      "All Talentz connects U.S. and global businesses with pre-vetted remote professionals in IT, Healthcare, Finance, Restoration, and Legal — saving up to 70% on hiring costs. Learn how we work.",
     url: "https://alltalentz.com/about",
     images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
   },

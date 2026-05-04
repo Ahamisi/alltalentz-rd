@@ -9,9 +9,9 @@ const TechTalents = () => {
   const Talents = [
     {
       id: 1,
-      title: "Software Development",
+      title: "Software Developers",
       description:
-        "Build and maintain scalable applications with our full-stack, front-end, and back-end experts.",
+        "Whether you're building an MVP or maintaining a live product at scale, our full-stack, front-end, and back-end developers integrate into your existing workflows and contribute to your codebase from day one.",
       image: "/redesign-25/tech-talents/software-development.png",
       bgColor: "bg-[#FEF5E9]",
     },
@@ -19,7 +19,7 @@ const TechTalents = () => {
       id: 2,
       title: "AI & Machine Learning",
       description:
-        "Integrate machine learning capabilities, develop models, and drive datadriven decision-making.",
+        "From model development to algorithm refinement, our AI/ML engineers help you move from prototype to production faster — without the months-long search for niche talent.",
       image: "/redesign-25/tech-talents/ai-ml.png",
       bgColor: "bg-[#E7E7E7]",
     },
@@ -27,7 +27,7 @@ const TechTalents = () => {
       id: 3,
       title: "Data Annotation",
       description:
-        "Create high-quality, structured training data sets to power your AI and machine learning initiatives.",
+        "Clean, labeled, structured training data is the difference between a model that works and one that doesn't. Our data annotators deliver the accuracy your AI initiatives depend on.",
       image: "/redesign-25/tech-talents/data-analytics.png",
       bgColor: "bg-[#ECF8CF]",
     },
@@ -35,7 +35,7 @@ const TechTalents = () => {
       id: 4,
       title: "UI/UX Design",
       description:
-        "Design intuitive and engaging user experiences that drive product adoption and customer satisfaction.",
+        "A great product lives or dies by the experience. Our UI/UX designers bring both aesthetic precision and user research skills to help you build interfaces people actually want to use.",
       image: "/redesign-25/tech-talents/ui-ux-design.png",
       bgColor: "bg-[#DEFBFF]",
     },
@@ -43,7 +43,7 @@ const TechTalents = () => {
       id: 5,
       title: "Virtual Admin & Digital Marketing",
       description:
-        "Offload administrative and growth marketing tasks to focus your core team on product and strategy.",
+        "Our virtual admins and digital marketing specialists handle the operational and growth tasks, so your core team stays focused on building.",
       image: "/redesign-25/tech-talents/virtual-admin-digital-marketing.png",
       bgColor: "bg-[#E9D4FF]",
     },
@@ -72,7 +72,7 @@ const TechTalents = () => {
         scale: 1,
         transition: {
           duration: 0.5,
-          ease: "easeInOut",
+          ease: "easeInOut" as const,
         },
       },
     };
@@ -101,16 +101,13 @@ const TechTalents = () => {
       <section className="py-24 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            In the race to innovate, access to the right technical talent is your most critical
-            advantage. All Talentz provides the vetted engineers, data experts, and support
-            specialists you need to accelerate development, refine algorithms, and scale your
-            operations without the overhead of traditional hiring.
+            Your roadmap doesn't wait for a six-week hiring cycle. All Talentz gives you immediate access to pre-vetted software developers, AI/ML engineers, data specialists, and UX designers who are ready to plug into your stack and ship from day one without the overhead of traditional recruitment. 
           </p>
           <Link
             href="/request-talent"
             className="bg-[#F99621] text-black font-semibold px-16 py-6 hover:bg-[#e88710] transition duration-300 w-fit"
           >
-            Explore Talent
+            Explore Our Tech Tech Roles
           </Link>
         </div>
 
@@ -134,19 +131,25 @@ const TechTalents = () => {
                   height={300}
                   className="w-full mt-4"
                 />
+                <Link
+                  href="/request-talent"
+                  className="mt-4 w-full text-center bg-[#F99621] text-black font-semibold px-6 py-3 hover:bg-[#e88710] transition duration-300 text-sm"
+                >
+                  Hire Talent
+                </Link>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="pt-24 flex justify-center">
+        {/* <div className="pt-24 flex justify-center">
           <Link
             href="/hiring-services"
             className="bg-[#F99621] text-black font-semibold max-auto px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 inline-block"
           >
             Explore Our Industry Solutions
           </Link>
-        </div>
+        </div> */}
       </section>
 
       <section className="bg-white grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 px-4 md:px-8 lg:px-16 items-center my-16 md:my-24 lg:my-32">
@@ -166,17 +169,15 @@ const TechTalents = () => {
 
         <div className="flex flex-col justify-center items-center md:items-start px-4 md:px-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-black text-center md:text-left">
-            Why Tech Leaders Choose Us
+            Built for How Tech Teams Work
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 md:mb-8 text-center md:text-left max-w-xl">
-            We understand sprint cycles, agile methodologies, and the need for technically fluent
-            communication. Our talent is trained to integrate quickly and contribute to your
-            codebase, data pipelines, and product goals from day one.
+            Every tech professional we place is vetted for technical proficiency, communication clarity, and the ability to work within agile environments. They understand stand-ups, sprint reviews, and async collaboration because those aren't perks in tech; they're requirements.
           </p>
 
           <Link
-            href="/contact-us"
+            href="/request-talent"
             className="bg-[#F99621] text-white text-center text-sm md:text-base px-8 py-3 hover:bg-[#121212] transition duration-300"
           >
             Hire Tech Talents
