@@ -2,19 +2,12 @@ import { NextResponse } from "next/server";
 
 const HUBSPOT_BASE = "https://api.hubapi.com/crm/v3/objects/contacts";
 
-/**
- * Maps the incoming form payload to HubSpot contact properties.
- *
- * Handles both split fields (firstName/lastName) from RequestTalentPageFragment
- * and a combined "name" field from simpler forms like ContactForm.jsx.
- */
+// RequestTalentPageFragment sends firstName/lastName separately, ContactForm sends a single "name"
 function buildProperties(body) {
   const props = {};
 
-  // Email is required for upsert — always set it
   if (body.email) props.email = body.email.trim();
 
-  // Name: split fields take priority over a combined "name" string
   if (body.firstName) {
     props.firstname = body.firstName.trim();
   } else if (body.name) {
@@ -30,23 +23,16 @@ function buildProperties(body) {
   if (body.industry) props.industry = body.industry.trim();
   if (body.message)  props.message  = body.message.trim();
 
-  // Roles is an array in RequestTalentPageFragment — HubSpot contact properties
-  // only accept strings, so we join them. Adjust the property internal name below
-  // to match what you've created in your HubSpot portal (Settings → Properties).
+  // HubSpot only takes strings — make sure the property name matches what's in your portal
   if (Array.isArray(body.roles) && body.roles.length > 0) {
     props.roles__requested_ = body.roles.join("; ");
   }
 
-  // Always mark partial captures as OPEN so they're easy to filter in HubSpot
   props.hs_lead_status = "OPEN";
 
   return props;
 }
 
-/**
- * Searches HubSpot for an existing contact with the given email.
- * Returns the contact id string, or null if not found or on error.
- */
 async function findContactByEmail(email, apiKey) {
   try {
     const res = await fetch(`${HUBSPOT_BASE}/search`, {
@@ -96,7 +82,6 @@ export async function POST(req) {
     const properties = buildProperties(body);
     console.log("[capture-partial] HubSpot properties:", JSON.stringify(properties));
 
-    // ── Attempt 1: CREATE ──────────────────────────────────────────────────
     console.log("[capture-partial] Attempting CREATE...");
     const createRes = await fetch(HUBSPOT_BASE, {
       method: "POST",
@@ -120,7 +105,7 @@ export async function POST(req) {
       return NextResponse.json({ ok: true }, { status: 200 });
     }
 
-    // ── 409 Conflict: contact already exists → search then PATCH ──────────
+    // contact already exists, find it and patch instead
     console.log("[capture-partial] 409 — searching for existing contact...");
     const existingId = await findContactByEmail(body.email.trim(), apiKey);
     console.log("[capture-partial] Existing contact id:", existingId);

@@ -11,18 +11,8 @@ interface UseFormPersistReturn {
   onEmailBlur: () => void;
 }
 
-/**
- * useFormPersist
- *
- * Reusable hook that persists form state to localStorage as the user types
- * and captures partial submissions in three ways:
- *   1. Email blur  — fires as soon as the email field loses focus with a valid email
- *   2. Idle timer  — fires after 5 s of no input changes once a valid email exists
- *   3. beforeunload — safety-net for tab close / hard navigation
- *
- * Only one beacon is sent per session. Calling clearPersisted() (on successful
- * submit) marks the session as sent so beforeunload doesn't repeat it.
- */
+// Sends a beacon on email blur, after 5s of inactivity, or on tab close — whichever comes first.
+// sentRef makes sure we only fire once per session.
 export function useFormPersist<T extends FormData>(
   formKey: string,
   formData: T
@@ -33,12 +23,10 @@ export function useFormPersist<T extends FormData>(
   const sentRef = useRef(false);
   const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // ── 1. Keep ref current
   useEffect(() => {
     formDataRef.current = formData;
   }, [formData]);
 
-  // ── 2. Persist on every formData change
   useEffect(() => {
     try {
       localStorage.setItem(storageKey, JSON.stringify(formData));
@@ -47,7 +35,6 @@ export function useFormPersist<T extends FormData>(
     }
   }, [formData, storageKey]);
 
-  // ── Core: send beacon once
   const sendBeaconNow = useCallback(
     (data: T) => {
       if (sentRef.current) return;
@@ -67,7 +54,7 @@ export function useFormPersist<T extends FormData>(
     [storageKey]
   );
 
-  // ── 3. Idle timer: fire 5 s after the last change when email is valid
+  // reset the idle timer on every keystroke
   useEffect(() => {
     if (sentRef.current) return;
     if (!isValidEmail(formData.email)) return;
@@ -83,21 +70,18 @@ export function useFormPersist<T extends FormData>(
     };
   }, [formData, sendBeaconNow]);
 
-  // ── 4. beforeunload safety net
   useEffect(() => {
     const handleBeforeUnload = () => sendBeaconNow(formDataRef.current);
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [sendBeaconNow]);
 
-  // ── 5. onEmailBlur: immediate capture when email field loses focus
   const onEmailBlur = useCallback(() => {
     if (isValidEmail(formDataRef.current.email)) {
       sendBeaconNow(formDataRef.current);
     }
   }, [sendBeaconNow]);
 
-  // ── 6. clearPersisted — call on successful form submission
   const clearPersisted = useCallback(() => {
     sentRef.current = true;
     if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
