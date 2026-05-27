@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import { useRouter } from "next/navigation";
 import Btn from "@/components/Btn";
 import MobileMenu from "./MobileMenu";
+import LogoTagline from "./LogoTagline";
 
 interface HeaderHomeProps {
   active?: string;
@@ -27,7 +28,7 @@ const Header = ({ active = "home" }: HeaderHomeProps) => {
         >
           {/* Logo */}
           <div className="text-white text-2xl font-bold cursor-pointer items-center">
-            <div onClick={() => route.push("/")}>
+            <div onClick={() => route.push("/")} className="flex flex-col items-start">
               <svg
                 className="w-[120px] h-[30px] md:w-[150px] md:h-[40px]"
                 viewBox="0 0 150 40"
@@ -113,6 +114,7 @@ const Header = ({ active = "home" }: HeaderHomeProps) => {
                   </clipPath>
                 </defs>
               </svg>
+              <LogoTagline />
             </div>
           </div>
 

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Btn from "@/components/Btn";
 import MobileMenu from "./MobileMenu";
 import NavigationBootcamp from "./NavigationBootcamp";
+import LogoTagline from "./LogoTagline";
 
 interface HeaderProps {
   active?: string;
@@ -32,7 +33,7 @@ const Header = ({ active = "home", type = "", theme = "dark" }: HeaderProps) => 
       >
         {/* Logo */}
         <div className="text-white text-2xl font-bold cursor-pointer items-center">
-          <div onClick={() => route.push("/")}>
+          <div onClick={() => route.push("/")} className="flex flex-col items-start">
             {theme == "light" ? (
               <svg
                 width="149"
@@ -195,6 +196,7 @@ const Header = ({ active = "home", type = "", theme = "dark" }: HeaderProps) => 
                 </defs>
               </svg>
             )}
+            <LogoTagline theme={theme === "light" ? "light" : "dark"} />
           </div>
         </div>
 

@@ -4,6 +4,7 @@ import SubFooter from "./SubFooter";
 import Link from "next/link";
 import Btn from "./Btn";
 import Image from "next/image";
+import LogoTagline from "./LogoTagline";
 
 import { motion } from "framer-motion";
 
@@ -196,8 +197,9 @@ const MainFooter = ({
           {/* third Row */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex flex-col md:flex-row items-center gap-8 flex-1">
-              <div>
+              <div className="flex flex-col items-start">
                 <Image src="/all-talents-footer.svg" alt="Footer Logo" width={150} height={40} />
+                <LogoTagline />
               </div>
               <div className="text-white text-center md:text-left text-sm">
                 © {new Date().getFullYear()} All Talentz LLC. All rights reserved.
