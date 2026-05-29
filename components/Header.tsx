@@ -228,11 +228,21 @@ const Header = ({ active = "home", type = "", theme = "dark" }: HeaderProps) => 
           </button>
         </div>
 
+        {/* Join Talent Pool (commented out — replaced with Hire Talent)
         {type !== "bootcamp" && (
           <Btn
             text="Join Talent Pool"
             border={true}
             link="/professional-development-programme"
+            otherCSS="hidden lg:block"
+          />
+        )}
+        */}
+        {type !== "bootcamp" && (
+          <Btn
+            text="Hire Talents"
+            border={true}
+            link="/hiring-services"
             otherCSS="hidden lg:block"
           />
         )}
