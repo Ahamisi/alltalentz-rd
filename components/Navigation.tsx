@@ -262,6 +262,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           </a>
         </div>
 
+        {/* Join Talent Pool (commented out — replaced with Hire Talent)
         {addBootcamp && (
           <div className="border-b border-gray-100">
             <button
@@ -301,6 +302,15 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
             )}
           </div>
         )}
+        */}
+        <div className="border-b border-gray-100">
+          <Link
+            href="/hiring-services"
+            className={mobileSubLink("/hiring-services")}
+          >
+            Hire Talents
+          </Link>
+        </div>
       </>
     );
   }
@@ -476,6 +486,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
 
       {theme !== "light" && (
         <>
+          {/* Join Talent Pool (commented out — replaced with Hire Talent)
           {addBootcamp && (
             <li className="relative">
               <div
@@ -523,6 +534,15 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
               </div>
             </li>
           )}
+          */}
+          <li>
+            <Link
+              href="/hiring-services"
+              className={getLinkClassName("/hiring-services")}
+            >
+              Hire Talents
+            </Link>
+          </li>
         </>
       )}
     </>
