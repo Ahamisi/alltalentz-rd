@@ -16,6 +16,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://alltalentz.com"),
   title: "Outsource to Africa — Save 70% on Staffing | AllTalentz",
   description:
     "AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
@@ -35,6 +36,13 @@ export const metadata = {
         alt: "AllTalentz — Outsource to Africa",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Outsource to Africa — Save 70% on Staffing | AllTalentz",
+    description:
+      "AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
+    images: ["/twitter/twitter-card.png"],
   },
 };
 

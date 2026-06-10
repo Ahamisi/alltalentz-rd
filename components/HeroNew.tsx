@@ -85,14 +85,7 @@ const HeroNew = () => {
                   transition={{ delay: 0.6 }}
                   className="text-4xl md:text-[50px] md:font-[700] md:leading-[65px] font-bold"
                 >
-                  Scale Smarter. <span className="text-[#F99621]">Hire Better.</span>
-                  <br />
-                  Save up to 75%.
-                  {/* Your Strategic Partner for{" "}
-                  <span className="text-[#F99621]">
-                    <br />
-                    Industry-Specific Talent
-                  </span> */}
+                  Hire Pre-Vetted Remote Talent and <span className="text-[#F99621]">Save Up to 75% on Staffing Costs</span>
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
