@@ -130,7 +130,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   sheetsData.append("Timeline", timeline ?? "");
   sheetsData.append("AdditionalRequirements", additionalRequirements ?? "");
 
-  const emailHtml = renderContactEmail({
+  const emailHtml = await renderContactEmail({
     fullName,
     email,
     company,

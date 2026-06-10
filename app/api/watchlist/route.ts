@@ -42,7 +42,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     formData.append("Phone", phone);
     formData.append("Yoe", yoe);
 
-    const emailHtml = renderWaitlistEmail({ fullName, email, yoe, phone, career });
+    const emailHtml = await renderWaitlistEmail({ fullName, email, yoe, phone, career });
 
     async function authorize() {
       const jwtClient = new google.auth.JWT(
