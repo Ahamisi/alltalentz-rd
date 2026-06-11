@@ -11,13 +11,13 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@react-email/components": "^0.0.7",
+    "@react-email/components": "^1.0.0",
     "aos": "^2.3.4",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
     "eslint": "8.46.0",
-    "eslint-config-next": "13.4.12",
+    "eslint-config-next": "^14.2.0",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "formik": "^2.4.3",
@@ -25,16 +25,16 @@
     "fs": "^0.0.1-security",
     "googleapis": "^126.0.1",
     "lucide-react": "^1.7.0",
-    "next": "13.4.12",
+    "next": "^14.2.0",
     "next-connect": "^1.0.0-next.4",
     "nod": "^0.2.0",
     "nodemailer": "^6.9.4",
     "nodemailer-smtp-transport": "^2.7.4",
     "postcss": "8.4.27",
-    "react": "18.2.0",
+    "react": "^18.3.0",
     "react-countdown": "^2.3.5",
     "react-countdown-now": "^2.1.2",
-    "react-dom": "18.2.0",
+    "react-dom": "^18.3.0",
     "react-intersection-observer": "^9.8.1",
     "react-masonry-css": "^1.0.16",
     "react-modal": "^3.16.1",
@@ -56,6 +56,7 @@
     "@types/react-modal": "^3.16.3",
     "@types/react-slick": "^0.23.13",
     "encoding": "^0.1.13",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "@netlify/plugin-nextjs": "^5.0.0"
   }
 }

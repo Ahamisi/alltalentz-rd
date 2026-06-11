@@ -22,7 +22,7 @@ interface WaitlistEmailProps {
   career: string;
 }
 
-export function renderContactEmail(props: ContactEmailProps): string {
+export async function renderContactEmail(props: ContactEmailProps): Promise<string> {
   return render(
     <Email
       name={props.fullName}
@@ -38,7 +38,7 @@ export function renderContactEmail(props: ContactEmailProps): string {
   );
 }
 
-export function renderWaitlistEmail(props: WaitlistEmailProps): string {
+export async function renderWaitlistEmail(props: WaitlistEmailProps): Promise<string> {
   return render(
     <EmailWaitlist
       name={props.fullName}
