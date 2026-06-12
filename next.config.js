@@ -7,7 +7,7 @@ const cspHeader = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   "img-src 'self' data: blob: https:",
-  "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://region1.google-analytics.com https://snap.licdn.com https://www.linkedin.com https://px.ads.linkedin.com https://va.tawk.to https://embed.tawk.to wss://ws.tawk.to",
+  "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://region1.google-analytics.com https://snap.licdn.com https://www.linkedin.com https://px.ads.linkedin.com https://va.tawk.to https://embed.tawk.to wss://ws.tawk.to https://*.sanity.io wss://*.sanity.io",
   "frame-src 'self' https://embed.tawk.to",
   "media-src 'self'",
   "worker-src blob:",
@@ -67,7 +67,6 @@ const nextConfig = {
         hostname: "**",
       },
     ],
-    domains: ["localhost"],
   },
 };
 
