@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { transporter, smtpEmail } from "@/utils/nodemailer";
 import { renderContactEmail } from "@/utils/renderEmail";
 
+const HUBSPOT_BASE = "https://api.hubapi.com/crm/v3/objects/contacts";
+
 interface ContactBody {
   fullName: string;
   email: string;
@@ -13,6 +15,73 @@ interface ContactBody {
   timeline: string;
   additionalRequirements?: string;
   recaptchaToken: string;
+}
+
+async function findContactByEmail(email: string, apiKey: string): Promise<string | null> {
+  try {
+    const res = await fetch(`${HUBSPOT_BASE}/search`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+      body: JSON.stringify({
+        filterGroups: [{ filters: [{ propertyName: "email", operator: "EQ", value: email }] }],
+        properties: ["email"],
+        limit: 1,
+      }),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.results?.[0]?.id ?? null;
+  } catch {
+    return null;
+  }
+}
+
+async function upsertHubSpotContact(body: ContactBody): Promise<void> {
+  const apiKey = process.env.HUBSPOT_API_KEY;
+  if (!apiKey || !body.email?.trim()) return;
+
+  const parts = (body.fullName ?? "").trim().split(/\s+/);
+  const properties: Record<string, string> = {
+    email: body.email.trim(),
+    firstname: parts[0] ?? "",
+    lastname: parts.slice(1).join(" "),
+    hs_lead_status: "OPEN",
+  };
+  if (body.phone)    properties.phone    = body.phone.trim();
+  if (body.company)  properties.company  = body.company.trim();
+  if (body.industry) properties.industry = body.industry.trim();
+  if (Array.isArray(body.roles) && body.roles.length > 0) {
+    properties.roles__requested_ = body.roles.join("; ");
+  }
+
+  const createRes = await fetch(HUBSPOT_BASE, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({ properties }),
+  });
+
+  if (createRes.ok) return;
+
+  if (createRes.status !== 409) {
+    console.error(`[contact] HubSpot CREATE failed (${createRes.status})`);
+    return;
+  }
+
+  const existingId = await findContactByEmail(body.email.trim(), apiKey);
+  if (!existingId) {
+    console.error("[contact] HubSpot: could not find existing contact for", body.email);
+    return;
+  }
+
+  const patchRes = await fetch(`${HUBSPOT_BASE}/${existingId}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({ properties }),
+  });
+
+  if (!patchRes.ok) {
+    console.error(`[contact] HubSpot PATCH failed (${patchRes.status})`);
+  }
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
@@ -61,7 +130,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   sheetsData.append("Timeline", timeline ?? "");
   sheetsData.append("AdditionalRequirements", additionalRequirements ?? "");
 
-  const emailHtml = renderContactEmail({
+  const emailHtml = await renderContactEmail({
     fullName,
     email,
     company,
@@ -91,6 +160,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     subject: "New Talent Request",
     html: emailHtml,
   };
+
+  // fire-and-forget — HubSpot failure must not block email/sheets
+  upsertHubSpotContact(body).catch((e) => console.error("[contact] HubSpot upsert failed:", e));
 
   try {
     await transporter.sendMail(options);

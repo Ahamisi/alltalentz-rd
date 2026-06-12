@@ -6,7 +6,7 @@ export const OrganizationSchema = {
   "@type": "Organization",
   name: "All Talentz LLC",
   url: "https://alltalentz.com",
-  logo: "https://alltalentz.com/all-talents-footer.svg",
+  logo: "https://alltalentz.com/alltalentz-excellence.png",
   description:
     "AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation.",
   address: [

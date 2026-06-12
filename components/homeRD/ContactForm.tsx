@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Btn from "@/components/Btn";
 import Script from "next/script";
+import { useFormPersist } from "@/hooks/useFormPersist";
 
 const ContactForm = ({ services = [] }: { services?: string[] }) => {
   const [selectedServices, setSelectedServices] = useState([]);
@@ -20,6 +21,8 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
     service: "",
     redirect: false,
   });
+
+  const { clearPersisted, onEmailBlur } = useFormPersist("contact-us", formData);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -65,6 +68,7 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
         });
 
         console.log("Email sent successfully!");
+        clearPersisted();
         setIsSubmitted(true);
       } catch (error) {
         console.error("Failed to send email:", error);
@@ -164,6 +168,7 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
+              onBlur={onEmailBlur}
               className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:border-[#F99621]"
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -235,6 +240,10 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
               <p className="text-red-500 text-sm mt-2 text-center w-full">{errors.recaptcha}</p>
             )}
           </div>
+
+          <p className="text-xs text-gray-400">
+            By entering your details, you agree that we may save your progress and contact you about your enquiry.
+          </p>
 
           <button
             type="submit"
