@@ -1,3 +1,35 @@
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim()
+}
+
+export interface HeadingItem {
+  id: string
+  text: string
+  level: 2 | 3 | 4 | 5 | 6
+}
+
+export function extractHeadings(body: unknown[]): HeadingItem[] {
+  if (!Array.isArray(body)) return []
+  return body
+    .filter(
+      (block): block is { _type: string; style: string; children: { text: string }[] } =>
+        block !== null &&
+        typeof block === 'object' &&
+        (block as { _type?: string })._type === 'block' &&
+        ['h2', 'h3', 'h4', 'h5', 'h6'].includes((block as { style?: string }).style ?? '')
+    )
+    .map((block) => {
+      const text = block.children.map((span) => span.text).join('')
+      const level = parseInt(block.style.replace('h', ''), 10) as 2 | 3 | 4 | 5 | 6
+      return { id: slugify(text), text, level }
+    })
+}
+
 export function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString('en-US', {
     month: 'short',

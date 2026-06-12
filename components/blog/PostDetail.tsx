@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { SanityPost } from '@/types/blog'
 import PortableTextRenderer from './PortableTextRenderer'
+import TableOfContents from './TableOfContents'
 import { formatDate } from './utils'
 
 interface PostDetailProps {
@@ -77,6 +78,7 @@ export default function PostDetail({ post, heroImageUrl, authorImageUrl }: PostD
 
         {post.body && (
           <article className="pt-10">
+            <TableOfContents body={post.body} />
             <PortableTextRenderer value={post.body} />
           </article>
         )}
