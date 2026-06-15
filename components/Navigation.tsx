@@ -252,14 +252,9 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           </a>
         </div>
         <div className="border-b border-gray-100">
-          <a
-            href="https://blog.alltalentz.com"
-            className={mobileLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="/blog" className={mobileLink}>
             Blog
-          </a>
+          </Link>
         </div>
 
         {/* Join Talent Pool (commented out — replaced with Hire Talent)
@@ -478,10 +473,10 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
         </a>
       </li>
 
-      <li className={getLinkClassName("/news")}>
-        <a href="https://blog.alltalentz.com" target="_blank" rel="noopener noreferrer">
+      <li className={getLinkClassName("/blog")}>
+        <Link href="/blog">
           Blog
-        </a>
+        </Link>
       </li>
 
       {theme !== "light" && (
