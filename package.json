@@ -8,14 +8,15 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "migrate:wp": "tsx scripts/migrate-wordpress.ts"
   },
   "dependencies": {
     "@portabletext/react": "^6.0.3",
     "@portabletext/types": "^4.0.2",
+    "@react-email/components": "^1.0.0",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.21.0",
-    "@react-email/components": "^1.0.0",
     "aos": "^2.3.4",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
@@ -56,14 +57,20 @@
     "zod-formik-adapter": "^1.2.0"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.0.0",
+    "@portabletext/block-tools": "^5.1.4",
+    "@sanity/schema": "^6.0.0",
+    "@types/jsdom": "^28.0.3",
     "@types/nodemailer": "^6.4.9",
     "@types/nodemailer-smtp-transport": "^2.7.5",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/react-modal": "^3.16.3",
     "@types/react-slick": "^0.23.13",
+    "dotenv": "^17.4.2",
     "encoding": "^0.1.13",
+    "jsdom": "^29.1.1",
     "prettier": "^3.8.1",
-    "@netlify/plugin-nextjs": "^5.0.0"
+    "tsx": "^4.22.4"
   }
 }
