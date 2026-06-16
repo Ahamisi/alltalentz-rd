@@ -33,7 +33,7 @@ export interface SanityPost {
   excerpt: string
   publishedAt: string
   featured?: boolean
-  mainImage: SanityImage
+  mainImage?: SanityImage
   author: SanityAuthor
   categories: SanityCategory[]
   body?: PortableTextBlock[]

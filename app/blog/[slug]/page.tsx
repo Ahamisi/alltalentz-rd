@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { client } from '@/lib/sanity/client'
 import { postBySlugQuery, allSlugsQuery, relatedPostsQuery } from '@/lib/sanity/queries'
-import { urlFor } from '@/lib/sanity/image'
+import { urlFor, blogImageUrl } from '@/lib/sanity/image'
 import type { SanityPost } from '@/types/blog'
 import Header from '@/components/Header'
 import MainFooter from '@/components/MainFooter'
@@ -25,7 +25,9 @@ export default async function PostPage({ params }: PostPageProps) {
 
   if (!post) notFound()
 
-  const heroImageUrl = urlFor(post.mainImage).width(1400).height(700).fit('crop').auto('format').url()
+  const heroImageUrl = blogImageUrl(post.mainImage, (b) =>
+    b.width(1400).height(700).fit('crop').auto('format'),
+  )
   const authorImageUrl = post.author.image
     ? urlFor(post.author.image).width(120).height(120).fit('crop').auto('format').url()
     : null
