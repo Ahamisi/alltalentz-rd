@@ -3,6 +3,7 @@ import type { PortableTextBlock } from '@portabletext/types'
 import Image from 'next/image'
 import { urlFor } from '@/lib/sanity/image'
 import { slugify } from './utils'
+import FaqBlock, { type FaqItem } from './FaqBlock'
 
 interface TableRow {
   _key: string
@@ -112,6 +113,7 @@ const components: PortableTextComponents = {
         </div>
       )
     },
+    faq: ({ value }: { value: { items?: FaqItem[] } }) => <FaqBlock value={value} />,
   },
   block: {
     h2: ({ children, value }) => (

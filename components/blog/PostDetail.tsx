@@ -17,7 +17,7 @@ export default function PostDetail({ post, heroImageUrl, authorImageUrl }: PostD
       <div className="relative w-full h-72 sm:h-96 md:h-[520px]">
         <Image
           src={heroImageUrl}
-          alt={post.mainImage.alt ?? post.title}
+          alt={post.mainImage?.alt ?? post.title}
           fill
           className="object-cover"
           priority

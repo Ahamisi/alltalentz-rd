@@ -32,6 +32,8 @@ export default defineType({
       name: 'mainImage',
       title: 'Main Image',
       type: 'image',
+      description:
+        'Optional. Posts without a main image fall back to a branded placeholder on the site.',
       options: {
         hotspot: true,
       },
@@ -42,7 +44,6 @@ export default defineType({
           title: 'Alternative text',
         },
       ],
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'categories',
