@@ -9,6 +9,29 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
+/** Plain-text the spans of a Portable Text block array (for JSON-LD). */
+function blocksToText(blocks: unknown[]): string {
+  return (blocks as Array<{ children?: { text?: string }[] }>)
+    .map((b) => (b.children ?? []).map((c) => c.text ?? '').join(''))
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+/** Pull every FAQ question/answer pair out of a post body for FAQPage schema. */
+function extractFaqs(body: unknown[] | undefined): { question: string; answer: string }[] {
+  if (!Array.isArray(body)) return []
+  const faqs: { question: string; answer: string }[] = []
+  for (const block of body as Array<{ _type?: string; items?: unknown[] }>) {
+    if (block?._type !== 'faq' || !Array.isArray(block.items)) continue
+    for (const item of block.items as Array<{ question?: string; answer?: unknown[] }>) {
+      const answer = blocksToText(item.answer ?? [])
+      if (item.question && answer) faqs.push({ question: item.question, answer })
+    }
+  }
+  return faqs
+}
+
 export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
   const { slug } = await params
   const post = await client.fetch<SanityPost | null>(postBySlugQuery, { slug })
@@ -87,6 +110,20 @@ export default async function PostLayout({ params, children }: LayoutProps) {
       }
     : null
 
+  const faqs = extractFaqs(post?.body as unknown[] | undefined)
+  const faqSchema =
+    faqs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: { '@type': 'Answer', text: f.answer },
+          })),
+        }
+      : null
+
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -114,6 +151,12 @@ export default async function PostLayout({ params, children }: LayoutProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {children}
     </>
   )

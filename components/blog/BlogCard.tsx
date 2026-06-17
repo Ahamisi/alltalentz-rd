@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { urlFor } from '@/lib/sanity/image'
+import { urlFor, blogImageUrl } from '@/lib/sanity/image'
 import type { SanityPost } from '@/types/blog'
 import { formatDate } from './utils'
 
@@ -13,7 +13,9 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, index = 0 }: BlogCardProps) {
-  const imageUrl = urlFor(post.mainImage).width(600).height(400).fit('crop').auto('format').url()
+  const imageUrl = blogImageUrl(post.mainImage, (b) =>
+    b.width(600).height(400).fit('crop').auto('format'),
+  )
   const authorImageUrl = post.author.image
     ? urlFor(post.author.image).width(64).height(64).fit('crop').auto('format').url()
     : null
@@ -31,7 +33,7 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
         <div className="relative w-full aspect-[16/10]">
           <Image
             src={imageUrl}
-            alt={post.mainImage.alt ?? post.title}
+            alt={post.mainImage?.alt ?? post.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-xl"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
