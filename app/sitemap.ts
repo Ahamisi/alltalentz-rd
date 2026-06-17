@@ -1,4 +1,9 @@
-export default function sitemap() {
+import { client } from "@/lib/sanity/client";
+import { allPostsForSitemapQuery } from "@/lib/sanity/queries";
+
+export const revalidate = 60;
+
+export default async function sitemap() {
   const baseUrl = "https://alltalentz.com";
 
   const pages = [
@@ -9,6 +14,7 @@ export default function sitemap() {
     { url: "/hire-finance-talents", priority: 0.9, changeFrequency: "weekly" },
     { url: "/hire-legal-talents", priority: 0.9, changeFrequency: "weekly" },
     { url: "/hire-remediation-talents", priority: 0.9, changeFrequency: "weekly" },
+    { url: "/hire-pest-control-talents", priority: 0.9, changeFrequency: "weekly" },
     { url: "/pricing-model", priority: 0.8, changeFrequency: "monthly" },
     { url: "/outsource-with-agency", priority: 0.8, changeFrequency: "monthly" },
     { url: "/why-african-talents", priority: 0.8, changeFrequency: "monthly" },
@@ -20,13 +26,27 @@ export default function sitemap() {
     { url: "/contact-us", priority: 0.6, changeFrequency: "yearly" },
     { url: "/faq", priority: 0.6, changeFrequency: "monthly" },
     { url: "/news", priority: 0.5, changeFrequency: "weekly" },
+    { url: "/blog", priority: 0.8, changeFrequency: "weekly" },
     { url: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
   ];
 
-  return pages.map(({ url, priority, changeFrequency }) => ({
+  const posts = await client.fetch<Array<{ slug: string; lastModified: string }>>(
+    allPostsForSitemapQuery,
+  );
+
+  const staticEntries = pages.map(({ url, priority, changeFrequency }) => ({
     url: `${baseUrl}${url}`,
     lastModified: new Date(),
     changeFrequency,
     priority,
   }));
+
+  const blogPostEntries = posts.map(({ slug, lastModified }) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: new Date(lastModified),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...blogPostEntries];
 }

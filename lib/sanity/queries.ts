@@ -62,6 +62,14 @@ export const allSlugsQuery = groq`
   *[_type == "post" && defined(slug.current) && !(_id in path("drafts.**"))][].slug.current
 `
 
+export const allPostsForSitemapQuery = groq`
+  *[_type == "post" && defined(slug.current) && !(_id in path("drafts.**"))]
+  | order(publishedAt desc) {
+    "slug": slug.current,
+    "lastModified": coalesce(_updatedAt, publishedAt)
+  }
+`
+
 export const allCategoriesQuery = groq`
   *[_type == "category"] | order(title asc) {
     title,
