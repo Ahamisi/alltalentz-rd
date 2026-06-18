@@ -7,9 +7,8 @@ const pricingModels = [
     title: "DATA ANNOTATORS",
     image: "/redesign-25/pricing/Data-Annotators.webp",
     description:
-      "Our skilled Data Annotators meticulously label and categorize data, such as images, text, and audio, to create high-quality, structured datasets essential for training and improving machine learning models.",
-    price: "400-1600",
-    benefits: ["Highly trained Data Annotators", "24/7 support", "Vetted Talents"],
+      "Clean, structured training data that powers your AI and ML models; labeled with precision so your algorithms actually learn what you need them to.",
+    price: "400/mo",
     ctaLink: "/request-talent#data-annotators",
   },
   {
@@ -17,9 +16,8 @@ const pricingModels = [
     title: " AI/ML SPECIALISTS",
     image: "/redesign-25/pricing/AI/MLSpecialists.webp",
     description:
-      "Our AI/ML Specialists design, build, and deploy artificial intelligence and machine learning models to solve complex business challenges, automate processes, and extract valuable insights from your data. ",
-    price: "1500-2500",
-    benefits: ["Highly trained AI/ML Specialists", "24/7 support", "Vetted Talents"],
+      "From model development to deployment, our AI/ML specialists help you move from concept to production; without the six-month search for niche technical talent.",
+    price: "1,500/mo",
     ctaLink: "/request-talent#ai-ml-specialists",
   },
   {
@@ -27,9 +25,8 @@ const pricingModels = [
     title: "MEDICAL BILLING SPECIALISTS",
     image: "/redesign-25/pricing/MedicalBillingSpecialists.webp",
     description:
-      "Our Medical Billing Specialists manage healthcare billing processes, handle insurance claims, and ensure accurate coding to streamline revenue cycles and maintain compliance for medical practices. ",
-    price: "400-1600",
-    benefits: [" Highly trained Medical Billing Specialists ", "24/7 support", "Vetted Talents"],
+      "Accurate coding, timely claims, and a healthier revenue cycle; our medical billing specialists reduce denials and keep your cash flow moving.",
+    price: "400/mo",
     ctaLink: "/request-talent#medical-billing-specialists",
   },
   {
@@ -37,9 +34,8 @@ const pricingModels = [
     title: "SOFTWARE DEVELOPERS",
     image: "/redesign-25/pricing/SoftwareDevelopers.webp",
     description:
-      "Our Software Developers (a dedicated card for this role) analyze requirements to build, test, and maintain scalable software applications and systems, ensuring they are efficient, secure, and meet user needs.",
-    price: "1500-2500",
-    benefits: ["Highly trained Software Developers", "24/7 support", "Vetted Talents"],
+      "Full-stack, front-end, or back-end; our developers build and maintain scalable applications built to your spec, your stack, and your security requirements.",
+    price: "1,500/mo",
     ctaLink: "/request-talent#software-developers",
   },
   {
@@ -47,9 +43,8 @@ const pricingModels = [
     title: "UI/UX DESIGNERS",
     image: "/redesign-25/pricing/software-devs.webp",
     description:
-      "Our UI/UX Designers create intuitive and engaging user interfaces and experiences for digital products, conducting user research and designing workflows to enhance customer satisfaction and usability.",
-    price: "400-1600",
-    benefits: ["Highly trained UI/UX Designers", "24/7 support", "Vetted Talents"],
+      "Interfaces that make sense to real users; our UI/UX designers blend research and design to create experiences that drive product adoption and reduce churn.",
+    price: "400/mo",
     ctaLink: "/request-talent#ui-ux-designers",
   },
   {
@@ -57,9 +52,8 @@ const pricingModels = [
     title: "ESTIMATOR",
     image: "/redesign-25/pricing/Estimators.webp",
     description:
-      "Our team of well trained and highly experienced estimators, review and prepare detailed estimates for property restoration projects, ensuring accuracy in cost calculations for materials and labor.",
-    price: "400-1600",
-    benefits: ["Highly trained Estimators", "24/7 support", "Vetted Talents"],
+      "Accurate, defensible project estimates that protect your margins and win bids; our Xactimate-trained estimators are built for the pace of restoration and construction.",
+    price: "400/mo",
     ctaLink: "/request-talent#estimators",
   },
   {
@@ -67,13 +61,8 @@ const pricingModels = [
     title: "CALL CENTER SUPPORT ",
     image: "/redesign-25/pricing/CallCenterSupport.webp",
     description:
-      "We provide a complete call center solution by professionally recruiting, training, and deploying a dedicated support team tailored to your business within 2 weeks. This service covers inbound/outbound customer service, technical support, and telemarketing to meet your specific operational needs.",
-    price: "400-1600",
-    benefits: [
-      "A Professionally Trained Call Center Team ",
-      "24/7 Operational Support",
-      "Vetted and Managed Talents",
-    ],
+      "A professionally trained, dedicated call center team — handling inbound and outbound support, client intake, and customer service — deployed and ready within 2 weeks.",
+    price: "400/mo",
     ctaLink: "/request-talent#call-center-support",
   },
   {
@@ -81,9 +70,8 @@ const pricingModels = [
     title: "ACCOUNT RECEIVABLES SPECIALIST",
     image: "/redesign-25/pricing/AccountsReceivablesSpecialists.webp",
     description:
-      "Our Accounts Receivables Specialist supports businesses in managing invoicing, tracking payments, and ensure timely collections, to maintain a company’s cash flow.",
-    price: "400-1600",
-    benefits: ["Highly trained Account Receivables Specialists", "24/7 support", "Vetted Talents"],
+      "Invoicing, payment tracking, and collections managed with precision — keeping your cash flow consistent and your receivables under control.",
+    price: "400/mo",
     ctaLink: "/request-talent#account-receivables",
   },
   {
@@ -91,19 +79,17 @@ const pricingModels = [
     title: "VIRTUAL ASSISTANT",
     image: "/redesign-25/pricing/VirtualAssistants.webp",
     description:
-      "Our VAs offer administrative and organizational support remotely, handling tasks like email management, scheduling, and document preparation for our clients.",
-    price: "400-1600",
-    benefits: ["Well trained Virtual Assistants", "24/7 support", "Vetted Talents"],
+      "Email, scheduling, document management, and more — our virtual assistants handle the operational tasks that slow your team down, so you can focus on what actually grows the business.",
+    price: "400/mo",
     ctaLink: "/request-talent#virtual-assistant",
   },
   {
     id: 9,
-    title: "TELEMARKETING/ADMIN ASSISTANTS",
+    title: "CLIENT OUTREACH & ADMIN ASSISTANTS",
     image: "/redesign-25/pricing/TelemarketingAdminAssistants.webp",
     description:
-      "Our Telemarketers/Admin Assistants provide customer outreach through calls to generate leads or sales, while also assisting with administrative tasks such as data entry, documentation and appointment setting.",
-    price: "400-1600",
-    benefits: ["Highly trained Telemarketers", "24/7 support", "Vetted Talents"],
+      "Outbound client outreach, lead generation calls, data entry, documentation, and appointment setting — handled by trained assistants who represent your brand professionally.",
+    price: "400/mo",
     ctaLink: "/request-talent#telemarketing-assistant",
   },
   {
@@ -111,9 +97,8 @@ const pricingModels = [
     title: "DIGITAL MARKETERS",
     image: "/redesign-25/pricing/DigitalMarketers.webp",
     description:
-      "Our Digital Marketers help businesses to develop and execute online marketing strategies, including SEO, social media, and content creation, to generate quality leads, increase brand visibility and drive engagement.",
-    price: "400-1600",
-    benefits: ["Highly trained Digital Marketers", "24/7 support", "Vetted Talents"],
+      "SEO, social media, content creation, and lead generation — our digital marketers execute your online strategy and bring in the visibility your business needs to grow.",
+    price: "400/mo",
     ctaLink: "/request-talent#digital-marketers",
   },
   // {
@@ -136,8 +121,13 @@ const PricingModelList = () => {
     <section className="py-24 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-4 text-[#1A1A1A]">Our Pricing Model</h2>
-        <p className="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
+        {/* <p className="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
           We've got the perfect pricing plan for any type of business.
+        </p> */}
+
+        <p className="text-center text-gray-700 mb-16 max-w-3xl mx-auto">
+          <span className="font-semibold text-[#1A1A1A]">Every role includes: </span> highly trained
+          &amp; vetted professionals · 24/7 operational support · dedicated account management
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -176,31 +166,6 @@ const PricingModelList = () => {
                 >
                   Hire Now
                 </Link>
-
-                {/* Benefits */}
-                <div className="pt-4">
-                  <h4 className="text-[#1A1A1A] text-xl font-semibold mb-6">What you will get</h4>
-                  <ul className="space-y-4">
-                    {model.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-center gap-4">
-                        <div className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
-                          <svg
-                            className="w-4 h-4 text-gray-600"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <span className="text-gray-600 text-lg">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
           ))}

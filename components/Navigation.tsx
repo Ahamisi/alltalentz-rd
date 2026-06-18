@@ -75,6 +75,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
     "/hire-healthcare-talents",
     "/hire-finance-talents",
     "/hire-remediation-talents",
+    "/hire-pest-control-talents",
     "/hire-legal-talents",
   ];
   const talentPaths = [
@@ -225,6 +226,12 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
                 className={mobileSubLink("/hire-remediation-talents")}
               >
                 Hire Remediation Talents
+              </Link>
+              <Link
+                href="/hire-pest-control-talents"
+                className={mobileSubLink("/hire-pest-control-talents")}
+              >
+                Hire Pest Control Talents
               </Link>
               <Link
                 href="/hire-legal-talents"
@@ -442,6 +449,12 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
                   className={getDropdownItemClassName("/hire-remediation-talents")}
                 >
                   Hire Remediation Talents
+                </Link>
+                <Link
+                  href="/hire-pest-control-talents"
+                  className={getDropdownItemClassName("/hire-pest-control-talents")}
+                >
+                  Hire Pest Control Talents
                 </Link>
                 <Link
                   href="/hire-legal-talents"

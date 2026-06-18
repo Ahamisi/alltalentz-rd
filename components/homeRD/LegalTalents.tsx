@@ -5,13 +5,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const LegalTalents = () => {
-  const Talents = [
+const Talents = [
     {
       id: 1,
       title: "Paralegals",
       description:
-        "Support attorneys with legal research, document drafting (pleadings, contracts, discovery), case file management, and trial preparation. ",
+        "Our paralegals handle legal research, document drafting, case file management, and trial preparation — giving your attorneys the structured support they need to work at full capacity without cutting corners.",
       image: "/redesign-25/legal-talents/paralegal.png",
       bgColor: "bg-[#E3FF89]",
     },
@@ -19,7 +18,7 @@ const LegalTalents = () => {
       id: 2,
       title: "Legal Virtual Assistants",
       description:
-        "Manage attorney calendars, client intake, billing correspondence, and document filing with a strong understanding of legal workflows. ",
+        "Our legal VAs manage attorney calendars, client intake, billing correspondence, and document filing with a clear understanding of legal workflows and the confidentiality standards they require.",
       image: "/redesign-25/legal-talents/Legal-VA.png",
       bgColor: "bg-[#82E8FF]",
     },
@@ -27,15 +26,15 @@ const LegalTalents = () => {
       id: 3,
       title: "Legal Transcriptionists",
       description:
-        "Accurately transcribe depositions, client meetings, hearings, and other legal proceedings. ",
+        "Our legal transcriptionists produce clean, accurate records of depositions, hearings, client meetings, and any other legal proceeding that needs a reliable written record.",
       image: "/redesign-25/legal-talents/Legal-Transcriptionists.png",
       bgColor: "bg-[#F26E6E]",
     },
     {
       id: 4,
-      title: "Data Annotators for e-Discovery:",
+      title: "e-Discovery & Document Review Specialists",
       description:
-        "Meticulously review, tag, and categorize electronic documents for litigation support and discovery processes",
+        "Our specialists review, tag, and categorize electronic documents with the precision and consistency that litigation support and discovery processes demand — at a fraction of the cost of in-house review.",
       image: "/redesign-25/legal-talents/legal-annotator.png",
       bgColor: "bg-[#4955E1]",
       textColor: "text-white",
@@ -44,7 +43,7 @@ const LegalTalents = () => {
       id: 5,
       title: "Call Center / Intake Specialists",
       description:
-        "Professionally handle initial client inquiries, schedule consultations, and provide clear case status updates. ",
+        "Our legal intake specialists handle first contact professionally, qualifying inquiries, scheduling consultations, and keeping existing clients informed on case status so nothing falls through the cracks.",
       image: "/redesign-25/legal-talents/legal-call-center.png",
       bgColor: "bg-[#FF4784]",
       textColor: "text-white",
@@ -63,6 +62,9 @@ const LegalTalents = () => {
     "/redesign-25/client-logos/on-site.jpg",
     "/redesign-25/client-logos/property-doctors.jpg",
   ];
+
+const LegalTalents = () => {
+  
 
   const ClientLogo = ({ src, alt }: { src: string; alt: string }) => {
     const { ref, inView } = useInView();
@@ -103,23 +105,19 @@ const LegalTalents = () => {
       <section className="py-24 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            Precision, confidentiality, and rigorous process management are the foundations of legal
-            work. All Talentz provides trained paralegals and legal support specialists who
-            integrate seamlessly into your practice, helping you manage case loads, conduct
-            research, and handle administrative tasks efficiently. Scale your firm's capabilities
-            and focus on case strategy while we handle critical support functions. 
+            Every hour a qualified attorney spends on administrative tasks is a billable hour lost. All Talentz provides trained, vetted legal support professionals, from paralegals and legal virtual assistants to transcriptionists and intake specialists, so your attorneys can stay focused on strategy, not paperwork.
           </p>
           <Link
             href="/request-talent"
             className="bg-[#F99621] text-black font-semibold px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 w-fit"
           >
-            Explore Talent
+            Explore Our Legal Roles
           </Link>
         </div>
 
         <div className="flex flex-col space-y-8 items-center text-black mt-24">
           <h2 className="text-4xl md:text-5xl font-semibold max-w-4xl text-center w-full mb-12">
-            Our Solutions for Legal Support
+            The Legal Roles We Place
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 md:gap-y-20 mt-12 max-w-7xl mx-auto w-full px-4">
@@ -137,18 +135,15 @@ const LegalTalents = () => {
                   height={300}
                   className="w-full mt-4"
                 />
+                <Link
+                  href="/request-talent"
+                  className="mt-4 w-full text-center bg-[#F99621] text-black font-semibold px-6 py-3 hover:bg-[#e88710] transition duration-300 text-sm"
+                >
+                  Hire Talent
+                </Link>
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="pt-24 flex justify-center">
-          <Link
-            href="/hiring-services"
-            className="bg-[#F99621] text-black font-semibold px-8 py-4 md:px-16 md:py-6 hover:bg-[#e88710] transition duration-300 inline-block"
-          >
-            Explore Our Industry Solutions
-          </Link>
         </div>
       </section>
 
@@ -169,14 +164,11 @@ const LegalTalents = () => {
 
         <div className="flex flex-col justify-center items-center md:items-start px-4 md:w-[98%] md:col-span-2 false">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-black text-center md:text-left">
-            Why Law Firms and Legal Departments Rely on Us
+            Built for the Standards Legal Work Demands
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 md:mb-8 text-center md:text-left max-w-xl">
-            We vet for discretion and train for the specific terminologies and procedures of the
-            legal field. Our talent understands the importance of confidentiality, deadlines, and
-            meticulous attention to detail, acting as a secure and reliable extension of your legal
-            team. 
+            Every professional we place in a legal environment is vetted for discretion, trained in legal terminology and procedures, and oriented to the non-negotiables of the field. Our team operates to the same standard you hold your in-house staff, because your firm's reputation depends on it. 
           </p>
 
           <div className="flex flex-col lg:flex-row gap-6">
@@ -186,12 +178,12 @@ const LegalTalents = () => {
             >
               Hire Legal Talent
             </Link>
-            <Link
+            {/* <Link
               href="/contact-us"
               className="bg-[#FEF5E9] text-[#F99621] px-8 py-3 text-center mx-auto hover:bg-[#121212] transition duration-300"
             >
               Discuss Your Compliance Needs
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

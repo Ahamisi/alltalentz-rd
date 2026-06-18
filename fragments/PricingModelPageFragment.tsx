@@ -7,6 +7,81 @@ import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
 import PricingModelList from "@/components/homeRD/PricingModelList";
 import Link from "next/link";
+import { Check } from "lucide-react";
+
+const RateExplainer = () => {
+  const tiers = [
+    { price: "$400", label: "Entry-level & support roles" },
+    { price: "$1,500", label: "Specialist & technical roles, like AI/ML engineers & developers" },
+  ];
+
+  const inclusions = ["Full vetting process", "Onboarding coordination", "24/7 operational support"];
+
+  return (
+    <section className="py-24 px-4 bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Left: narrative + price figures */}
+        <div className="lg:col-span-7">
+          {/* <span className="text-sm font-semibold uppercase tracking-wider text-[#F08900]">
+            Pricing
+          </span> */}
+          <h2 className="mt-3 text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight">
+            What Determines Your Rate?
+          </h2>
+          <p className="mt-5 text-xl text-gray-600 leading-relaxed">
+            Pricing varies based on the role, the experience level required, and the scope of your
+            engagement.
+          </p>
+
+          {/* Price figures — typographic, not boxed */}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {tiers.map((tier) => (
+              <div key={tier.price}>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-gray-500 text-sm">from</span>
+                  <span className="text-4xl font-bold text-[#1A1A1A]">{tier.price}</span>
+                  <span className="text-gray-500 text-sm">/mo</span>
+                </div>
+                <div className="mt-2 h-1 w-12 bg-[#FFB300] rounded-full" />
+                <p className="mt-3 text-gray-600 leading-relaxed">{tier.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 text-lg text-gray-600">
+            Not sure which tier fits your needs?{" "}
+            <Link
+              href="/contact-us"
+              className="text-[#F08900] font-semibold underline underline-offset-4 hover:text-[#FFB300] transition-colors"
+            >
+              Talk to our team
+            </Link>{" "}
+            and we'll build a plan around your budget.
+          </p>
+        </div>
+
+        {/* Right: what's included — soft tinted panel, distinct from pricing cards */}
+        <div className="lg:col-span-5">
+          <div className="bg-[#FFF9F0] rounded-[32px] p-8 lg:p-10">
+            <p className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6">
+              Every plan includes
+            </p>
+            <ul className="space-y-5">
+              {inclusions.map((item) => (
+                <li key={item} className="flex items-center gap-4">
+                  <span className="w-7 h-7 rounded-full bg-[#FFB300] flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                  </span>
+                  <span className="text-lg text-[#1A1A1A]">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const CareerBanner = () => {
   return (
@@ -122,9 +197,13 @@ export default function About() {
         </div>
       </PageHeader>
 
+      
+
+      <RateExplainer />
+
       <PricingModelList />
 
-      <CareerBanner />
+      {/* <CareerBanner /> */}
 
       <section className="px-[10px] md:px-0 bg-[#131313]">
         <MainFooter />

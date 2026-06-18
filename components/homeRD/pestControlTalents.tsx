@@ -8,44 +8,35 @@ import { useInView } from "react-intersection-observer";
 const Talents = [
     {
       id: 1,
-      title: "Estimators",
+      title: "Customer Service Representatives",
       description:
-        "Our Xactimate-trained estimators prepare detailed, defensible cost estimates for labor and materials, so your bids are competitive, and your projects stay profitable.",
+        "Our CSRs handle inbound and outbound calls, scheduling, dispatch coordination, and customer inquiries with the responsiveness your customers expect and your technicians depend on.",
       image: "/redesign-25/remediation-talents/estimator.png",
       bgColor: "bg-[#FF89E9]",
     },
     {
       id: 2,
-      title: "Accounts Receivable Specialists",
+      title: "Accountants",
       description:
-        "Our AR specialists handle project-based invoicing, insurance claim follow-up, and collections — keeping your receivables moving and your accounts in order.",
+        "Pest control runs on recurring revenue, route-based costs, and seasonal cash flow swings. Our accountants manage bookkeeping, financial reporting, and reconciliations — giving you a clear, accurate picture of your business.",
       image: "/redesign-25/remediation-talents/ARS.png",
       bgColor: "bg-[#FFE682]",
     },
     {
       id: 3,
-      title: "Call Center Support & Client Intake Specialists",
+      title: "Billing Specialists",
       description:
-        "Our intake specialists handle emergency client calls, dispatch coordination, and insurance follow-up with the urgency and professionalism the situation demands.",
+        "Our billing specialists handle invoicing, payment processing, and collections for both one-time and contract-based services — keeping your cash flow steady and your customer accounts accurate.",
       image: "/redesign-25/remediation-talents/telemarketing.png",
       bgColor: "bg-[#6EF284]",
     },
     {
       id: 4,
-      title: "Virtual & Admin Assistants",
+      title: "Inside Sales Representatives",
       description:
-        "Your project managers shouldn't also be chasing documentation from a job site. Our virtual admin assistants handle the operational layer so your PMs can stay focused on the build.",
+        "Our inside sales reps follow up on leads, generate quotes, and manage contract renewals — including upsells for seasonal services like termite, mosquito, and wildlife control.",
       image: "/redesign-25/remediation-talents/remediation-VAA.png",
       bgColor: "bg-[#E19749]",
-      textColor: "text-white",
-    },
-    {
-      id: 5,
-      title: "Digital Marketers",
-      description:
-        "Our digital marketing specialists handle your local SEO, Google Business Profile, service area campaigns, and lead generation — so your phone keeps ringing even when the crews are busy.",
-      image: "/redesign-25/remediation-talents/digital-marketing.png",
-      bgColor: "bg-[#9747FF]",
       textColor: "text-white",
     },
   ];
@@ -63,8 +54,8 @@ const Talents = [
     "/redesign-25/client-logos/property-doctors.jpg",
   ];
 
-const RemediationTalents = () => {
-  
+const PestControlTalents = () => {
+
 
   const ClientLogo = ({ src, alt }: { src: string; alt: string }) => {
     const { ref, inView } = useInView();
@@ -105,7 +96,7 @@ const RemediationTalents = () => {
       <section className="py-24 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            While your crew is on-site, someone still needs to handle the estimates, the insurance paperwork, the client calls, and the scheduling. All Talentz provides certified, trained back-office professionals built specifically for construction and remediation businesses, so your projects stay on time and on budget, even when it's chaos on the ground.
+            Every missed call is a missed job. Every late invoice is a delayed payment. All Talentz provides trained, vetted professionals who understand the pest control industry, from scheduling and customer service to billing and inside sales.
           </p>
           <Link
             href="/request-talent"
@@ -165,17 +156,17 @@ const RemediationTalents = () => {
 
         <div className="flex flex-col justify-center items-center md:items-start px-4 md:w-[98%] md:col-span-2 false">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-black text-center md:text-left">
-            We Know How a Restoration Project Actually Works
+            We Understand How Pest Control Businesses Actually Run
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 md:mb-8 text-center md:text-left max-w-xl">
-            We train every construction and remediation professional on the full project lifecycle, from the first emergency intake call through scoping, estimation, insurance coordination, and final billing. That means less time explaining your business and more time getting results from day one.
+            Every professional we place is trained to understand that rhythm and familiarized with the platforms the industry runs on. Our talent doesn't need months to get up to speed. They integrate into your existing systems and workflows — answering calls, managing billing, and following up on leads.
           </p>
 
           <div className="flex flex-col lg:flex-row gap-6">
             <Link
               href="/contact-us"
-              className="bg-[#F99621] text-white px-8 py-3 text-center mx-auto hover:bg-[#121212] transition duration-300"
+              className="bg-[#F99621] text-white px-8 py-3 text-center mx-auto hover:bg-[#F99621]/90 transition duration-300"
             >
               Hire Construction Support
             </Link>
@@ -202,4 +193,4 @@ const RemediationTalents = () => {
   );
 };
 
-export default RemediationTalents;
+export default PestControlTalents;

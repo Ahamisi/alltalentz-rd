@@ -28,6 +28,13 @@ export const niches: NicheItemProp[] = [
     path: "/hire-remediation-talents",
   },
   {
+    title: "Pest Control",
+    imageSrc: "/redesign-25/pricing/Estimators.webp",
+    description:
+      "Estimators, project administrators, AR specialists, call center agents, and digital marketing support. ",
+    path: "/hire-pest-control-talents",
+  },
+  {
     title: "Finance",
     imageSrc: "/redesign-25/pricing/AccountsReceivablesSpecialists.webp",
     description:
