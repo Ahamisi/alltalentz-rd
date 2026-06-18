@@ -18,7 +18,7 @@ export default function PestControlTalentsPage() {
               href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300 w-fit"
             >
-              Hire Pest Control support
+              Hire Pest Control Talent
             </Link>
           </div>
 

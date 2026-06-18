@@ -108,7 +108,7 @@ const PestControlTalents = () => {
 
         <div className="flex flex-col space-y-8 items-center text-black mt-24">
           <h2 className="text-4xl md:text-5xl font-semibold text-center w-full mb-12">
-            The Construction & Remediation Roles We Place
+            The Pest Control Roles We Place
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 md:gap-y-20 mt-12 max-w-7xl mx-auto w-full px-4">
@@ -168,7 +168,7 @@ const PestControlTalents = () => {
               href="/contact-us"
               className="bg-[#F99621] text-white px-8 py-3 text-center mx-auto hover:bg-[#F99621]/90 transition duration-300"
             >
-              Hire Construction Support
+              Hire Pest Control Talent
             </Link>
             {/* <Link
               href="https://calendly.com/mnwoseh"
