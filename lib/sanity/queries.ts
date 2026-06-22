@@ -6,9 +6,10 @@ const POST_FIELDS = groq`
   "slug": slug.current,
   excerpt,
   publishedAt,
+  _updatedAt,
   featured,
   mainImage,
-  "author": author->{ name, role, image },
+  "author": author->{ name, role, image, bio },
   "categories": categories[]->{ title, "slug": slug.current }
 `
 

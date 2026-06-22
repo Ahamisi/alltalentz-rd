@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 export const metadata = {
   title: "Alltalentz Webinar",
-  description: "Discover Great Talent Offers and Save on Payroll with All Talentz",
+  description: "Discover Great Talent Offers and Save on Payroll with AllTalentz",
   alternates: { canonical: "https://alltalentz.com/webinar" },
 };
 

@@ -83,7 +83,7 @@ const MobileMilestone = () => {
           >
             <h3 className="text-[24px] font-bold mb-1 text-[#4C4C4C]">PRESENTLY</h3>
             <p className="text-gray-600">
-              All Talentz continues to build on this legacy of growth and success. With each
+              AllTalentz continues to build on this legacy of growth and success. With each
               project, we are empowering talents across Africa and helping businesses around the
               globe achieve new heights. And this is only the beginning!
             </p>

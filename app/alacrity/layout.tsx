@@ -3,7 +3,7 @@ import { generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
   title: "Request Talent - Alacrity",
-  description: "Discover Great Talent Offers and Save on Payroll with All Talentz",
+  description: "Discover Great Talent Offers and Save on Payroll with AllTalentz",
   alternates: { canonical: "https://alltalentz.com/alacrity" },
 };
 

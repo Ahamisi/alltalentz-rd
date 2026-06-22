@@ -202,7 +202,7 @@ export default function RequestTalent() {
                 </h1>
 
                 <p className="text-lg mb-8 text-black">
-                  At All Talentz, we connect businesses with top-tier global talents. From
+                  At AllTalentz, we connect businesses with top-tier global talents. From
                   Administrative support, to creative and technical roles, we provide world-class
                   professionals, ready to help your business thrive, while saving you up to 75% on
                   your overhead cost.

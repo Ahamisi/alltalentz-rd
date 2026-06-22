@@ -250,7 +250,7 @@ export default function SecureTestForm() {
       }
       /* Prevent screenshot overlays and add watermark */
       body::before {
-        content: 'All Talentz - Confidential Assessment';
+        content: 'AllTalentz - Confidential Assessment';
         position: fixed;
         top: 0;
         left: 0;

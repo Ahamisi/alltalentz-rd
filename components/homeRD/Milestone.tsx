@@ -134,7 +134,7 @@ const Milestone = () => {
             <motion.div className="text-center max-w-3xl mx-auto mt-40 border border-gray-100 p-3 relative z-20 bg-white">
               <h3 className="text-[24px] font-bold mb-1 text-[#4C4C4C]">PRESENTLY</h3>
               <p className="text-gray-600">
-                All Talentz continues to build on this legacy of growth and success. With each
+                AllTalentz continues to build on this legacy of growth and success. With each
                 project, we are empowering talents across Africa and helping businesses around the
                 globe achieve new heights. And this is only the beginning!
               </p>

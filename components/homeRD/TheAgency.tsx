@@ -114,7 +114,7 @@ const TheAgency = () => {
           imageSrc="/home-img/outsourcing-agency.png"
           altText="Outsourcing Agency alltalentz"
           title={["Built for Your Industry."]}
-          description="All Talentz places professionals who understand your workflows, speak your industry's language, and integrate into your operation within days — not months."
+          description="AllTalentz places professionals who understand your workflows, speak your industry's language, and integrate into your operation within days — not months."
           buttonLabel="Get Started"
         />
         <Section

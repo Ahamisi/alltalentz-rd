@@ -23,7 +23,7 @@ export default function About() {
             </h1>
 
             <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-              All Talentz is a remote staffing company connecting businesses with pre-vetted, industry-trained professionals. We place talents with precision and deploy with speed.
+              AllTalentz is a remote staffing company connecting businesses with pre-vetted, industry-trained professionals. We place talents with precision and deploy with speed.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -51,7 +51,7 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-bold mb-10 text-black">Our Story</h2>
           <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
             <p>
-              All Talentz was founded on a simple observation: the global talent gap is a
+              AllTalentz was founded on a simple observation: the global talent gap is a
               distribution problem, not a supply problem.
             </p>
             <p>
@@ -61,12 +61,12 @@ export default function About() {
               much, waiting too long, and still struggling to find the right people.
             </p>
             <p>
-              We built All Talentz to close that gap. Not by sending businesses a list of résumés,
+              We built AllTalentz to close that gap. Not by sending businesses a list of résumés,
               but by matching them with professionals who are already trained for their industry,
               screened for their role, and ready to integrate within days.
             </p>
             <p>
-              Today, All Talentz operates as a full-service remote staffing agency, placing talent,
+              Today, AllTalentz operates as a full-service remote staffing agency, placing talent,
               managing compliance, and providing ongoing operational support so that every engagement
               runs smoothly from day one.
             </p>
@@ -299,7 +299,7 @@ export default function About() {
             Certified. Compliant. Trusted.
           </h2>
           <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-16">
-            Every engagement with All Talentz is backed by enterprise-grade compliance and data
+            Every engagement with AllTalentz is backed by enterprise-grade compliance and data
             security protocols.
           </p>
 

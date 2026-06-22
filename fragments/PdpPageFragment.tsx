@@ -286,12 +286,12 @@ export default function BootCamp() {
           {/* Left Column */}
           <div className="lg:w-[45%] flex flex-col">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              Welcome to <span className="text-[#F99621]">All Talentz</span>{" "}
+              Welcome to <span className="text-[#F99621]">AllTalentz</span>{" "}
               <span className="text-white">professional development programme.</span>
             </h1>
 
             <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-              Are you ready to level up your career? All Talentz Professional Development Program
+              Are you ready to level up your career? AllTalentz Professional Development Program
               offers intensive 90-days training programs led by industry experts. Whether you're a
               recent graduate or a seasoned professional, our flexible online and in-person format
               provides a smooth and convenient learning experience for our participants.
@@ -383,7 +383,7 @@ export default function BootCamp() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <Image src="/logo.svg" alt="All Talentz" width={100} height={36} className="h-8 w-auto mb-4 brightness-0 invert" />
+              <Image src="/logo.svg" alt="AllTalentz" width={100} height={36} className="h-8 w-auto mb-4 brightness-0 invert" />
               <h2 className="text-white text-xl font-bold leading-snug">PDP Application</h2>
               <p className="text-white/55 text-sm mt-1">Fill in your details to apply for the Professional Development Programme.</p>
             </div>
@@ -748,7 +748,7 @@ export default function BootCamp() {
           {
             name: "Michael Brown",
             role: "Recent Graduate",
-            company: "All Talentz Bootcamp",
+            company: "AllTalentz Bootcamp",
             quote: "The hands-on experience and expert guidance were invaluable...",
             rating: 5
           },

@@ -51,16 +51,16 @@ const Talents = [
   ];
 
   const logos = [
-    "/redesign-25/client-logos/puro-clean-logo.jpg",
-    "/redesign-25/client-logos/alacrity-solutions.jpg",
-    "/redesign-25/client-logos/servpro.jpg",
-    "/redesign-25/client-logos/clean-slate.jpg",
-    "/redesign-25/client-logos/wonder-logo.jpg",
-    "/redesign-25/client-logos/365-restoration.jpg",
-    "/redesign-25/client-logos/restoration-specialists.jpg",
-    "/redesign-25/client-logos/signal-restoration.jpg",
-    "/redesign-25/client-logos/on-site.jpg",
-    "/redesign-25/client-logos/property-doctors.jpg",
+    { src: "/redesign-25/client-logos/puro-clean-logo.jpg", alt: "PuroClean logo" },
+    { src: "/redesign-25/client-logos/alacrity-solutions.jpg", alt: "Alacrity Solutions logo" },
+    { src: "/redesign-25/client-logos/servpro.jpg", alt: "SERVPRO logo" },
+    { src: "/redesign-25/client-logos/clean-slate.jpg", alt: "Clean Slate logo" },
+    { src: "/redesign-25/client-logos/wonder-logo.jpg", alt: "Wonder logo" },
+    { src: "/redesign-25/client-logos/365-restoration.jpg", alt: "365 Restoration logo" },
+    { src: "/redesign-25/client-logos/restoration-specialists.jpg", alt: "Restoration Specialists logo" },
+    { src: "/redesign-25/client-logos/signal-restoration.jpg", alt: "Signal Restoration logo" },
+    { src: "/redesign-25/client-logos/on-site.jpg", alt: "On-Site logo" },
+    { src: "/redesign-25/client-logos/property-doctors.jpg", alt: "Property Doctors logo" },
   ];
 
 const LegalTalents = () => {
@@ -105,7 +105,7 @@ const LegalTalents = () => {
       <section className="py-24 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            Every hour a qualified attorney spends on administrative tasks is a billable hour lost. All Talentz provides trained, vetted legal support professionals, from paralegals and legal virtual assistants to transcriptionists and intake specialists, so your attorneys can stay focused on strategy, not paperwork.
+            Every hour a qualified attorney spends on administrative tasks is a billable hour lost. AllTalentz provides trained, vetted legal support professionals, from paralegals and legal virtual assistants to transcriptionists and intake specialists, so your attorneys can stay focused on strategy, not paperwork.
           </p>
           <Link
             href="/request-talent"
@@ -191,8 +191,8 @@ const LegalTalents = () => {
       <section className="bg-white py-18 md:py-[116px] px-[40px] md:px-0">
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-4xl mx-auto">
-            {logos.map((src, index) => (
-              <ClientLogo key={index} src={src} alt={`Logo ${index + 1}`} />
+            {logos.map((logo, index) => (
+              <ClientLogo key={index} src={logo.src} alt={logo.alt} />
             ))}
           </div>
         </div>

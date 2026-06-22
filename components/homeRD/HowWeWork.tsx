@@ -135,7 +135,7 @@ const HowWeWork = () => {
                     Recruitment & Training
                   </h3>
                   <p className="text-[#423D3D] mb-4">
-                    All Talentz provides suitable Talent after training them to suit the Job
+                    AllTalentz provides suitable Talent after training them to suit the Job
                     requirement.
                   </p>
                 </div>
@@ -182,7 +182,7 @@ const HowWeWork = () => {
                     Onboarding & Handover
                   </h3>
                   <p className="text-[#423D3D] mb-4">
-                    All Talentz onboards Talent with necessary work tools and introduces Talent to
+                    AllTalentz onboards Talent with necessary work tools and introduces Talent to
                     new clients to commence work​​.
                   </p>
                 </div>

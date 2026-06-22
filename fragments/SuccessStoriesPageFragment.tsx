@@ -42,7 +42,7 @@ export default function About() {
     },
     {
       quote:
-        "Hiring from All Talentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
+        "Hiring from AllTalentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
       name: "Bryan Towne",
       company: "Puroclean of Lynwood",
       companyLogo: "/clients/puroclean-icon.png",
@@ -94,7 +94,7 @@ export default function About() {
     },
     {
       quote:
-        "Hiring from All Talentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
+        "Hiring from AllTalentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
       name: "Bryan Towne",
       location: "Puroclean of Burlington, USA",
       companyLogo: "/clients/puroclean-icon.png",

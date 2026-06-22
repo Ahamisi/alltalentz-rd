@@ -107,7 +107,9 @@ const MainFooter = ({
               <form>
                 <div className="flex flex-col lg:flex-row gap-4 justify-end">
                   <input
+                    id="newsletter-email"
                     type="email"
+                    aria-label="Email address"
                     placeholder="Enter your email"
                     className="py-2 px-4 text-[#4C4C4C] rounded-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%]"
                   />
@@ -199,7 +201,7 @@ const MainFooter = ({
             <div className="flex flex-col md:flex-row items-center gap-8 flex-1">
               <AllTalentzLogo className="w-[150px] md:w-[180px] h-auto" />
               <div className="text-white text-center md:text-left text-sm">
-                © {new Date().getFullYear()} All Talentz LLC. All rights reserved.
+                © {new Date().getFullYear()} AllTalentz LLC. All rights reserved.
               </div>
             </div>
             <div className="flex justify-end items-center gap-[30px] md:min-w-[400px]">

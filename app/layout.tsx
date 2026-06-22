@@ -7,6 +7,7 @@ import {
   OrganizationSchema,
   WebsiteSchema,
   EmploymentAgencySchema,
+  LocalBusinessSchema,
 } from "@/components/SchemaMarkup";
 
 const montserrat = Montserrat({
@@ -67,6 +68,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(EmploymentAgencySchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LocalBusinessSchema) }}
         />
       </head>
       <body className={montserrat.className} id="body" style={{ overflowY: "hidden" }}>

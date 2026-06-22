@@ -4,7 +4,7 @@ import { FAQItem, BreadcrumbItem } from "@/types";
 export const OrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "All Talentz LLC",
+  name: "AllTalentz LLC",
   url: "https://alltalentz.com",
   logo: "https://alltalentz.com/alltalentz-excellence.png",
   description:
@@ -45,7 +45,7 @@ export const OrganizationSchema = {
 export const WebsiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "All Talentz",
+  name: "AllTalentz",
   url: "https://alltalentz.com",
   potentialAction: {
     "@type": "SearchAction",
@@ -61,7 +61,7 @@ export const WebsiteSchema = {
 export const EmploymentAgencySchema = {
   "@context": "https://schema.org",
   "@type": "EmploymentAgency",
-  name: "All Talentz LLC",
+  name: "AllTalentz LLC",
   url: "https://alltalentz.com",
   description:
     "AllTalentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
@@ -77,6 +77,36 @@ export const EmploymentAgencySchema = {
   },
   areaServed: ["US", "CA", "GB"],
   priceRange: "$400-$2500/month",
+};
+
+// Local Business Schema (Ohio HQ)
+export const LocalBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "AllTalentz LLC",
+  url: "https://alltalentz.com",
+  logo: "https://alltalentz.com/alltalentz-excellence.png",
+  image: "https://alltalentz.com/alltalentz-excellence.png",
+  description:
+    "AllTalentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
+  telephone: "+1-614-502-1440",
+  email: "info@alltalentz.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2020 Brice Road, Suite 180",
+    addressLocality: "Reynoldsburg",
+    addressRegion: "OH",
+    postalCode: "43068",
+    addressCountry: "US",
+  },
+  areaServed: ["US", "CA", "GB"],
+  priceRange: "$400-$2500/month",
+  sameAs: [
+    "https://www.linkedin.com/company/all-talentz/",
+    "https://twitter.com/AllTalentz",
+    "https://www.facebook.com/Alltalentz",
+    "https://instagram.com/all_talentz",
+  ],
 };
 
 // FAQ Schema Generator
@@ -118,7 +148,7 @@ export const generateServiceSchema = (name: string, description: string, url: st
   url,
   provider: {
     "@type": "EmploymentAgency",
-    name: "All Talentz LLC",
+    name: "AllTalentz LLC",
     url: "https://alltalentz.com",
   },
   areaServed: "US",

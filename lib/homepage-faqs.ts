@@ -1,6 +1,6 @@
 export const homepageFAQs = [
   {
-    question: "What industries does All Talentz serve?",
+    question: "What industries does AllTalentz serve?",
     answer:
       "We place remote professionals across five core verticals: Healthcare, Technology, Finance, Construction & Restoration, and Legal. Each placement is industry-trained and role-specific. ",
   },
@@ -12,12 +12,12 @@ export const homepageFAQs = [
   {
     question: "How much can I save compared to hiring locally?",
     answer:
-      "U.S. businesses typically save 50–75% on labour costs when working with All Talentz, accounting for salary, benefits, payroll taxes, and recruitment costs.",
+      "U.S. businesses typically save 50–75% on labour costs when working with AllTalentz, accounting for salary, benefits, payroll taxes, and recruitment costs.",
   },
   {
     question: "Is my data secure with remote staff?",
     answer:
-      "Yes. All Talentz is ISO 27001 certified and SOC-2 Type 2 certified. Data security and compliance are built into every engagement. ",
+      "Yes. AllTalentz is ISO 27001 certified and SOC-2 Type 2 certified. Data security and compliance are built into every engagement. ",
   },
   {
     question: "Do you offer outsourced medical billing services?",

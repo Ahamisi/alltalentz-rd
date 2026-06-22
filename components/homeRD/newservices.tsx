@@ -7,7 +7,7 @@ const NewServices = () => {
     <section className="py-24 px-4 bg-white">
       <div className="flex flex-col space-y-8 items-center">
         <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-          Generic staffing leaves gaps. At All Talentz, we match you with trained, vetted professionals who understand your industry — not just your job description. From a single specialist to a full remote team, we build the talent solution your business actually needs. 
+          Generic staffing leaves gaps. At AllTalentz, we match you with trained, vetted professionals who understand your industry — not just your job description. From a single specialist to a full remote team, we build the talent solution your business actually needs. 
         </p>
         <Link
           href="#our-dna"

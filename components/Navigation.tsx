@@ -18,6 +18,8 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
   const aboutTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const serviceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const talentTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const aboutBtnRef = useRef<HTMLButtonElement | null>(null);
+  const serviceBtnRef = useRef<HTMLButtonElement | null>(null);
 
   // Close dropdowns when pathname changes (navigation occurred)
   useEffect(() => {
@@ -60,6 +62,18 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
     talentTimeoutRef.current = setTimeout(() => {
       setShowTalentDropdown(false);
     }, 150);
+  };
+
+  // Close a desktop dropdown on Escape and return focus to its trigger button.
+  const handleDropdownKeyDown = (
+    e: React.KeyboardEvent<HTMLDivElement>,
+    close: () => void,
+    triggerRef: React.RefObject<HTMLButtonElement | null>,
+  ) => {
+    if (e.key === "Escape") {
+      close();
+      triggerRef.current?.focus();
+    }
   };
 
   const aboutPaths = [
@@ -126,6 +140,9 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
         {/* About accordion */}
         <div className="border-b border-gray-100">
           <button
+            type="button"
+            aria-expanded={showAboutDropdown}
+            aria-controls="mobile-company-menu"
             className={mobileSectionBtn(isAboutActive, showAboutDropdown)}
             onClick={() => setShowAboutDropdown((p) => !p)}
           >
@@ -145,7 +162,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
             </svg>
           </button>
           {showAboutDropdown && (
-            <div className="pb-1">
+            <div id="mobile-company-menu" className="pb-1">
               <Link href="/about-us" className={mobileSubLink("/about-us")}>
                 About Us
               </Link>
@@ -177,6 +194,9 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
         {/* Hire Talents accordion */}
         <div className="border-b border-gray-100">
           <button
+            type="button"
+            aria-expanded={showServiceDropdown}
+            aria-controls="mobile-hire-menu"
             className={mobileSectionBtn(isServiceActive, showServiceDropdown)}
             onClick={() => setShowServiceDropdown((p) => !p)}
           >
@@ -196,7 +216,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
             </svg>
           </button>
           {showServiceDropdown && (
-            <div className="pb-1">
+            <div id="mobile-hire-menu" className="pb-1">
               <Link
                 href="/hiring-services"
                 className={mobileSubLink("/hiring-services")}
@@ -326,8 +346,17 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           className="relative"
           onMouseEnter={handleAboutMouseEnter}
           onMouseLeave={handleAboutMouseLeave}
+          onKeyDown={(e) =>
+            handleDropdownKeyDown(e, () => setShowAboutDropdown(false), aboutBtnRef)
+          }
         >
           <button
+            ref={aboutBtnRef}
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={showAboutDropdown}
+            aria-controls="company-menu"
+            onClick={() => setShowAboutDropdown((p) => !p)}
             className={`flex items-center gap-1 ${isAboutActive ? "text-secondary" : getLinkClassName("/about-us")}`}
           >
             Company
@@ -348,33 +377,38 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
 
           {showAboutDropdown && (
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
-              <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
+              <div id="company-menu" role="menu" className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                 <Link
                   href="/about-us"
+                  role="menuitem"
                   className={getDropdownItemClassName("/about-us")}
                 >
                   About Us
                 </Link>
                 <Link
                   href="/why-african-talents"
+                  role="menuitem"
                   className={getDropdownItemClassName("/why-african-talents")}
                 >
                   Why African Talent
                 </Link>
                 <Link
                   href="/success-stories"
+                  role="menuitem"
                   className={getDropdownItemClassName("/success-stories")}
                 >
                   Success Stories
                 </Link>
                 <Link
                   href="/contact-us"
+                  role="menuitem"
                   className={getDropdownItemClassName("/contact-us")}
                 >
                   Contact Us
                 </Link>
                 <Link
                   href="/faq"
+                  role="menuitem"
                   className={getDropdownItemClassName("/faq")}
                 >
                   FAQs
@@ -391,8 +425,17 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           className="relative"
           onMouseEnter={handleServiceMouseEnter}
           onMouseLeave={handleServiceMouseLeave}
+          onKeyDown={(e) =>
+            handleDropdownKeyDown(e, () => setShowServiceDropdown(false), serviceBtnRef)
+          }
         >
           <button
+            ref={serviceBtnRef}
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={showServiceDropdown}
+            aria-controls="hire-menu"
+            onClick={() => setShowServiceDropdown((p) => !p)}
             className={`flex items-center gap-1 ${isServiceActive ? "text-secondary" : getLinkClassName("/hiring-services")}`}
           >
             Hire Talents
@@ -413,7 +456,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
 
           {showServiceDropdown && (
             <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
-              <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
+              <div id="hire-menu" role="menu" className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                 {/* <Link
                   href="/pricing-model"
                   className={getDropdownItemClassName("/pricing-model")}
@@ -422,42 +465,49 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
                 </Link> */}
                 <Link
                   href="/hiring-services"
+                  role="menuitem"
                   className={getDropdownItemClassName("/hiring-services")}
                 >
                   Hiring services
                 </Link>
                 <Link
                   href="/hire-tech-talents"
+                  role="menuitem"
                   className={getDropdownItemClassName("/hire-tech-talents")}
                 >
                   Hire Tech Talents
                 </Link>
                 <Link
                   href="/hire-healthcare-talents"
+                  role="menuitem"
                   className={getDropdownItemClassName("/hire-healthcare-talents")}
                 >
                   Hire Healthcare Talents
                 </Link>
                 <Link
                   href="/hire-finance-talents"
+                  role="menuitem"
                   className={getDropdownItemClassName("/hire-finance-talents")}
                 >
                   Hire Finance Talents
                 </Link>
                 <Link
                   href="/hire-remediation-talents"
+                  role="menuitem"
                   className={getDropdownItemClassName("/hire-remediation-talents")}
                 >
                   Hire Remediation Talents
                 </Link>
                 <Link
                   href="/hire-pest-control-talents"
+                  role="menuitem"
                   className={getDropdownItemClassName("/hire-pest-control-talents")}
                 >
                   Hire Pest Control Talents
                 </Link>
                 <Link
                   href="/hire-legal-talents"
+                  role="menuitem"
                   className={getDropdownItemClassName("/hire-legal-talents")}
                 >
                   Hire Legal Talents

@@ -93,10 +93,14 @@ export default async function PostLayout({ params, children }: LayoutProps) {
         headline: post.title,
         description: post.excerpt,
         datePublished: post.publishedAt,
+        dateModified: post._updatedAt ?? post.publishedAt,
         author: {
           '@type': 'Person',
           name: post.author?.name,
           jobTitle: post.author?.role,
+          image: post.author?.image
+            ? urlFor(post.author.image).width(400).height(400).fit('crop').auto('format').url()
+            : undefined,
         },
         publisher: {
           '@type': 'Organization',

@@ -30,7 +30,7 @@ export default function Faq() {
               <div className="py-[14px]">
                 <p className="font-normal pt-13 mb-13">
                   This privacy policy (this "Privacy Policy") explains how personal information is
-                  collected, used, stored, and disclosed by All Talentz Limited, (All Talentz,"
+                  collected, used, stored, and disclosed by AllTalentz Limited, (AllTalentz,"
                   "We," "Us," and "Our"). This Privacy Policy applies to Users (individually
                   referred to as "You") of our websites, and other online services to which this
                   Privacy Policy is posted (collectively, our "Services").
@@ -147,7 +147,7 @@ export default function Faq() {
                     We may use Personal Information for the purposes described elsewhere in this
                     Privacy Policy and internally for our general commercial purposes, including,
                     among other things, to offer our products and services and products and services
-                    of third parties that we think you might find of interest, but only All Talentz
+                    of third parties that we think you might find of interest, but only AllTalentz
                     and our third-party service providers involved in distributing the offers or
                     providing the products or services will have access to your Personal
                     Information. Our third-party service providers will only be permitted to use
