@@ -542,67 +542,6 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
         </Link>
       </li>
 
-      {theme !== "light" && (
-        <>
-          {/* Join Talent Pool (commented out — replaced with Hire Talent)
-          {addBootcamp && (
-            <li className="relative">
-              <div
-                className="relative"
-                onMouseEnter={handleTalentMouseEnter}
-                onMouseLeave={handleTalentMouseLeave}
-              >
-                <button
-                  className={`flex items-center gap-1 ${isTalentActive ? "text-secondary" : getLinkClassName("/bootcamp")}`}
-                >
-                  Join Talent Pool
-                  <svg
-                    className={`w-4 h-4 mt-1 transition-transform ${showTalentDropdown ? "rotate-180" : ""}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {showTalentDropdown && (
-                  <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
-                    <div className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
-                      <Link
-                        href="/professional-development-programme"
-                        className={getDropdownItemClassName("/professional-development-programme")}
-                      >
-                        Join our PDP
-                      </Link>
-                      <Link
-                        href="/our-watchlist"
-                        className={getDropdownItemClassName("/our-watchlist")}
-                      >
-                        Join Watchlist
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </li>
-          )}
-          */}
-          <li>
-            <Link
-              href="/hiring-services"
-              className={getLinkClassName("/hiring-services")}
-            >
-              Hire Talents
-            </Link>
-          </li>
-        </>
-      )}
     </>
   );
 };

@@ -40,7 +40,7 @@ const Header = ({ active = "home", type = "", theme = "dark" }: HeaderProps) => 
 
         {/* Desktop Menu */}
         <ul
-          className={`hidden lg:flex text-white text-lg ${type == "bootcamp" ? "gap-[54px] lg:ml-[20%]" : "lg:gap-7"}   font-normal`}
+          className={`hidden lg:flex items-center text-white ${type == "bootcamp" ? "text-lg gap-[54px] lg:ml-[20%]" : "whitespace-nowrap lg:text-base lg:gap-4 xl:text-lg xl:gap-7"}   font-normal`}
         >
           {type == "bootcamp" ? <NavigationBootcamp /> : <Navigation theme={theme} />}
         </ul>
@@ -83,7 +83,7 @@ const Header = ({ active = "home", type = "", theme = "dark" }: HeaderProps) => 
             text="Hire Talents"
             border={true}
             link="/hiring-services"
-            otherCSS="hidden lg:block"
+            otherCSS="hidden lg:block whitespace-nowrap lg:!text-base lg:!px-4 lg:!py-2 xl:!text-[20px] xl:!px-[30px] xl:!py-[15px]"
           />
         )}
 

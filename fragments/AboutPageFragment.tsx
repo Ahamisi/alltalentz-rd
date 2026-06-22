@@ -305,7 +305,7 @@ export default function About() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-16">
             {/* ISO 27001 */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 max-w-xs">
               <div className="bg-white rounded-2xl p-6 w-36 h-36 flex items-center justify-center">
                 <Image
                   src="/certs/iso-badge.png"
@@ -316,13 +316,17 @@ export default function About() {
                 />
               </div>
               <p className="text-white font-semibold text-sm tracking-wide">ISO 27001 Certified</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Your data is managed to the world&apos;s leading standard for information
+                security management.
+              </p>
             </div>
 
             {/* Divider */}
             <div className="hidden sm:block w-px h-24 bg-white/10" />
 
             {/* SOC-2 Type 2 */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 max-w-xs">
               <div className="bg-white rounded-2xl p-6 w-36 h-36 flex items-center justify-center">
                 <Image
                   src="/certs/AssurancePoint.png"
@@ -333,6 +337,10 @@ export default function About() {
                 />
               </div>
               <p className="text-white font-semibold text-sm tracking-wide">SOC-2 Type 2 Certified</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Independently audited controls for security, availability, and confidentiality
+                across every engagement.
+              </p>
             </div>
           </div>
         </div>
