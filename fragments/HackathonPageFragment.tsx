@@ -82,7 +82,7 @@ const rules = [
   {
     id: 6,
     question: "What are the rules on intellectual property?",
-    answer: `All submitted solutions remain the intellectual property of the participants.\nHowever, AllTalentz may highlight and promote winning projects with participant consent.`,
+    answer: `All submitted solutions remain the intellectual property of the participants.\nHowever, All Talentz may highlight and promote winning projects with participant consent.`,
   },
 ];
 
@@ -174,7 +174,7 @@ const faqs = [
   {
     id: 8,
     question: "Will travel or accommodation be provided?",
-    answer: `For selected in-person participants, AllTalentz may offer support for transportation within Lagos for Demo Day. Details will be communicated to shortlisted teams.`,
+    answer: `For selected in-person participants, All Talentz may offer support for transportation within Lagos for Demo Day. Details will be communicated to shortlisted teams.`,
   },
 ];
 
@@ -285,7 +285,7 @@ export default function Hackathon() {
             <Link href="/" className="flex-shrink-0">
               <Image
                 src="/hackathon/alltalentz.svg"
-                alt="AllTalentz"
+                alt="All Talentz"
                 width={150}
                 height={40}
                 className="h-auto"
@@ -384,7 +384,7 @@ export default function Hackathon() {
                 <div className="flex justify-between items-center mb-8">
                   <Image
                     src="/hackathon/alltalentz.svg"
-                    alt="AllTalentz"
+                    alt="All Talentz"
                     width={120}
                     height={32}
                     className="h-auto"
@@ -497,7 +497,7 @@ export default function Hackathon() {
               <div className="relative mb-12 flex justify-center">
                 <Image
                   src="/hackathon/hackathon-logo.svg"
-                  alt="AllTalentz Hackathon Logo"
+                  alt="All Talentz Hackathon Logo"
                   width={800}
                   height={300}
                   className="max-w-full h-auto"
@@ -538,7 +538,7 @@ export default function Hackathon() {
           </div>
         </section>
 
-        {/* What is AllTalentz Hackathon Section */}
+        {/* What is All Talentz Hackathon Section */}
         <section id="what-is" className="bg-white py-16 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
             <h2
@@ -1221,7 +1221,7 @@ export default function Hackathon() {
                 <div className="text-left">
                   <h4 className="text-xl font-bold text-gray-800 mb-3">1st Runner up</h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    ₦2,000,000 cash prize + trophy + spotlight in AllTalentz talent network.
+                    ₦2,000,000 cash prize + trophy + spotlight in All Talentz talent network.
                   </p>
                 </div>
 
@@ -1434,7 +1434,7 @@ export default function Hackathon() {
                   >
                     Terms & Conditions
                   </button>
-                  <br />© {new Date().getFullYear()} AllTalentz LLC. All rights reserved.
+                  <br />© {new Date().getFullYear()} All Talentz LLC. All rights reserved.
                 </div>
                 <div className="col-span-1 flex justify-center items-center gap-[30px]">
                   {/* Add your social media icons here */}

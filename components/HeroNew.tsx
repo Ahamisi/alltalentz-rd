@@ -93,7 +93,7 @@ const HeroNew = () => {
                   transition={{ delay: 0.7 }}
                   className="text-lg md:text-[20px] text-[#FEF5E9]"
                 >
-                  AllTalentz connects U.S. businesses with pre-vetted, industry-trained remote
+                  All Talentz connects U.S. businesses with pre-vetted, industry-trained remote
                   professionals across Healthcare, Technology, Finance, Construction, and legal—at a
                   fraction of the cost.
                 </motion.p>

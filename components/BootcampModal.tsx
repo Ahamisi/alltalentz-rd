@@ -88,7 +88,7 @@ export default function BootcampModal() {
             className="text-white text-[28px] font-bold leading-snug"
             style={{ textWrap: "balance" } as React.CSSProperties}
           >
-            AllTalentz Professional Development Program
+            All Talentz Professional Development Program
             <br />
             <span className="text-[#F99621]">is Now Open!</span>
           </h2>

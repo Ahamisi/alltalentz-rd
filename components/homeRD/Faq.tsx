@@ -64,12 +64,12 @@ const Faq = ({
   description = "Find answers to common questions about our services",
   faqs = [
     {
-      question: "What services does AllTalentz provide?",
+      question: "What services does All Talentz provide?",
       answer:
-        "AllTalentz provides a comprehensive range of services including estimating, project management, and consulting for restoration and construction projects.",
+        "All Talentz provides a comprehensive range of services including estimating, project management, and consulting for restoration and construction projects.",
     },
     {
-      question: "How can I get started with AllTalentz?",
+      question: "How can I get started with All Talentz?",
       answer:
         "Getting started is easy! Simply reach out through our contact form or give us a call, and our team will guide you through the process.",
     },

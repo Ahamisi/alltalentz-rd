@@ -96,7 +96,7 @@ const PestControlTalents = () => {
       <section className="py-24 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            Every missed call is a missed job. Every late invoice is a delayed payment. AllTalentz provides trained, vetted professionals who understand the pest control industry, from scheduling and customer service to billing and inside sales.
+            Every missed call is a missed job. Every late invoice is a delayed payment. All Talentz provides trained, vetted professionals who understand the pest control industry, from scheduling and customer service to billing and inside sales.
           </p>
           <Link
             href="/request-talent"

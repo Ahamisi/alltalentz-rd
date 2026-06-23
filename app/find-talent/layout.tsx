@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 import { generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Find Talent | AllTalentz",
+  title: "Find Talent | All Talentz",
   description:
-    "Find vetted remote professionals from Africa across Tech, Healthcare, Finance, Legal & Construction. 70% cost savings with AllTalentz.",
+    "Find vetted remote professionals from Africa across Tech, Healthcare, Finance, Legal & Construction. 75% cost savings with All Talentz.",
   alternates: { canonical: "https://alltalentz.com/find-talent" },
 };
 

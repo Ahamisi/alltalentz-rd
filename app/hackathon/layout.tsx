@@ -2,16 +2,16 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 
 export const metadata = {
-  title: "AllTalentz Hackathon 2025 | Build Solutions That Matter",
+  title: "All Talentz Hackathon 2025 | Build Solutions That Matter",
   description:
     "Join Nigeria's leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders.",
   keywords:
-    "hackathon, Nigeria tech, innovation challenge, tech hackathon, AllTalentz, tech competition",
+    "hackathon, Nigeria tech, innovation challenge, tech hackathon, All Talentz, tech competition",
   alternates: { canonical: "https://alltalentz.com/hackathon" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "AllTalentz Hackathon 2025 | Build Solutions That Matter",
+    siteName: "All Talentz",
+    title: "All Talentz Hackathon 2025 | Build Solutions That Matter",
     description:
       "Join Nigeria's leading tech hackathon. Build innovative solutions across 8 challenge tracks, compete for ₦10M in prizes, and connect with top industry leaders.",
     url: "https://alltalentz.com/hackathon",
@@ -19,7 +19,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AllTalentz Hackathon 2025",
+    title: "All Talentz Hackathon 2025",
     description:
       "Join Nigeria's leading tech hackathon. Build solutions that matter, compete for ₦10M in prizes.",
     images: ["/hackathon/alltalentz.svg"],

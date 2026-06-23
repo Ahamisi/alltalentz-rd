@@ -102,7 +102,7 @@ const HealthcareTalents = () => {
       <section className="py-24 px-4 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            Administrative overload is one of the biggest threats to quality patient care. AllTalentz provides trained, compliance-aware healthcare professionals from medical billing specialists to virtual admin support so your clinical team can focus on patients, not paperwork.
+            Administrative overload is one of the biggest threats to quality patient care. All Talentz provides trained, compliance-aware healthcare professionals from medical billing specialists to virtual admin support so your clinical team can focus on patients, not paperwork.
           </p>
           <Link
             href="/request-talent"

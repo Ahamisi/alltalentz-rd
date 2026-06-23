@@ -35,7 +35,7 @@ const Hero = () => {
           Find Talent
         </Link> */}
         <p className="text-[#FEF5E9] text-md md:text-[20px] text-center max-w-3xl mt-6 md:mt-[40px]">
-          Welcome to AllTalentz, the leading platform for recruiting the best remote talent from
+          Welcome to All Talentz, the leading platform for recruiting the best remote talent from
           Africa at a fraction of the cost.
         </p>
       </div>

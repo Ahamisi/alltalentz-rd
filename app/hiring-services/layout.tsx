@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Industry-Specific Outsourcing Solutions | AllTalentz",
+  title: "Industry-Specific Outsourcing Solutions | All Talentz",
   description:
-    "Explore tailored outsourcing solutions for Tech, Healthcare, Finance, Legal & Construction. Vetted specialists. 70% savings. Deployed in 2 weeks.",
+    "Explore tailored outsourcing solutions for Tech, Healthcare, Finance, Legal & Construction. Vetted specialists. 75% savings. Deployed in 2 weeks.",
   alternates: { canonical: "https://alltalentz.com/services" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Industry-Specific Outsourcing Solutions | AllTalentz",
+    siteName: "All Talentz",
+    title: "Industry-Specific Outsourcing Solutions | All Talentz",
     description:
-      "Explore tailored outsourcing solutions for Tech, Healthcare, Finance, Legal & Construction. Vetted specialists. 70% savings. Deployed in 2 weeks.",
+      "Explore tailored outsourcing solutions for Tech, Healthcare, Finance, Legal & Construction. Vetted specialists. 75% savings. Deployed in 2 weeks.",
     url: "https://alltalentz.com/services",
-    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
+    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "All Talentz" }],
   },
 };
 

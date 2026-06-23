@@ -12,7 +12,7 @@ export default function AllTalentzLogo({
   return (
     <Image
       src="/alltalentz-excellence.png"
-      alt="AllTalentz — Home"
+      alt="All Talentz — Home"
       width={3878}
       height={1162}
       className={className}

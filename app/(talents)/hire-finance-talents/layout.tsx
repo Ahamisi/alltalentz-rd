@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Outsource Finance & Accounting Talent | AllTalentz",
+  title: "Outsource Finance & Accounting Talent | All Talentz",
   description:
-    "Accounts receivable, bookkeeping & financial analysis professionals from Africa. 70% cost savings. SOC 2 aware.",
+    "Accounts receivable, bookkeeping & financial analysis professionals from Africa. 75% cost savings. SOC 2 aware.",
   alternates: { canonical: "https://alltalentz.com/finance-talents" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Outsource Finance & Accounting Talent | AllTalentz",
+    siteName: "All Talentz",
+    title: "Outsource Finance & Accounting Talent | All Talentz",
     description:
-      "Accounts receivable, bookkeeping & financial analysis professionals from Africa. 70% cost savings. SOC 2 aware.",
+      "Accounts receivable, bookkeeping & financial analysis professionals from Africa. 75% cost savings. SOC 2 aware.",
     url: "https://alltalentz.com/finance-talents",
-    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
+    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "All Talentz" }],
   },
 };
 

@@ -105,7 +105,7 @@ const LegalTalents = () => {
       <section className="py-24 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            Every hour a qualified attorney spends on administrative tasks is a billable hour lost. AllTalentz provides trained, vetted legal support professionals, from paralegals and legal virtual assistants to transcriptionists and intake specialists, so your attorneys can stay focused on strategy, not paperwork.
+            Every hour a qualified attorney spends on administrative tasks is a billable hour lost. All Talentz provides trained, vetted legal support professionals, from paralegals and legal virtual assistants to transcriptionists and intake specialists, so your attorneys can stay focused on strategy, not paperwork.
           </p>
           <Link
             href="/request-talent"

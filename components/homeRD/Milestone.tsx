@@ -22,7 +22,7 @@ const Milestone = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-600 max-w-3xl mx-auto text-lg"
           >
-            Founded in 2022, AllTalentz began with a bold mission to connect Africa's brightest
+            Founded in 2022, All Talentz began with a bold mission to connect Africa's brightest
             talents with meaningful global opportunities.
           </motion.p>
         </div>
@@ -57,7 +57,7 @@ const Milestone = () => {
                 <div className="bg-white rounded-lg p-6 border border-gray-100">
                   <h3 className="text-[32px] font-bold mb-4 text-[#4C4C4C]">2022</h3>
                   <p className="text-gray-600">
-                    2022 marked the humble beginning of AllTalentz. We started with just 3
+                    2022 marked the humble beginning of All Talentz. We started with just 3
                     employees—a small but mighty team that became the foundation for everything
                     we've built today.
                   </p>
@@ -134,7 +134,7 @@ const Milestone = () => {
             <motion.div className="text-center max-w-3xl mx-auto mt-40 border border-gray-100 p-3 relative z-20 bg-white">
               <h3 className="text-[24px] font-bold mb-1 text-[#4C4C4C]">PRESENTLY</h3>
               <p className="text-gray-600">
-                AllTalentz continues to build on this legacy of growth and success. With each
+                All Talentz continues to build on this legacy of growth and success. With each
                 project, we are empowering talents across Africa and helping businesses around the
                 globe achieve new heights. And this is only the beginning!
               </p>

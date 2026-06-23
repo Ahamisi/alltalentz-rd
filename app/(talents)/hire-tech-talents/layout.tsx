@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Outsource Tech Talent — Developers, AI/ML & QA | AllTalentz",
+  title: "Outsource Tech Talent — Developers, AI/ML & QA | All Talentz",
   description:
-    "Hire vetted software developers, AI/ML specialists & QA engineers from Africa. 70% cost savings. Deployed in 2 weeks.",
+    "Hire vetted software developers, AI/ML specialists & QA engineers from Africa. 75% cost savings. Deployed in 2 weeks.",
   alternates: { canonical: "https://alltalentz.com/tech-talents" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Outsource Tech Talent — Developers, AI/ML & QA | AllTalentz",
+    siteName: "All Talentz",
+    title: "Outsource Tech Talent — Developers, AI/ML & QA | All Talentz",
     description:
-      "Hire vetted software developers, AI/ML specialists & QA engineers from Africa. 70% cost savings. Deployed in 2 weeks.",
+      "Hire vetted software developers, AI/ML specialists & QA engineers from Africa. 75% cost savings. Deployed in 2 weeks.",
     url: "https://alltalentz.com/tech-talents",
-    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
+    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "All Talentz" }],
   },
 };
 

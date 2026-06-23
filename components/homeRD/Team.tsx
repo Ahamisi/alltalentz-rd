@@ -7,7 +7,7 @@ const teamMembers = [
     title: "MBA",
     role: "Founder & CEO",
     image: "/redesign-25/teams/sadiq-isu.webp",
-    bio: "Sadiq Isu is a seasoned professional with extensive expertise in the restoration industry, honed through key roles at renowned companies such as PuroClean and Kroger. As the founder and leader of AllTalentz, he now spearheads a dynamic talent outsourcing firm dedicated to delivering exceptional staffing solutions to small, medium, and large organizations.",
+    bio: "Sadiq Isu is a seasoned professional with extensive expertise in the restoration industry, honed through key roles at renowned companies such as PuroClean and Kroger. As the founder and leader of All Talentz, he now spearheads a dynamic talent outsourcing firm dedicated to delivering exceptional staffing solutions to small, medium, and large organizations.",
   },
   {
     name: "Abdul",
@@ -36,7 +36,7 @@ const teamMembers = [
     lastName: "Nwoseh",
     role: "Business and Digital Solutions Director",
     image: "/redesign-25/teams/michael.webp",
-    bio: "Michael is the Business and Digital Solutions Director for AllTalentz LLC. He is a seasoned growth strategist with over a decade of experience in propelling businesses toward optimal growth.  ",
+    bio: "Michael is the Business and Digital Solutions Director for All Talentz LLC. He is a seasoned growth strategist with over a decade of experience in propelling businesses toward optimal growth.  ",
   },
 
   {
@@ -51,7 +51,7 @@ const teamMembers = [
     lastName: "Oluwafemi",
     role: "HR Manager",
     image: "/redesign-25/teams/kehinde-oluwafemi.webp",
-    bio: "Kehinde (Kenny) Oluwafemi is a passionate, results-driven HR professional with over three years of professional experience in Performance Management, Recruitment, Employee Relations, and Policy Development. At AllTalentz, as the Human Resource Manager, Kenny has driven several strategic HR initiatives aimed at creating a better company culture and improving employee engagement toward higher organizational efficiency.",
+    bio: "Kehinde (Kenny) Oluwafemi is a passionate, results-driven HR professional with over three years of professional experience in Performance Management, Recruitment, Employee Relations, and Policy Development. At All Talentz, as the Human Resource Manager, Kenny has driven several strategic HR initiatives aimed at creating a better company culture and improving employee engagement toward higher organizational efficiency.",
   },
   {
     name: "Haolat",
@@ -66,7 +66,7 @@ const teamMembers = [
     lastName: "Obinaike",
     role: "Head, SW Engineering",
     image: "/redesign-25/teams/adetayo-obinaike.webp",
-    bio: "Adetayo is an experienced Product and Marketing Manager with over a decade of experience cutting across multinationals such as Nokia, Microsoft and HMD Global. Within this period, he built great collaborations with major Mobile Operators, Marketing Agencies, Retail brands, and Marketing Influencers across West Africa. Currently he leads a fantastic team of Software Engineers and Product developers in AllTalentz LLC.",
+    bio: "Adetayo is an experienced Product and Marketing Manager with over a decade of experience cutting across multinationals such as Nokia, Microsoft and HMD Global. Within this period, he built great collaborations with major Mobile Operators, Marketing Agencies, Retail brands, and Marketing Influencers across West Africa. Currently he leads a fantastic team of Software Engineers and Product developers in All Talentz LLC.",
   },
   {
     name: "Helen-Sylvanus",
@@ -80,7 +80,7 @@ const teamMembers = [
     lastName: "Willie",
     role: "Snr. Relationship Manager",
     image: "/redesign-25/teams/willie-akwaowo.webp",
-    bio: "Experienced in building strong client relationships and driving strategic growth across varied sectors. Now leading client engagement initiatives at AllTalentz.",
+    bio: "Experienced in building strong client relationships and driving strategic growth across varied sectors. Now leading client engagement initiatives at All Talentz.",
   },
 ];
 

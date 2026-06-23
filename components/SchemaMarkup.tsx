@@ -4,11 +4,11 @@ import { FAQItem, BreadcrumbItem } from "@/types";
 export const OrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "AllTalentz LLC",
+  name: "All Talentz LLC",
   url: "https://alltalentz.com",
   logo: "https://alltalentz.com/alltalentz-excellence.png",
   description:
-    "AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation.",
+    "All Talentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation.",
   address: [
     {
       "@type": "PostalAddress",
@@ -45,7 +45,7 @@ export const OrganizationSchema = {
 export const WebsiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "AllTalentz",
+  name: "All Talentz",
   url: "https://alltalentz.com",
   potentialAction: {
     "@type": "SearchAction",
@@ -61,10 +61,10 @@ export const WebsiteSchema = {
 export const EmploymentAgencySchema = {
   "@context": "https://schema.org",
   "@type": "EmploymentAgency",
-  name: "AllTalentz LLC",
+  name: "All Talentz LLC",
   url: "https://alltalentz.com",
   description:
-    "AllTalentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
+    "All Talentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
   telephone: "+1-614-502-1440",
   email: "info@alltalentz.com",
   address: {
@@ -83,12 +83,12 @@ export const EmploymentAgencySchema = {
 export const LocalBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "AllTalentz LLC",
+  name: "All Talentz LLC",
   url: "https://alltalentz.com",
   logo: "https://alltalentz.com/alltalentz-excellence.png",
   image: "https://alltalentz.com/alltalentz-excellence.png",
   description:
-    "AllTalentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
+    "All Talentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
   telephone: "+1-614-502-1440",
   email: "info@alltalentz.com",
   address: {
@@ -148,7 +148,7 @@ export const generateServiceSchema = (name: string, description: string, url: st
   url,
   provider: {
     "@type": "EmploymentAgency",
-    name: "AllTalentz LLC",
+    name: "All Talentz LLC",
     url: "https://alltalentz.com",
   },
   areaServed: "US",

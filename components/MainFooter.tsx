@@ -201,7 +201,7 @@ const MainFooter = ({
             <div className="flex flex-col md:flex-row items-center gap-8 flex-1">
               <AllTalentzLogo className="w-[150px] md:w-[180px] h-auto" />
               <div className="text-white text-center md:text-left text-sm">
-                © {new Date().getFullYear()} AllTalentz LLC. All rights reserved.
+                © {new Date().getFullYear()} All Talentz LLC. All rights reserved.
               </div>
             </div>
             <div className="flex justify-end items-center gap-[30px] md:min-w-[400px]">

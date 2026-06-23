@@ -42,7 +42,7 @@ export default function About() {
     },
     {
       quote:
-        "Hiring from AllTalentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
+        "Hiring from All Talentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
       name: "Bryan Towne",
       company: "Puroclean of Lynwood",
       companyLogo: "/clients/puroclean-icon.png",
@@ -59,7 +59,7 @@ export default function About() {
     },
     {
       quote:
-        "The reliability, accountability, accuracy and communication style at AllTalentz has been very top notch.",
+        "The reliability, accountability, accuracy and communication style at All Talentz has been very top notch.",
       name: "Johnetta Johnson",
       location: "SVP Operations, Alacrity Solutions.",
       companyLogo: "/clients/puroclean-icon.png",
@@ -67,7 +67,7 @@ export default function About() {
     },
     {
       quote:
-        "The reliability, accountability, accuracy and communication style at AllTalentz has been very top notch.",
+        "The reliability, accountability, accuracy and communication style at All Talentz has been very top notch.",
       name: "Craig Hawkins",
       location: "Owner, Puroclean of Redmond",
       company: "Puroclean of Lynwood",
@@ -94,7 +94,7 @@ export default function About() {
     },
     {
       quote:
-        "Hiring from AllTalentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
+        "Hiring from All Talentz has helped take a lot of pressure off, and allowed me to focus more on administrative tasks, it's been fantastic so far",
       name: "Bryan Towne",
       location: "Puroclean of Burlington, USA",
       companyLogo: "/clients/puroclean-icon.png",

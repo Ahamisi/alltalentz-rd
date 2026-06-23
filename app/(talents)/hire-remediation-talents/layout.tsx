@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Outsource Construction Estimating & Remediation | AllTalentz",
+  title: "Outsource Construction Estimating & Remediation | All Talentz",
   description:
-    "Certified estimators, takeoff specialists & project coordinators for restoration companies. 70% cost savings.",
+    "Certified estimators, takeoff specialists & project coordinators for restoration companies. 75% cost savings.",
   alternates: { canonical: "https://alltalentz.com/remediation-talents" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Outsource Construction Estimating & Remediation | AllTalentz",
+    siteName: "All Talentz",
+    title: "Outsource Construction Estimating & Remediation | All Talentz",
     description:
-      "Certified estimators, takeoff specialists & project coordinators for restoration companies. 70% cost savings.",
+      "Certified estimators, takeoff specialists & project coordinators for restoration companies. 75% cost savings.",
     url: "https://alltalentz.com/remediation-talents",
-    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
+    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "All Talentz" }],
   },
 };
 

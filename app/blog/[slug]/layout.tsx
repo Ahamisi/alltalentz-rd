@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
 
   if (!post) {
     return {
-      title: 'Post Not Found — AllTalentz Blog',
+      title: 'Post Not Found — All Talentz Blog',
       description: 'The article you are looking for could not be found.',
     }
   }
@@ -50,14 +50,14 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   const categoryTags = post.categories?.map((c) => c.title) ?? []
 
   return {
-    title: `${post.title} | AllTalentz Blog`,
+    title: `${post.title} | All Talentz Blog`,
     description: post.excerpt,
     alternates: {
       canonical: `https://alltalentz.com/blog/${slug}`,
     },
     openGraph: {
       type: 'article',
-      siteName: 'AllTalentz',
+      siteName: 'All Talentz',
       title: post.title,
       description: post.excerpt,
       url: `https://alltalentz.com/blog/${slug}`,
@@ -104,7 +104,7 @@ export default async function PostLayout({ params, children }: LayoutProps) {
         },
         publisher: {
           '@type': 'Organization',
-          name: 'AllTalentz',
+          name: 'All Talentz',
           url: 'https://alltalentz.com',
         },
         image: post.mainImage

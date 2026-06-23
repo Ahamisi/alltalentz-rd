@@ -101,7 +101,7 @@ const FinanceTalents = () => {
       <section className="py-24  bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            Back-office errors don't stay in the back office. They show up in your cash flow, your client relationships, and your audit trail. AllTalentz provides trained, vetted finance professionals who handle your receivables, payroll, data management, and client outreach with the accuracy and discretion of your operations demand.
+            Back-office errors don't stay in the back office. They show up in your cash flow, your client relationships, and your audit trail. All Talentz provides trained, vetted finance professionals who handle your receivables, payroll, data management, and client outreach with the accuracy and discretion of your operations demand.
           </p>
           <Link
             href="/request-talents"

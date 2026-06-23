@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Client Success Stories — Real Results with AllTalentz",
+  title: "Client Success Stories — Real Results with All Talentz",
   description:
-    "See how US businesses across restoration, healthcare, tech & finance scaled operations and cut costs by 70% with AllTalentz remote talent.",
+    "See how US businesses across restoration, healthcare, tech & finance scaled operations and cut costs by 75% with All Talentz remote talent.",
   alternates: { canonical: "https://alltalentz.com/success-stories" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Client Success Stories — Real Results with AllTalentz",
+    siteName: "All Talentz",
+    title: "Client Success Stories — Real Results with All Talentz",
     description:
-      "See how US businesses across restoration, healthcare, tech & finance scaled operations and cut costs by 70% with AllTalentz remote talent.",
+      "See how US businesses across restoration, healthcare, tech & finance scaled operations and cut costs by 75% with All Talentz remote talent.",
     url: "https://alltalentz.com/success-stories",
-    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
+    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "All Talentz" }],
   },
 };
 

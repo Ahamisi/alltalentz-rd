@@ -7,14 +7,14 @@ const TestimonialSlider = () => {
 
   const testimonials = [
     {
-      text: "AllTalentz is a fantastic company! I have truly enjoyed working with Samuel Mbah, he is an itegral member of my team at PuroClean of Bluffdale. I appreciate how eager Samuel is to learn and to take on any task I ask of him. I know I can always depend on him to deliver.Thank you Samuel for being so amazing and helpful",
+      text: "All Talentz is a fantastic company! I have truly enjoyed working with Samuel Mbah, he is an itegral member of my team at PuroClean of Bluffdale. I appreciate how eager Samuel is to learn and to take on any task I ask of him. I know I can always depend on him to deliver.Thank you Samuel for being so amazing and helpful",
       name: "Bru Empey",
       company: "Puroclean of Bluffdale Utah USA",
       logo: "/clients/puroclean-icon.png",
     },
 
     {
-      text: "I had the opportunity to work with Tobiloba Oyeludw with AllTalentz. Couldn't be a happier and a positive person to work together. She follows up promptly with job tasks and assignments",
+      text: "I had the opportunity to work with Tobiloba Oyeludw with All Talentz. Couldn't be a happier and a positive person to work together. She follows up promptly with job tasks and assignments",
       name: "Jane Smith",
       company: "Puroclean Summerlin",
       logo: "/clients/puroclean-icon.png",

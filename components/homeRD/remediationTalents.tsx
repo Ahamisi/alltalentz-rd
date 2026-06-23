@@ -105,7 +105,7 @@ const RemediationTalents = () => {
       <section className="py-24 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            While your crew is on-site, someone still needs to handle the estimates, the insurance paperwork, the client calls, and the scheduling. AllTalentz provides certified, trained back-office professionals built specifically for construction and remediation businesses, so your projects stay on time and on budget, even when it's chaos on the ground.
+            While your crew is on-site, someone still needs to handle the estimates, the insurance paperwork, the client calls, and the scheduling. All Talentz provides certified, trained back-office professionals built specifically for construction and remediation businesses, so your projects stay on time and on budget, even when it's chaos on the ground.
           </p>
           <Link
             href="/request-talent"

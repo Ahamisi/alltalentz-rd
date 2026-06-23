@@ -33,7 +33,7 @@ export const Email = ({
             <Heading className="mx-0 my-[30px] p-0 text-center text-[24px] font-normal text-black">
               New Talent Request
             </Heading>
-            <Text className="text-[14px] leading-[24px] text-black">Hello AllTalentz,</Text>
+            <Text className="text-[14px] leading-[24px] text-black">Hello All Talentz,</Text>
             <Text className="text-[14px] leading-[24px] text-black">
               You received a new talent request from <strong>{name}</strong> ({email}).
             </Text>

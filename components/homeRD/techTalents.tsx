@@ -101,7 +101,7 @@ const TechTalents = () => {
       <section className="py-24 bg-white">
         <div className="flex flex-col space-y-8 items-center">
           <p className="text-center text-lg text-gray-700 max-w-4xl mx-auto">
-            Your roadmap doesn't wait for a six-week hiring cycle. AllTalentz gives you immediate access to pre-vetted software developers, AI/ML engineers, data specialists, and UX designers who are ready to plug into your stack and ship from day one without the overhead of traditional recruitment. 
+            Your roadmap doesn't wait for a six-week hiring cycle. All Talentz gives you immediate access to pre-vetted software developers, AI/ML engineers, data specialists, and UX designers who are ready to plug into your stack and ship from day one without the overhead of traditional recruitment. 
           </p>
           <Link
             href="/request-talent"
