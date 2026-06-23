@@ -25,7 +25,7 @@ export default function PestControlTalentsPage() {
           {/* Right Column - Map */}
           <div className="hidden lg:block lg:w-[40%] pl-0">
             <img
-              src="/redesign-25/remediation-header.png"
+              src="/redesign-25/pest-control-1.webp"
               alt="Success Stories"
               className="w-full h-[500px] object-contain"
             />
