@@ -145,7 +145,7 @@ const PestControlTalents = () => {
             <div className="absolute w-[90%] h-[99%] bg-black/20 rounded-[24px] left-1/2 -translate-x-1/2 translate-y-4 md:translate-y-6"></div>
 
             <Image
-              src="/redesign-25/remediation-talents/remediation-trust.webp"
+              src="/redesign-25/pest-control-2.webp"
               alt="Remediation Trust"
               width={460}
               height={600}
