@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 import { generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Privacy Policy | AllTalentz",
+  title: "Privacy Policy | All Talentz",
   description:
-    "Read AllTalentz's privacy policy to understand how we collect, use, and protect your personal data.",
+    "Read All Talentz's privacy policy to understand how we collect, use, and protect your personal data.",
   alternates: { canonical: "https://alltalentz.com/privacy-policy" },
 };
 

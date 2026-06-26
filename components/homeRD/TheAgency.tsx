@@ -52,7 +52,7 @@ const Section = ({
       {!reverse && (
         <div className="relative flex justify-center md:justify-end">
           <div
-            className="w-[350px] h-[460px] mx-auto rounded-[24px]"
+            className="w-full max-w-[350px] h-[460px] mx-auto rounded-[24px]"
             style={{ background: "rgba(0, 0, 0, 0.2)" }}
           ></div>
           <div className="mt-[-40px] pb-[12px] absolute inset-0 flex justify-center items-center top-0">
@@ -85,7 +85,7 @@ const Section = ({
       {reverse && (
         <div className="relative flex justify-center md:justify-end">
           <div
-            className="w-[350px] h-[460px] mx-auto rounded-[24px]"
+            className="w-full max-w-[350px] h-[460px] mx-auto rounded-[24px]"
             style={{ background: "rgba(0, 0, 0, 0.2)" }}
           ></div>
           <div className="mt-[-40px] pb-[12px] absolute inset-0 flex justify-center items-center top-0">

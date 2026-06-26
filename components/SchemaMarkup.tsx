@@ -8,7 +8,7 @@ export const OrganizationSchema = {
   url: "https://alltalentz.com",
   logo: "https://alltalentz.com/alltalentz-excellence.png",
   description:
-    "AllTalentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation.",
+    "All Talentz delivers expert, vetted talent solutions tailored to the unique demands of Technology, Healthcare, Finance, and Remediation.",
   address: [
     {
       "@type": "PostalAddress",
@@ -64,7 +64,7 @@ export const EmploymentAgencySchema = {
   name: "All Talentz LLC",
   url: "https://alltalentz.com",
   description:
-    "AllTalentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
+    "All Talentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
   telephone: "+1-614-502-1440",
   email: "info@alltalentz.com",
   address: {
@@ -77,6 +77,36 @@ export const EmploymentAgencySchema = {
   },
   areaServed: ["US", "CA", "GB"],
   priceRange: "$400-$2500/month",
+};
+
+// Local Business Schema (Ohio HQ)
+export const LocalBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "All Talentz LLC",
+  url: "https://alltalentz.com",
+  logo: "https://alltalentz.com/alltalentz-excellence.png",
+  image: "https://alltalentz.com/alltalentz-excellence.png",
+  description:
+    "All Talentz connects US businesses with vetted remote talent from Africa across Tech, Healthcare, Finance, Legal & Construction.",
+  telephone: "+1-614-502-1440",
+  email: "info@alltalentz.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2020 Brice Road, Suite 180",
+    addressLocality: "Reynoldsburg",
+    addressRegion: "OH",
+    postalCode: "43068",
+    addressCountry: "US",
+  },
+  areaServed: ["US", "CA", "GB"],
+  priceRange: "$400-$2500/month",
+  sameAs: [
+    "https://www.linkedin.com/company/all-talentz/",
+    "https://twitter.com/AllTalentz",
+    "https://www.facebook.com/Alltalentz",
+    "https://instagram.com/all_talentz",
+  ],
 };
 
 // FAQ Schema Generator

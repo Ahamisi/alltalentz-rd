@@ -7,6 +7,7 @@ import {
   OrganizationSchema,
   WebsiteSchema,
   EmploymentAgencySchema,
+  LocalBusinessSchema,
 } from "@/components/SchemaMarkup";
 
 const montserrat = Montserrat({
@@ -17,31 +18,31 @@ const montserrat = Montserrat({
 
 export const metadata = {
   metadataBase: new URL("https://alltalentz.com"),
-  title: "Outsource to Africa — Save 70% on Staffing | AllTalentz",
+  title: "Outsource to Africa & Save 75% on Staffing | All Talentz",
   description:
-    "AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
+    "All Talentz connects US businesses with vetted remote talent from Africa. 75% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
   alternates: { canonical: "https://alltalentz.com" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Outsource to Africa — Save 70% on Staffing | AllTalentz",
+    siteName: "All Talentz",
+    title: "Outsource to Africa — Save 75% on Staffing | All Talentz",
     description:
-      "AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
+      "All Talentz connects US businesses with vetted remote talent from Africa. 75% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
     url: "https://alltalentz.com",
     images: [
       {
         url: "/twitter/twitter-card.png",
         width: 1200,
         height: 630,
-        alt: "AllTalentz — Outsource to Africa",
+        alt: "All Talentz — Outsource to Africa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Outsource to Africa — Save 70% on Staffing | AllTalentz",
+    title: "Outsource to Africa — Save 75% on Staffing | All Talentz",
     description:
-      "AllTalentz connects US businesses with vetted remote talent from Africa. 70% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
+      "All Talentz connects US businesses with vetted remote talent from Africa. 75% cost savings across Tech, Healthcare, Finance, Legal & Construction.",
     images: ["/twitter/twitter-card.png"],
   },
 };
@@ -67,6 +68,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(EmploymentAgencySchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LocalBusinessSchema) }}
         />
       </head>
       <body className={montserrat.className} id="body" style={{ overflowY: "hidden" }}>

@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Outsource Medical Billing & Healthcare Talent | AllTalentz",
+  title: "Outsource Medical Billing & Healthcare Talent | All Talentz",
   description:
-    "HIPAA-trained medical billing specialists, coders & admin support from Africa. 70% savings. Scale your healthcare operations.",
+    "HIPAA-trained medical billing specialists, coders & admin support from Africa. 75% savings. Scale your healthcare operations.",
   alternates: { canonical: "https://alltalentz.com/healthcare-talents" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Outsource Medical Billing & Healthcare Talent | AllTalentz",
+    siteName: "All Talentz",
+    title: "Outsource Medical Billing & Healthcare Talent | All Talentz",
     description:
-      "HIPAA-trained medical billing specialists, coders & admin support from Africa. 70% savings. Scale your healthcare operations.",
+      "HIPAA-trained medical billing specialists, coders & admin support from Africa. 75% savings. Scale your healthcare operations.",
     url: "https://alltalentz.com/healthcare-talents",
-    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
+    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "All Talentz" }],
   },
 };
 

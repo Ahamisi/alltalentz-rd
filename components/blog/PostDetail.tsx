@@ -60,7 +60,7 @@ export default function PostDetail({ post, heroImageUrl, authorImageUrl }: PostD
 
         <p className="text-gray-500 text-lg leading-relaxed mb-8">{post.excerpt}</p>
 
-        <div className="flex items-center gap-3 pb-10 border-b border-gray-100">
+        <div className="flex items-start gap-3 pb-10 border-b border-gray-100">
           {authorImageUrl ? (
             <div className="relative w-11 h-11 rounded-full overflow-hidden flex-shrink-0">
               <Image src={authorImageUrl} alt={post.author.name} fill className="object-cover" />
@@ -73,6 +73,9 @@ export default function PostDetail({ post, heroImageUrl, authorImageUrl }: PostD
           <div>
             <p className="text-sm font-bold text-gray-900">{post.author.name}</p>
             {post.author.role && <p className="text-sm text-gray-400">{post.author.role}</p>}
+            {post.author.bio && (
+              <p className="text-sm text-gray-500 leading-relaxed mt-2">{post.author.bio}</p>
+            )}
           </div>
         </div>
 

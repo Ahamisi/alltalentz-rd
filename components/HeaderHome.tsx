@@ -21,7 +21,7 @@ const Header = ({ active = "home" }: HeaderHomeProps) => {
 
   return (
     <>
-      <header className="bg-transparent lg:absolute relative z-50 lg:w-[95%]  lg:mx-[50px] w-full py-0 mt-5">
+      <header className="bg-transparent lg:absolute relative z-50 lg:w-[95%] lg:left-1/2 lg:-translate-x-1/2 w-full py-0 mt-5">
         <nav
           className="py-4 flex items-center justify-between bg-transparent px-[10px] md:px-[20px] lg:px-0"
           style={{ zIndex: 10 }}
@@ -34,7 +34,7 @@ const Header = ({ active = "home" }: HeaderHomeProps) => {
           </div>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex text-white text-lg lg:gap-7   font-normal">
+          <ul className="hidden lg:flex items-center text-white whitespace-nowrap lg:text-base lg:gap-4 xl:text-lg xl:gap-7 font-normal">
             <Navigation />
           </ul>
           {/* Mobile Menu */}
@@ -65,7 +65,7 @@ const Header = ({ active = "home" }: HeaderHomeProps) => {
             text="Hire Talents"
             border={true}
             link="/request-talent"
-            otherCSS="hidden lg:block"
+            otherCSS="hidden lg:block whitespace-nowrap lg:!text-base lg:!px-4 lg:!py-2 xl:!text-[20px] xl:!px-[30px] xl:!py-[15px]"
           />
 
           {/* Mobile Menu */}

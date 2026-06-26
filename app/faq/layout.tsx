@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Frequently Asked Questions | AllTalentz",
+  title: "Frequently Asked Questions | All Talentz",
   description:
-    "Got questions about hiring remote talent from Africa? Find answers about our process, pricing, onboarding, and what makes AllTalentz different.",
+    "Got questions about hiring remote talent from Africa? Find answers about our process, pricing, onboarding, and what makes All Talentz different.",
   alternates: { canonical: "https://alltalentz.com/faq" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Frequently Asked Questions | AllTalentz",
+    siteName: "All Talentz",
+    title: "Frequently Asked Questions | All Talentz",
     description:
-      "Got questions about hiring remote talent from Africa? Find answers about our process, pricing, onboarding, and what makes AllTalentz different.",
+      "Got questions about hiring remote talent from Africa? Find answers about our process, pricing, onboarding, and what makes All Talentz different.",
     url: "https://alltalentz.com/faq",
-    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
+    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "All Talentz" }],
   },
 };
 

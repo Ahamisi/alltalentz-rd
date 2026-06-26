@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { generateServiceSchema, generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Outsource Pest Control Support — CSRs, Accountants & Sales | AllTalentz",
+  title: "Outsource Pest Control Support — CSRs, Accountants & Sales | All Talentz",
   description:
-    "Hire trained pest control back-office talent: customer service reps, accountants, billing specialists & inside sales reps. Up to 70% cost savings.",
+    "Hire trained pest control back-office talent: customer service reps, accountants, billing specialists & inside sales reps. Up to 75% cost savings.",
   alternates: { canonical: "https://alltalentz.com/hire-pest-control-talents" },
   openGraph: {
     type: "website",
-    siteName: "AllTalentz",
-    title: "Outsource Pest Control Support — CSRs, Accountants & Sales | AllTalentz",
+    siteName: "All Talentz",
+    title: "Outsource Pest Control Support — CSRs, Accountants & Sales | All Talentz",
     description:
-      "Hire trained pest control back-office talent: customer service reps, accountants, billing specialists & inside sales reps. Up to 70% cost savings.",
+      "Hire trained pest control back-office talent: customer service reps, accountants, billing specialists & inside sales reps. Up to 75% cost savings.",
     url: "https://alltalentz.com/hire-pest-control-talents",
-    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "AllTalentz" }],
+    images: [{ url: "/twitter/twitter-card.png", width: 1200, height: 630, alt: "All Talentz" }],
   },
 };
 

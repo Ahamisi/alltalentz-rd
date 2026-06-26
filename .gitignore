@@ -35,6 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# sanity studio build output (deployed via CLI)
+/dist
+
 # Mac system files
 .DS_Store
 ._*

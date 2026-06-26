@@ -18,14 +18,14 @@ export default function PestControlTalentsPage() {
               href="/request-talent"
               className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300 w-fit"
             >
-              Hire Pest Control support
+              Hire Pest Control Talent
             </Link>
           </div>
 
           {/* Right Column - Map */}
           <div className="hidden lg:block lg:w-[40%] pl-0">
             <img
-              src="/redesign-25/remediation-header.png"
+              src="/redesign-25/pest-control-1.webp"
               alt="Success Stories"
               className="w-full h-[500px] object-contain"
             />

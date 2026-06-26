@@ -59,7 +59,7 @@ export default function About() {
     },
     {
       quote:
-        "The reliability, accountability, accuracy and communication style at AllTalentz has been very top notch.",
+        "The reliability, accountability, accuracy and communication style at All Talentz has been very top notch.",
       name: "Johnetta Johnson",
       location: "SVP Operations, Alacrity Solutions.",
       companyLogo: "/clients/puroclean-icon.png",
@@ -67,7 +67,7 @@ export default function About() {
     },
     {
       quote:
-        "The reliability, accountability, accuracy and communication style at AllTalentz has been very top notch.",
+        "The reliability, accountability, accuracy and communication style at All Talentz has been very top notch.",
       name: "Craig Hawkins",
       location: "Owner, Puroclean of Redmond",
       company: "Puroclean of Lynwood",

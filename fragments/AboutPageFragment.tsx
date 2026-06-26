@@ -150,7 +150,7 @@ export default function About() {
               <p className="text-gray-600 leading-relaxed">
                 Together, we go further. We believe the best outcomes are built collectively. We
                 show up for each other, communicate openly, and combine our strengths to deliver
-                results no individual could achieve alone. At AllTalentz, collaboration isn't just
+                results no individual could achieve alone. At All Talentz, collaboration isn't just
                 encouraged — it's how we work.
               </p>
             </div>
@@ -209,7 +209,7 @@ export default function About() {
               <h3 className="text-2xl font-bold mb-4 text-[#121212]">Excellence</h3>
               <p className="text-gray-600 leading-relaxed">
                 Good enough never is. We set a high bar and hold ourselves to it — consistently.
-                Excellence at AllTalentz means delivering work that is accurate, thoughtful, and
+                Excellence at All Talentz means delivering work that is accurate, thoughtful, and
                 built to last. We sweat the details, refine our process, and never mistake speed for
                 quality.
               </p>
@@ -305,7 +305,7 @@ export default function About() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-16">
             {/* ISO 27001 */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 max-w-xs">
               <div className="bg-white rounded-2xl p-6 w-36 h-36 flex items-center justify-center">
                 <Image
                   src="/certs/iso-badge.png"
@@ -316,13 +316,17 @@ export default function About() {
                 />
               </div>
               <p className="text-white font-semibold text-sm tracking-wide">ISO 27001 Certified</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Your data is managed to the world&apos;s leading standard for information
+                security management.
+              </p>
             </div>
 
             {/* Divider */}
             <div className="hidden sm:block w-px h-24 bg-white/10" />
 
             {/* SOC-2 Type 2 */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 max-w-xs">
               <div className="bg-white rounded-2xl p-6 w-36 h-36 flex items-center justify-center">
                 <Image
                   src="/certs/AssurancePoint.png"
@@ -333,6 +337,10 @@ export default function About() {
                 />
               </div>
               <p className="text-white font-semibold text-sm tracking-wide">SOC-2 Type 2 Certified</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Independently audited controls for security, availability, and confidentiality
+                across every engagement.
+              </p>
             </div>
           </div>
         </div>

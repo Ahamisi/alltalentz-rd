@@ -9,7 +9,7 @@ const MobileMilestone = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-6 text-[#121212]">Our Milestones</h2>
           <p className="text-gray-600 text-lg">
-            Founded in 2022, AllTalentz began with a bold mission to connect Africa's brightest
+            Founded in 2022, All Talentz began with a bold mission to connect Africa's brightest
             talents with meaningful global opportunities.
           </p>
         </div>
@@ -25,7 +25,7 @@ const MobileMilestone = () => {
           >
             <h3 className="text-[32px] font-bold mb-4 text-[#4C4C4C]">2022</h3>
             <p className="text-gray-600">
-              2022 marked the humble beginning of AllTalentz. We started with just 3 employees—a
+              2022 marked the humble beginning of All Talentz. We started with just 3 employees—a
               small but mighty team that became the foundation for everything we've built today.
             </p>
           </motion.div>

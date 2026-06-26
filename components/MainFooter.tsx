@@ -107,7 +107,9 @@ const MainFooter = ({
               <form>
                 <div className="flex flex-col lg:flex-row gap-4 justify-end">
                   <input
+                    id="newsletter-email"
                     type="email"
+                    aria-label="Email address"
                     placeholder="Enter your email"
                     className="py-2 px-4 text-[#4C4C4C] rounded-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%]"
                   />

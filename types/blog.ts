@@ -24,6 +24,7 @@ export interface SanityAuthor {
   name: string
   role?: string
   image?: SanityImage
+  bio?: string
 }
 
 export interface SanityPost {
@@ -32,6 +33,7 @@ export interface SanityPost {
   slug: string
   excerpt: string
   publishedAt: string
+  _updatedAt?: string
   featured?: boolean
   mainImage?: SanityImage
   author: SanityAuthor
