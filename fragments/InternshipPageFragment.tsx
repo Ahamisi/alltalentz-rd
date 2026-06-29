@@ -20,7 +20,7 @@ import {
 
 const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeQVQ8kCbLo6mvmYtyZG7FRKgRL3ZHEXoYraj6-E6_34YBIqQ/viewform";
 
-const HERO_IMAGE = "/redesign-25/career-banner.jpg";
+const HERO_IMAGE = "/redesign-25/internship-banner.webp";
 
 const applyLinkProps = {
   href: FORM_URL,
