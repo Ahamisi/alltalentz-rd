@@ -22,6 +22,7 @@ interface WaitlistEmailProps {
   career: string;
 }
 
+
 export async function renderContactEmail(props: ContactEmailProps): Promise<string> {
   return render(
     <Email
