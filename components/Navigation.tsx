@@ -283,6 +283,11 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
             Blog
           </Link>
         </div>
+        <div className="border-b border-gray-100">
+          <Link href="/internship" className={mobileLink}>
+            Internship
+          </Link>
+        </div>
 
         {/* Join Talent Pool (commented out — replaced with Hire Talent)
         {addBootcamp && (
@@ -539,6 +544,12 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
       <li className={getLinkClassName("/blog")}>
         <Link href="/blog">
           Blog
+        </Link>
+      </li>
+
+      <li className={getLinkClassName("/internship")}>
+        <Link href="/internship">
+          Internship
         </Link>
       </li>
 
