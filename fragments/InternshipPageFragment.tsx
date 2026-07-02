@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Header from "@/components/Header";
 import MainFooter from "@/components/MainFooter";
 import {
@@ -16,16 +18,15 @@ import {
   FileText,
   Send,
   BadgeCheck,
+  Loader2,
+  CheckCircle2,
+  Upload,
 } from "lucide-react";
-
-const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeQVQ8kCbLo6mvmYtyZG7FRKgRL3ZHEXoYraj6-E6_34YBIqQ/viewform";
 
 const HERO_IMAGE = "/redesign-25/internship-banner.webp";
 
 const applyLinkProps = {
-  href: FORM_URL,
-  target: "_blank" as const,
-  rel: "noopener noreferrer",
+  href: "#apply",
 };
 
 const BENEFITS = [
@@ -79,7 +80,118 @@ const STEPS = [
   },
 ];
 
+const inputClass =
+  "w-full border border-gray-200 bg-[#F8F8F8] px-4 py-3 text-[#121212] placeholder:text-gray-400 focus:border-[#F99621] focus:outline-none focus:ring-1 focus:ring-[#F99621]";
+
 export default function InternshipPageFragment() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    courseOfStudy: "",
+    department: "",
+    whyInterested: "",
+    expectations: "",
+    achievement: "",
+  });
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedFile(event.target.files?.[0] ?? null);
+  };
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.fullName) {
+      newErrors.fullName = "Full Name is required";
+    }
+    if (!formData.email) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+    if (!formData.phone) {
+      newErrors.phone = "Phone number is required";
+    }
+    if (!formData.courseOfStudy) {
+      newErrors.courseOfStudy = "Course of Study is required";
+    }
+    if (!formData.department) {
+      newErrors.department = "Please choose a department";
+    }
+    if (!formData.whyInterested) {
+      newErrors.whyInterested = "This field is required";
+    }
+    if (!formData.expectations) {
+      newErrors.expectations = "This field is required";
+    }
+    if (!formData.achievement) {
+      newErrors.achievement = "This field is required";
+    }
+    if (!selectedFile) {
+      newErrors.resume = "Resume upload is required";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitError(null);
+
+    if (!validateForm()) return;
+
+    try {
+      setIsLoading(true);
+
+      const payload = new FormData();
+      payload.append("fullName", formData.fullName);
+      payload.append("email", formData.email);
+      payload.append("phone", formData.phone);
+      payload.append("courseOfStudy", formData.courseOfStudy);
+      payload.append("department", formData.department);
+      payload.append("whyInterested", formData.whyInterested);
+      payload.append("expectations", formData.expectations);
+      payload.append("achievement", formData.achievement);
+      if (selectedFile) payload.append("resume", selectedFile);
+
+      const response = await fetch("/api/internship", {
+        method: "POST",
+        body: payload,
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.error ?? "Failed to submit application");
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Failed to submit application:", error);
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again later."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <main className="relative overflow-hidden">
       {/* Hero with backdrop image */}
@@ -238,31 +350,265 @@ export default function InternshipPageFragment() {
         </div>
       </section>
 
-      {/* Apply CTA banner */}
+      {/* Application form */}
       <section id="apply" className="scroll-mt-24 bg-white px-4 py-20 md:py-28">
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-[#121212] px-6 py-16 text-center md:px-16">
-          <div
-            className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#F99621]/20 blur-3xl"
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute -bottom-20 -left-16 h-64 w-64 rounded-full bg-[#F99621]/10 blur-3xl"
-            aria-hidden="true"
-          />
-          <div className="relative">
-            <h2 className="text-3xl font-bold text-white md:text-4xl">Ready to apply?</h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg text-gray-300">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[#F99621]">
+              Application form
+            </span>
+            <h2 className="mt-4 text-3xl font-bold text-[#121212] md:text-4xl">
+              Ready to apply?
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-gray-600">
               Complete the application form to join the All Talentz Graduate Internship
               Program. Please ensure all information provided is accurate and up to date.
             </p>
-            <a
-              {...applyLinkProps}
-              className="group mt-10 inline-flex items-center gap-2 bg-[#F99621] px-12 py-4 font-semibold text-[#121212] transition duration-300 hover:bg-white"
-            >
-              Apply now
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
           </div>
+
+          {isSubmitted ? (
+            <div className="mt-14 rounded-2xl border border-gray-100 bg-[#F8F8F8] px-6 py-16 text-center">
+              <CheckCircle2 className="mx-auto h-12 w-12 text-[#F99621]" aria-hidden="true" />
+              <h3 className="mt-5 text-2xl font-bold text-[#121212]">
+                Application submitted!
+              </h3>
+              <p className="mx-auto mt-3 max-w-md text-gray-600">
+                Thank you for applying to the All Talentz Graduate Internship Program.
+                Shortlisted applicants will be contacted with the next steps.
+              </p>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="mt-14 space-y-6 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-10"
+            >
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="fullName" className="mb-2 block font-medium text-[#121212]">
+                    Name (First and Last Name) <span className="text-[#F99621]">*</span>
+                  </label>
+                  <input
+                    id="fullName"
+                    name="fullName"
+                    type="text"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Enter your answer"
+                    className={inputClass}
+                  />
+                  {errors.fullName && (
+                    <p className="mt-1.5 text-sm text-red-600">{errors.fullName}</p>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="courseOfStudy"
+                    className="mb-2 block font-medium text-[#121212]"
+                  >
+                    Course of Study <span className="text-[#F99621]">*</span>
+                  </label>
+                  <input
+                    id="courseOfStudy"
+                    name="courseOfStudy"
+                    type="text"
+                    value={formData.courseOfStudy}
+                    onChange={handleInputChange}
+                    placeholder="Enter your answer"
+                    className={inputClass}
+                  />
+                  {errors.courseOfStudy && (
+                    <p className="mt-1.5 text-sm text-red-600">{errors.courseOfStudy}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="email" className="mb-2 block font-medium text-[#121212]">
+                    Email Address <span className="text-[#F99621]">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Enter your answer"
+                    className={inputClass}
+                  />
+                  {errors.email && (
+                    <p className="mt-1.5 text-sm text-red-600">{errors.email}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="phone" className="mb-2 block font-medium text-[#121212]">
+                    Phone number <span className="text-[#F99621]">*</span>
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="Enter your answer"
+                    className={inputClass}
+                  />
+                  {errors.phone && (
+                    <p className="mt-1.5 text-sm text-red-600">{errors.phone}</p>
+                  )}
+                </div>
+              </div>
+
+              <fieldset>
+                <legend className="mb-3 block font-medium text-[#121212]">
+                  Department of Choice for Internship{" "}
+                  <span className="text-[#F99621]">*</span>
+                </legend>
+                <div className="grid gap-2.5 sm:grid-cols-2">
+                  {DEPARTMENTS.map(({ name }) => (
+                    <label
+                      key={name}
+                      className={`flex cursor-pointer items-center gap-3 border px-4 py-3 transition duration-150 ${
+                        formData.department === name
+                          ? "border-[#F99621] bg-[#F99621]/5"
+                          : "border-gray-200 bg-[#F8F8F8] hover:border-[#F99621]/40"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="department"
+                        value={name}
+                        checked={formData.department === name}
+                        onChange={handleInputChange}
+                        className="h-4 w-4 accent-[#F99621]"
+                      />
+                      <span className="text-sm text-[#121212]">{name}</span>
+                    </label>
+                  ))}
+                </div>
+                {errors.department && (
+                  <p className="mt-1.5 text-sm text-red-600">{errors.department}</p>
+                )}
+              </fieldset>
+
+              <div>
+                <label htmlFor="resume" className="mb-2 block font-medium text-[#121212]">
+                  Upload your Resume <span className="text-[#F99621]">*</span>
+                </label>
+                <label
+                  htmlFor="resume"
+                  className="flex cursor-pointer items-center gap-3 border border-dashed border-gray-300 bg-[#F8F8F8] px-4 py-4 transition duration-150 hover:border-[#F99621]/60"
+                >
+                  <Upload className="h-5 w-5 shrink-0 text-[#F99621]" aria-hidden="true" />
+                  <span className="text-sm text-gray-600">
+                    {selectedFile ? selectedFile.name : "Upload file (PDF or Word, max 5MB)"}
+                  </span>
+                </label>
+                <input
+                  id="resume"
+                  name="resume"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleFileChange}
+                  className="sr-only"
+                />
+                {errors.resume && (
+                  <p className="mt-1.5 text-sm text-red-600">{errors.resume}</p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="whyInterested"
+                  className="mb-2 block font-medium text-[#121212]"
+                >
+                  Why are you interested in All Talentz Internship Program?{" "}
+                  <span className="text-[#F99621]">*</span>
+                </label>
+                <textarea
+                  id="whyInterested"
+                  name="whyInterested"
+                  rows={4}
+                  value={formData.whyInterested}
+                  onChange={handleInputChange}
+                  placeholder="Enter your answer"
+                  className={inputClass}
+                />
+                {errors.whyInterested && (
+                  <p className="mt-1.5 text-sm text-red-600">{errors.whyInterested}</p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="expectations"
+                  className="mb-2 block font-medium text-[#121212]"
+                >
+                  What are your expectations with the All Talentz Internship?{" "}
+                  <span className="text-[#F99621]">*</span>
+                </label>
+                <textarea
+                  id="expectations"
+                  name="expectations"
+                  rows={4}
+                  value={formData.expectations}
+                  onChange={handleInputChange}
+                  placeholder="Enter your answer"
+                  className={inputClass}
+                />
+                {errors.expectations && (
+                  <p className="mt-1.5 text-sm text-red-600">{errors.expectations}</p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="achievement"
+                  className="mb-2 block font-medium text-[#121212]"
+                >
+                  Tell us an achievement you&apos;re proud of{" "}
+                  <span className="text-[#F99621]">*</span>
+                </label>
+                <textarea
+                  id="achievement"
+                  name="achievement"
+                  rows={4}
+                  value={formData.achievement}
+                  onChange={handleInputChange}
+                  placeholder="Enter your answer"
+                  className={inputClass}
+                />
+                {errors.achievement && (
+                  <p className="mt-1.5 text-sm text-red-600">{errors.achievement}</p>
+                )}
+              </div>
+
+              {submitError && (
+                <p className="border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                  {submitError}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="group inline-flex w-full items-center justify-center gap-2 bg-[#F99621] px-10 py-4 font-semibold text-[#121212] transition duration-300 hover:bg-[#121212] hover:text-white disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    Submit application
+                    <ArrowRight
+                      className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </>
+                )}
+              </button>
+            </form>
+          )}
         </div>
       </section>
 

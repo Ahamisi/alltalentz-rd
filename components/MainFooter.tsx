@@ -61,6 +61,11 @@ const MainFooter = ({
                     </Link>
                   </li>
                   <li className="mb-[12px]">
+                    <Link href="/internship" className="hover:text-secondary font-light">
+                      Internship
+                    </Link>
+                  </li>
+                  <li className="mb-[12px]">
                     <Link href="about" className="hover:text-secondary font-light">
                       About Us
                     </Link>

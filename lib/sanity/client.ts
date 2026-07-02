@@ -10,3 +10,12 @@ export const client = createClient({
   apiVersion,
   useCdn: false,
 })
+
+// Server-side only: has write access for uploading assets (e.g. internship CVs)
+export const writeClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: false,
+  token: process.env.SANITY_WRITE_TOKEN,
+})
