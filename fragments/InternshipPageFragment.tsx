@@ -490,32 +490,6 @@ export default function InternshipPageFragment() {
               </fieldset>
 
               <div>
-                <label htmlFor="resume" className="mb-2 block font-medium text-[#121212]">
-                  Upload your Resume <span className="text-[#F99621]">*</span>
-                </label>
-                <label
-                  htmlFor="resume"
-                  className="flex cursor-pointer items-center gap-3 border border-dashed border-gray-300 bg-[#F8F8F8] px-4 py-4 transition duration-150 hover:border-[#F99621]/60"
-                >
-                  <Upload className="h-5 w-5 shrink-0 text-[#F99621]" aria-hidden="true" />
-                  <span className="text-sm text-gray-600">
-                    {selectedFile ? selectedFile.name : "Upload file (PDF or Word, max 5MB)"}
-                  </span>
-                </label>
-                <input
-                  id="resume"
-                  name="resume"
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  onChange={handleFileChange}
-                  className="sr-only"
-                />
-                {errors.resume && (
-                  <p className="mt-1.5 text-sm text-red-600">{errors.resume}</p>
-                )}
-              </div>
-
-              <div>
                 <label
                   htmlFor="whyInterested"
                   className="mb-2 block font-medium text-[#121212]"
@@ -578,6 +552,32 @@ export default function InternshipPageFragment() {
                 />
                 {errors.achievement && (
                   <p className="mt-1.5 text-sm text-red-600">{errors.achievement}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="resume" className="mb-2 block font-medium text-[#121212]">
+                  Upload your Resume <span className="text-[#F99621]">*</span>
+                </label>
+                <label
+                  htmlFor="resume"
+                  className="flex cursor-pointer items-center gap-3 border border-dashed border-gray-300 bg-[#F8F8F8] px-4 py-4 transition duration-150 hover:border-[#F99621]/60"
+                >
+                  <Upload className="h-5 w-5 shrink-0 text-[#F99621]" aria-hidden="true" />
+                  <span className="text-sm text-gray-600">
+                    {selectedFile ? selectedFile.name : "Upload file (PDF or Word, max 5MB)"}
+                  </span>
+                </label>
+                <input
+                  id="resume"
+                  name="resume"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleFileChange}
+                  className="sr-only"
+                />
+                {errors.resume && (
+                  <p className="mt-1.5 text-sm text-red-600">{errors.resume}</p>
                 )}
               </div>
 
