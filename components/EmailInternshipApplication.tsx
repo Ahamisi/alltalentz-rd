@@ -8,6 +8,7 @@ interface EmailInternshipApplicationProps {
   phone: string;
   courseOfStudy: string;
   department: string;
+  alternativeDepartment: string;
   whyInterested: string;
   expectations: string;
   achievement: string;
@@ -20,6 +21,7 @@ export const EmailInternshipApplication = ({
   phone,
   courseOfStudy,
   department,
+  alternativeDepartment,
   whyInterested,
   expectations,
   achievement,
@@ -45,6 +47,8 @@ export const EmailInternshipApplication = ({
               <span className="font-bold">Course of Study</span>: {courseOfStudy}
               <br />
               <span className="font-bold">Department of Choice</span>: {department}
+              <br />
+              <span className="font-bold">Alternative Department</span>: {alternativeDepartment}
               <br />
               <span className="font-bold">Resume</span>: <Link href={resumeUrl}>{resumeUrl}</Link>
             </Text>

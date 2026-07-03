@@ -20,6 +20,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const phone = data.get("phone")?.toString().trim() ?? "";
     const courseOfStudy = data.get("courseOfStudy")?.toString().trim() ?? "";
     const department = data.get("department")?.toString().trim() ?? "";
+    const alternativeDepartment = data.get("alternativeDepartment")?.toString().trim() ?? "";
     const whyInterested = data.get("whyInterested")?.toString().trim() ?? "";
     const expectations = data.get("expectations")?.toString().trim() ?? "";
     const achievement = data.get("achievement")?.toString().trim() ?? "";
@@ -31,6 +32,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       !phone ||
       !courseOfStudy ||
       !department ||
+      !alternativeDepartment ||
       !whyInterested ||
       !expectations ||
       !achievement ||
@@ -90,6 +92,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     sheetPayload.append("Phone", phone);
     sheetPayload.append("CourseOfStudy", courseOfStudy);
     sheetPayload.append("Department", department);
+    sheetPayload.append("AlternativeDepartment", alternativeDepartment);
     sheetPayload.append("WhyInterested", whyInterested);
     sheetPayload.append("Expectations", expectations);
     sheetPayload.append("Achievement", achievement);
@@ -116,6 +119,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         phone,
         courseOfStudy,
         department,
+        alternativeDepartment,
         whyInterested,
         expectations,
         achievement,

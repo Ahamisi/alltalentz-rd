@@ -33,22 +33,22 @@ const BENEFITS = [
   {
     icon: Briefcase,
     title: "Real project experience",
-    text: "Work on live projects that make a genuine impact, not busywork.",
+    text: "Work on live briefs that make an impact. No busywork, no photocopying; the real thing.",
   },
   {
     icon: Users,
-    title: "Learn from experienced teams",
-    text: "Gain mentorship and exposure to how modern businesses operate.",
+    title: "Get Insightful Mentorship",
+    text: "Learn directly from experienced teams and see how modern businesses operate, day to day.",
   },
   {
     icon: Lightbulb,
-    title: "Build workplace skills",
-    text: "Develop the practical, professional skills employers look for.",
+    title: "Gain Employable Skills",
+    text: "Build the practical, professional skills that turn a CV into a callback.",
   },
   {
     icon: TrendingUp,
-    title: "Accelerate your career",
-    text: "Build confidence and a head start on your professional journey.",
+    title: "A real head start",
+    text: "Leave with confidence, a portfolio, and momentum most graduates spend years chasing.",
   },
 ];
 
@@ -66,7 +66,7 @@ const STEPS = [
   {
     icon: FileText,
     title: "Complete the form",
-    text: "Tell us about yourself, your course of study, and your department of choice.",
+    text: "Tell us who you are, what you studied, and the team you want to grow with.",
   },
   {
     icon: Send,
@@ -76,7 +76,7 @@ const STEPS = [
   {
     icon: BadgeCheck,
     title: "We'll be in touch",
-    text: "Shortlisted applicants will be contacted with the next steps.",
+    text: "Shortlisted applicants will be contacted with the next steps. Keep an eye on your inbox.",
   },
 ];
 
@@ -90,6 +90,7 @@ export default function InternshipPageFragment() {
     phone: "",
     courseOfStudy: "",
     department: "",
+    alternativeDepartment: "",
     whyInterested: "",
     expectations: "",
     achievement: "",
@@ -101,12 +102,15 @@ export default function InternshipPageFragment() {
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
+      ...(name === "department" && prevData.alternativeDepartment === value
+        ? { alternativeDepartment: "" }
+        : {}),
     }));
   };
 
@@ -132,6 +136,12 @@ export default function InternshipPageFragment() {
     }
     if (!formData.department) {
       newErrors.department = "Please choose a department";
+    }
+    if (!formData.alternativeDepartment) {
+      newErrors.alternativeDepartment = "Please select a second choice";
+    } else if (formData.alternativeDepartment === formData.department) {
+      newErrors.alternativeDepartment =
+        "Alternative department must differ from your first choice";
     }
     if (!formData.whyInterested) {
       newErrors.whyInterested = "This field is required";
@@ -164,6 +174,7 @@ export default function InternshipPageFragment() {
       payload.append("phone", formData.phone);
       payload.append("courseOfStudy", formData.courseOfStudy);
       payload.append("department", formData.department);
+      payload.append("alternativeDepartment", formData.alternativeDepartment);
       payload.append("whyInterested", formData.whyInterested);
       payload.append("expectations", formData.expectations);
       payload.append("achievement", formData.achievement);
@@ -215,11 +226,10 @@ export default function InternshipPageFragment() {
               Graduate Internship Program
             </span>
             <h1 className="mt-6 text-4xl font-bold leading-tight text-white md:text-6xl">
-              Apply for the All Talentz Graduate Internship Program
+              Start Your Career Where It Actually Counts
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
-              Are you a recent graduate looking to gain practical work experience and
-              develop skills that will prepare you for the professional world?
+              Are you a recent graduate ready for real work ? The All Talentz Graduate Internship Program hands you live projects, real mentors, and a great head start.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -247,18 +257,14 @@ export default function InternshipPageFragment() {
             About the program
           </span>
           <h2 className="mt-4 text-3xl font-bold text-[#121212] md:text-4xl">
-            Practical experience that prepares you for the real world
+            Experience that prepares you for the real world
           </h2>
           <div className="mt-6 space-y-6 text-lg leading-relaxed text-gray-600">
             <p>
-              The All Talentz Graduate Internship Program provides aspiring professionals
-              with the opportunity to work on real projects, learn from experienced teams,
-              and gain valuable exposure to modern business operations.
+              The All Talentz Graduate Internship Program gives aspiring professionals a seat at the table — working on live projects, learning from experienced teams, and seeing how a modern, globally-facing business runs.
             </p>
             <p>
-              Whether you&apos;re awaiting NYSC or looking to strengthen your professional
-              experience, this program is designed to help you build confidence, develop
-              workplace skills, and accelerate your career growth.
+              Whether you're awaiting NYSC or sharpening your edge before the job hunt, this is where you build the confidence, skills, and network that classrooms don't teach. It's also part of how we give back: a commitment to raising the next generation of talent.
             </p>
           </div>
         </div>
@@ -300,10 +306,10 @@ export default function InternshipPageFragment() {
               Departments
             </span>
             <h2 className="mt-4 text-3xl font-bold text-[#121212] md:text-4xl">
-              Choose where you want to grow
+              Choose where you want to grow 
             </h2>
             <p className="mt-4 text-gray-600">
-              Apply to the team that best matches your interests and ambitions.
+              Seven teams. One of them fits you. Apply to the department that matches your interests and ambitions.
             </p>
           </div>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -361,8 +367,7 @@ export default function InternshipPageFragment() {
               Ready to apply?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-gray-600">
-              Complete the application form to join the All Talentz Graduate Internship
-              Program. Please ensure all information provided is accurate and up to date.
+              Complete the form below to join the All Talentz Graduate Internship Program. Please make sure every detail is accurate and up to date — it's the first thing we notice.
             </p>
           </div>
 
@@ -402,6 +407,40 @@ export default function InternshipPageFragment() {
                   )}
                 </div>
                 <div>
+                  <label htmlFor="email" className="mb-2 block font-medium text-[#121212]">
+                    Email Address <span className="text-[#F99621]">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Enter your answer"
+                    className={inputClass}
+                  />
+                  {errors.email && (
+                    <p className="mt-1.5 text-sm text-red-600">{errors.email}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="phone" className="mb-2 block font-medium text-[#121212]">
+                    Phone Number <span className="text-[#F99621]">*</span>
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="Enter your answer"
+                    className={inputClass}
+                  />
+                  {errors.phone && (
+                    <p className="mt-1.5 text-sm text-red-600">{errors.phone}</p>
+                  )}
+                </div>
+                <div>
                   <label
                     htmlFor="courseOfStudy"
                     className="mb-2 block font-medium text-[#121212]"
@@ -421,46 +460,11 @@ export default function InternshipPageFragment() {
                     <p className="mt-1.5 text-sm text-red-600">{errors.courseOfStudy}</p>
                   )}
                 </div>
-                <div>
-                  <label htmlFor="email" className="mb-2 block font-medium text-[#121212]">
-                    Email Address <span className="text-[#F99621]">*</span>
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Enter your answer"
-                    className={inputClass}
-                  />
-                  {errors.email && (
-                    <p className="mt-1.5 text-sm text-red-600">{errors.email}</p>
-                  )}
-                </div>
-                <div>
-                  <label htmlFor="phone" className="mb-2 block font-medium text-[#121212]">
-                    Phone number <span className="text-[#F99621]">*</span>
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Enter your answer"
-                    className={inputClass}
-                  />
-                  {errors.phone && (
-                    <p className="mt-1.5 text-sm text-red-600">{errors.phone}</p>
-                  )}
-                </div>
               </div>
 
               <fieldset>
                 <legend className="mb-3 block font-medium text-[#121212]">
-                  Department of Choice for Internship{" "}
-                  <span className="text-[#F99621]">*</span>
+                  Department of Choice <span className="text-[#F99621]">*</span>
                 </legend>
                 <div className="grid gap-2.5 sm:grid-cols-2">
                   {DEPARTMENTS.map(({ name }) => (
@@ -489,12 +493,51 @@ export default function InternshipPageFragment() {
                 )}
               </fieldset>
 
+              <fieldset>
+                <legend className="mb-3 block font-medium text-[#121212]">
+                  Alternative Department <span className="text-[#F99621]">*</span>
+                </legend>
+                <div className="grid gap-2.5 sm:grid-cols-2">
+                  {DEPARTMENTS.map(({ name }) => {
+                    const isPrimary = name === formData.department;
+                    return (
+                      <label
+                        key={name}
+                        className={`flex items-center gap-3 border px-4 py-3 transition duration-150 ${
+                          isPrimary
+                            ? "cursor-not-allowed border-gray-200 bg-gray-100 opacity-50"
+                            : formData.alternativeDepartment === name
+                              ? "cursor-pointer border-[#F99621] bg-[#F99621]/5"
+                              : "cursor-pointer border-gray-200 bg-[#F8F8F8] hover:border-[#F99621]/40"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="alternativeDepartment"
+                          value={name}
+                          checked={formData.alternativeDepartment === name}
+                          onChange={handleInputChange}
+                          disabled={isPrimary}
+                          className="h-4 w-4 accent-[#F99621]"
+                        />
+                        <span className="text-sm text-[#121212]">{name}</span>
+                      </label>
+                    );
+                  })}
+                </div>
+                {errors.alternativeDepartment && (
+                  <p className="mt-1.5 text-sm text-red-600">
+                    {errors.alternativeDepartment}
+                  </p>
+                )}
+              </fieldset>
+
               <div>
                 <label
                   htmlFor="whyInterested"
                   className="mb-2 block font-medium text-[#121212]"
                 >
-                  Why are you interested in All Talentz Internship Program?{" "}
+                  Why are you interested in the All Talentz Internship Program?{" "}
                   <span className="text-[#F99621]">*</span>
                 </label>
                 <textarea
@@ -516,7 +559,7 @@ export default function InternshipPageFragment() {
                   htmlFor="expectations"
                   className="mb-2 block font-medium text-[#121212]"
                 >
-                  What are your expectations with the All Talentz Internship?{" "}
+                  What do you hope to gain from this internship?{" "}
                   <span className="text-[#F99621]">*</span>
                 </label>
                 <textarea
@@ -538,7 +581,7 @@ export default function InternshipPageFragment() {
                   htmlFor="achievement"
                   className="mb-2 block font-medium text-[#121212]"
                 >
-                  Tell us an achievement you&apos;re proud of{" "}
+                  An achievement you&apos;re proud of{" "}
                   <span className="text-[#F99621]">*</span>
                 </label>
                 <textarea

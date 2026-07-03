@@ -46,6 +46,7 @@ interface InternshipEmailProps {
   phone: string;
   courseOfStudy: string;
   department: string;
+  alternativeDepartment: string;
   whyInterested: string;
   expectations: string;
   achievement: string;
@@ -60,6 +61,7 @@ export async function renderInternshipEmail(props: InternshipEmailProps): Promis
       phone={props.phone}
       courseOfStudy={props.courseOfStudy}
       department={props.department}
+      alternativeDepartment={props.alternativeDepartment}
       whyInterested={props.whyInterested}
       expectations={props.expectations}
       achievement={props.achievement}
