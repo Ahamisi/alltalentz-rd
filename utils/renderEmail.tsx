@@ -1,6 +1,7 @@
 import { render } from "@react-email/components";
 import { Email } from "@/components/Email";
 import { EmailWaitlist } from "@/components/EmailWaitlist";
+import { EmailInternshipApplication } from "@/components/EmailInternshipApplication";
 
 interface ContactEmailProps {
   fullName: string;
@@ -22,6 +23,7 @@ interface WaitlistEmailProps {
   career: string;
 }
 
+
 export async function renderContactEmail(props: ContactEmailProps): Promise<string> {
   return render(
     <Email
@@ -34,6 +36,36 @@ export async function renderContactEmail(props: ContactEmailProps): Promise<stri
       numberOfProfessionals={props.numberOfProfessionals}
       timeline={props.timeline}
       additionalRequirements={props.additionalRequirements}
+    />
+  );
+}
+
+interface InternshipEmailProps {
+  fullName: string;
+  email: string;
+  phone: string;
+  courseOfStudy: string;
+  department: string;
+  alternativeDepartment: string;
+  whyInterested: string;
+  expectations: string;
+  achievement: string;
+  resumeUrl: string;
+}
+
+export async function renderInternshipEmail(props: InternshipEmailProps): Promise<string> {
+  return render(
+    <EmailInternshipApplication
+      name={props.fullName}
+      email={props.email}
+      phone={props.phone}
+      courseOfStudy={props.courseOfStudy}
+      department={props.department}
+      alternativeDepartment={props.alternativeDepartment}
+      whyInterested={props.whyInterested}
+      expectations={props.expectations}
+      achievement={props.achievement}
+      resumeUrl={props.resumeUrl}
     />
   );
 }

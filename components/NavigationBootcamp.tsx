@@ -61,6 +61,16 @@ const NavigationBootcamp = ({ addBootcamp = false }: NavigationBootcampProps) =>
         <Link href="https://alltalentzacademy.com">Academy</Link>
       </li>
 
+      <li
+        className={
+          pathname === "/internship"
+            ? "text-secondary hover:text-[#FEF5E9]"
+            : "text-black hover:text-secondary lg:text-[#FEF5E9]"
+        }
+      >
+        <Link href="/internship">Internship</Link>
+      </li>
+
       {/* Add More Dropdown Here */}
     </>
   );
