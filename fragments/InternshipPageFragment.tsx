@@ -100,6 +100,7 @@ export default function InternshipPageFragment() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [showClosedModal, setShowClosedModal] = useState(false);
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -239,12 +240,13 @@ export default function InternshipPageFragment() {
                 Apply now
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
-              <a
-                href="#about"
+              <button
+                type="button"
+                onClick={() => setShowClosedModal(true)}
                 className="inline-flex items-center gap-2 border border-white/30 px-10 py-4 font-semibold text-white transition duration-300 hover:bg-white/10"
               >
                 Learn more
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -361,28 +363,18 @@ export default function InternshipPageFragment() {
         <div className="mx-auto max-w-3xl">
           <div className="text-center">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[#F99621]">
-              Application form
+              Applications closed
             </span>
             <h2 className="mt-4 text-3xl font-bold text-[#121212] md:text-4xl">
-              Ready to apply?
+              We&apos;re not accepting applications at this time
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-gray-600">
-              Complete the form below to join the All Talentz Graduate Internship Program. Please make sure every detail is accurate and up to date — it's the first thing we notice.
+              Thank you for your interest in the All Talentz Graduate Internship Program.
+              Please check back for future opportunities.
             </p>
           </div>
 
-          {isSubmitted ? (
-            <div className="mt-14 rounded-2xl border border-gray-100 bg-[#F8F8F8] px-6 py-16 text-center">
-              <CheckCircle2 className="mx-auto h-12 w-12 text-[#F99621]" aria-hidden="true" />
-              <h3 className="mt-5 text-2xl font-bold text-[#121212]">
-                Application submitted!
-              </h3>
-              <p className="mx-auto mt-3 max-w-md text-gray-600">
-                Thank you for applying to the All Talentz Graduate Internship Program.
-                Shortlisted applicants will be contacted with the next steps.
-              </p>
-            </div>
-          ) : (
+          {false ? (
             <form
               onSubmit={handleSubmit}
               noValidate
@@ -651,7 +643,7 @@ export default function InternshipPageFragment() {
                 )}
               </button>
             </form>
-          )}
+          ) : null}
         </div>
       </section>
 
@@ -659,6 +651,42 @@ export default function InternshipPageFragment() {
       <section className="px-[10px] md:px-0 bg-[#131313]">
         <MainFooter />
       </section>
+
+      {/* Applications closed modal */}
+      {showClosedModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="closed-modal-title"
+        >
+          <div
+            className="absolute inset-0 bg-black/60"
+            onClick={() => setShowClosedModal(false)}
+            aria-hidden="true"
+          />
+          <div className="relative z-10 w-full max-w-md rounded-2xl bg-white px-6 py-10 text-center shadow-xl">
+            <CheckCircle2 className="mx-auto h-12 w-12 text-[#F99621]" aria-hidden="true" />
+            <h3
+              id="closed-modal-title"
+              className="mt-5 text-2xl font-bold text-[#121212]"
+            >
+              We&apos;re not accepting applications at this time
+            </h3>
+            <p className="mx-auto mt-3 max-w-sm text-gray-600">
+              Thank you for your interest in the All Talentz Graduate Internship Program.
+              Please check back for future opportunities.
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowClosedModal(false)}
+              className="mt-8 inline-flex items-center justify-center bg-[#F99621] px-8 py-3 font-semibold text-[#121212] transition duration-300 hover:bg-[#121212] hover:text-white"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
