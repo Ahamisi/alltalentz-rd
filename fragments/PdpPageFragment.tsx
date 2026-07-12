@@ -21,7 +21,7 @@ import PreTestNoticeModal from "@/components/PreTestNoticeModal";
 
 export default function BootCamp() {
   const [isDuplicate, setIsDuplicate] = useState<boolean | null>(null);
-  const [bootCampOver, setBootCampOver] = useState(true);
+  const [bootCampOver, setBootCampOver] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const [countdown, setCountdown] = useState(5); // Initial countdown time
@@ -125,23 +125,21 @@ export default function BootCamp() {
         if (selectedFile) newFData.set("cv", selectedFile);
         if (nyscFile) newFData.set("nysc", nyscFile);
 
-        // Validate for duplicate
-        const isDuplicate = await checkDuplicate(formData.email);
-        setIsDuplicate(isDuplicate as boolean | null); // Update state based on duplicate result
+        // Duplicate check runs on the server (see /api/bootcamp).
+        const res = await fetch("/api/bootcamp", {
+          method: "POST",
+          body: newFData,
+        });
 
-        if (isDuplicate) {
+        // Server reports duplicates via { duplicate: true }
+        const result = await res.json().catch(() => ({}));
+        if (result?.duplicate) {
+          setIsDuplicate(true);
           console.error("Failed to send email:", { error: "This form has already been filled." });
           setIsLoading(false);
           return;
-        } else {
-          console.log("no tee", isDuplicate);
         }
-
-        // Send the FormData with both regular form fields and the file to the server
-        await fetch("/api/bootcamp", {
-          method: "POST",
-          body: newFData, // Use the FormData object
-        });
+        setIsDuplicate(false);
 
         // setIsLoading(false); return;
         // setIsSubmitted(true);
@@ -177,7 +175,7 @@ export default function BootCamp() {
   };
 
   const checkDuplicate = async (email: string) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       getSheetData({
         sheetID: "1Axrmq73QMgThtUd_BT20B0GokXoA9v8QjXEVxUClhqQ",
         sheetName: "Page1",
@@ -217,6 +215,11 @@ export default function BootCamp() {
       .then((res) => res.text())
       .then((response) => {
         callback(responseToObjects(response));
+      })
+      .catch((error) => {
+        // On failure, treat as not a duplicate so submission is not blocked.
+        console.error("Duplicate check failed, allowing submission:", error);
+        callback(false);
       });
 
     function responseToObjects(res: string) {

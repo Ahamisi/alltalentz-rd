@@ -110,7 +110,7 @@ export default function BootcampModal() {
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            <span className="text-white text-sm font-semibold">April 6th &ndash; 12th, 2026</span>
+            <span className="text-white text-sm font-semibold">July 13th &ndash; 19th, 2026</span>
           </div>
         </div>
 

@@ -150,11 +150,11 @@ const MobileMenu = ({ isOpen, onClose, children }: MobileMenuProps) => {
           </Link>
           */}
           <Link
-            href="/hiring-services"
+            href="/professional-development-programme"
             onClick={onClose}
             className="block w-full text-center py-3 px-4 bg-[#f99622] text-white font-semibold rounded-lg hover:bg-[#e8870f] transition-colors text-base"
           >
-            Hire Talents
+            Join our PDP
           </Link>
         </div>
       </div>
