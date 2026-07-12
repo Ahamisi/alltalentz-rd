@@ -170,16 +170,14 @@ const HeroNew = () => {
           </div>
         </section>
 
-        {/* Bootcamp Marquee — hidden */}
-        {/* <div className="bg-[#F99621] py-4 overflow-hidden">
+        {/* Bootcamp Marquee */}
+        <div className="bg-[#F99621] py-4 overflow-hidden">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center shrink-0">
                 {[
-                  "Bootcamp Registration Now Open",
-                  "April 6th – 12th, 2026",
-                  "Limited Spots Available",
-                  "Register Today",
+                  "Register for the next All Talentz Professional Development Program",
+                  "Registration from July 13th to July 19th, 2026",
                 ].map((item) => (
                   <span key={item} className="flex items-center mx-8 text-white font-bold text-xl">
                     <span className="mr-3">✦</span>
@@ -189,7 +187,7 @@ const HeroNew = () => {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </motion.div>
     </AnimatePresence>
   );

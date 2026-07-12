@@ -35,6 +35,31 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const phone = phoneRaw ? phoneRaw.toString() : "";
     const yoe = yoeRaw ? yoeRaw.toString() : "";
 
+    // Check for duplicate email against the Google Sheet.
+    const isDuplicate = async (emailToCheck: string): Promise<boolean> => {
+      try {
+        const sheetID = "1Axrmq73QMgThtUd_BT20B0GokXoA9v8QjXEVxUClhqQ";
+        const sheetName = "Page1";
+        const query = `SELECT * where B contains "${emailToCheck}"`;
+        const url =
+          `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?` +
+          `&sheet=${encodeURIComponent(sheetName)}&tq=${encodeURIComponent(query)}`;
+
+        const res = await fetch(url);
+        const text = await res.text();
+        // Strip the gviz wrapper: google.visualization.Query.setResponse(...);
+        const jsData = JSON.parse(text.substring(47).slice(0, -2));
+        return (jsData?.table?.rows?.length ?? 0) > 0;
+      } catch (error) {
+        console.error("Duplicate check failed, allowing submission:", error);
+        return false;
+      }
+    };
+
+    if (await isDuplicate(email)) {
+      return NextResponse.json({ duplicate: true }, { status: 200 });
+    }
+
     const cvBuffer = await file.arrayBuffer();
     const nyscBuffer = await nyscFile.arrayBuffer();
 

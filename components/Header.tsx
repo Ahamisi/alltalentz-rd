@@ -80,9 +80,9 @@ const Header = ({ active = "home", type = "", theme = "dark" }: HeaderProps) => 
         */}
         {type !== "bootcamp" && (
           <Btn
-            text="Hire Talents"
+            text="Join our PDP"
             border={true}
-            link="/hiring-services"
+            link="/professional-development-programme"
             otherCSS="hidden lg:block whitespace-nowrap lg:!text-base lg:!px-4 lg:!py-2 xl:!text-[20px] xl:!px-[30px] xl:!py-[15px]"
           />
         )}
