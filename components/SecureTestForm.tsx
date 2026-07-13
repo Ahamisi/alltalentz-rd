@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { USE_EMBEDDED_FORM, MICROSOFT_FORM_URL } from "@/utils/testConfig";
 
 export default function SecureTestForm() {
+  const [formReady, setFormReady] = React.useState(false);
+
   // If not using embedded form, redirect immediately on mount
   useEffect(() => {
     if (!USE_EMBEDDED_FORM) {
@@ -407,6 +409,18 @@ export default function SecureTestForm() {
           <p className="text-sm mt-2">Please complete this test to advance to the next stage.</p>
         </div>
         <div className="w-full h-full relative" style={{ height: "calc(90vh - 80px)" }}>
+          {!formReady && (
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white p-4 text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F99621]"></div>
+              <h2 className="text-xl font-bold text-gray-800 mt-6 mb-2">
+                Preparing your assessment...
+              </h2>
+              <p className="text-gray-600 max-w-md">
+                Please wait a moment while the test loads. Do not refresh or close this page.
+                The assessment will be ready shortly.
+              </p>
+            </div>
+          )}
           <iframe
             id="microsoft-form-iframe"
             src="https://forms.office.com/Pages/ResponsePage.aspx?id=fhgFiTIHCkquTYO-BRMRBfQf36Oi-MZHkm_eYMKcGU9UMjhYSVpETFpLSkg4V05BTDQxR1Q2N0xaOS4u&embed=true"
@@ -414,7 +428,8 @@ export default function SecureTestForm() {
             title="Assessment Test"
             allow="camera; microphone; fullscreen"
             style={{
-              pointerEvents: "auto",
+              // Block interaction until the form has finished loading
+              pointerEvents: formReady ? "auto" : "none",
               width: "100%",
               height: "100%",
               border: "none",
@@ -434,6 +449,9 @@ export default function SecureTestForm() {
                 // Expected: cross-origin restrictions prevent access
                 console.log("Iframe loaded (cross-origin restrictions apply)");
               }
+              // Small buffer so the form's internal JS can finish hydrating
+              // before we let the user interact (cross-origin: can't detect precisely)
+              setTimeout(() => setFormReady(true), 500);
             }}
           />
         </div>
