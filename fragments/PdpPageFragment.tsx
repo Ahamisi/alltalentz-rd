@@ -16,7 +16,6 @@ import Faq from "@/components/homeRD/Faq";
 
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import SecureTestForm from "@/components/SecureTestForm";
 import PreTestNoticeModal from "@/components/PreTestNoticeModal";
 
 export default function BootCamp() {
@@ -25,7 +24,6 @@ export default function BootCamp() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [countdown, setCountdown] = useState(5); // Initial countdown time
-  const [showTestForm, setShowTestForm] = useState(false);
   const [showNoticeModal, setShowNoticeModal] = useState(false);
   const [showMobileWarning, setShowMobileWarning] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -149,10 +147,12 @@ export default function BootCamp() {
         console.log("Email sent successfully!");
         setIsLoading(false);
 
-        // Close the form modal and go directly to test
+        // Close the form modal and navigate to the dedicated test page.
+        // Set a short-lived guard so the test page can't be opened directly.
         setTimeout(() => {
           setIsOpen(false);
-          setShowTestForm(true);
+          sessionStorage.setItem("pdp-test-access", "granted");
+          route.push("/professional-development-programme/test");
         }, 2000);
       } catch (error) {
         // Handle error
@@ -275,12 +275,6 @@ export default function BootCamp() {
       videoUrl: "https://youtu.be/RXTCpHs8lC8",
     },
   ];
-
-  // If test form should be shown, render it instead of the main content
-  // SecureTestForm component handles Savewyze instructions internally
-  if (showTestForm) {
-    return <SecureTestForm />;
-  }
 
   return (
     <main className="relative overflow-hidden overflow-y-hidden">

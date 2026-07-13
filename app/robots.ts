@@ -3,7 +3,7 @@ export default function robots() {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/bootcamp-old/", "/services copy/", "/redesign/", "/cbt/", "/pdp-test/"],
+      disallow: ["/api/", "/bootcamp-old/", "/services copy/", "/redesign/", "/cbt/", "/professional-development-programme/test/"],
     },
     sitemap: "https://alltalentz.com/sitemap.xml",
   };
