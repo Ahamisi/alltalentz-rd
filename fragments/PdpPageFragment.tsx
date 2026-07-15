@@ -17,6 +17,7 @@ import Faq from "@/components/homeRD/Faq";
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import PreTestNoticeModal from "@/components/PreTestNoticeModal";
+import { MICROSOFT_FORM_URL } from "@/utils/testConfig";
 
 export default function BootCamp() {
   const [isDuplicate, setIsDuplicate] = useState<boolean | null>(null);
@@ -139,27 +140,20 @@ export default function BootCamp() {
         }
         setIsDuplicate(false);
 
-        // setIsLoading(false); return;
-        // setIsSubmitted(true);
-        // console.log("Email sent successfully!");
-
         setIsSubmitted(true);
-        console.log("Email sent successfully!");
         setIsLoading(false);
 
-        // Close the form modal and navigate to the dedicated test page.
-        // Set a short-lived guard so the test page can't be opened directly.
+        // Open the test in a new tab now, while the submit gesture is fresh
+        window.open(MICROSOFT_FORM_URL, "_blank", "noopener,noreferrer");
+
+        // Guard the test page against direct access, then navigate to it
         setTimeout(() => {
           setIsOpen(false);
           sessionStorage.setItem("pdp-test-access", "granted");
           route.push("/professional-development-programme/test");
         }, 2000);
       } catch (error) {
-        // Handle error
         console.error("Failed to send email:", error);
-        // Add any further logic here for error actions
-      } finally {
-        // setIsSubmitted(true);
       }
     } else {
       console.log("Form has errors");
@@ -181,21 +175,11 @@ export default function BootCamp() {
         sheetName: "Page1",
         query: `SELECT * where B contains "${email}"`,
         callback: (sheetData: unknown) => {
-          // const isDuplicate = sheetData && sheetData?.table?.rows.length > 0;
           resolve(sheetData);
         },
       });
     });
   };
-
-  // const checkDuplicate = async(email) => {
-  //    getSheetData({
-  //     sheetID: "1Axrmq73QMgThtUd_BT20B0GokXoA9v8QjXEVxUClhqQ",
-  //     sheetName: "Page1",
-  //     query: `SELECT * where B contains "${email}"`,
-  //     callback: sheetDataHandler
-  //   })
-  // }
 
   const getSheetData = ({
     sheetID,
@@ -249,7 +233,6 @@ export default function BootCamp() {
         data.push(rowObject);
       }
       return jsData?.table?.rows.length > 0;
-      // return data;
     }
   };
 
@@ -766,7 +749,6 @@ export default function BootCamp() {
             answer:
               "While no specific experience is required, candidates should have a strong work ethic and basic computer skills.",
           },
-          // ... more bootcamp-specific FAQs
         ]}
       />
 
