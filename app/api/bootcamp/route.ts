@@ -1,15 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { transporter, smtpEmail } from "@/utils/nodemailer";
 import { renderWaitlistEmail } from "@/utils/renderEmail";
-import { google } from "googleapis";
-import type { GaxiosResponse } from "gaxios";
-import type { drive_v3 } from "googleapis";
-import { Readable } from "stream";
+import { writeClient } from "@/lib/sanity/client";
 
-const clientEmail = process.env.CLIENT_EMAIL;
-const pkey = process.env.CLIENT_PRIVATEKY;
+const MAX_FILE_BYTES = 5 * 1024 * 1024; // 5 MB
 
-const SCOPE = ["https://www.googleapis.com/auth/drive"];
+const ALLOWED_FILE_TYPES: Record<string, string> = {
+  "application/pdf": "pdf",
+  "application/msword": "doc",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "docx",
+};
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
@@ -34,6 +34,22 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const career = careerRaw ? careerRaw.toString() : "";
     const phone = phoneRaw ? phoneRaw.toString() : "";
     const yoe = yoeRaw ? yoeRaw.toString() : "";
+
+    const cvExt = ALLOWED_FILE_TYPES[file.type];
+    const nyscExt = ALLOWED_FILE_TYPES[nyscFile.type];
+    if (!cvExt || !nyscExt) {
+      return NextResponse.json(
+        { error: "CV and NYSC documents must be a PDF or Word document" },
+        { status: 400 }
+      );
+    }
+
+    if (file.size > MAX_FILE_BYTES || nyscFile.size > MAX_FILE_BYTES) {
+      return NextResponse.json(
+        { error: "Each file must be 5MB or smaller" },
+        { status: 400 }
+      );
+    }
 
     // Check for duplicate email against the Google Sheet.
     const isDuplicate = async (emailToCheck: string): Promise<boolean> => {
@@ -60,8 +76,38 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ duplicate: true }, { status: 200 });
     }
 
-    const cvBuffer = await file.arrayBuffer();
-    const nyscBuffer = await nyscFile.arrayBuffer();
+    const emailHtml = await renderWaitlistEmail({ fullName, email, yoe, phone, career });
+
+    // Upload a file to Sanity and return its permanent CDN URL
+    const uploadToSanity = async (
+      uploadFile: File,
+      ext: string,
+      suffix: string
+    ): Promise<string> => {
+      const safeName = fullName.replace(/[^a-zA-Z0-9-_ ]/g, "").replace(/\s+/g, "_");
+      const asset = await writeClient.assets.upload(
+        "file",
+        Buffer.from(await uploadFile.arrayBuffer()),
+        {
+          filename: `${safeName}_${suffix}.${ext}`,
+          contentType: uploadFile.type,
+        }
+      );
+      return asset.url;
+    };
+
+    let cvUrl: string;
+    let nyscUrl: string;
+    try {
+      cvUrl = await uploadToSanity(file, cvExt, "cv");
+      nyscUrl = await uploadToSanity(nyscFile, nyscExt, "nysc");
+    } catch (error) {
+      console.error("Failed to upload files to Sanity:", error);
+      return NextResponse.json(
+        { error: "Failed to upload files. Please try again later." },
+        { status: 500 }
+      );
+    }
 
     const formData = new FormData();
     formData.append("Fullname", fullName);
@@ -69,102 +115,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     formData.append("Career", career);
     formData.append("Phone", phone);
     formData.append("Yoe", yoe);
-
-    const emailHtml = await renderWaitlistEmail({ fullName, email, yoe, phone, career });
-
-    async function authorize() {
-      const jwtClient = new google.auth.JWT(
-        clientEmail,
-        undefined,
-        pkey!.split(String.raw`\n`).join("\n"),
-        SCOPE
-      );
-
-      await jwtClient.authorize();
-
-      return jwtClient;
-    }
-
-    const uploadFile = async (
-      authClient: Awaited<ReturnType<typeof authorize>>,
-      fileBuffer: ArrayBuffer,
-      fileType: string
-    ): Promise<string> => {
-      return new Promise((resolve, rejected) => {
-        const drive = google.drive({ version: "v3", auth: authClient });
-
-        const mimeType =
-          fileType === "pdf"
-            ? "application/pdf"
-            : "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-        const fileExtension = fileType === "pdf" ? "pdf" : "docx";
-        const randomString = Math.random().toString(36).substring(2, 15);
-        const fileName = `${fullName}_${randomString}.${fileExtension}`;
-
-        const fileMetaData = {
-          name: fileName,
-          parents: ["1-Ky5OmRH2XgNsjN7jEYQ48OhKGgFs2Ni"],
-        };
-
-        const readableStream = new Readable();
-        readableStream.push(Buffer.from(fileBuffer));
-        readableStream.push(null);
-
-        drive.files.create(
-          {
-            requestBody: fileMetaData,
-            media: {
-              mimeType: mimeType,
-              body: readableStream,
-            },
-            fields: "id",
-          },
-          function (
-            error: Error | null,
-            file: GaxiosResponse<drive_v3.Schema$File> | null | undefined
-          ) {
-            if (error) {
-              return rejected(error);
-            }
-
-            const fileLink = `https://drive.google.com/uc?id=${file!.data.id}`;
-            resolve(fileLink);
-          }
-        );
-      });
-    };
-
-    const uploadCvToDrive = async () => {
-      try {
-        const authClient = await authorize();
-        const fileLink = await uploadFile(
-          authClient,
-          cvBuffer,
-          file.type.includes("pdf") ? "pdf" : "docx"
-        );
-        formData.append("CV", fileLink);
-        console.log("File Link:", fileLink);
-      } catch (error) {
-        console.error("Failed to upload CV to Google Drive:", error);
-        throw new Error("Failed to upload CV to Google Drive");
-      }
-    };
-
-    const uploadNyscToDrive = async () => {
-      try {
-        const authClient = await authorize();
-        const fileLink = await uploadFile(
-          authClient,
-          nyscBuffer,
-          nyscFile.type.includes("pdf") ? "pdf" : "docx"
-        );
-        formData.append("Nysc", fileLink);
-        console.log("File Link:", fileLink);
-      } catch (error) {
-        console.error("Failed to upload NYSC to Google Drive:", error);
-        throw new Error("Failed to upload NYSC to Google Drive");
-      }
-    };
+    formData.append("CV", cvUrl);
+    formData.append("Nysc", nyscUrl);
 
     const sendToSheets = async () => {
       try {
@@ -186,18 +138,18 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }
     };
 
-    const options = {
-      from: smtpEmail,
-      to: smtpEmail,
-      subject: "Bootcamp Application",
-      html: emailHtml,
-    };
+    await sendToSheets();
 
-    await uploadCvToDrive();
-    await uploadNyscToDrive();
-
-    if (formData.get("CV") && formData.get("Nysc")) {
-      await sendToSheets();
+    // Notify admin by email (best effort — the application is already stored)
+    try {
+      await transporter.sendMail({
+        from: smtpEmail,
+        to: smtpEmail,
+        subject: "Bootcamp Application",
+        html: emailHtml,
+      });
+    } catch (error) {
+      console.error("Failed to send bootcamp notification email:", error);
     }
 
     return NextResponse.json({ message: "Application submitted successfully" }, { status: 200 });
