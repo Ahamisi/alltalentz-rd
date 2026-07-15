@@ -13,7 +13,7 @@ const Hero = () => {
       {/* <div className="md:h-[20px]"></div> */}
       <Header />
 
-      {/* bg-gradient-to-b from-transparent to-black */}
+      {/* bg-linear-to-b from-transparent to-black */}
 
       <div
         className="absolute inset-0 
@@ -24,7 +24,7 @@ const Hero = () => {
       ></div>
       <br />
       <div className="relative h-screen flex flex-col px-2 md:px-0 items-center justify-center text-white py-0 md:py-10">
-        <h1 className="text-2xl md:text-[65px] md:font-[700] md:leading-[80px] font-bold mb-6 text-center">
+        <h1 className="text-2xl md:text-[65px] md:font-bold md:leading-[80px] font-bold mb-6 text-center">
           Scale up your <span className="text-secondary">business operations</span>
           <br />
           with the right remote talents.

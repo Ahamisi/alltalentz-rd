@@ -266,11 +266,11 @@ export default function BootCamp() {
   return (
     <>
       <section
-        className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-[0px]  md:px-0 lg:px-0 bg-black font-montserrat`}
+        className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-0  md:px-0 lg:px-0 bg-black font-montserrat`}
       >
         <Header type="bootcamp" />
 
-        <div className={`flex h-[100%] flex-col`}>
+        <div className={`flex h-full flex-col`}>
           <div
             style={{ backgroundImage: `url(${bootcampImg1})` }}
             className="bg-contain bg-no-repeat h-[500px] md:h-[300px] lg:h-[380px] xl:h-[500px] w-full cursor-pointer md:bg-center"
@@ -278,7 +278,7 @@ export default function BootCamp() {
           ></div>
 
           <div className="hidden">
-            <div className="flex lg:flex-wrap flex-col lg:flex-row w-[100%] lg:w-[80%] mx-auto lg:hidden">
+            <div className="flex lg:flex-wrap flex-col lg:flex-row w-full lg:w-[80%] mx-auto lg:hidden">
               <div className="w-full lg:w-1/2 p-6 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
                 <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                   <img
@@ -399,7 +399,7 @@ export default function BootCamp() {
                   </div>
                 ) : isDuplicate ? (
                   <div
-                    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-sm relative"
                     role="alert"
                   >
                     <strong className="font-bold">Error:&nbsp;</strong>
@@ -422,7 +422,7 @@ export default function BootCamp() {
                     <div className="mb-8">
                       <input
                         type="text"
-                        className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.fullName ? "border-red-500" : ""}`}
+                        className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${errors.fullName ? "border-red-500" : ""}`}
                         placeholder="Enter your full name"
                         onChange={handleInputChange}
                         name="fullName"
@@ -434,7 +434,7 @@ export default function BootCamp() {
                     <div className="mb-8">
                       <input
                         type="email"
-                        className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.email ? "border-red-500" : ""}`}
+                        className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${errors.email ? "border-red-500" : ""}`}
                         placeholder="Enter your email"
                         onChange={handleInputChange}
                         name="email"
@@ -446,7 +446,7 @@ export default function BootCamp() {
                     <div className="mb-8">
                       <input
                         type="tel"
-                        className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.phone ? "border-red-500" : ""}`}
+                        className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${errors.phone ? "border-red-500" : ""}`}
                         placeholder="Enter your phone number"
                         onChange={handleInputChange}
                         name="phone"
@@ -458,7 +458,7 @@ export default function BootCamp() {
                     <div className="mb-8">
                       <input
                         type="number"
-                        className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.yoe ? "border-red-500" : ""}`}
+                        className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${errors.yoe ? "border-red-500" : ""}`}
                         placeholder="Years of Experience"
                         onChange={handleInputChange}
                         name="yoe"
@@ -470,7 +470,7 @@ export default function BootCamp() {
                     <div className="mb-8">
                       <input
                         type="text"
-                        className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.career ? "border-red-500" : ""}`}
+                        className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${errors.career ? "border-red-500" : ""}`}
                         placeholder="Career Field"
                         onChange={handleInputChange}
                         name="career"
@@ -486,7 +486,7 @@ export default function BootCamp() {
                         name="cv"
                         accept=".pdf,.doc,.docx"
                         onChange={handleFileChange}
-                        className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.cv ? "border-red-500" : ""}`}
+                        className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${errors.cv ? "border-red-500" : ""}`}
                       />
                       {errors.cv && <p className="text-red-500 text-sm">{errors.cv}</p>}
                     </div>
@@ -498,7 +498,7 @@ export default function BootCamp() {
                         name="nysc"
                         accept=".pdf,.doc,.docx"
                         onChange={handleFileChangeNysc}
-                        className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${errors.nysc ? "border-red-500" : ""}`}
+                        className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${errors.nysc ? "border-red-500" : ""}`}
                       />
                       {errors.nysc && <p className="text-red-500 text-sm">{errors.nysc}</p>}
                       <div
@@ -561,7 +561,7 @@ export default function BootCamp() {
         className="md-padding relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[60px] bg-white px-[30px] md:px-0 "
         style={{ backgroundImage: "url('/our-values-bg.svg')" }}
       >
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
+        {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  max-w-5xl mt-[25px] font-montserrat">
             {/* Value Item 1 */}

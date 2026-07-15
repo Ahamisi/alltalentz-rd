@@ -279,10 +279,10 @@ export default function Hackathon() {
     <>
       <main className="relative overflow-hidden">
         {/* Header */}
-        <header className="bg-white py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-40 shadow-sm">
+        <header className="bg-white py-4 px-4 md:px-8 fixed top-0 left-0 right-0 z-40 shadow-xs">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0">
+            <Link href="/" className="shrink-0">
               <Image
                 src="/hackathon/alltalentz.svg"
                 alt="All Talentz"
@@ -762,7 +762,7 @@ export default function Hackathon() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {judges.map((judge) => (
-              <div key={judge.id} className="relative rounded-2xl overflow-hidden group aspect-[4/5]">
+              <div key={judge.id} className="relative rounded-2xl overflow-hidden group aspect-4/5">
                 <Image
                   src={judge.image}
                   alt={judge.name}
@@ -935,7 +935,7 @@ export default function Hackathon() {
                 {/* Timeline Left */}
                 <div className="flex items-start gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 rounded" style={{ backgroundColor: "#FFB300" }}></div>
+                    <div className="w-6 h-6 rounded-sm" style={{ backgroundColor: "#FFB300" }}></div>
                     <div
                       className="w-px h-20 bg-gray-400 mt-4"
                       style={{ borderLeft: "2px dotted #999" }}
@@ -964,7 +964,7 @@ export default function Hackathon() {
                 </div>
 
                 {/* Illustration Space */}
-                <div className="w-32 h-24 flex-shrink-0 mr-8 hidden md:block">
+                <div className="w-32 h-24 shrink-0 mr-8 hidden md:block">
                   <Image
                     src="/hackathon/week-1.svg"
                     alt="Week 1 illustration"
@@ -980,7 +980,7 @@ export default function Hackathon() {
                 {/* Timeline Left */}
                 <div className="flex items-start gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 rounded" style={{ backgroundColor: "#FFB300" }}></div>
+                    <div className="w-6 h-6 rounded-sm" style={{ backgroundColor: "#FFB300" }}></div>
                     <div
                       className="w-px h-20 bg-gray-400 mt-4"
                       style={{ borderLeft: "2px dotted #999" }}
@@ -1009,7 +1009,7 @@ export default function Hackathon() {
                 </div>
 
                 {/* Illustration Space */}
-                <div className="w-32 h-24 flex-shrink-0 mr-8 hidden md:block">
+                <div className="w-32 h-24 shrink-0 mr-8 hidden md:block">
                   <Image
                     src="/hackathon/week-2.webp"
                     alt="Week 2 illustration"
@@ -1025,7 +1025,7 @@ export default function Hackathon() {
                 {/* Timeline Left */}
                 <div className="flex items-start gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 rounded" style={{ backgroundColor: "#FFB300" }}></div>
+                    <div className="w-6 h-6 rounded-sm" style={{ backgroundColor: "#FFB300" }}></div>
                     <div
                       className="w-px h-20 bg-gray-400 mt-4"
                       style={{ borderLeft: "2px dotted #999" }}
@@ -1052,7 +1052,7 @@ export default function Hackathon() {
                 </div>
 
                 {/* Illustration Space */}
-                <div className="w-32 h-24 flex-shrink-0 mr-8 hidden md:block">
+                <div className="w-32 h-24 shrink-0 mr-8 hidden md:block">
                   <Image
                     src="/hackathon/week-3.webp"
                     alt="Week 3 illustration"
@@ -1067,7 +1067,7 @@ export default function Hackathon() {
               <div className="flex items-start gap-6">
                 {/* Timeline Left */}
                 <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded" style={{ backgroundColor: "#FFB300" }}></div>
+                  <div className="w-6 h-6 rounded-sm" style={{ backgroundColor: "#FFB300" }}></div>
                   <div className="flex flex-col items-start">
                     <div
                       className="text-lg font-normal text-black px-4 py-3 mb-2"
@@ -1091,7 +1091,7 @@ export default function Hackathon() {
                 </div>
 
                 {/* Illustration Space */}
-                <div className="w-32 h-24 flex-shrink-0 mr-8 hidden md:block">
+                <div className="w-32 h-24 shrink-0 mr-8 hidden md:block">
                   <Image
                     src="/hackathon/week-4.webp"
                     alt="Week 4 illustration"
@@ -1139,7 +1139,7 @@ export default function Hackathon() {
               </div>
 
               {/* Illustration Space */}
-              <div className="w-48 h-36 flex-shrink-0 mr-8 hidden md:block">
+              <div className="w-48 h-36 shrink-0 mr-8 hidden md:block">
                 <Image
                   src="/hackathon/phase-3.svg"
                   alt="Demo day illustration"
@@ -1271,7 +1271,7 @@ export default function Hackathon() {
                         </h3>
                         <button
                           onClick={() => toggleRule(rule.id)}
-                          className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center flex-shrink-0 hover:bg-gray-500 transition-colors"
+                          className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center shrink-0 hover:bg-gray-500 transition-colors"
                         >
                           <span className="text-black text-sm font-bold">
                             {openRules[rule.id] ? "−" : "+"}
@@ -1311,7 +1311,7 @@ export default function Hackathon() {
                         </h3>
                         <button
                           onClick={() => toggleFaq(faq.id)}
-                          className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center flex-shrink-0 hover:bg-gray-500 transition-colors"
+                          className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center shrink-0 hover:bg-gray-500 transition-colors"
                         >
                           <span className="text-black text-sm font-bold">
                             {openFaqs[faq.id] ? "−" : "+"}
@@ -1575,7 +1575,7 @@ export default function Hackathon() {
                   {rulesModal.map((rule) => (
                     <div
                       key={rule.id}
-                      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                      className="bg-white rounded-xl p-6 shadow-xs hover:shadow-md transition-shadow"
                     >
                       {/* Orange star icon */}
                       <div className="mb-4">
@@ -1900,7 +1900,7 @@ export default function Hackathon() {
                   {mentorshipModal.map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                      className="bg-white rounded-xl p-6 shadow-xs hover:shadow-md transition-shadow"
                     >
                       {/* Orange star icon */}
                       <div className="mb-4">

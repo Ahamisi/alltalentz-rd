@@ -376,7 +376,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           </button>
 
           {showAboutDropdown && (
-            <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
+            <div className="absolute left-0 top-full pt-2 w-48 z-9999">
               <div id="company-menu" role="menu" className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                 <Link
                   href="/about-us"
@@ -455,7 +455,7 @@ const Navigation = ({ addBootcamp = false, theme = "dark", isMobile = false }: N
           </button>
 
           {showServiceDropdown && (
-            <div className="absolute left-0 top-full pt-2 w-48 z-[9999]">
+            <div className="absolute left-0 top-full pt-2 w-48 z-9999">
               <div id="hire-menu" role="menu" className="bg-white rounded-md shadow-lg py-1 border border-gray-200">
                 {/* <Link
                   href="/pricing-model"

@@ -70,7 +70,7 @@ const ValueProp = () => {
           variants={itemVariants}
         >
           {/* Card 1: Highly-Skilled Employees */}
-          <motion.div className="bg-white p-8 rounded-lg shadow-sm border" variants={itemVariants}>
+          <motion.div className="bg-white p-8 rounded-lg shadow-xs border" variants={itemVariants}>
             <div className="mb-6">
               <Image
                 src="/redesign-25/icons/skill.svg"
@@ -88,7 +88,7 @@ const ValueProp = () => {
           </motion.div>
 
           {/* Card 2: Affordable Cost */}
-          <motion.div className="bg-white p-8 rounded-lg shadow-sm border" variants={itemVariants}>
+          <motion.div className="bg-white p-8 rounded-lg shadow-xs border" variants={itemVariants}>
             <div className="mb-6">
               <Image
                 src="/redesign-25/icons/reliable.svg"
@@ -108,7 +108,7 @@ const ValueProp = () => {
           </motion.div>
 
           {/* Card 3: Vetted & Reliable Employees */}
-          <motion.div className="bg-white p-8 rounded-lg shadow-sm border" variants={itemVariants}>
+          <motion.div className="bg-white p-8 rounded-lg shadow-xs border" variants={itemVariants}>
             <div className="mb-6">
               <Image
                 src="/redesign-25/icons/affordable.svg"
@@ -126,7 +126,7 @@ const ValueProp = () => {
           </motion.div>
 
           {/* Card 4: Contribute to Success */}
-          {/* <motion.div className="bg-white p-8 rounded-lg shadow-sm border" variants={itemVariants}>
+          {/* <motion.div className="bg-white p-8 rounded-lg shadow-xs border" variants={itemVariants}>
             <div className="mb-6">
               <Image
                 src="/redesign-25/icons/success.svg"

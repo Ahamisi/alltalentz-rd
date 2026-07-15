@@ -184,7 +184,7 @@ export default function RequestTalent() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <section>
         <PageHeader bgImage="/alltalentz-white-frame.svg">
-          {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
+          {/* <div className="relative inset-0 h-full flex flex-col items-center"> */}
           <div className="max-w-7xl mx-auto py-16 lg:flex relative items-center px-6">
             {/* Content Columns */}
             <div className="flex flex-col lg:flex-row items-center justify-between w-full">

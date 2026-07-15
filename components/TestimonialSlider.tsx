@@ -54,7 +54,7 @@ const TestimonialSlider = () => {
       {/* Testimonial Content */}
       <div className="flex items-start gap-8">
         {/* Company Logo */}
-        <div className="w-[80px] h-[80px] rounded-full border border-gray-200 flex-shrink-0 p-4 hidden md:block">
+        <div className="w-[80px] h-[80px] rounded-full border border-gray-200 shrink-0 p-4 hidden md:block">
           <Image
             src={testimonials[currentIndex].logo}
             alt="Company Logo"
@@ -65,7 +65,7 @@ const TestimonialSlider = () => {
         </div>
 
         {/* Testimonial Text */}
-        <div className="flex-grow">
+        <div className="grow">
           <p className="text-lg lg:text-[32px] leading-[1.4] mb-8 text-black font-light">
             {testimonials[currentIndex].text}
           </p>

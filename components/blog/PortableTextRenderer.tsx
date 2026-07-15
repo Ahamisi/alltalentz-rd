@@ -156,7 +156,7 @@ const components: PortableTextComponents = {
     strong: ({ children }) => <strong className="font-bold text-gray-900">{children}</strong>,
     em: ({ children }) => <em className="italic">{children}</em>,
     code: ({ children }) => (
-      <code className="bg-gray-100 text-gray-800 text-sm font-mono px-1.5 py-0.5 rounded">
+      <code className="bg-gray-100 text-gray-800 text-sm font-mono px-1.5 py-0.5 rounded-sm">
         {children}
       </code>
     ),

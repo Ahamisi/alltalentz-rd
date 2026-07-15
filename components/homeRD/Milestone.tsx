@@ -52,7 +52,7 @@ const Milestone = () => {
                   alt="Right Stem"
                   width={176}
                   height={40}
-                  className="absolute -left-[11rem] top-1/2 -translate-y-1/2"
+                  className="absolute -left-44 top-1/2 -translate-y-1/2"
                 />
                 <div className="bg-white rounded-lg p-6 border border-gray-100">
                   <h3 className="text-[32px] font-bold mb-4 text-[#4C4C4C]">2022</h3>
@@ -73,7 +73,7 @@ const Milestone = () => {
                   alt="Left Stem"
                   width={176}
                   height={40}
-                  className="absolute -right-[11rem] top-1/2 -translate-y-1/2"
+                  className="absolute -right-44 top-1/2 -translate-y-1/2"
                 />
                 <div className="bg-white rounded-lg p-6 border border-gray-100">
                   <h3 className="text-[32px] font-bold mb-4 text-[#4C4C4C]">2023</h3>
@@ -96,7 +96,7 @@ const Milestone = () => {
                   alt="Right Stem"
                   width={176}
                   height={40}
-                  className="absolute -left-[11rem] top-1/2 -translate-y-1/2"
+                  className="absolute -left-44 top-1/2 -translate-y-1/2"
                 />
                 <div className="bg-white rounded-lg p-6 border border-gray-100">
                   <h3 className="text-[32px] font-bold mb-4 text-[#4C4C4C]">2023</h3>
@@ -116,7 +116,7 @@ const Milestone = () => {
                   alt="Left Stem"
                   width={176}
                   height={40}
-                  className="absolute -right-[10rem] top-1/2 -translate-y-1/2"
+                  className="absolute -right-40 top-1/2 -translate-y-1/2"
                 />
                 <div className="bg-white rounded-lg p-6 border border-gray-100">
                   <h3 className="text-[32px] font-bold mb-4 text-[#4C4C4C]">2024</h3>

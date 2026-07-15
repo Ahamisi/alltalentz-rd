@@ -279,7 +279,7 @@ export default function BootCamp() {
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
       <PageHeader showBg={false}>
-        <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
+        <div className="max-w-7xl mx-auto px-4 lg:flex relative h-full items-center py-20">
           {/* Left Column */}
           <div className="lg:w-[45%] flex flex-col">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
@@ -300,14 +300,14 @@ export default function BootCamp() {
                   if (bootCampOver) return setIsOpen(true);
                   isMobile ? setShowMobileWarning(true) : setShowNoticeModal(true);
                 }}
-                className="bg-[#F99621] text-black px-8 py-4 rounded font-bold hover:bg-opacity-90 transition-all"
+                className="bg-[#F99621] text-black px-8 py-4 rounded-sm font-bold hover:bg-opacity-90 transition-all"
               >
                 Apply to our PDP
               </button>
 
               <a
                 href="#bootcampVideos"
-                className="bg-white bg-opacity-10 text-white px-8 py-4 rounded font-bold hover:bg-opacity-20 transition-all flex items-center justify-center gap-2"
+                className="bg-white bg-opacity-10 text-white px-8 py-4 rounded-sm font-bold hover:bg-opacity-20 transition-all flex items-center justify-center gap-2"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
@@ -349,7 +349,7 @@ export default function BootCamp() {
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="Service Request Form"
-        className="modal !p-0 !rounded-none shadow-2xl w-[95%] md:w-[580px] overflow-y-auto max-h-[92vh]"
+        className="modal p-0! rounded-none! shadow-2xl w-[95%] md:w-[580px] overflow-y-auto max-h-[92vh]"
         overlayClassName="overlay"
       >
         {bootCampOver ? (
@@ -368,13 +368,13 @@ export default function BootCamp() {
           <div className="flex flex-col">
             {/* ── Modal header ── */}
             <div
-              className="relative px-6 pt-7 pb-7 flex-shrink-0"
+              className="relative px-6 pt-7 pb-7 shrink-0"
               style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)" }}
             >
               <button
                 onClick={toggleModal}
                 aria-label="Close"
-                className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -432,11 +432,11 @@ export default function BootCamp() {
                           value={formData.fullName}
                           onChange={handleInputChange}
                           placeholder="e.g. Adaeze Okonkwo"
-                          className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.fullName ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                          className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-hidden focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.fullName ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
                         />
                         {errors.fullName && (
                           <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
                             {errors.fullName}
                           </p>
                         )}
@@ -453,11 +453,11 @@ export default function BootCamp() {
                             value={formData.email}
                             onChange={handleInputChange}
                             placeholder="you@example.com"
-                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.email ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-hidden focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.email ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
                           />
                           {errors.email && (
                             <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
                               {errors.email}
                             </p>
                           )}
@@ -473,11 +473,11 @@ export default function BootCamp() {
                             value={formData.phone}
                             onChange={handleInputChange}
                             placeholder="+234 800 000 0000"
-                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.phone ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-hidden focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.phone ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
                           />
                           {errors.phone && (
                             <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
                               {errors.phone}
                             </p>
                           )}
@@ -496,11 +496,11 @@ export default function BootCamp() {
                             onChange={handleInputChange}
                             placeholder="e.g. 2"
                             min="0"
-                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.yoe ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-hidden focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.yoe ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
                           />
                           {errors.yoe && (
                             <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
                               {errors.yoe}
                             </p>
                           )}
@@ -516,11 +516,11 @@ export default function BootCamp() {
                             value={formData.career}
                             onChange={handleInputChange}
                             placeholder="e.g. Software Engineering"
-                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.career ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
+                            className={`w-full border px-4 py-3 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-hidden focus:bg-white focus:border-[#F99621] focus:ring-1 focus:ring-[#F99621] transition-colors ${errors.career ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-400" : "border-gray-200 hover:border-gray-300"}`}
                           />
                           {errors.career && (
                             <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
                               {errors.career}
                             </p>
                           )}
@@ -553,7 +553,7 @@ export default function BootCamp() {
                               : "border-gray-200 bg-gray-50 hover:border-[#F99621] hover:bg-amber-50/40"
                           }`}
                         >
-                          <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${selectedFile ? "bg-green-100" : "bg-white border border-gray-200"}`}>
+                          <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${selectedFile ? "bg-green-100" : "bg-white border border-gray-200"}`}>
                             {selectedFile ? (
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                             ) : (
@@ -577,7 +577,7 @@ export default function BootCamp() {
                         </label>
                         {errors.cv && (
                           <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
                             {errors.cv}
                           </p>
                         )}
@@ -598,7 +598,7 @@ export default function BootCamp() {
                               : "border-gray-200 bg-gray-50 hover:border-[#F99621] hover:bg-amber-50/40"
                           }`}
                         >
-                          <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${nyscFile ? "bg-green-100" : "bg-white border border-gray-200"}`}>
+                          <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${nyscFile ? "bg-green-100" : "bg-white border border-gray-200"}`}>
                             {nyscFile ? (
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                             ) : (
@@ -622,7 +622,7 @@ export default function BootCamp() {
                         </label>
                         {errors.nysc && (
                           <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
                             {errors.nysc}
                           </p>
                         )}
@@ -633,7 +633,7 @@ export default function BootCamp() {
 
                   {/* Notice */}
                   <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 px-4 py-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" /></svg>
                     <p className="text-xs text-amber-800 leading-relaxed">
                       Once you submit, you&apos;ll be redirected to take a compulsory assessment test as the final stage of your application.
                     </p>
@@ -643,7 +643,7 @@ export default function BootCamp() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold py-4 text-sm tracking-wide transition-colors disabled:opacity-60 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
+                    className="w-full bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold py-4 text-sm tracking-wide transition-colors disabled:opacity-60 flex items-center justify-center gap-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
                   >
                     {isLoading ? (
                       <>
@@ -779,7 +779,7 @@ export default function BootCamp() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/65 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/65 backdrop-blur-xs"
           onClick={() => setShowMobileWarning(false)}
         >
           <div
@@ -813,14 +813,14 @@ export default function BootCamp() {
                     setShowMobileWarning(false);
                     bootCampOver ? setIsOpen(true) : setShowNoticeModal(true);
                   }}
-                  className="w-full text-sm text-gray-500 hover:text-gray-700 font-medium py-3 rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
+                  className="w-full text-sm text-gray-500 hover:text-gray-700 font-medium py-3 rounded-xl transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-gray-300"
                   style={{ touchAction: "manipulation" }}
                 >
                   Continue Anyway
                 </button>
                 <button
                   onClick={() => setShowMobileWarning(false)}
-                  className="w-full bg-[#F99621] hover:bg-[#e8870e] text-white font-bold py-3 rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
+                  className="w-full bg-[#F99621] hover:bg-[#e8870e] text-white font-bold py-3 rounded-xl transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
                   style={{ touchAction: "manipulation" }}
                 >
                   Got it

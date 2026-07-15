@@ -105,7 +105,7 @@ const MainFooter = ({
             </div>
 
             {/* Right side - Newsletter */}
-            <div className="flex-shrink-0 w-full md:w-auto md:min-w-[400px]">
+            <div className="shrink-0 w-full md:w-auto md:min-w-[400px]">
               <h4 className="text-white font-bold text-xl mb-4 md:text-right">
                 Receive latest news
               </h4>
@@ -116,7 +116,7 @@ const MainFooter = ({
                     type="email"
                     aria-label="Email address"
                     placeholder="Enter your email"
-                    className="py-2 px-4 text-[#4C4C4C] rounded-md focus:outline-none focus:ring focus:border-primary w-full lg:w-[60%]"
+                    className="py-2 px-4 text-[#4C4C4C] rounded-md focus:outline-hidden focus:ring-3 focus:border-primary w-full lg:w-[60%]"
                   />
                   <Btn
                     text="Subscribe"

@@ -48,7 +48,7 @@ const HeroNew = () => {
         transition={{ delay: 0.25 }}
       >
         <section
-          className="relative bg-cover bg-top bg-no-repeat px-[0px] md:px-0  h-screen overflow-hidden"
+          className="relative bg-cover bg-top bg-no-repeat px-0 md:px-0  h-screen overflow-hidden"
           style={{
             backgroundImage: "url('/alltalentz-homebg.jpg')",
             backgroundSize: "cover",
@@ -59,7 +59,7 @@ const HeroNew = () => {
           {/* <div className="md:h-[20px]"></div> */}
           <Header />
 
-          {/* bg-gradient-to-b from-transparent to-black */}
+          {/* bg-linear-to-b from-transparent to-black */}
 
           <div
             className="absolute inset-0 
@@ -83,7 +83,7 @@ const HeroNew = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="text-4xl md:text-[50px] md:font-[700] md:leading-[65px] font-bold"
+                  className="text-4xl md:text-[50px] md:font-bold md:leading-[65px] font-bold"
                 >
                   Hire Pre-Vetted Remote Talent and <span className="text-[#F99621]">Save Up to 75% on Staffing Costs</span>
                 </motion.h1>

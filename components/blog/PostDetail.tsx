@@ -62,11 +62,11 @@ export default function PostDetail({ post, heroImageUrl, authorImageUrl }: PostD
 
         <div className="flex items-start gap-3 pb-10 border-b border-gray-100">
           {authorImageUrl ? (
-            <div className="relative w-11 h-11 rounded-full overflow-hidden flex-shrink-0">
+            <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0">
               <Image src={authorImageUrl} alt={post.author.name} fill className="object-cover" />
             </div>
           ) : (
-            <div className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+            <div className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center shrink-0">
               <span className="text-white font-bold">{post.author.name.charAt(0)}</span>
             </div>
           )}

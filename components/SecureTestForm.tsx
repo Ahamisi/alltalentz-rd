@@ -365,7 +365,7 @@ export default function SecureTestForm() {
       window.removeEventListener("keydown", handleKeyDown, true);
       window.removeEventListener("keydown", handleScreenshotKeys, true);
       window.removeEventListener("focus", handleFocus);
-      window.removeEventListener("blur", handleBlur);
+      window.removeEventListener("blur-sm", handleBlur);
       if (typeof document.removeEventListener !== "undefined" && hidden && visibilityChange) {
         document.removeEventListener(visibilityChange, handleVisibilityChange, false);
       }

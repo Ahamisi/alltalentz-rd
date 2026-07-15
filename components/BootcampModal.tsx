@@ -39,7 +39,7 @@ export default function BootcampModal() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="bootcamp-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs"
       onClick={handleClose}
     >
       <div
@@ -58,7 +58,7 @@ export default function BootcampModal() {
           <button
             onClick={handleClose}
             aria-label="Close announcement"
-            className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white"
             style={{ touchAction: "manipulation" }}
           >
             <svg
@@ -125,7 +125,7 @@ export default function BootcampModal() {
             ].map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
                 <span
-                  className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#FEF5E9] flex items-center justify-center"
+                  className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#FEF5E9] flex items-center justify-center"
                   aria-hidden="true"
                 >
                   <svg
@@ -151,14 +151,14 @@ export default function BootcampModal() {
             <Link
               href="/professional-development-programme"
               onClick={handleClose}
-              className="flex-1 text-center bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold px-6 py-3.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
+              className="flex-1 text-center bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold px-6 py-3.5 transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
               style={{ touchAction: "manipulation" }}
             >
               Reserve Your Spot
             </Link>
             <button
               onClick={handleClose}
-              className="text-sm text-gray-400 hover:text-gray-600 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 rounded-xl px-4 py-3.5"
+              className="text-sm text-gray-400 hover:text-gray-600 transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-gray-300 rounded-xl px-4 py-3.5"
               style={{ touchAction: "manipulation" }}
             >
               Maybe later

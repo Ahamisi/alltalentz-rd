@@ -7,13 +7,13 @@ import Hero from "@/components/webinar/Hero";
 export default function Home() {
   return (
     <section
-      className={`relative  bg-cover bg-center bg-no-repeat mt-[0px] px-0  xl:px-0 bg-white font-montserrat`}
+      className={`relative  bg-cover bg-center bg-no-repeat mt-0 px-0  xl:px-0 bg-white font-montserrat`}
     >
       <Header theme="light" />
       <Hero />
       {/* svg home wrapper */}
       <section className="md-padding relative bg-cover bg-center bg-no-repeat py-[30px] md:py-[128px] bg-[#282828] px-[15px] md:px-0">
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
+        {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-black"></div> */}
 
         <div className="py-16 text-white">
           <div className="max-w-6xl mx-auto">

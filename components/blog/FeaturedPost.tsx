@@ -30,7 +30,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
         >
           {/* Image */}
           <Link href={`/blog/${post.slug}`} className="block group overflow-hidden rounded-xl">
-            <div className="relative w-full aspect-[4/3]">
+            <div className="relative w-full aspect-4/3">
               <Image
                 src={imageUrl}
                 alt={post.mainImage?.alt ?? post.title}
@@ -69,11 +69,11 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
             {/* Author */}
             <div className="flex items-center gap-3">
               {authorImageUrl ? (
-                <div className="relative w-11 h-11 rounded-full overflow-hidden flex-shrink-0">
+                <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0">
                   <Image src={authorImageUrl} alt={post.author.name} fill className="object-cover" />
                 </div>
               ) : (
-                <div className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                <div className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center shrink-0">
                   <span className="text-white font-bold text-sm">{post.author.name.charAt(0)}</span>
                 </div>
               )}

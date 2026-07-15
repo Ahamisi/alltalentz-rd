@@ -11,7 +11,7 @@ export default function About() {
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
       <PageHeader about={true} showBg={false}>
-        <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
+        <div className="max-w-7xl mx-auto px-4 lg:flex relative h-full items-center py-20">
           {/* Left Column */}
           <div className="lg:w-[45%] flex flex-col">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">

@@ -62,7 +62,7 @@ const NicheItem = ({ title, imageSrc, description, path }: NicheItemProp) => {
           </div>
 
           {/* Content Section */}
-          <div className="flex flex-col justify-start p-8 flex-grow">
+          <div className="flex flex-col justify-start p-8 grow">
             <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">{title}</h2>
             <p className="text-white/80 mb-6">{description}</p>
             <div className="inline-flex items-center mt-auto">
@@ -127,7 +127,7 @@ const NicheSection = ({title, subtitle}: {title?: string, subtitle?: string}) =>
   };
 
   return (
-    <section ref={ref} className="relative py-20 bg-gradient-to-b from-neutral-800 to-black">
+    <section ref={ref} className="relative py-20 bg-linear-to-b from-neutral-800 to-black">
       {/* Optional: Add pattern overlay */}
       <div className="absolute inset-0 bg-[url('/redesign-25/bg/vetted.svg')] opacity-10 mix-blend-overlay"></div>
 
@@ -175,7 +175,7 @@ const NicheSection = ({title, subtitle}: {title?: string, subtitle?: string}) =>
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {slides.map((slideItems, slideIndex) => (
-                <div key={slideIndex} className="w-full flex-shrink-0">
+                <div key={slideIndex} className="w-full shrink-0">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     {slideItems.map((item, itemIndex) => (
                       <NicheItem key={itemIndex} {...item} />

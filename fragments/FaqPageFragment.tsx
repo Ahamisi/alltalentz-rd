@@ -20,11 +20,11 @@ export default function Faq() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <section>
         <PageHeader showBg={false}>
-          {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
-          <div className="max-w-6xl mx-auto justify-center align-middle md:flex relative h-[100%] items-center px-[20px] md:px-4 ">
+          {/* <div className="relative inset-0 h-full flex flex-col items-center"> */}
+          <div className="max-w-6xl mx-auto justify-center align-middle md:flex relative h-full items-center px-[20px] md:px-4 ">
             {/* First Column (60% width) */}
             <div className="md:w-[50%] pr-6">
-              <h2 className="text-3xl md:text-[55px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white ">
+              <h2 className="text-3xl md:text-[55px] md:font-bold md:leading-[70px] font-bold mb-6 text-white ">
                 Everything You’re Wondering. Answered.
               </h2>
 
@@ -39,16 +39,16 @@ export default function Faq() {
             </div>
           </div>
 
-          {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
+          {/* <div className="relative inset-0 h-full flex flex-col items-center"> */}
 
           {/* </div> */}
         </PageHeader>
       </section>
 
       <section className="relative bg-cover bg-center bg-no-repeat py-[60px] md:py-[128px] bg-white px-[40px] md:px-0 ">
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
+        {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
-          <div className="w-[100%] md:w-[70%] mx-auto mt-[30px]">
+          <div className="w-full md:w-[70%] mx-auto mt-[30px]">
             {faqData.map((faq, index) => (
               <div key={index} className={`mb-[40px]  ${activeIndex === index ? "pb-13" : ""}`}>
                 <div className="border-b border-[#555555]">

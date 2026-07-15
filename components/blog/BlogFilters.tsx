@@ -92,7 +92,7 @@ export default function BlogFilters({
               if (searchTimeout.current) clearTimeout(searchTimeout.current)
               searchTimeout.current = setTimeout(() => handleSearch(val), 400)
             }}
-            className="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition"
+            className="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 bg-white text-sm text-gray-700 placeholder-gray-400 focus:outline-hidden focus:ring-2 focus:ring-secondary focus:border-transparent transition"
           />
         </div>
 
@@ -101,7 +101,7 @@ export default function BlogFilters({
           <select
             value={currentSort}
             onChange={(e) => handleSort(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-3 rounded-lg border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition cursor-pointer min-w-[170px]"
+            className="appearance-none pl-4 pr-10 py-3 rounded-lg border border-gray-200 bg-white text-sm text-gray-700 focus:outline-hidden focus:ring-2 focus:ring-secondary focus:border-transparent transition cursor-pointer min-w-[170px]"
           >
             <option value="desc">Newest first</option>
             <option value="asc">Oldest first</option>

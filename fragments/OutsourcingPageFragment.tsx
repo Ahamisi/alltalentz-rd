@@ -17,11 +17,11 @@ export default function Outsourcing() {
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
       <section
-        className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-[0px] px-[30px] lg:px-[0px]  xl:px-0 bg-white font-montserrat`}
+        className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-0 px-[30px] lg:px-0  xl:px-0 bg-white font-montserrat`}
       >
         <Header theme="light" />
 
-        <div className={`flex h-[100%] flex-col`}>
+        <div className={`flex h-full flex-col`}>
           <div className="bg-white text-black">
             {/* <div className="container lg:ml-auto xxl:mx-auto flex flex-col md:flex-row items-center"> */}
             <div className="container lg:ml-[100px] flex flex-col md:flex-row items-center">
@@ -119,7 +119,7 @@ export default function Outsourcing() {
         className="md-padding relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[60px] bg-white md:px-0 "
         style={{ backgroundImage: "url('/our-values-bg.svg')" }}
       >
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
+        {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
           <div className="text-center md:px-0 px-4">
             <h1 className="text-[28px] leading-[36px] md:text-5xl font-bold mb-4">What we offer</h1>

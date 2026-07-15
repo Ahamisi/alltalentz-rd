@@ -30,7 +30,7 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
     >
       {/* Image */}
       <Link href={`/blog/${post.slug}`} className="block group overflow-hidden rounded-xl mb-5">
-        <div className="relative w-full aspect-[16/10]">
+        <div className="relative w-full aspect-16/10">
           <Image
             src={imageUrl}
             alt={post.mainImage?.alt ?? post.title}
@@ -66,11 +66,11 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
       {/* Author */}
       <div className="flex items-center gap-3 mt-auto">
         {authorImageUrl ? (
-          <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+          <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
             <Image src={authorImageUrl} alt={post.author.name} fill className="object-cover" />
           </div>
         ) : (
-          <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center shrink-0">
             <span className="text-white font-bold text-xs">{post.author.name.charAt(0)}</span>
           </div>
         )}

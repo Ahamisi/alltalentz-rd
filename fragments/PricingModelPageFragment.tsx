@@ -69,7 +69,7 @@ const RateExplainer = () => {
             <ul className="space-y-5">
               {inclusions.map((item) => (
                 <li key={item} className="flex items-center gap-4">
-                  <span className="w-7 h-7 rounded-full bg-[#FFB300] flex items-center justify-center flex-shrink-0">
+                  <span className="w-7 h-7 rounded-full bg-[#FFB300] flex items-center justify-center shrink-0">
                     <Check className="w-4 h-4 text-white" strokeWidth={3} />
                   </span>
                   <span className="text-lg text-[#1A1A1A]">{item}</span>
@@ -170,7 +170,7 @@ export default function About() {
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
       <PageHeader>
-        <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
+        <div className="max-w-7xl mx-auto px-4 lg:flex relative h-full items-center py-20">
           {/* Left Column */}
           <div className="lg:w-[50%] flex flex-col space-y-8">
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">

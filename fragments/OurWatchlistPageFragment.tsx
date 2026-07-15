@@ -160,11 +160,11 @@ export default function Watchlist() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <section>
         <PageHeader>
-          {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
+          {/* <div className="relative inset-0 h-full flex flex-col items-center"> */}
           <div className="max-w-6xl mx-auto py-12 lg:flex relative h-fit mt-0 items-center px-[20px] md:px-4 ">
             {/* First Column (60% width) */}
             <div className="md:w-6/10 pr-6 md:w-full">
-              <h2 className="text-2xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
+              <h2 className="text-2xl md:text-[60px] md:font-bold md:leading-[70px] font-bold mb-6 text-white">
                 Begin Your Journey To A <span className="text-secondary">Global Career</span>
               </h2>
 
@@ -248,7 +248,7 @@ export default function Watchlist() {
                         {/* <label className="block text-gray-700 font-semibold mb-1">Full Name</label> */}
                         <input
                           type="text"
-                          className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
+                          className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${
                             errors.fullName ? "border-red-500" : ""
                           }`}
                           placeholder="Enter your full name"
@@ -264,7 +264,7 @@ export default function Watchlist() {
                         {/* <label className="block text-gray-700 font-semibold mb-1">Email</label> */}
                         <input
                           type="email"
-                          className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
+                          className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${
                             errors.email ? "border-red-500" : ""
                           }`}
                           placeholder="Enter your email"
@@ -278,7 +278,7 @@ export default function Watchlist() {
                         {/* <label className="block text-gray-700 font-semibold mb-1">Phone</label> */}
                         <input
                           type="tel"
-                          className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
+                          className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${
                             errors.phone ? "border-red-500" : ""
                           }`}
                           placeholder="Enter your phone number"
@@ -293,7 +293,7 @@ export default function Watchlist() {
                         {/* <label className="block text-gray-700 font-semibold mb-1">yoe</label> */}
                         <input
                           type="number"
-                          className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
+                          className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${
                             errors.yoe ? "border-red-500" : ""
                           }`}
                           placeholder="Years of Experience"
@@ -308,7 +308,7 @@ export default function Watchlist() {
                         {/* <label className="block text-gray-700 font-semibold mb-1">yoe</label> */}
                         <input
                           type="text"
-                          className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
+                          className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${
                             errors.career ? "border-red-500" : ""
                           }`}
                           placeholder="Career Field"
@@ -325,7 +325,7 @@ export default function Watchlist() {
                           name="cv"
                           accept=".pdf,.doc,.docx"
                           onChange={handleFileChange}
-                          className={`w-full border rounded-md p-2 focus:outline-none focus:border-secondary ${
+                          className={`w-full border rounded-md p-2 focus:outline-hidden focus:border-secondary ${
                             errors.cv ? "border-red-500" : ""
                           }`}
                         />
@@ -407,7 +407,7 @@ export default function Watchlist() {
         className="md-padding relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[70px] bg-white  px-[30px] md:px-0 "
         style={{ backgroundImage: "url('/our-values-bg.svg')" }}
       >
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
+        {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
           <h2 className="text-2xl md:text-5xl font-bold mb-8 text-center text-secondary">
             Want To Join A Global Team?

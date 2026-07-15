@@ -77,7 +77,7 @@ const STEPS = [
 ];
 
 const inputClass =
-  "w-full border border-gray-200 bg-[#F8F8F8] px-4 py-3 text-[#121212] placeholder:text-gray-400 focus:border-[#F99621] focus:outline-none focus:ring-1 focus:ring-[#F99621]";
+  "w-full border border-gray-200 bg-[#F8F8F8] px-4 py-3 text-[#121212] placeholder:text-gray-400 focus:border-[#F99621] focus:outline-hidden focus:ring-1 focus:ring-[#F99621]";
 
 export default function InternshipPageFragment() {
   const [formData, setFormData] = useState({
@@ -315,9 +315,9 @@ export default function InternshipPageFragment() {
             {DEPARTMENTS.map(({ icon: Icon, name }) => (
               <div
                 key={name}
-                className="flex items-center gap-4 rounded-xl border border-gray-100 bg-[#F8F8F8] px-5 py-4 transition duration-300 hover:border-[#F99621]/40 hover:bg-white hover:shadow-sm"
+                className="flex items-center gap-4 rounded-xl border border-gray-100 bg-[#F8F8F8] px-5 py-4 transition duration-300 hover:border-[#F99621]/40 hover:bg-white hover:shadow-xs"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#F99621] shadow-sm">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#F99621] shadow-xs">
                   <Icon className="h-5 w-5" />
                 </div>
                 <span className="font-medium text-[#121212]">{name}</span>

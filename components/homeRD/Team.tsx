@@ -103,9 +103,9 @@ const Team = () => {
                   alt={`${member.name} ${member.lastName}`}
                   width={300}
                   height={500}
-                  className="w-full h-full object-cover aspect-[3/5]"
+                  className="w-full h-full object-cover aspect-3/5"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent group-hover:opacity-0 transition-opacity">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/90 to-transparent group-hover:opacity-0 transition-opacity">
                   <h3 className="text-lg md:text-2xl font-semibold">
                     {member.name} {member.lastName}
                     {member.title && (

@@ -19,7 +19,7 @@ const HowWeWork = () => {
       style={{ backgroundImage: "url('/our-values-bg.svg')" }}
       ref={ref}
     >
-      <div className="container py-12 mx-auto max-w-screen-lg">
+      <div className="container py-12 mx-auto max-w-(--breakpoint-lg)">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
           {/* Left Column */}
           <div className="flex flex-col gap-[32px] text-black">

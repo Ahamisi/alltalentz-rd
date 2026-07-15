@@ -109,7 +109,7 @@ const TheAgency = () => {
       className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[10px] md:py-[70px] bg-white px-[40px] md:px-0"
       style={{ backgroundImage: "url('/our-values-bg.svg')" }}
     >
-      <div className="container mx-auto md:py-[0px]">
+      <div className="container mx-auto md:py-0">
         <Section
           imageSrc="/home-img/outsourcing-agency.png"
           altText="Outsourcing Agency alltalentz"

@@ -25,7 +25,7 @@ const NewServices = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-7xl mx-auto">
-        <div className="bg-white p-8 rounded-lg shadow-sm border hover:shadow-md transition duration-300">
+        <div className="bg-white p-8 rounded-lg shadow-xs border hover:shadow-md transition duration-300">
           <div className="mb-6">
             <Image
               alt="Highly-Skilled Employees"
@@ -38,7 +38,7 @@ const NewServices = () => {
           <p className="text-gray-600">Every candidate goes through role-specific screening and skills assessment before they ever join your team. No guesswork, no trial-and-error.</p>
         </div>
 
-        <div className="bg-white p-8 rounded-lg shadow-sm border hover:shadow-md transition duration-300">
+        <div className="bg-white p-8 rounded-lg shadow-xs border hover:shadow-md transition duration-300">
           <div className="mb-6">
             <Image
               alt="Affordable Cost"
@@ -51,7 +51,7 @@ const NewServices = () => {
           <p className="text-gray-600">Our support doesn't clock out. From onboarding to ongoing delivery, we're always available to ensure seamless operations across time zones.</p>
         </div>
 
-        <div className="bg-white p-8 rounded-lg shadow-sm border hover:shadow-md transition duration-300">
+        <div className="bg-white p-8 rounded-lg shadow-xs border hover:shadow-md transition duration-300">
           <div className="mb-6">
             <Image
               alt="Vetted & Reliable Employees"
@@ -70,7 +70,7 @@ const NewServices = () => {
           Our Industry Solutions 
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-6 !mt-[50px] pb-24 max-w-7xl mx-auto w-full px-4">
+        <div className="flex flex-wrap justify-center gap-6 mt-[50px]! pb-24 max-w-7xl mx-auto w-full px-4">
           {niches.map((niche, i) => (
             <Link
               key={i}
@@ -102,7 +102,7 @@ const NewServices = () => {
                       <Image src={niche.imageSrc} alt={niche.title} fill className="object-cover" />
                     </div>
                   </div>
-                  <div className="flex flex-col justify-start p-8 flex-grow">
+                  <div className="flex flex-col justify-start p-8 grow">
                     <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">{niche.title}</h2>
                     <p className="text-white/80 mb-6">{niche.description}</p>
                     <div className="inline-flex items-center mt-auto">

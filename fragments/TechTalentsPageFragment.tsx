@@ -8,7 +8,7 @@ export default function TechTalentsPage() {
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
       <PageHeader>
-        <div className="max-w-7xl mx-auto px-4 lg:flex h-[100%]  items-center ">
+        <div className="max-w-7xl mx-auto px-4 lg:flex h-full  items-center ">
           {/* Left Column */}
           <div className="lg:w-[55%] flex flex-col space-y-8 py-20">
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">

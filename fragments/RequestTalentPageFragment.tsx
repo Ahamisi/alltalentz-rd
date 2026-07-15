@@ -163,13 +163,13 @@ function RolesDropdown({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className={`w-full border px-4 py-3 text-left bg-white flex items-center justify-between transition-colors focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] ${
+        className={`w-full border px-4 py-3 text-left bg-white flex items-center justify-between transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] ${
           error ? "border-red-400" : "border-gray-200 hover:border-[#F99621]"
         } ${selected.length === 0 ? "text-gray-400" : "text-gray-800"}`}
       >
         <span className="truncate">{displayText}</span>
         <ChevronDown
-          className={`w-4 h-4 text-gray-400 flex-shrink-0 ml-2 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`w-4 h-4 text-gray-400 shrink-0 ml-2 transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -206,7 +206,7 @@ function RolesDropdown({
                 type="checkbox"
                 checked={selected.includes(role)}
                 onChange={() => toggle(role)}
-                className="w-4 h-4 accent-[#F99621] rounded"
+                className="w-4 h-4 accent-[#F99621] rounded-sm"
               />
               <span className="text-gray-700 text-sm">{role}</span>
             </label>
@@ -377,7 +377,7 @@ export default function RequestTalent() {
   };
 
   const inputClass = (field: keyof FormErrors) =>
-    `w-full border px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors ${
+    `w-full border px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-hidden focus:ring-2 focus:ring-[#F99621] focus:border-[#F99621] transition-colors ${
       errors[field] ? "border-red-400 bg-red-50" : "border-gray-200 bg-white hover:border-gray-300"
     }`;
 
@@ -411,7 +411,7 @@ export default function RequestTalent() {
         <PageHeader>
           <div className="max-w-7xl mx-auto py-12 lg:flex relative h-fit mt-0 items-center px-2 lg:px-[20px] md:px-4">
             <div className="md:w-6/10 pr-6 md:w-full">
-              <h1 className="text-2xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
+              <h1 className="text-2xl md:text-[60px] md:font-bold md:leading-[70px] font-bold mb-6 text-white">
                 Request Talent - Your Remote Team,{" "}
                 <span className="text-secondary">Ready in 7 Days</span>.
               </h1>
@@ -457,7 +457,7 @@ export default function RequestTalent() {
       {/* Form section */}
       <section className="bg-[#F8F8F8] py-16 px-4">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white shadow-sm border border-gray-100 overflow-hidden">
+          <div className="bg-white shadow-xs border border-gray-100 overflow-hidden">
 
             <div className="px-8 pt-8 pb-6 border-b border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900">{"Let's Find Your Talentz."}</h2>
@@ -686,7 +686,7 @@ export default function RequestTalent() {
             {WHAT_HAPPENS_NEXT.map((item, i) => (
               <div
                 key={i}
-                className="bg-white border border-gray-100 p-8 flex flex-col gap-5 hover:border-[#F99621]/40 hover:shadow-sm transition-all group"
+                className="bg-white border border-gray-100 p-8 flex flex-col gap-5 hover:border-[#F99621]/40 hover:shadow-xs transition-all group"
               >
                 <div className="flex items-start justify-between">
                   <span className="text-6xl font-black text-gray-100 group-hover:text-[#FEF3E2] transition-colors leading-none select-none">
