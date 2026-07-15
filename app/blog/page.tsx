@@ -7,7 +7,6 @@ import {
   allCategoriesQuery,
 } from '@/lib/sanity/queries'
 import type { SanityPost, SanityCategory } from '@/types/blog'
-import Header from '@/components/Header'
 import MainFooter from '@/components/MainFooter'
 import BlogHero from '@/components/blog/BlogHero'
 import FeaturedPost from '@/components/blog/FeaturedPost'
@@ -58,7 +57,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   return (
     <>
       <div className="bg-primary">
-        <Header />
         <BlogHero />
       </div>
       <main>

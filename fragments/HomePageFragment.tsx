@@ -6,6 +6,7 @@ import TheAgency from "@/components/homeRD/TheAgency";
 import ConferenceVideo from "@/components/homeRD/ConferenceVideo";
 import HowWeWork from "@/components/homeRD/HowWeWork";
 import OurClients from "@/components/homeRD/OurClients";
+import Certifications from "@/components/homeRD/Certifications";
 import MainTestimony from "@/components/homeRD/MainTestimony";
 import Faq from "@/components/homeRD/Faq";
 import PdpModal from "@/components/PdpModal";
@@ -38,15 +39,17 @@ export default function Home() {
 
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
-      <section className="xs:px-0 sm:px-[30px] md:px-0">
-        <HeroNew />
-      </section>
+      {/* Hero */}
+      <HeroNew/>
 
-      {/* our value proposition */}
-      <ValueProp />
+      {/* certifications */}
+      <Certifications />
 
       {/* vetted niche */}
       <NicheSection />
+
+      {/* our value proposition */}
+      <ValueProp />
 
       {/* alltalentz agency */}
       <TheAgency />

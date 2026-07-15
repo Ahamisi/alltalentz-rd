@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Header from "./HeaderHome";
 
 import Btn from "@/components/Btn";
 import HeaderText from "@/components/HeaderText";
@@ -11,7 +10,6 @@ const Hero = () => {
       style={{ backgroundImage: "url('/alltalentz-homebg.jpg')" }}
     >
       {/* <div className="md:h-[20px]"></div> */}
-      <Header />
 
       {/* bg-linear-to-b from-transparent to-black */}
 

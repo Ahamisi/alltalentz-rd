@@ -120,7 +120,7 @@ export default function BootcampModal() {
           <ul className="space-y-2.5">
             {[
               "Industry-trained expert instructors",
-              "Hands-on, intensive 7-day programme",
+              "Hands-on, intensive 3-month programme",
               "Limited cohort — spots are filling fast",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">

@@ -1,19 +1,26 @@
 import type { ReactNode } from "react";
 import "./globals.css";
-import { Montserrat } from "next/font/google";
+import { Geist, Poppins } from "next/font/google";
 import Script from "next/script";
 import SocialMedia from "@/components/SocialMedia";
+import Navbar from "@/components/shared/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
 import {
   OrganizationSchema,
   WebsiteSchema,
   EmploymentAgencySchema,
   LocalBusinessSchema,
 } from "@/components/SchemaMarkup";
+import { cn } from "@/lib/utils";
 
-const montserrat = Montserrat({
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
+const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata = {
@@ -49,7 +56,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={cn("font-sans", geist.variable, poppins.variable)}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -74,11 +81,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LocalBusinessSchema) }}
         />
       </head>
-      <body className={montserrat.className} id="body" style={{ overflowY: "hidden" }}>
-        <SocialMedia />
+      <body className="font-sans" id="body" style={{ overflowY: "hidden" }}>
+        {/* <SocialMedia /> */}
+        <SmoothScroll />
 
         <main className="">
           {/* <Header/> */}
+          <Navbar/>
           {children}
         </main>
 

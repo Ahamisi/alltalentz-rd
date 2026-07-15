@@ -1,195 +1,265 @@
 "use client";
+
 import Link from "next/link";
-import Image from "next/image";
-import Header from "./HeaderHome";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Btn from "@/components/Btn";
-import HeaderText from "@/components/HeaderText";
-import styles from "./css/animations.module.css";
-import { motion, AnimatePresence } from "framer-motion";
+gsap.registerPlugin(ScrollTrigger);
 
-const variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
+const SPIRAL = "/v26-images/home/spiral";
+const CENTER_IMG = `${SPIRAL}/11.webp`;
 
-const images = {
-  hidden: {
-    opacity: 0,
-    x: 30,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1,
-    },
-    delay: 200,
-  },
-};
+// Exact sizes from the design.
+const OUTER_SIZE = 107.35;
+const INNER_SIZE = 80;
+const CENTER_SIZE = 99.71;
 
-const imageVariant = {
-  hidden: { opacity: 0, x: 30 },
-  show: { opacity: 1, x: 0, transition: { duration: 1 } },
-};
+// Only images 1..10 are available for the orbits (11 is the centre / next
+// section), so we cycle through them to fill the 11 + 6 slots.
+const cycle = (count: number, start: number) =>
+  Array.from({ length: count }, (_, i) => `${SPIRAL}/${((start + i) % 10) + 1}.webp`);
+
+const OUTER = cycle(11, 0); // 11 circles
+const INNER = cycle(6, 4); //  6 circles (offset so they don't repeat the outer run)
+
+const ringAngles = (count: number, offset = 0) =>
+  Array.from({ length: count }, (_, i) => offset + (360 / count) * i);
 
 const HeroNew = () => {
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 15 }}
-        transition={{ delay: 0.25 }}
+  const rootRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const spiralRef = useRef<HTMLDivElement>(null);
+  const outerRingRef = useRef<HTMLDivElement>(null);
+  const innerRingRef = useRef<HTMLDivElement>(null);
+  const centerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const nextRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+
+      const build = (rotation: number, morphFrom: number) => {
+        const outerImgs = gsap.utils.toArray<HTMLElement>(".orbit-img", outerRingRef.current!);
+        const innerImgs = gsap.utils.toArray<HTMLElement>(".orbit-img", innerRingRef.current!);
+        const nextEl = nextRef.current!;
+
+        // Promote the real next section to a clip-revealed overlay that sits on
+        // top of the hero. It stays here as the final frame after the pin ends,
+        // so it's never shown a second time.
+        gsap.set(nextEl, {
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 30,
+        });
+
+        // Clip origin = the centre of the middle image, so the reveal reads as
+        // that photo zooming out to fill the screen.
+        let cx = 0;
+        let cy = 0;
+        let maxR = 2000;
+        const clip = { r: 0 };
+        const applyClip = () => {
+          nextEl.style.clipPath = `circle(${clip.r}px at ${cx}px ${cy}px)`;
+        };
+        const measure = () => {
+          const pin = pinRef.current;
+          const c = centerRef.current;
+          if (!pin || !c) return;
+          const p = pin.getBoundingClientRect();
+          const r = c.getBoundingClientRect();
+          cx = r.left - p.left + r.width / 2;
+          cy = r.top - p.top + r.height / 2;
+          maxR = Math.hypot(Math.max(cx, p.width - cx), Math.max(cy, p.height - cy));
+          applyClip();
+        };
+        measure();
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: pinRef.current,
+            start: "top top",
+            end: "+=180%",
+            pin: true,
+            scrub: 1, // built-in smoothing — this is what kills the jerk
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            onRefresh: measure,
+          },
+        });
+
+        // --- Rings: outer clockwise, inner anti-clockwise (whole scroll) ---
+        tl.to(outerRingRef.current, { rotate: rotation, duration: 1, ease: "none" }, 0);
+        tl.to(innerRingRef.current, { rotate: -rotation, duration: 1, ease: "none" }, 0);
+        // Counter-rotate each photo so faces stay upright while rings spin.
+        tl.to(outerImgs, { rotate: -rotation, duration: 1, ease: "none" }, 0);
+        tl.to(innerImgs, { rotate: rotation, duration: 1, ease: "none" }, 0);
+
+        // Gentle zoom on the centre image up to the hand-off.
+        tl.to(centerRef.current, { scale: 1.4, duration: morphFrom, ease: "none" }, 0);
+
+        // --- Hand-off: fade the scene, clip-zoom the next section in ---
+        const rest = 1 - morphFrom;
+        tl.to(
+          [outerRingRef.current, innerRingRef.current],
+          { autoAlpha: 0, duration: rest, ease: "power1.in" },
+          morphFrom
+        );
+        tl.to(contentRef.current, { autoAlpha: 0, y: -40, duration: rest, ease: "power1.in" }, morphFrom);
+        tl.fromTo(
+          clip,
+          { r: 0 },
+          { r: () => maxR, duration: rest, ease: "power2.inOut", onUpdate: applyClip },
+          morphFrom
+        );
+
+        // Clean the promoted styles if this breakpoint stops matching.
+        return () => {
+          nextEl.style.clipPath = "";
+        };
+      };
+
+      // Only animate when motion is welcome; "reduce" gets the two sections
+      // stacked normally (no pin, no clip, no overlay).
+      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () =>
+        build(150, 0.45)
+      );
+      mm.add("(max-width: 767px) and (prefers-reduced-motion: no-preference)", () =>
+        build(110, 0.5)
+      );
+    }, rootRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const orbit = (src: string, angle: number, size: number, i: number) => (
+    <div
+      key={`${src}-${i}`}
+      className="orbit absolute left-1/2 top-1/2"
+      style={{
+        transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(calc(var(--ring-r) * -1)) rotate(${-angle}deg)`,
+      }}
+    >
+      <div
+        className="orbit-img overflow-hidden rounded-full shadow-lg"
+        style={{ width: size, height: size }}
       >
-        <section
-          className="relative bg-cover bg-top bg-no-repeat px-0 md:px-0  h-screen overflow-hidden"
-          style={{
-            backgroundImage: "url('/alltalentz-homebg.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
+        <img
+          src={src}
+          alt=""
+          className="h-full w-full object-cover"
+          loading={i < 5 ? "eager" : "lazy"}
+          draggable={false}
+        />
+      </div>
+    </div>
+  );
+
+  return (
+    <div ref={rootRef} className="hero-root">
+      <div ref={pinRef} className="relative overflow-hidden">
+        {/* ---------------- Hero ---------------- */}
+        <div
+          className="relative h-screen w-full bg-cover bg-center"
+          style={{ backgroundImage: "url('/v26-images/home/hero-bg.webp')" }}
         >
-          {/* <div className="md:h-[20px]"></div> */}
-          <Header />
+          {/* soft wash so the copy stays legible over the map */}
+          <div className="pointer-events-none absolute inset-0 z-5 bg-linear-to-r from-white/85 via-white/40 to-transparent" />
 
-          {/* bg-linear-to-b from-transparent to-black */}
-
-          <div
-            className="absolute inset-0 
-            "
-            style={{
-              backgroundColor: "rgba(0, 0, 0, 0.80)",
-            }}
-          ></div>
-          <br />
-          <div className="relative py-[30px] md:h-screen flex flex-col px-2 md:px-0 items-center justify-center text-white  md:py-10">
-            <div className="flex  lg:mx-[50px] xl:mx-[80px]">
-              {/* Left Grid */}
-              {/* Left Grid */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="p-0 md:p-12 flex flex-col justify-center space-y-[33px] lg:w-[60%]"
-              >
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="text-4xl md:text-[50px] md:font-bold md:leading-[65px] font-bold"
-                >
-                  Hire Pre-Vetted Remote Talent and <span className="text-[#F99621]">Save Up to 75% on Staffing Costs</span>
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
-                  className="text-lg md:text-[20px] text-[#FEF5E9]"
-                >
-                  All Talentz connects U.S. businesses with pre-vetted, industry-trained remote
-                  professionals across Healthcare, Technology, Finance, Construction, and legal—at a
-                  fraction of the cost.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="flex"
-                >
+          {/* copy */}
+          <div ref={contentRef} className="absolute inset-0 z-20 flex items-center">
+            <div className="w-full max-w-7xl mx-auto">
+              <div className="max-w-[40%]">
+                <h1 className="text-4xl md:text-6xl lg:text-[50px] tracking-[-5%] font-semibold leading-[67.25px] text-[#121212]">
+                  Remote Professionals.
+                  <br />
+                  <span className="text-[#E0871E]">Ready in 7 Days.</span>
+                </h1>
+                <p className="mt-6 text-base md:text-[18px] tracking-[-6%] leading-[25.86px] font-normal text-[#121212] max-w-md">
+                  Pre-vetted. Industry-trained. Up to 75% less than a local hire.
+                  Serving Healthcare, Technology, Finance, Construction, Legal,
+                  and Pest Control sectors across the U.S.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
                   <Link
                     href="/request-talent"
-                    className="bg-[#F99621] hover:bg-white text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300"
+                    className="bg-[#F99621] text-[#121212] px-[40.74px] py-[14.87px] font-normal transition-colors hover:bg-[F99621] hover:text-white"
                   >
-                    Build your team
+                    Get Talentz
                   </Link>
-                </motion.div>
-              </motion.div>
-
-              {/* Right Grid */}
-              <div className="hidden md:flex lg:w-[40%] items-center lg:mx-[50px] xl:mx-0">
-                <motion.div
-                  variants={variants}
-                  initial="hidden"
-                  animate="show"
-                  className="grid grid-cols-2 gap-2"
-                >
-                  <motion.div variants={imageVariant} className="flex">
-                    <Image
-                      src="/home-img/remote-guy-alltalent.svg"
-                      alt="Remote Alltalentz"
-                      width={300}
-                      height={300}
-                      className="rounded-lg animate-spin-slow w-[95%] h-auto"
-                      priority={false}
-                      loading="lazy"
-                    />
-                  </motion.div>
-                  <motion.div variants={imageVariant} className="flex">
-                    <Image
-                      src="/home-img/remote-woman-at.svg"
-                      alt="Remote Staff Alltalentz"
-                      width={300}
-                      height={300}
-                      className="rounded-lg animate-spin-slow w-full h-auto"
-                      priority={false}
-                      loading="lazy"
-                    />
-                  </motion.div>
-                  <motion.div variants={imageVariant} className="flex">
-                    <Image
-                      src="/home-img/remote-woman-3.svg"
-                      alt="Remote Software Developer Alltalentz"
-                      width={300}
-                      height={300}
-                      className="rounded-lg animate-spin-slow w-[95%] h-auto"
-                      priority={false}
-                      loading="lazy"
-                    />
-                  </motion.div>
-                  <motion.div variants={imageVariant} className="flex">
-                    <Image
-                      src="/home-img/remote-woman-4.svg"
-                      alt="Remote Estimator Alltalentz"
-                      width={300}
-                      height={300}
-                      className="rounded-lg animate-spin-slow w-full h-auto"
-                      priority={false}
-                      loading="lazy"
-                    />
-                  </motion.div>
-                </motion.div>
+                  <Link
+                    href="#how-we-work"
+                    className="border-[0.56px] border-[#121212] px-[40.74px] py-[14.87px] font-normal text-[#121212] transition-colors hover:border-black"
+                  >
+                    See How It Works
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Bootcamp Marquee */}
-        <div className="bg-[#F99621] py-4 overflow-hidden">
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="flex items-center shrink-0">
-                {[
-                  "Register for the next All Talentz Professional Development Program",
-                  "Registration from July 13th to July 19th, 2026",
-                ].map((item) => (
-                  <span key={item} className="flex items-center mx-8 text-white font-bold text-xl">
-                    <span className="mr-3">✦</span>
-                    {item}
-                  </span>
-                ))}
+          {/* spiral */}
+          <div className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center opacity-70 md:w-[60%] md:opacity-100">
+            <div
+              ref={spiralRef}
+              className="spiral relative scale-[0.62] md:scale-100"
+              style={{ width: 600, height: 600 }}
+            >
+              {/* outer ring — clockwise */}
+              <div ref={outerRingRef} className="absolute inset-0 [--ring-r:245px]">
+                {OUTER.map((src, i) =>
+                  orbit(src, ringAngles(OUTER.length, -90)[i], OUTER_SIZE, i)
+                )}
               </div>
-            ))}
+
+              {/* inner ring — anti-clockwise */}
+              <div ref={innerRingRef} className="absolute inset-0 [--ring-r:138px]">
+                {INNER.map((src, i) =>
+                  orbit(src, ringAngles(INNER.length, 30)[i], INNER_SIZE, i)
+                )}
+              </div>
+
+              {/* centre image (11.webp) — no border; seeds the clip zoom */}
+              <div
+                ref={centerRef}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full will-change-transform"
+                style={{ width: CENTER_SIZE, height: CENTER_SIZE }}
+              >
+                <img
+                  src={CENTER_IMG}
+                  alt="A remote professional on a video call"
+                  className="h-full w-full object-cover object-center"
+                  draggable={false}
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </motion.div>
-    </AnimatePresence>
+
+        {/* ---------------- Next section (the real one, revealed in place) ---------------- */}
+        <section ref={nextRef} className="relative h-screen w-full overflow-hidden">
+          <img
+            src={CENTER_IMG}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
+            <h2 className="max-w-3xl text-3xl md:text-5xl font-bold leading-tight">
+              Meet your team, working right alongside you.
+            </h2>
+            <p className="mt-6 max-w-xl text-base md:text-lg text-white/85">
+              Fully remote, fully integrated professionals who feel like they're
+              in the room with you.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 };
 

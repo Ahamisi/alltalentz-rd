@@ -1,5 +1,3 @@
-import Header from "./Header";
-
 interface PageHeaderProps {
   children?: React.ReactNode;
   about?: boolean;
@@ -17,8 +15,6 @@ const PageHeader = ({ children, about = false, bgImage, showBg = true }: PageHea
           : "none",
       }}
     >
-      <Header theme={bgImage ? "light" : "dark"} />
-
       <div className={`flex items-center justify-center h-full  ${about ? "lg:mt-[-40px]" : ""}`}>
         {children}
       </div>
