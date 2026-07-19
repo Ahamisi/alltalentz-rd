@@ -3,6 +3,9 @@ import { transporter, smtpEmail } from "@/utils/nodemailer";
 import { renderWaitlistEmail } from "@/utils/renderEmail";
 import { writeClient } from "@/lib/sanity/client";
 
+// Applications are currently closed — flip to false to reopen.
+const APPLICATIONS_CLOSED = true;
+
 const MAX_FILE_BYTES = 5 * 1024 * 1024; // 5 MB
 
 const ALLOWED_FILE_TYPES: Record<string, string> = {
@@ -12,6 +15,13 @@ const ALLOWED_FILE_TYPES: Record<string, string> = {
 };
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
+  if (APPLICATIONS_CLOSED) {
+    return NextResponse.json(
+      { error: "Applications are closed. Please look out for the next cycle." },
+      { status: 403 }
+    );
+  }
+
   try {
     const data = await req.formData();
     const fileRaw = data.get("cv");

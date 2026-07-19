@@ -170,7 +170,7 @@ const HeroNew = () => {
           </div>
         </section>
 
-        {/* Bootcamp Marquee */}
+        {/* Bootcamp Marquee (hidden while applications are closed)
         <div className="bg-[#F99621] py-4 overflow-hidden">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
@@ -188,6 +188,7 @@ const HeroNew = () => {
             ))}
           </div>
         </div>
+        */}
       </motion.div>
     </AnimatePresence>
   );
