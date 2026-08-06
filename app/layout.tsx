@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import "./globals.css";
 import { Geist, Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import SocialMedia from "@/components/SocialMedia";
 import Navbar from "@/components/shared/Navbar";
@@ -12,6 +13,8 @@ import {
   LocalBusinessSchema,
 } from "@/components/SchemaMarkup";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/shared/Footer";
+import WelcomeLeadModal from "@/components/shared/WelcomeLeadModal";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -19,8 +22,18 @@ const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["400", "500", "600", "700"],
+  // 200 powers the extra-light display numerals (e.g. the Outsourcing process steps).
+  weight: ["200", "400", "500", "600", "700"],
   variable: "--font-poppins",
+});
+
+// Display script used by the about-page belief quote.
+const anydore = localFont({
+  src: "./fonts/anydore.otf",
+  display: "swap",
+  weight: "400",
+  style: "normal",
+  variable: "--font-anydore",
 });
 
 export const metadata = {
@@ -56,7 +69,10 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable, poppins.variable)}>
+    <html
+      lang="en"
+      className={cn("font-sans", geist.variable, poppins.variable, anydore.variable)}
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -81,7 +97,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LocalBusinessSchema) }}
         />
       </head>
-      <body className="font-sans" id="body" style={{ overflowY: "hidden" }}>
+      {/* No overflow on <body>: it would scroll-contain the page and disable
+          `position: sticky` everywhere. Horizontal bleed is clipped in globals.css. */}
+      <body className="font-sans" id="body">
         {/* <SocialMedia /> */}
         <SmoothScroll />
 
@@ -89,7 +107,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {/* <Header/> */}
           <Navbar/>
           {children}
+          <Footer/>
         </main>
+
+        {/* Landing lead-capture popup — self-throttling, renders nothing until it opens */}
+        <WelcomeLeadModal />
 
         {/* Analytics Scripts - Load only once site-wide */}
         <Script
@@ -129,8 +151,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         `}
         </Script>
 
-        {/* Tawk.to Chat - Load only once, prevent duplicate loads */}
-        <Script id="tawk-chat" strategy="lazyOnload">
+        {/* Tawk.to Chat - temporarily disabled (was throwing errors in the console) */}
+        {/* <Script id="tawk-chat" strategy="lazyOnload">
           {`
           if (!window._tawk_loaded) {
             window._tawk_loaded = true;
@@ -145,7 +167,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             })();
           }
         `}
-        </Script>
+        </Script> */}
       </body>
     </html>
   );

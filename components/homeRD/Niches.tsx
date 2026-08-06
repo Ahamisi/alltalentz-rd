@@ -46,7 +46,7 @@ const Card = ({
   return (
     <div
       ref={cardRef}
-      className="niche-card group flex w-full max-w-[1161px] items-center rounded-[32px] px-6 py-8 sm:min-h-[422px] sm:px-16 sm:py-14 shadow-[0_12px_28px_-14px_rgba(120,80,10,0.28)] ring-1 ring-black/5"
+      className="niche-card group flex w-full max-w-[1161px] items-center rounded-[32px] px-6 py-8 sm:min-h-[422px] sm:px-16 sm:py-14 ring-1 ring-black/5"
       style={{ backgroundColor: item.tint ?? "#FBF4E1" }}
     >
       <div className="mx-auto flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:justify-center sm:gap-14 sm:text-left">
@@ -257,7 +257,7 @@ const NicheSection = ({}: {
     <section ref={sectionRef} className="relative bg-white">
       <div
         ref={pinRef}
-        className="relative flex h-160 w-full flex-col items-center justify-center"
+        className="relative flex h-svh min-h-140 w-full flex-col items-center justify-center"
       >
         {/* Deck */}
         <div className="relative z-10 flex w-full items-center justify-center px-4">
@@ -292,7 +292,10 @@ const NicheSection = ({}: {
               ref={(el) => {
                 progressRef.current[i] = el;
               }}
-              className="block h-8 w-1 origin-center rounded-full bg-secondary"
+              // Explicit hex, not `bg-secondary`: the theme's `--color-secondary`
+              // is re-declared as near-white further down globals.css, so the
+              // utility renders invisible against the white section.
+              className="block h-8 w-1 origin-center rounded-full bg-[#F99621]"
             />
           ))}
         </div>

@@ -117,19 +117,19 @@ const components: PortableTextComponents = {
   },
   block: {
     h2: ({ children, value }) => (
-      <h2 id={getHeadingId(value)} className="text-2xl md:text-3xl font-bold text-gray-900 mt-10 mb-4">{children}</h2>
+      <h2 id={getHeadingId(value)} className="scroll-mt-28 text-2xl md:text-3xl font-bold text-gray-900 mt-10 mb-4">{children}</h2>
     ),
     h3: ({ children, value }) => (
-      <h3 id={getHeadingId(value)} className="text-xl md:text-2xl font-bold text-gray-900 mt-8 mb-3">{children}</h3>
+      <h3 id={getHeadingId(value)} className="scroll-mt-28 text-xl md:text-2xl font-bold text-gray-900 mt-8 mb-3">{children}</h3>
     ),
     h4: ({ children, value }) => (
-      <h4 id={getHeadingId(value)} className="text-lg font-bold text-gray-900 mt-6 mb-2">{children}</h4>
+      <h4 id={getHeadingId(value)} className="scroll-mt-28 text-lg font-bold text-gray-900 mt-6 mb-2">{children}</h4>
     ),
     h5: ({ children, value }) => (
-      <h5 id={getHeadingId(value)} className="text-base font-bold text-gray-900 mt-5 mb-2">{children}</h5>
+      <h5 id={getHeadingId(value)} className="scroll-mt-28 text-base font-bold text-gray-900 mt-5 mb-2">{children}</h5>
     ),
     h6: ({ children, value }) => (
-      <h6 id={getHeadingId(value)} className="text-sm font-bold text-gray-500 uppercase tracking-wide mt-4 mb-1">{children}</h6>
+      <h6 id={getHeadingId(value)} className="scroll-mt-28 text-sm font-bold text-gray-500 uppercase tracking-wide mt-4 mb-1">{children}</h6>
     ),
     normal: ({ children }) => (
       <p className="text-gray-700 leading-relaxed mb-5 text-base md:text-lg">{children}</p>

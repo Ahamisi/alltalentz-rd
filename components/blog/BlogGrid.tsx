@@ -1,6 +1,5 @@
 import { Suspense } from 'react'
 import type { SanityPost, SanityCategory } from '@/types/blog'
-import BlogFilters from './BlogFilters'
 import BlogCard from './BlogCard'
 import BlogPagination from './BlogPagination'
 
@@ -8,7 +7,6 @@ interface BlogGridProps {
   posts: SanityPost[]
   categories: SanityCategory[]
   search: string
-  sort: string
   category: string
   currentPage: number
   totalPages: number
@@ -18,7 +16,6 @@ export default function BlogGrid({
   posts,
   categories,
   search,
-  sort,
   category,
   currentPage,
   totalPages,
@@ -30,19 +27,12 @@ export default function BlogGrid({
     : 'Latest Articles'
 
   return (
-    <section className="bg-[#f8f8f8] py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="bg-white px-[24px] py-16 md:px-[40px] md:py-20">
+      <div className="container mx-auto max-w-(--breakpoint-xl)">
         <div className="mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{heading}</h2>
-
-          <Suspense>
-            <BlogFilters
-              categories={categories}
-              currentSearch={search}
-              currentSort={sort}
-              currentCategory={category}
-            />
-          </Suspense>
+          {/* Search + category filters now live in BlogToolbar, directly under
+              the hero; this heading just reflects whatever they resolved to. */}
+          <h2 className="text-2xl md:text-3xl font-bold text-[#121212]">{heading}</h2>
         </div>
 
         {posts.length > 0 ? (

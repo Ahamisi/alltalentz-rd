@@ -35,35 +35,35 @@ type IndustryLink = {
 };
 
 const industries: IndustryLink[] = [
-  { label: "Tech", href: "/hire/tech", icon: "/v26-images/dropdown-svgs/tech.svg" },
+  { label: "Tech", href: "/hire-tech-talents", icon: "/v26-images/talentz/tech.png" },
   {
     label: "Healthcare",
-    href: "/hire/healthcare",
-    icon: "/v26-images/dropdown-svgs/healthcare.svg",
+    href: "/hire-healthcare-talents",
+    icon: "/v26-images/talentz/healthcare.png",
   },
   {
     label: "Finance",
-    href: "/hire/finance",
-    icon: "/v26-images/dropdown-svgs/finance.svg",
+    href: "/hire-finance-talents",
+    icon: "/v26-images/talentz/finance.png",
   },
   {
     label: "Construction",
-    href: "/hire/construction",
-    icon: "/v26-images/dropdown-svgs/construction.svg",
+    href: "/hire-remediation-talents",
+    icon: "/v26-images/talentz/construction.png",
   },
-  { label: "Legal", href: "/hire/legal", icon: "/v26-images/dropdown-svgs/legal.svg" },
+  { label: "Legal", href: "/hire-legal-talents", icon: "/v26-images/talentz/legal.png" },
   {
     label: "Pest Control",
-    href: "/hire/pest-control",
-    icon: "/v26-images/dropdown-svgs/pest-control.svg",
+    href: "/hire-pest-control-talents",
+    icon: "/v26-images/talentz/pest-control.png",
   },
 ];
 
 const companyLinks = [
-  { label: "About us", href: "/about" },
-  { label: "Our Global Talentz", href: "/global-talentz" },
+  { label: "About us", href: "/about-us" },
+  { label: "Our Global Talentz", href: "/our-global-talentz" },
   { label: "Success Stories", href: "/success-stories" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 const resourceLinks = [
@@ -71,11 +71,19 @@ const resourceLinks = [
   { label: "FAQs", href: "/faq" },
 ];
 
+/**
+ * Top-level links without a dropdown. Rendered by BOTH the desktop nav and the
+ * mobile sheet — keep hrefs here only, never inline in the JSX below.
+ */
 const simpleLinks = [
   { label: "Home", href: "/" },
-  { label: "Our Solutions", href: "/solutions" },
-  { label: "Agency", href: "/agency" },
+  { label: "Our Solutions", href: "/our-solutions" },
+  { label: "Agency", href: "/outsource-with-agency" },
 ];
+
+const [homeLink, solutionsLink, agencyLink] = simpleLinks;
+
+const ctaHref = "/request-talent";
 
 /** Shared typography for top-level nav links and dropdown triggers. */
 const navItemClass =
@@ -174,7 +182,8 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4">
+      {/* h-nav → --spacing-nav in globals.css; pinned sections offset by the same token. */}
+      <div className="mx-auto flex h-nav max-w-7xl items-center justify-between gap-4">
         <Logo />
 
         {/* Desktop navigation */}
@@ -184,7 +193,7 @@ export default function Navbar() {
               <NavigationMenuLink
                 render={
                   <Link
-                    href="/"
+                    href={homeLink.href}
                     className={cn(
                       "inline-flex h-9 items-center rounded-lg px-3 transition-colors hover:bg-muted",
                       navItemClass
@@ -192,7 +201,7 @@ export default function Navbar() {
                   />
                 }
               >
-                Home
+                {homeLink.label}
               </NavigationMenuLink>
             </NavigationMenuItem>
 
@@ -216,7 +225,7 @@ export default function Navbar() {
               <NavigationMenuLink
                 render={
                   <Link
-                    href="/solutions"
+                    href={solutionsLink.href}
                     className={cn(
                       "inline-flex h-9 items-center rounded-lg px-3 transition-colors hover:bg-muted",
                       navItemClass
@@ -224,7 +233,7 @@ export default function Navbar() {
                   />
                 }
               >
-                Our Solutions
+                {solutionsLink.label}
               </NavigationMenuLink>
             </NavigationMenuItem>
 
@@ -232,7 +241,7 @@ export default function Navbar() {
               <NavigationMenuLink
                 render={
                   <Link
-                    href="/agency"
+                    href={agencyLink.href}
                     className={cn(
                       "inline-flex h-9 items-center rounded-lg px-3 transition-colors hover:bg-muted",
                       navItemClass
@@ -240,7 +249,7 @@ export default function Navbar() {
                   />
                 }
               >
-                Agency
+                {agencyLink.label}
               </NavigationMenuLink>
             </NavigationMenuItem>
 
@@ -256,7 +265,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
           <Button
-            render={<Link href="/get-talentz" />}
+            render={<Link href={ctaHref} />}
             className="h-11 rounded-none bg-[#F99621] px-[63px] py-[23px] text-base font-semibold text-white hover:bg-[#F99621] hover:text-black"
           >
             Get Talentz
@@ -376,7 +385,7 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
       <SheetClose
         render={
           <Button
-            render={<Link href="/get-talentz" onClick={onNavigate} />}
+            render={<Link href={ctaHref} onClick={onNavigate} />}
             className="mt-4 h-12 w-full rounded-lg bg-secondary text-base font-semibold text-black hover:bg-secondary/90"
           />
         }

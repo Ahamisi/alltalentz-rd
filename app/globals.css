@@ -10,6 +10,13 @@
   --color-primary: #000000;
   --color-secondary: #f99621;
 
+  /*
+    Height of the sticky navbar. Single source of truth: the navbar sets its own
+    height from this, and any pinned/full-viewport section offsets its content by
+    it so content never ends up underneath the bar.
+  */
+  --spacing-nav: 5rem;
+
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --background-image-skew-bg: url('/skew-bg.svg');
   --background-image-gradient-conic: conic-gradient(
@@ -130,16 +137,23 @@
   }
 }
 
-body,
 html {
   width: 100%;
-  overflow-x: hidden;
   max-width: 100%;
-  overflow-y: scroll;
+  /* clip, not hidden: `hidden` would make <html> a scroll container on the x
+     axis too, and any scroll-container ancestor kills `position: sticky` in its
+     descendants. clip still contains horizontal bleed. */
+  overflow-x: clip;
+  overflow-y: scroll; /* reserve the scrollbar gutter so layout never shifts */
 }
 
 body {
-  overflow-y: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  /* Must stay visible — the document scrolls, the body does not scroll-contain.
+     Setting hidden/scroll/auto here re-breaks every sticky element on the site. */
+  overflow-y: visible;
 }
 
 /* Lenis smooth scroll */
@@ -167,6 +181,9 @@ html.lenis body {
 /* Example CSS for styling the modal */
 .modal {
   position: absolute;
+  /* Above .overlay, which itself must clear the sticky navbar (z-50) and any
+     in-page z-index'd content such as hero copy. */
+  z-index: 1001;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -179,6 +196,7 @@ html.lenis body {
 .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
@@ -362,6 +380,33 @@ li.dot.selected {
   transition: transform 0.5s ease-out;
 }
 
+/*
+  Leadership-team carousel: the hairline that drains while the strip auto-advances,
+  so the rotation reads as deliberate rather than as the page twitching. Duration
+  comes from `--lt-rotate` (set inline from the component's ROTATE_MS) and the
+  element is re-keyed on every hop, which is what restarts the fill.
+*/
+@keyframes lt-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.lt-progress-fill {
+  transform-origin: left center;
+  animation: lt-progress var(--lt-rotate, 5000ms) linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lt-progress-fill {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
+
 @keyframes spin-slow {
   0% {
     transform: rotate(0deg);
@@ -469,4 +514,15 @@ li.dot.selected {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+/* Blog category rail: scrolls horizontally without a visible scrollbar —
+   the edge fades + chevrons are the affordance instead. */
+.blog-rail,
+.faq-rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.blog-rail::-webkit-scrollbar,
+.faq-rail::-webkit-scrollbar {
+  display: none;
 }

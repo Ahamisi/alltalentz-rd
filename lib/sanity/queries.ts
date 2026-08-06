@@ -10,7 +10,10 @@ const POST_FIELDS = groq`
   featured,
   mainImage,
   "author": author->{ name, role, image, bio },
-  "categories": categories[]->{ title, "slug": slug.current }
+  "categories": categories[]->{ title, "slug": slug.current },
+  // Character count of the body, so cards can show a read-time estimate
+  // without shipping the whole document to the client.
+  "charCount": length(pt::text(body))
 `
 
 const FILTER_CLAUSE = groq`
@@ -75,6 +78,41 @@ export const allCategoriesQuery = groq`
   *[_type == "category"] | order(title asc) {
     title,
     "slug": slug.current
+  }
+`
+
+// --- FAQs -------------------------------------------------------------------
+
+// Every FAQ category with its questions nested, ready to render as the grouped
+// accordion on /faq. Categories are ordered by their explicit `order` field
+// (999 for the ones editors haven't ranked) and then alphabetically, so adding
+// a category in the studio never needs a code change.
+export const faqCategoriesWithFaqsQuery = groq`
+  *[_type == "faqCategory" && !(_id in path("drafts.**"))]
+  | order(coalesce(order, 999) asc, title asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    description,
+    "faqs": *[
+      _type == "faq"
+      && !(_id in path("drafts.**"))
+      && category._ref == ^._id
+    ] | order(coalesce(order, 999) asc, _createdAt asc) {
+      _id,
+      question,
+      answer
+    }
+  }
+`
+
+// Condensed set for the short FAQ blocks on marketing pages.
+export const featuredFaqsQuery = groq`
+  *[_type == "faq" && showOnHomepage == true && !(_id in path("drafts.**"))]
+  | order(coalesce(order, 999) asc, _createdAt asc) {
+    _id,
+    question,
+    answer
   }
 `
 

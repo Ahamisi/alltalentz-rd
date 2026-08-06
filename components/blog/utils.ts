@@ -38,6 +38,15 @@ export function formatDate(dateString: string): string {
   })
 }
 
+/**
+ * Read-time estimate from a plain-text character count (~5 chars per word,
+ * ~200 words per minute). Always at least a minute — "0min" reads as broken.
+ */
+export function readingTime(charCount?: number): string {
+  const minutes = charCount ? Math.max(1, Math.round(charCount / 5 / 200)) : 1
+  return `${minutes} ${minutes === 1 ? 'min' : 'mins'}`
+}
+
 const CATEGORY_COLORS: Record<string, string> = {
   seo: 'bg-blue-100 text-blue-700',
   social: 'bg-pink-100 text-pink-700',

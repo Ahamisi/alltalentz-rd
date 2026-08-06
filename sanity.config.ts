@@ -27,6 +27,24 @@ export default defineConfig({
             S.listItem()
               .title('Categories')
               .child(S.documentTypeList('category').title('Categories')),
+            S.divider(),
+            S.listItem()
+              .title('FAQs')
+              .child(
+                S.documentTypeList('faq')
+                  .title('FAQs')
+                  .defaultOrdering([
+                    { field: 'category.title', direction: 'asc' },
+                    { field: 'order', direction: 'asc' },
+                  ])
+              ),
+            S.listItem()
+              .title('FAQ Categories')
+              .child(
+                S.documentTypeList('faqCategory')
+                  .title('FAQ Categories')
+                  .defaultOrdering([{ field: 'order', direction: 'asc' }])
+              ),
           ]),
     }),
     visionTool(),

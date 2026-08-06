@@ -39,4 +39,6 @@ export interface SanityPost {
   author: SanityAuthor
   categories: SanityCategory[]
   body?: PortableTextBlock[]
+  /** Plain-text length of `body`; used to estimate read time. */
+  charCount?: number
 }

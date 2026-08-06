@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { client } from '@/lib/sanity/client'
 import {
   featuredPostQuery,
@@ -9,8 +10,11 @@ import {
 import type { SanityPost, SanityCategory } from '@/types/blog'
 import MainFooter from '@/components/MainFooter'
 import BlogHero from '@/components/blog/BlogHero'
+import BlogToolbar from '@/components/blog/BlogToolbar'
 import FeaturedPost from '@/components/blog/FeaturedPost'
 import BlogGrid from '@/components/blog/BlogGrid'
+import NewsletterCta from '@/components/blog/NewsletterCta'
+import ReadyToBuild from '@/components/shared/ReadyToBuild'
 
 export const revalidate = 60
 
@@ -56,24 +60,28 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   return (
     <>
-      <div className="bg-primary">
-        <BlogHero />
-      </div>
-      <main>
-        {featuredPost && !search && !category && page === 1 && (
-          <FeaturedPost post={featuredPost} />
-        )}
-        <BlogGrid
-          posts={posts}
+      <BlogHero />
+      <Suspense>
+        <BlogToolbar
           categories={categories}
-          search={search}
-          sort={sort}
-          category={category}
-          currentPage={page}
-          totalPages={totalPages}
+          currentSearch={search}
+          currentSort={sort}
+          currentCategory={category}
         />
-      </main>
-      <MainFooter />
+      </Suspense>
+      {featuredPost && !search && !category && page === 1 && (
+        <FeaturedPost post={featuredPost} />
+      )}
+      <BlogGrid
+        posts={posts}
+        categories={categories}
+        search={search}
+        category={category}
+        currentPage={page}
+        totalPages={totalPages}
+      />
+      <NewsletterCta />
+      <ReadyToBuild/>
     </>
   )
 }

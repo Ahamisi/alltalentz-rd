@@ -1,74 +1,65 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-
-const ClientLogo = ({ src, alt }: { src: string; alt: string }) => {
-  const { ref, inView } = useInView();
-
-  const logoVariants = {
-    hidden: { opacity: 0, scale: 0.5 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeInOut" as const,
-      },
-    },
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      className="flex justify-center items-center"
-      variants={logoVariants}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        width={180}
-        height={60}
-        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-        className="object-contain cursor-pointer w-full h-auto"
-      />
-    </motion.div>
-  );
-};
+import Marquee from "react-fast-marquee";
+import StarTrail from "./StarTrail";
 
 const OurClients = () => {
   const logos = [
-    { src: "/redesign-25/client-logos/puro-clean-logo.jpg", alt: "PuroClean logo" },
-    { src: "/redesign-25/client-logos/alacrity-solutions.jpg", alt: "Alacrity Solutions logo" },
-    { src: "/redesign-25/client-logos/servpro.jpg", alt: "SERVPRO logo" },
-    { src: "/redesign-25/client-logos/clean-slate.jpg", alt: "Clean Slate logo" },
-    { src: "/redesign-25/client-logos/wonder-logo.jpg", alt: "Wonder logo" },
-    { src: "/redesign-25/client-logos/365-restoration.jpg", alt: "365 Restoration logo" },
-    { src: "/redesign-25/client-logos/restoration-specialists.jpg", alt: "Restoration Specialists logo" },
-    { src: "/redesign-25/client-logos/signal-restoration.jpg", alt: "Signal Restoration logo" },
-    { src: "/redesign-25/client-logos/on-site.jpg", alt: "On-Site logo" },
-    { src: "/redesign-25/client-logos/property-doctors.jpg", alt: "Property Doctors logo" },
+    { src: "/v26-images/clients/purpclean-logo.png", alt: "PurpClean logo" },
+    { src: "/v26-images/clients/alacrity-logo.png", alt: "Alacrity logo" },
+    { src: "/v26-images/clients/servpro-logo.png", alt: "ServPro logo" },
+    { src: "/v26-images/clients/cleanslate-logo.png", alt: "CleanSlate logo" },
+    { src: "/v26-images/clients/wonder-logo.png", alt: "Wonder logo" },
+    { src: "/v26-images/clients/restoration-specialist-logo.png", alt: "Restoration Specialist logo" },
+    { src: "/v26-images/clients/signal-logo.png", alt: "Signal logo" },
+    { src: "/v26-images/clients/onsite-logo.png", alt: "OnSite logo" },
+    { src: "/v26-images/clients/property-doctors-logo.png", alt: "Property Doctors logo" },
   ];
 
   return (
-    <section className="bg-black py-12 md:py-[116px] px-[40px] md:px-0">
-      <div className="container mx-auto">
-        {/* Section Title */}
-        <h2 className="text-3xl font-semibold text-center mb-8">
-          Trusted by growing businesses across the U.S.
-        </h2>
+    <section className="bg-white py-16 md:py-[116px] md:px-0 overflow-hidden">
+      <div className="max-w-[1119.94px] mx-auto">
+        {/* Section Title with star trails */}
+        <div className="relative flex items-center justify-center mb-12 md:mb-20">
+          {/* <StarTrail
+            side="left"
+            className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[140px] lg:w-[181.9px] h-auto pointer-events-none select-none"
+          /> */}
 
-        {/* Logos */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-4xl mx-auto">
-          {/* Logos */}
-          {logos.map((logo, index) => (
-            <ClientLogo key={index} src={logo.src} alt={logo.alt} />
-          ))}
+          <h2 className="text-3xl md:text-5xl xl:text-[48px] font-medium text-center text-black leading-[67.25px] tracking-[-5%] max-w-[532px] text-[#121212]">
+            Trusted by businesses across the United States
+          </h2>
+
+          {/* <StarTrail
+            side="right"
+            className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[140px] lg:w-[181.9px] h-auto pointer-events-none select-none"
+          /> */}
         </div>
       </div>
+
+      {/* Logos marquee */}
+      <Marquee autoFill pauseOnHover speed={40} gradient={false}>
+        {logos.map((logo, index) => (
+          <div key={index} className="group flex justify-center items-center mx-8 md:mx-12">
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={180}
+              height={60}
+              className="object-contain w-[140px] md:w-[180px] h-auto grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+            />
+          </div>
+        ))}
+      </Marquee>
+
+      <Image
+        src="/v26-images/home/special-divder.png"
+        alt=""
+        width={1440}
+        height={100}
+        className="w-full h-auto mt-16 md:mt-20 pointer-events-none select-none"
+      />
     </section>
   );
 };

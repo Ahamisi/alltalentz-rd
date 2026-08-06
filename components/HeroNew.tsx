@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -35,6 +36,46 @@ const HeroNew = () => {
   const centerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLElement>(null);
+
+  // --- Entrance: heading lines rise out of their clip masks, copy fades up ---
+  // The hero is above the fold, so this plays on mount rather than on scroll.
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.set(".hero-line-inner", { yPercent: 110 });
+        gsap.set(".hero-fade-up", { autoAlpha: 0, y: 20 });
+
+        const tl = gsap.timeline({ delay: 0.15 });
+
+        tl.to(".hero-line-inner", {
+          yPercent: 0,
+          duration: 0.85,
+          ease: "power4.out",
+          stagger: 0.12,
+        });
+
+        tl.to(
+          ".hero-fade-up",
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.1,
+          },
+          "-=0.35"
+        );
+
+        // The spiral fades in alongside the copy. Only autoAlpha — its scale
+        // comes from Tailwind classes and a GSAP scale tween would clobber it.
+        tl.from(spiralRef.current, { autoAlpha: 0, duration: 1, ease: "power2.out" }, 0);
+      });
+    }, rootRef);
+
+    return () => ctx.revert();
+  }, []);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -175,16 +216,21 @@ const HeroNew = () => {
             <div className="w-full max-w-7xl mx-auto">
               <div className="max-w-[40%]">
                 <h1 className="text-4xl md:text-6xl lg:text-[50px] tracking-[-5%] font-semibold leading-[67.25px] text-[#121212]">
-                  Remote Professionals.
-                  <br />
-                  <span className="text-[#E0871E]">Ready in 7 Days.</span>
+                  {/* pb/-mb: give the clip mask room for descenders (g, y, .)
+                      without changing the visual line spacing. */}
+                  <span className="block overflow-hidden pb-[0.18em] mb-[-0.18em]">
+                    <span className="hero-line-inner block">Remote Talent.</span>
+                  </span>
+                  <span className="block overflow-hidden pb-[0.18em] mb-[-0.18em]">
+                    <span className="hero-line-inner block text-[#E0871E]">
+                      Ready within 7 Days.
+                    </span>
+                  </span>
                 </h1>
-                <p className="mt-6 text-base md:text-[18px] tracking-[-6%] leading-[25.86px] font-normal text-[#121212] max-w-md">
-                  Pre-vetted. Industry-trained. Up to 75% less than a local hire.
-                  Serving Healthcare, Technology, Finance, Construction, Legal,
-                  and Pest Control sectors across the U.S.
+                <p className="hero-fade-up mt-6 text-base md:text-[18px] tracking-[-6%] leading-[25.86px] font-normal text-[#121212] max-w-md">
+                  Pre-vetted professionals across Healthcare, Technology, Finance, Construction, Legal, and Pest Control, at up to 75% less than a local hire.
                 </p>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
+                <div className="hero-fade-up mt-8 flex flex-wrap items-center gap-4">
                   <Link
                     href="/request-talent"
                     className="bg-[#F99621] text-[#121212] px-[40.74px] py-[14.87px] font-normal transition-colors hover:bg-[F99621] hover:text-white"
@@ -192,10 +238,12 @@ const HeroNew = () => {
                     Get Talentz
                   </Link>
                   <Link
-                    href="#how-we-work"
+                    href="https://calendly.com/mnwoseh"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="border-[0.56px] border-[#121212] px-[40.74px] py-[14.87px] font-normal text-[#121212] transition-colors hover:border-black"
                   >
-                    See How It Works
+                    Request a meeting
                   </Link>
                 </div>
               </div>
@@ -247,15 +295,43 @@ const HeroNew = () => {
             alt=""
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          {/* Overlay: a flat scrim for baseline contrast, plus a vertical
+              gradient that darkens the centre band where the copy sits. */}
+          <div aria-hidden="true" className="absolute inset-0 bg-[#121212]/55" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-linear-to-b from-[#121212]/70 via-[#121212]/40 to-[#121212]/80"
+          />
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
             <h2 className="max-w-3xl text-3xl md:text-5xl font-bold leading-tight">
-              Meet your team, working right alongside you.
+              Ready to scale with talent trained for your business?
             </h2>
-            <p className="mt-6 max-w-xl text-base md:text-lg text-white/85">
+            {/* <p className="mt-6 max-w-xl text-base md:text-lg text-white/85">
               Fully remote, fully integrated professionals who feel like they're
               in the room with you.
-            </p>
+            </p> */}
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/request-talent"
+                className="group inline-flex items-center gap-2.5 bg-[#F99621] px-[40.74px] py-[14.87px] font-normal text-[#121212] transition-colors hover:bg-[F99621] hover:text-white"
+              >
+                Get Talentz
+                <ArrowRight
+                  size={18}
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
+              <Link
+                href="https://calendly.com/mnwoseh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center border-[0.56px] border-white px-[40.74px] py-[14.87px] font-normal text-white transition-colors hover:border-white/60"
+              >
+                Book a Meeting
+              </Link>
+            </div>
           </div>
         </section>
       </div>

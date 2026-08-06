@@ -7,6 +7,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+declare global {
+  interface Window {
+    __lenis?: Lenis;
+  }
+}
+
 /**
  * Global smooth scroll. Lenis interpolates the raw (spiky) wheel/scroll input
  * into a continuous stream, and we drive it from GSAP's single ticker so Lenis,
@@ -31,6 +37,10 @@ const SmoothScroll = () => {
     // Keep ScrollTrigger in sync with Lenis' virtual scroll position.
     lenis.on("scroll", ScrollTrigger.update);
 
+    // Published so in-page navigation (e.g. the blog table of contents) can hand
+    // anchor jumps to Lenis instead of fighting it with a native scroll.
+    window.__lenis = lenis;
+
     // One RAF for everything: GSAP's ticker pumps Lenis.
     const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
@@ -39,6 +49,7 @@ const SmoothScroll = () => {
     return () => {
       gsap.ticker.remove(raf);
       lenis.destroy();
+      window.__lenis = undefined;
     };
   }, []);
 
