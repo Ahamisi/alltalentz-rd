@@ -728,10 +728,7 @@ export default function Outsourcing() {
       </section>
 
       <section className="px-[10px] md:px-0 bg-[#131313]">
-        <MainFooter
-          meetWithUs="https://calendly.com/mnwoseh"
-          brochure="https://drive.google.com/uc?export=download&id=1R2_hd4vojiTA59zryjREZkWRKrXWZeon"
-        />
+        <MainFooter brochure="https://drive.google.com/uc?export=download&id=1R2_hd4vojiTA59zryjREZkWRKrXWZeon" />
       </section>
     </main>
   );

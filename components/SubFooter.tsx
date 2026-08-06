@@ -6,16 +6,14 @@ import Btn from "./Btn";
 
 interface SubFooterProps {
   brochure?: string;
-  meetWithUs?: string;
   heading?: string;
   subheading?: string;
 }
 
 const SubFooter = ({
   brochure,
-  meetWithUs,
   heading = "Ready to Build Your Remote Team?",
-  subheading = "Tell us what you need. We'll have the right talent matched, vetted, and ready to deploy within 7 days.",
+  subheading = "Tell us what you need. We'll have the right talent matched, vetted, and ready to deploy under 48 hours.",
 }: SubFooterProps) => {
   return (
     <motion.div
@@ -47,12 +45,17 @@ const SubFooter = ({
               {subheading}
             </p>
             <div className="flex items-center flex-col md:flex-row">
-              <Btn text="Build my Team" otherCSS="w-full text-center" link="/request-talent" />
+              <Btn
+                text="Book a Meeting"
+                otherCSS="w-full text-center"
+                link="https://calendly.com/mnwoseh"
+                target="_blank"
+              />
               &nbsp;&nbsp;
               <Btn
                 text="Talk to our team"
                 otherCSS="w-full text-center"
-                link={`${meetWithUs ? meetWithUs : "https://calendly.com/mnwoseh"}`}
+                link="tel:+16145021440"
               />
             </div>
           </div>

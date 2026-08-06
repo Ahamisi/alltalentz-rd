@@ -2,6 +2,7 @@ import { render } from "@react-email/components";
 import { Email } from "@/components/Email";
 import { EmailWaitlist } from "@/components/EmailWaitlist";
 import { EmailInternshipApplication } from "@/components/EmailInternshipApplication";
+import { EmailGeneralEnquiry } from "@/components/EmailGeneralEnquiry";
 
 interface ContactEmailProps {
   fullName: string;
@@ -36,6 +37,24 @@ export async function renderContactEmail(props: ContactEmailProps): Promise<stri
       numberOfProfessionals={props.numberOfProfessionals}
       timeline={props.timeline}
       additionalRequirements={props.additionalRequirements}
+    />
+  );
+}
+
+interface GeneralEnquiryEmailProps {
+  fullName: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+export async function renderGeneralEnquiryEmail(props: GeneralEnquiryEmailProps): Promise<string> {
+  return render(
+    <EmailGeneralEnquiry
+      name={props.fullName}
+      email={props.email}
+      phone={props.phone}
+      message={props.message}
     />
   );
 }
