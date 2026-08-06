@@ -5,21 +5,9 @@ import Milestone from "@/components/homeRD/Milestone";
 import Team from "@/components/homeRD/Team";
 import MainFooter from "@/components/MainFooter";
 import PageHeader from "@/components/PageHeader";
-import ContactForm from "@/components/homeRD/ContactForm";
+import EnquiryForm from "@/components/homeRD/EnquiryForm";
 
 export default function WhyAfrica() {
-  const services = [
-    "Estimators ",
-    "Administrative Assistants ",
-    "Virtual Assistants ",
-    "Telemarketing Assistant ",
-    "Digital Marketers",
-    "Account Receivables ",
-    "Designers / Software Developers ",
-    "Quick book Specialists ",
-    "Compliance Specialists",
-  ];
-
   return (
     <main className="relative overflow-hidden overflow-y-hidden">
       <PageHeader showBg={false}>
@@ -31,7 +19,7 @@ export default function WhyAfrica() {
             </h1>
 
             <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
-              Whether you’re ready to hire or just exploring your options, our team is available to answer your questions and walk you through the process.
+              Have a question? Not sure where to start? We&apos;re here to help.
             </p>
             <br />
           </div>
@@ -126,7 +114,7 @@ export default function WhyAfrica() {
 
             {/* Right Column - Form */}
             <div className="lg:w-1/2">
-              <ContactForm services={services} />
+              <EnquiryForm />
             </div>
           </div>
         </div>

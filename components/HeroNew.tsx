@@ -85,7 +85,7 @@ const HeroNew = () => {
                   transition={{ delay: 0.6 }}
                   className="text-4xl md:text-[50px] md:font-[700] md:leading-[65px] font-bold"
                 >
-                  Hire Pre-Vetted Remote Talent and <span className="text-[#F99621]">Save Up to 75% on Staffing Costs</span>
+                  Pre-Vetted Remote Talent. <span className="text-[#F99621]">Up to 75% Less.</span>
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -93,15 +93,13 @@ const HeroNew = () => {
                   transition={{ delay: 0.7 }}
                   className="text-lg md:text-[20px] text-[#FEF5E9]"
                 >
-                  All Talentz connects U.S. businesses with pre-vetted, industry-trained remote
-                  professionals across Healthcare, Technology, Finance, Construction, and legal—at a
-                  fraction of the cost.
+                  Industry-trained professionals across Healthcare, Tech, Finance, Construction, and Legal — assigned in under 48 hours.
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
-                  className="flex"
+                  className="flex flex-wrap gap-4"
                 >
                   <Link
                     href="/request-talent"
@@ -109,6 +107,12 @@ const HeroNew = () => {
                   >
                     Build your team
                   </Link>
+                  <a
+                    href="tel:+16145021440"
+                    className="border border-[#F99621] hover:bg-[#F99621] text-[#F99621] hover:text-[#121212] px-8 py-4 md:px-[63px] md:py-[23px] transition duration-300"
+                  >
+                    Talk to our team
+                  </a>
                 </motion.div>
               </motion.div>
 
