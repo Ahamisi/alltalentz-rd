@@ -3,10 +3,9 @@ import { client } from '@/lib/sanity/client'
 import { postBySlugQuery, allSlugsQuery, relatedPostsQuery } from '@/lib/sanity/queries'
 import { urlFor, blogImageUrl } from '@/lib/sanity/image'
 import type { SanityPost } from '@/types/blog'
-import Header from '@/components/Header'
-import MainFooter from '@/components/MainFooter'
 import PostDetail from '@/components/blog/PostDetail'
 import RelatedPosts from '@/components/blog/RelatedPosts'
+import ReadyToBuild from '@/components/shared/ReadyToBuild'
 
 export const revalidate = 60
 
@@ -39,14 +38,9 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <div className="bg-primary">
-        <Header />
-      </div>
-      <main className="bg-white">
-        <PostDetail post={post} heroImageUrl={heroImageUrl} authorImageUrl={authorImageUrl} />
-        <RelatedPosts posts={relatedPosts} />
-      </main>
-      <MainFooter />
+      <PostDetail post={post} heroImageUrl={heroImageUrl} authorImageUrl={authorImageUrl} />
+      <RelatedPosts posts={relatedPosts} />
+      <ReadyToBuild/>
     </>
   )
 }

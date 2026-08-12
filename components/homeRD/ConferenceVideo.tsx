@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import Reveal from "@/components/shared/Reveal";
 
 interface VideoItem {
   id: number;
@@ -45,11 +45,15 @@ const ClientVideos = ({
     <section className="py-20 px-4 bg-white">
       {/* Header */}
       <div className="text-center mb-12 text-black">
-        <h2 className="text-4xl font-bold mb-4">{title}</h2>
-        <p className="text-lg text-gray-400">{description}</p>
+        <Reveal as="h2" className="text-4xl font-bold mb-4">
+          {title}
+        </Reveal>
+        <Reveal as="p" delay={0.12} className="text-lg text-gray-400">
+          {description}
+        </Reveal>
       </div>
 
-      <div className="relative max-w-6xl mx-auto">
+      <Reveal delay={0.2} className="relative max-w-6xl mx-auto">
         <div className="relative rounded-[24px] overflow-hidden bg-[#FFEFA633] aspect-video">
           {isPlaying ? (
             <iframe
@@ -127,7 +131,7 @@ const ClientVideos = ({
             />
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 };

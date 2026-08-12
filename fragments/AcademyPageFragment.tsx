@@ -14,12 +14,12 @@ export default function Watchlist() {
     <>
       <section>
         <PageHeader about={true}>
-          {/* <div className="relative inset-0 h-[100%] flex flex-col items-center"> */}
+          {/* <div className="relative inset-0 h-full flex flex-col items-center"> */}
 
-          <div className="max-w-7xl mx-auto justify-center align-middle md:flex relative h-[100%] items-center px-[20px] md:px-4  ">
+          <div className="max-w-7xl mx-auto justify-center align-middle md:flex relative h-full items-center px-[20px] md:px-4  ">
             {/* First Column (60% width) */}
             <div className="md:w-[40%] pr-6">
-              <h2 className="text-3xl md:text-[60px] md:font-[700] md:leading-[70px] font-bold mb-6 text-white">
+              <h2 className="text-3xl md:text-[60px] md:font-bold md:leading-[70px] font-bold mb-6 text-white">
                 Explore. Learn <span className="text-secondary">Excel.</span>
               </h2>
 

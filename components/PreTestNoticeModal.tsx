@@ -196,7 +196,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
       role="dialog"
       aria-modal="true"
       aria-labelledby="pre-test-modal-title"
-      className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/65 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/65 backdrop-blur-xs"
       onClick={handleClose}
     >
       <motion.div
@@ -222,7 +222,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
           <button
             onClick={handleClose}
             aria-label="Close"
-            className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white"
             style={{ touchAction: "manipulation" }}
           >
             <X className="h-4 w-4" aria-hidden="true" />
@@ -287,7 +287,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
                 <ul className="space-y-4">
                   {/* Item 1 */}
                   <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 mt-0.5 w-8 h-8 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-base" aria-hidden="true">
+                    <span className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-base" aria-hidden="true">
                       ⏱
                     </span>
                     <p className="text-sm text-gray-700 leading-relaxed">
@@ -298,7 +298,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
 
                   {/* Item 2 */}
                   <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 mt-0.5 w-8 h-8 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-base" aria-hidden="true">
+                    <span className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-base" aria-hidden="true">
                       💻
                     </span>
                     <p className="text-sm text-gray-700 leading-relaxed">
@@ -309,7 +309,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
 
                   {/* Item 3 */}
                   <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 mt-0.5 w-8 h-8 rounded-full bg-green-50 border border-green-200 flex items-center justify-center text-base" aria-hidden="true">
+                    <span className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-green-50 border border-green-200 flex items-center justify-center text-base" aria-hidden="true">
                       🏷️
                     </span>
                     <p className="text-sm text-gray-700 leading-relaxed">
@@ -342,7 +342,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Download Savewyze on the App Store"
-                        className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2 transition-opacity hover:opacity-85"
+                        className="rounded-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2 transition-opacity hover:opacity-85"
                         style={{ touchAction: "manipulation" }}
                       >
                         <AppStoreBadge />
@@ -354,7 +354,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Get Savewyze on Google Play"
-                        className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2 transition-opacity hover:opacity-85"
+                        className="rounded-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2 transition-opacity hover:opacity-85"
                         style={{ touchAction: "manipulation" }}
                       >
                         <GooglePlayBadge />
@@ -379,7 +379,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
                 <div className="space-y-3">
                   {savewyzeSteps.map(({ num, text }) => (
                     <div key={num} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#F99621] text-white text-xs font-bold flex items-center justify-center mt-0.5">
+                      <span className="shrink-0 w-7 h-7 rounded-full bg-[#F99621] text-white text-xs font-bold flex items-center justify-center mt-0.5">
                         {num}
                       </span>
                       <p className="text-sm text-gray-700 leading-relaxed flex-1">{text}</p>
@@ -423,14 +423,14 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
             <>
               <button
                 onClick={handleClose}
-                className="flex-1 sm:flex-none text-sm text-gray-500 hover:text-gray-700 transition-colors px-5 py-3 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
+                className="flex-1 sm:flex-none text-sm text-gray-500 hover:text-gray-700 transition-colors px-5 py-3 font-medium focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-gray-300"
                 style={{ touchAction: "manipulation" }}
               >
                 Cancel
               </button>
               <button
                 onClick={goToStep2}
-                className="flex-1 bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold px-6 py-3 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2 flex items-center justify-center gap-2"
+                className="flex-1 bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold px-6 py-3 transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2 flex items-center justify-center gap-2"
                 style={{ touchAction: "manipulation" }}
               >
                 Next: Setup Guide
@@ -441,7 +441,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
             <>
               <button
                 onClick={goToStep1}
-                className="flex-1 sm:flex-none text-sm text-gray-500 hover:text-gray-700 transition-colors px-5 py-3 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 flex items-center justify-center gap-1.5"
+                className="flex-1 sm:flex-none text-sm text-gray-500 hover:text-gray-700 transition-colors px-5 py-3 font-medium focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-gray-300 flex items-center justify-center gap-1.5"
                 style={{ touchAction: "manipulation" }}
               >
                 <ChevronLeft className="h-4 w-4" aria-hidden="true" />
@@ -449,7 +449,7 @@ export default function PreTestNoticeModal({ isOpen, onClose, onBeginTest }: Pro
               </button>
               <button
                 onClick={onBeginTest}
-                className="flex-1 bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold px-6 py-3 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
+                className="flex-1 bg-[#F99621] hover:bg-[#e8870e] active:bg-[#d47a0a] text-white font-bold px-6 py-3 transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#F99621] focus-visible:ring-offset-2"
                 style={{ touchAction: "manipulation" }}
               >
                 I Understand, Continue

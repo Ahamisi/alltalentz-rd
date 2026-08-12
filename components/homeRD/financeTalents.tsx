@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 const FinanceTalents = () => {
   const Talents = [
@@ -63,7 +64,7 @@ const FinanceTalents = () => {
   ];
 
   const ClientLogo = ({ src, alt }: { src: string; alt: string }) => {
-    const { ref, inView } = useInView();
+    const { ref, inView } = useInView(REVEAL_IN_VIEW);
 
     const logoVariants = {
       hidden: { opacity: 0, scale: 0.5 },

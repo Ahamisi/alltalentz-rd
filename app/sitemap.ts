@@ -1,5 +1,8 @@
 import { client } from "@/lib/sanity/client";
-import { allPostsForSitemapQuery } from "@/lib/sanity/queries";
+import {
+  allPostsForSitemapQuery,
+  allSuccessStoriesForSitemapQuery,
+} from "@/lib/sanity/queries";
 
 export const revalidate = 60;
 
@@ -30,9 +33,12 @@ export default async function sitemap() {
     { url: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
   ];
 
-  const posts = await client.fetch<Array<{ slug: string; lastModified: string }>>(
-    allPostsForSitemapQuery,
-  );
+  const [posts, successStories] = await Promise.all([
+    client.fetch<Array<{ slug: string; lastModified: string }>>(allPostsForSitemapQuery),
+    client.fetch<Array<{ slug: string; lastModified: string }>>(
+      allSuccessStoriesForSitemapQuery,
+    ),
+  ]);
 
   const staticEntries = pages.map(({ url, priority, changeFrequency }) => ({
     url: `${baseUrl}${url}`,
@@ -48,5 +54,12 @@ export default async function sitemap() {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...blogPostEntries];
+  const successStoryEntries = successStories.map(({ slug, lastModified }) => ({
+    url: `${baseUrl}/success-stories/${slug}`,
+    lastModified: new Date(lastModified),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...blogPostEntries, ...successStoryEntries];
 }

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 const MobileMilestone = () => {
   return (
@@ -20,6 +21,7 @@ const MobileMilestone = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={REVEAL_VIEWPORT}
             transition={{ duration: 0.6 }}
             className="border border-gray-100 rounded-lg p-6"
           >
@@ -34,6 +36,7 @@ const MobileMilestone = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={REVEAL_VIEWPORT}
             transition={{ duration: 0.6 }}
             className="border border-gray-100 rounded-lg p-6"
           >
@@ -49,6 +52,7 @@ const MobileMilestone = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={REVEAL_VIEWPORT}
             transition={{ duration: 0.6 }}
             className="border border-gray-100 rounded-lg p-6"
           >
@@ -63,6 +67,7 @@ const MobileMilestone = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={REVEAL_VIEWPORT}
             transition={{ duration: 0.6 }}
             className="border border-gray-100 rounded-lg p-6"
           >
@@ -78,6 +83,7 @@ const MobileMilestone = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={REVEAL_VIEWPORT}
             transition={{ duration: 0.6 }}
             className="border border-gray-100 rounded-lg p-6"
           >

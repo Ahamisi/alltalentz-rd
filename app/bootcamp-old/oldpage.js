@@ -168,12 +168,12 @@ export default function BootCamp() {
   return (
     <>
       <section
-        className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-[0px]  md:px-0 lg:px-0 bg-black font-montserrat`}
+        className={`relative h-auto lg:pb-12 bg-cover bg-center bg-no-repeat mt-0  md:px-0 lg:px-0 bg-black font-montserrat`}
       >
         <Header type="bootcamp" />
 
-        <div className={`flex  h-[100%]`}>
-          <div className="flex lg:flex-wrap flex-col lg:flex-row w-[100%] lg:w-[80%] mx-auto">
+        <div className={`flex  h-full`}>
+          <div className="flex lg:flex-wrap flex-col lg:flex-row w-full lg:w-[80%] mx-auto">
             <div className="w-full lg:w-1/2 p-6 items-center justify-center h-auto lg:pl-0  lg:h-[580px]">
               <div className="md:w-full flex flex-col gap-[30px] mt-[40px] lg:mt-[40px] xl:mt-[80px]">
                 <img src={bootcampImg} className="h-[287px] w-[327px] sm:h-auto sm:w-auto" />
@@ -295,7 +295,7 @@ export default function BootCamp() {
         className="md-padding relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[60px] bg-white  px-[30px] md:px-0 "
         style={{ backgroundImage: "url('/our-values-bg.svg')" }}
       >
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
+        {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  max-w-5xl mt-[25px] font-montserrat">
             {/* Value Item 1 */}

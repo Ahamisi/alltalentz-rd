@@ -156,7 +156,7 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
               name="fullName"
               value={formData.fullName}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:border-[#F99621]"
+              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-hidden focus:border-[#F99621]"
             />
             {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
           </div>
@@ -169,7 +169,7 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
               value={formData.email}
               onChange={handleInputChange}
               onBlur={onEmailBlur}
-              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:border-[#F99621]"
+              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-hidden focus:border-[#F99621]"
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
@@ -181,7 +181,7 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
               name="company"
               value={formData.company}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:border-[#F99621]"
+              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-hidden focus:border-[#F99621]"
             />
             {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
           </div>
@@ -193,7 +193,7 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:border-[#F99621]"
+              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-hidden focus:border-[#F99621]"
             />
             {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
           </div>
@@ -203,7 +203,7 @@ const ContactForm = ({ services = [] }: { services?: string[] }) => {
               name="service"
               value={formData.service}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:border-[#F99621] appearance-none bg-white cursor-pointer text-gray-500"
+              className="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-hidden focus:border-[#F99621] appearance-none bg-white cursor-pointer text-gray-500"
             >
               <option value="" disabled className="text-gray-500">
                 Talents needed*

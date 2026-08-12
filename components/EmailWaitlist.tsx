@@ -16,7 +16,7 @@ export const EmailWaitlist = ({ name, email, yoe, phone, career }: EmailWaitlist
       <Head />
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
-          <Container className="mx-auto my-[40px] w-[465px] rounded border border-solid border-secondary p-[20px]">
+          <Container className="mx-auto my-[40px] w-[465px] rounded-sm border border-solid border-secondary p-[20px]">
             <Heading className="mx-0 my-[30px] p-0 text-center text-[24px] font-normal text-black">
               You've got a message!
             </Heading>

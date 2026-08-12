@@ -10,7 +10,8 @@ const POST_FIELDS = groq`
   featured,
   mainImage,
   "author": author->{ name, role, image, bio },
-  "categories": categories[]->{ title, "slug": slug.current }
+  "categories": categories[]->{ title, "slug": slug.current },
+  "charCount": length(pt::text(body))
 `
 
 const FILTER_CLAUSE = groq`
@@ -31,7 +32,7 @@ export const featuredPostQuery = groq`
   }
 `
 
-// Sort direction must be a literal in GROQ — generate two queries and pick at runtime
+// GROQ needs a literal sort direction, hence one query per direction.
 export const postsQueryDesc = groq`
   *[${FILTER_CLAUSE}]
   | order(publishedAt desc)
@@ -75,6 +76,120 @@ export const allCategoriesQuery = groq`
   *[_type == "category"] | order(title asc) {
     title,
     "slug": slug.current
+  }
+`
+
+export const faqCategoriesWithFaqsQuery = groq`
+  *[_type == "faqCategory" && !(_id in path("drafts.**"))]
+  | order(coalesce(order, 999) asc, title asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    description,
+    "faqs": *[
+      _type == "faq"
+      && !(_id in path("drafts.**"))
+      && category._ref == ^._id
+    ] | order(coalesce(order, 999) asc, _createdAt asc) {
+      _id,
+      question,
+      answer
+    }
+  }
+`
+
+export const featuredFaqsQuery = groq`
+  *[_type == "faq" && showOnHomepage == true && !(_id in path("drafts.**"))]
+  | order(coalesce(order, 999) asc, _createdAt asc) {
+    _id,
+    question,
+    answer
+  }
+`
+
+const SUCCESS_STORY_FIELDS = groq`
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  publishedAt,
+  _updatedAt,
+  featured,
+  mainImage,
+  clientName,
+  clientLocation,
+  clientLogo,
+  metrics,
+  testimonial,
+  videoUrl,
+  "categories": categories[]->{ title, "slug": slug.current },
+  "charCount": length(pt::text(body))
+`
+
+const SUCCESS_STORY_FILTER = groq`
+  _type == "successStory"
+  && !(_id in path("drafts.**"))
+  && ($category == "" || $category in categories[]->slug.current)
+  && ($search == "" || title match $search || excerpt match $search || clientName match $search)
+`
+
+// GROQ needs a literal sort direction, hence one query per direction.
+export const successStoriesQueryDesc = groq`
+  *[${SUCCESS_STORY_FILTER}]
+  | order(featured desc, publishedAt desc)
+  [$offset...$limit] {
+    ${SUCCESS_STORY_FIELDS}
+  }
+`
+
+export const successStoriesQueryAsc = groq`
+  *[${SUCCESS_STORY_FILTER}]
+  | order(featured desc, publishedAt asc)
+  [$offset...$limit] {
+    ${SUCCESS_STORY_FIELDS}
+  }
+`
+
+export const successStoryCountQuery = groq`
+  count(*[${SUCCESS_STORY_FILTER}])
+`
+
+export const successStoryBySlugQuery = groq`
+  *[_type == "successStory" && slug.current == $slug && !(_id in path("drafts.**"))][0] {
+    ${SUCCESS_STORY_FIELDS},
+    body
+  }
+`
+
+export const allSuccessStorySlugsQuery = groq`
+  *[_type == "successStory" && defined(slug.current) && !(_id in path("drafts.**"))][].slug.current
+`
+
+export const allSuccessStoriesForSitemapQuery = groq`
+  *[_type == "successStory" && defined(slug.current) && !(_id in path("drafts.**"))]
+  | order(publishedAt desc) {
+    "slug": slug.current,
+    "lastModified": coalesce(_updatedAt, publishedAt)
+  }
+`
+
+export const allSuccessStoryCategoriesQuery = groq`
+  *[_type == "successStoryCategory" && !(_id in path("drafts.**"))]
+  | order(coalesce(order, 999) asc, title asc) {
+    title,
+    "slug": slug.current
+  }
+`
+
+export const relatedSuccessStoriesQuery = groq`
+  *[
+    _type == "successStory"
+    && !(_id in path("drafts.**"))
+    && slug.current != $slug
+    && count((categories[]->slug.current)[@ in $categories]) > 0
+  ]
+  | order(publishedAt desc)[0...3] {
+    ${SUCCESS_STORY_FIELDS}
   }
 `
 

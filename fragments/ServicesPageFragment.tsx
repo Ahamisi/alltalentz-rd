@@ -8,7 +8,7 @@ export default function Services() {
   return (
     <main className="relative overflow-hidden overflow-y-hidden ">
       <PageHeader>
-        <div className="max-w-7xl mx-auto px-4 lg:flex mt-0 lg:mt-12 h-[100%] items-center ">
+        <div className="max-w-7xl mx-auto px-4 lg:flex mt-0 lg:mt-12 h-full items-center ">
           {/* Left Column */}
           <div className="lg:w-[55%] flex flex-col space-y-8 py-20">
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-snug">
@@ -25,7 +25,7 @@ export default function Services() {
           </div>
 
           {/* Right Column - Map */}
-          <div className="hidden lg:block lg:w-[45%] absolute bottom-[-1px] right-4 pl-0">
+          <div className="hidden lg:block lg:w-[45%] absolute -bottom-px right-4 pl-0">
             <Image
               src="/redesign-25/service-header.png"
               alt="Services"

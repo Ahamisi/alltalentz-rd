@@ -34,7 +34,7 @@ export default function WebinarFaq() {
       <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center text-[#373737]">FAQs</h2>
 
       <div className="relative inset-0 flex flex-col items-center justify-center text-[#555555]">
-        <div className="w-[100%] md:w-[70%] mx-auto mt-[30px]">
+        <div className="w-full md:w-[70%] mx-auto mt-[30px]">
           {faqData.map((faq, index) => (
             <div key={index} className={`mb-[40px]  ${activeIndex === index ? "pb-13" : ""}`}>
               <div className="border-b border-[#555555]">

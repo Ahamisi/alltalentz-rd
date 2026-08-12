@@ -17,9 +17,9 @@ export default function Faq() {
       </section>
 
       <section className="relative bg-cover bg-center bg-no-repeat py-[60px] md:py-[128px] bg-white px-[40px] md:px-0 ">
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div> */}
+        {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-black"></div> */}
         <div className="relative inset-0 flex flex-col items-center justify-center text-[#4C4C4C]">
-          <div className="w-[100%] md:w-[70%] mx-auto mt-[30px]">
+          <div className="w-full md:w-[70%] mx-auto mt-[30px]">
             <div className={`mb-[40px] pb-13`}>
               <div className="border-b border-[#555555]">
                 <h3 className="flex justify-between items-center font-bold cursor-pointer py-[8px]">

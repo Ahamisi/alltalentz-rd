@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 interface VideoItem {
   id: number;
@@ -47,6 +48,7 @@ const ClientVideos = ({
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={REVEAL_VIEWPORT}
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold text-center mb-4 text-[#4C4C4C]"
         >
@@ -55,6 +57,7 @@ const ClientVideos = ({
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={REVEAL_VIEWPORT}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center text-[#4C4C4C] mb-12"
         >

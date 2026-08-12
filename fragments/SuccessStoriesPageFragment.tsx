@@ -1,12 +1,63 @@
-import Image from "next/image";
+import { Suspense } from "react";
 import ClientWords from "@/components/homeRD/ClientWords";
 import ClientVideos from "@/components/homeRD/ClientVideos";
-import Milestone from "@/components/homeRD/Milestone";
-import Team from "@/components/homeRD/Team";
 import MainFooter from "@/components/MainFooter";
-import PageHeader from "@/components/PageHeader";
+import SuccessStoriesHero from "@/components/success-stories/success-stories-hero";
+import SuccessStoriesToolbar from "@/components/success-stories/success-stories-toolbar";
+import SuccessStoriesGrid from "@/components/success-stories/success-stories-grid";
+import { client } from "@/lib/sanity/client";
+import ReadyToBuild from "@/components/shared/ReadyToBuild";
+import {
+  successStoriesQueryAsc,
+  successStoriesQueryDesc,
+  successStoryCountQuery,
+  allSuccessStoryCategoriesQuery,
+} from "@/lib/sanity/queries";
+import type {
+  SanitySuccessStory,
+  SuccessStoryCategory,
+} from "@/types/success-story";
 
-export default function About() {
+const STORIES_PER_PAGE = 9;
+
+interface SuccessStoriesFragmentProps {
+  search?: string;
+  sort?: string;
+  category?: string;
+  page?: string;
+}
+
+export default async function About({
+  search: rawSearch,
+  sort: rawSort,
+  category: rawCategory,
+  page: rawPage,
+}: SuccessStoriesFragmentProps = {}) {
+  const search = rawSearch ?? "";
+  const sort = rawSort === "asc" ? "asc" : "desc";
+  const category = rawCategory ?? "";
+  const page = Math.max(1, parseInt(rawPage ?? "1", 10) || 1);
+  const offset = (page - 1) * STORIES_PER_PAGE;
+
+  const storiesQuery =
+    sort === "asc" ? successStoriesQueryAsc : successStoriesQueryDesc;
+
+  const [stories, totalCount, categories] = await Promise.all([
+    client.fetch<SanitySuccessStory[]>(storiesQuery, {
+      category,
+      search: search ? `${search}*` : "",
+      offset,
+      limit: offset + STORIES_PER_PAGE,
+    }),
+    client.fetch<number>(successStoryCountQuery, {
+      category,
+      search: search ? `${search}*` : "",
+    }),
+    client.fetch<SuccessStoryCategory[]>(allSuccessStoryCategoriesQuery),
+  ]);
+
+  const totalPages = Math.ceil(totalCount / STORIES_PER_PAGE);
+
   const successVideos = [
     {
       videoUrl: "https://youtu.be/NeVJwPh3GZ0",
@@ -127,46 +178,26 @@ export default function About() {
   ];
 
   return (
-    <main className="relative overflow-hidden overflow-y-hidden">
-      <PageHeader showBg={false}>
-        <div className="max-w-7xl mx-auto px-4 lg:flex relative h-[100%] items-center py-20">
-          {/* Left Column */}
-          <div className="lg:w-[45%] flex flex-col">
-            <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              What Our Partners Say
-            </h1>
-            <p className="text-lg text-white/80 leading-relaxed max-w-md">These are businesses that made the decision to hire differently. Here is what they found on the other side. </p>
-          </div>
+    <>
+      <SuccessStoriesHero />
 
-          {/* Right Column - Map */}
-          <div className="hidden lg:block lg:w-[55%] pl-12">
-            <Image
-              src="/redesign-25/success-stories.png"
-              alt="Success Stories"
-              width={800}
-              height={400}
-              className="w-full h-[400px] object-contain"
-            />
-          </div>
-        </div>
-      </PageHeader>
-
-      <ClientVideos
-        title="Success Stories"
-        description="Hear from our successful clients about their journey with us."
-        videos={successVideos}
+      <Suspense>
+        <SuccessStoriesToolbar
+          categories={categories}
+          currentSearch={search}
+          currentCategory={category}
+        />
+      </Suspense>
+      <SuccessStoriesGrid
+        stories={stories}
+        categories={categories}
+        search={search}
+        category={category}
+        currentPage={page}
+        totalPages={totalPages}
       />
 
-      <ClientWords
-        title="What Our Clients Say"
-        description="Hear directly from our clients about their experiences"
-        theme="light"
-        testimonials={testimonials}
-      />
-
-      <section className="px-[10px] md:px-0 bg-[#131313]">
-        <MainFooter />
-      </section>
-    </main>
+      <ReadyToBuild/>
+    </>
   );
 }

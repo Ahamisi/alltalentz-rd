@@ -36,7 +36,7 @@ const answerComponents: PortableTextComponents = {
     strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
     em: ({ children }) => <em className="italic">{children}</em>,
     code: ({ children }) => (
-      <code className="bg-gray-100 text-gray-800 text-sm font-mono px-1.5 py-0.5 rounded">
+      <code className="bg-gray-100 text-gray-800 text-sm font-mono px-1.5 py-0.5 rounded-sm">
         {children}
       </code>
     ),
@@ -78,7 +78,7 @@ export default function FaqBlock({ value }: FaqBlockProps) {
               >
                 <span className="text-lg font-semibold text-gray-900">{item.question}</span>
                 <svg
-                  className={`w-5 h-5 flex-shrink-0 text-[#F99621] transition-transform duration-300 ${
+                  className={`w-5 h-5 shrink-0 text-[#F99621] transition-transform duration-300 ${
                     isOpen ? 'rotate-45' : ''
                   }`}
                   fill="none"

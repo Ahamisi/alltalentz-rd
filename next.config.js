@@ -3,12 +3,14 @@
 const cspHeader = [
   "default-src 'self'",
   // 'unsafe-inline' required for Next.js hydration scripts and inline JSON-LD; 'unsafe-eval' required by Tawk.to
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://snap.licdn.com https://embed.tawk.to https://va.tawk.to https://static.tawk.to",
+  // www.google.com + www.gstatic.com serve recaptcha/api.js and its recaptcha__*.js payload
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://snap.licdn.com https://embed.tawk.to https://va.tawk.to https://static.tawk.to",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   "img-src 'self' data: blob: https:",
-  "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://region1.google-analytics.com https://snap.licdn.com https://www.linkedin.com https://px.ads.linkedin.com https://va.tawk.to https://embed.tawk.to wss://ws.tawk.to https://*.sanity.io wss://*.sanity.io",
-  "frame-src 'self' https://embed.tawk.to https://www.youtube.com https://www.youtube-nocookie.com",
+  "connect-src 'self' https://www.google.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://region1.google-analytics.com https://snap.licdn.com https://www.linkedin.com https://px.ads.linkedin.com https://va.tawk.to https://embed.tawk.to wss://ws.tawk.to https://*.sanity.io wss://*.sanity.io",
+  // www.google.com covers both the Maps embed (/maps?output=embed) and the reCAPTCHA widget
+  "frame-src 'self' https://www.google.com https://maps.google.com https://embed.tawk.to https://forms.office.com https://forms.microsoft.com https://*.microsoft.com",
   "media-src 'self'",
   "worker-src blob:",
   "object-src 'none'",

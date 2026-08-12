@@ -3,6 +3,7 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import Image from "next/image";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 const Section = ({
   imageSrc,
@@ -19,7 +20,7 @@ const Section = ({
   buttonLabel?: string;
   reverse?: boolean;
 }) => {
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
   const controls = useAnimation();
 
   useEffect(() => {
@@ -109,7 +110,7 @@ const TheAgency = () => {
       className="relative bg-cover bg-center bg-no-repeat text-[#4C4C4C] py-[10px] md:py-[70px] bg-white px-[40px] md:px-0"
       style={{ backgroundImage: "url('/our-values-bg.svg')" }}
     >
-      <div className="container mx-auto md:py-[0px]">
+      <div className="container mx-auto md:py-0">
         <Section
           imageSrc="/home-img/outsourcing-agency.png"
           altText="Outsourcing Agency alltalentz"

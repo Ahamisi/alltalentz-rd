@@ -32,6 +32,13 @@ const teamMembers = [
     bio: "Gina Isu is a dynamic entrepreneur, wife, and devoted mother of four. Known for her adventurous spirit and deep love for God, Gina's journey has been resilient, ambitious, and successful across various fields. From a young age, she displayed an entrepreneurial mindset, engaging in trade in her home country, and laying the foundation for a life of business endeavors. ",
   },
   {
+    name: "Adetoun",
+    lastName: "Isu",
+    role: "Co-Founder & Director",
+    image: "/redesign-25/teams/adetoun-isu.webp",
+    bio: "Adetoun Isu is a Co-Founder and Director of All Talentz, bringing over 15 years of experience as a business leader. She is committed to building long-term value and impact, guiding the company's growth alongside its founding vision.",
+  },
+  {
     name: "Michael",
     lastName: "Nwoseh",
     role: "Business and Digital Solutions Director",
@@ -45,6 +52,13 @@ const teamMembers = [
     role: "Head of Product & Marketing",
     image: "/redesign-25/teams/samuel-akingbade.webp",
     bio: "Samuel is a dynamic Solutions Architect with a decade of marketing expertise and four years of experience running a successful digital agency. He has consulted with over 140 clients across 18+ industries, with a special passion for collaborating with emerging challenger brands. Samuel has spearheaded the digital and business strategy for the Creative Intelligence Group and is currently leading the marketing efforts for Rest Lives’ innovative African fintech product, Savewyze ",
+  },
+  {
+    name: "Adetayo",
+    lastName: "Obinaike",
+    role: "Head, SW Engineering",
+    image: "/redesign-25/teams/adetayo-obinaike.webp",
+    bio: "Adetayo is an experienced Product and Marketing Manager with over a decade of experience cutting across multinationals such as Nokia, Microsoft and HMD Global. Within this period, he built great collaborations with major Mobile Operators, Marketing Agencies, Retail brands, and Marketing Influencers across West Africa. Currently he leads a fantastic team of Software Engineers and Product developers in All Talentz LLC.",
   },
   {
     name: "Kehinde",
@@ -61,13 +75,6 @@ const teamMembers = [
     bio: "With over a decade year of dedicated service in Human Resources, Haolat brings an extensive expertise in talent acquisition, employee relations, and organizational development. I am committed to fostering a productive and inclusive workplace environment that supports both company success and employee well-being.",
   },
 
-  {
-    name: "Adetayo",
-    lastName: "Obinaike",
-    role: "Head, SW Engineering",
-    image: "/redesign-25/teams/adetayo-obinaike.webp",
-    bio: "Adetayo is an experienced Product and Marketing Manager with over a decade of experience cutting across multinationals such as Nokia, Microsoft and HMD Global. Within this period, he built great collaborations with major Mobile Operators, Marketing Agencies, Retail brands, and Marketing Influencers across West Africa. Currently he leads a fantastic team of Software Engineers and Product developers in All Talentz LLC.",
-  },
   {
     name: "Helen-Sylvanus",
     lastName: "Essiet",
@@ -103,9 +110,9 @@ const Team = () => {
                   alt={`${member.name} ${member.lastName}`}
                   width={300}
                   height={500}
-                  className="w-full h-full object-cover aspect-[3/5]"
+                  className="w-full h-full object-cover aspect-3/5"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent group-hover:opacity-0 transition-opacity">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/90 to-transparent group-hover:opacity-0 transition-opacity">
                   <h3 className="text-lg md:text-2xl font-semibold">
                     {member.name} {member.lastName}
                     {member.title && (
