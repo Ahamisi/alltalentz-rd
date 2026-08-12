@@ -219,11 +219,11 @@ const HeroNew = () => {
                   {/* pb/-mb: give the clip mask room for descenders (g, y, .)
                       without changing the visual line spacing. */}
                   <span className="block overflow-hidden pb-[0.18em] mb-[-0.18em]">
-                    <span className="hero-line-inner block">Remote Talent.</span>
+                    <span className="hero-line-inner block">Remote Talents.</span>
                   </span>
                   <span className="block overflow-hidden pb-[0.18em] mb-[-0.18em]">
                     <span className="hero-line-inner block text-[#E0871E]">
-                      Ready within 7 Days.
+                      Assigned in Less Than 48 Hours.
                     </span>
                   </span>
                 </h1>

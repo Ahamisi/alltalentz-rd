@@ -53,13 +53,25 @@ const OurClients = () => {
         ))}
       </Marquee>
 
-      <Image
-        src="/v26-images/home/special-divder.png"
-        alt=""
-        width={1440}
-        height={100}
-        className="w-full h-auto mt-16 md:mt-20 pointer-events-none select-none"
-      />
+      {/* Divider — the two tapering lines converge at the bottom centre of the
+          artwork (x = 50%, y ≈ 97% of its 2400x268 canvas), so the star is
+          pinned there and centred on that point rather than laid out in flow. */}
+      <div className="relative mt-16 md:mt-20 pointer-events-none select-none">
+        <Image
+          src="/v26-images/home/special-divder.png"
+          alt=""
+          width={2400}
+          height={268}
+          className="w-full h-auto"
+        />
+        <Image
+          src="/v26-images/at-star.svg"
+          alt=""
+          width={76}
+          height={78}
+          className="absolute left-1/2 top-[97%] w-[34px] md:w-[52px] lg:w-[64px] h-auto -translate-x-1/2 -translate-y-1/2"
+        />
+      </div>
     </section>
   );
 };

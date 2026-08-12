@@ -33,6 +33,7 @@ const ROLES: RoleCard[] = [
     src: "/v26-images/talentz-pages/tech/role-1.webp",
     alt: "Engineer working across a monitor and a laptop, both filled with code",
     title: "AI/ML Engineer",
+    formValue: "AI/Machine Learning Engineer",
     description: "Builds and trains models for your product.",
   },
   {
@@ -45,7 +46,28 @@ const ROLES: RoleCard[] = [
     src: "/v26-images/talentz-pages/tech/role-3.webp",
     alt: "Software developer writing code at a multi-monitor desk",
     title: "Software Developer",
+    formValue: "Software Dev",
     description: "Ships clean, reliable code across your stack.",
+  },
+  {
+    src: "/v26-images/talentz-pages/tech/role-4.webp",
+    alt: "Support agent in a headset smiling at her desk on a busy support floor",
+    title: "IT Support",
+    description: "Keeps your systems, devices, and users running.",
+  },
+  {
+    src: "/v26-images/talentz-pages/tech/role-5.webp",
+    alt: "Designer laying out screens on a desktop machine in a studio office",
+    title: "UI/UX Designer",
+    formValue: "UI/UX",
+    description: "Designs interfaces your customers enjoy using.",
+  },
+  {
+    src: "/v26-images/talentz-pages/tech/role-6.webp",
+    alt: "Marketing team working through a campaign together around a boardroom table of laptops",
+    title: "Digital Marketer",
+    formValue: "Digital Marketing",
+    description: "Runs campaigns that bring in qualified leads.",
   },
 ];
 
@@ -67,15 +89,16 @@ export default function TechTalentsPage() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <TalentHero
         title="Pre-vetted AI and tech talent."
-        titleAccent="Within 7 days."
+        titleAccent="In under 48 hours."
         description="Scale your team without the salary overhead."
-        cta={{ text: "Get Talent", url: "/request-talent" }}
+        cta={{ text: "Get Tech Talentz", url: "/request-talent" }}
         cards={HERO_CARDS}
       />
 
       <RolesWePlace
         title="Roles We Place in Technology"
         roles={ROLES}
+        industry="Technology"
         ctaLabel="Get Tech Talent"
       />
 

@@ -2,46 +2,16 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { certificationsInOrder } from "@/lib/certifications";
 
 /**
  * "What All Talentz professionals are trained on" — a 2x2 deck of certification
  * cards beside the heading.
+ *
+ * The two square badges share the top row and the two odd-shaped ones the
+ * bottom, which is why this deck reorders the set rather than taking it as-is.
  */
-const CERTS = [
-  {
-    title: "ISO 27001",
-    body: "Operators scaling beyond 5 remote professionals",
-    src: "/v26-images/certs/iso.png",
-    alt: "ISO 27001 certified by AssurancePoint",
-    /** Rendered box for the badge — each artwork has a different aspect ratio. */
-    width: 170,
-    height: 170,
-  },
-  {
-    title: "SOC 2 Type II",
-    body: "Operators scaling beyond 5 remote professionals",
-    src: "/v26-images/certs/aicpa.png",
-    alt: "AICPA SOC for Service Organizations",
-    width: 138,
-    height: 138,
-  },
-  {
-    title: "HIPAA Compliant",
-    body: "Operators scaling beyond 5 remote professionals",
-    src: "/v26-images/certs/hipaa.png",
-    alt: "HIPAA compliant",
-    width: 200,
-    height: 106,
-  },
-  {
-    title: "Great Place to Work",
-    body: "Operators scaling beyond 5 remote professionals",
-    src: "/v26-images/certs/great-place.png",
-    alt: "Great Place To Work certified, Oct 2025 – Oct 2026, Nigeria",
-    width: 92,
-    height: 130,
-  },
-];
+const CERTS = certificationsInOrder("iso", "soc2", "hipaa", "great-place");
 
 /**
  * Card surface + 0.93px gradient border in one background shorthand: the fill
@@ -71,7 +41,7 @@ const TrainedOn = () => {
           <div className="order-2 grid grid-cols-2 gap-[16px] md:gap-[24px] lg:order-1">
             {CERTS.map((cert, i) => (
               <motion.div
-                key={cert.title}
+                key={cert.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT}
@@ -85,17 +55,17 @@ const TrainedOn = () => {
                   <Image
                     src={cert.src}
                     alt={cert.alt}
-                    width={cert.width}
-                    height={cert.height}
+                    width={cert.box.w}
+                    height={cert.box.h}
                     className="max-h-full w-auto object-contain"
                   />
                 </div>
 
                 <h3 className="mt-[20px] text-[13px] font-bold uppercase leading-[130%] tracking-[0%] text-[#121212] md:text-[16px]">
-                  {cert.title}
+                  {cert.name}
                 </h3>
                 <p className="mt-[10px] text-[12px] leading-[150%] text-[#5C5C5C] md:text-[14px]">
-                  {cert.body}
+                  {cert.description}
                 </p>
               </motion.div>
             ))}

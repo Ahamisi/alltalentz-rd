@@ -41,6 +41,12 @@ export const INDUSTRY_ROLES: Record<string, string[]> = {
     "Legal Researchers",
     "Other",
   ],
+  "Pest Control": [
+    "Admin Support",
+    "Scheduling Coordinator",
+    "Customer Service Agent",
+    "Other",
+  ],
 };
 
 export const INDUSTRIES = [
@@ -49,6 +55,7 @@ export const INDUSTRIES = [
   "Finance",
   "Construction & Restoration",
   "Legal",
+  "Pest Control",
   "Other",
 ];
 

@@ -33,12 +33,14 @@ const ROLES: RoleCard[] = [
     src: "/v26-images/talentz-pages/legal/role-1.webp",
     alt: "Paralegal reviewing a bundle of documents at a bright office desk",
     title: "Paralegal",
+    formValue: "Paralegals",
     description: "Supports case prep, legal research, and documentation.",
   },
   {
     src: "/v26-images/talentz-pages/legal/role-2.webp",
     alt: "Assistant taking a call while working on a laptop in an open-plan office",
     title: "Legal Virtual Assistant",
+    formValue: "Legal Virtual Assistants",
     description:
       "Handles scheduling so attorneys can focus on billable work.",
   },
@@ -48,6 +50,20 @@ const ROLES: RoleCard[] = [
     title: "Transcriptionist",
     description:
       "Delivers accurate, confidential transcription of proceedings.",
+  },
+  {
+    src: "/v26-images/talentz-pages/legal/role-4.webp",
+    alt: "Two colleagues in suits going through the terms of an agreement across a meeting table",
+    title: "Contract Manager",
+    formValue: "Contract Managers",
+    description: "Drafts, reviews, and tracks contracts end to end.",
+  },
+  {
+    src: "/v26-images/talentz-pages/legal/role-5.webp",
+    alt: "Two researchers taking notes side by side at a bright office table",
+    title: "Legal Researcher",
+    formValue: "Legal Researchers",
+    description: "Digs through case law to strengthen your arguments.",
   },
 ];
 
@@ -69,15 +85,16 @@ export default function LegalTalentsPage() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <TalentHero
         title="Vetted legal support professionals."
-        titleAccent="Within 7 days."
+        titleAccent="In under 48 hours."
         description="Cut costs. Maintain compliance. Meet every deadline."
-        cta={{ text: "Get Talentz", url: "/request-talent" }}
+        cta={{ text: "Get Legal Talentz", url: "/request-talent" }}
         cards={HERO_CARDS}
       />
 
       <RolesWePlace
         title="Roles We Place in Legal"
         roles={ROLES}
+        industry="Legal"
         ctaLabel="Get Legal Talent"
       />
 

@@ -69,15 +69,16 @@ export default function PestControlTalentsPage() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <TalentHero
         title="Back-office support for pest control."
-        titleAccent="Within 7 days."
+        titleAccent="In under 48 hours."
         description="Free your field team. Let us handle the admin."
-        cta={{ text: "Get Talentz", url: "/request-talent" }}
+        cta={{ text: "Get Pest Control Talentz", url: "/request-talent" }}
         cards={HERO_CARDS}
       />
 
       <RolesWePlace
         title="Roles We Place in Pest Control"
         roles={ROLES}
+        industry="Pest Control"
         ctaLabel="Get Pest Control Talent"
       />
 

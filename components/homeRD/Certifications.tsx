@@ -3,16 +3,11 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { CERTIFICATIONS, CERT_INTRINSIC } from "@/lib/certifications";
 
-// All source files are 3600x3600 squares, but the artwork inside each one fills a
-// different share of the canvas. `scale` compensates for that padding so every badge
-// reads at roughly the same optical size.
-const certs = [
-  { src: "/v26-images/certs/iso.png", alt: "ISO 27001 Certified by AssurancePoint", scale: 1 },
-  { src: "/v26-images/certs/aicpa.png", alt: "AICPA SOC for Service Organizations", scale: 1.03 },
-  { src: "/v26-images/certs/great-place.png", alt: "Great Place To Work Certified", scale: 1.2 },
-  { src: "/v26-images/certs/hipaa.png", alt: "HIPAA Compliant", scale: 1.23 },
-];
+// Every badge is sized to one common square here, so each one's `scale` is what
+// cancels out the differing padding inside its canvas.
+const certs = CERTIFICATIONS;
 
 const containerVariants = {
   hidden: {},
@@ -62,8 +57,8 @@ const Certifications = () => {
               <Image
                 src={cert.src}
                 alt={cert.alt}
-                width={3600}
-                height={3600}
+                width={CERT_INTRINSIC.w}
+                height={CERT_INTRINSIC.h}
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="h-full w-full object-contain grayscale opacity-70 transition-all duration-300 ease-in-out hover:grayscale-0 hover:opacity-100"
               />

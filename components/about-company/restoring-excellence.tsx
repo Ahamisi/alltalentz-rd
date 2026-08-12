@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CERTIFICATIONS } from "@/lib/certifications";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -41,46 +42,9 @@ if (typeof window !== "undefined") {
  * Everything is built inside a `gsap.matchMedia`, which gives us the reduced-
  * motion branch (final state, no loops, no scrubs) and the hover branch for
  * free, and tears both down on revert.
+ *
+ * The certifications themselves live in `lib/certifications.ts`.
  */
-type Certification = {
-  src: string;
-  /** Intrinsic dimensions, for next/image. */
-  w: number;
-  h: number;
-  name: string;
-  description: string;
-};
-
-const CERTIFICATIONS: Certification[] = [
-  {
-    src: "/v26-images/certs/iso.png",
-    w: 676,
-    h: 676,
-    name: "ISO 27001",
-    description: "Operators scaling beyond 5 remote professionals",
-  },
-  {
-    src: "/v26-images/certs/aicpa.png",
-    w: 676,
-    h: 671,
-    name: "SOC 2 Type II",
-    description: "Operators scaling beyond 5 remote professionals",
-  },
-  {
-    src: "/v26-images/certs/great-place.png",
-    w: 475,
-    h: 671,
-    name: "Great Place To Work",
-    description: "Operators scaling beyond 5 remote professionals",
-  },
-  {
-    src: "/v26-images/certs/hipaa.png",
-    w: 1200,
-    h: 635,
-    name: "HIPAA Compliant",
-    description: "Operators scaling beyond 5 remote professionals",
-  },
-];
 
 // type Doodle = {
 //   /** Full path — the set is deliberately mixed to match the design's colours. */
@@ -418,8 +382,8 @@ const RestoringExcellence = () => {
                 <Image
                   src={cert.src}
                   alt={`${cert.name} certification badge`}
-                  width={cert.w}
-                  height={cert.h}
+                  width={cert.artwork.w}
+                  height={cert.artwork.h}
                   className="rx-badge-img max-h-full w-auto origin-bottom-left object-contain object-left will-change-transform"
                 />
               </div>

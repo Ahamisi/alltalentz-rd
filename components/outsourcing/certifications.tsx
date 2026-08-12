@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
+import { CERTIFICATIONS } from "@/lib/certifications";
 
 /**
  * "Certifications" — Outsourcing page.
@@ -16,46 +17,9 @@ import { useInView } from "react-intersection-observer";
  * the four logos have wildly different aspect ratios (the ISO shield is wide,
  * the Great Place To Work badge is tall), and a shared band is what keeps the
  * titles and descriptions on a common baseline.
+ *
+ * The set itself lives in `lib/certifications.ts`.
  */
-type Certification = {
-  src: string;
-  /** Intrinsic dimensions, for next/image. */
-  w: number;
-  h: number;
-  name: string;
-  description: string;
-};
-
-const CERTIFICATIONS: Certification[] = [
-  {
-    src: "/v26-images/certs/iso.png",
-    w: 676,
-    h: 676,
-    name: "ISO 27001",
-    description: "Your data protected by global security standards.",
-  },
-  {
-    src: "/v26-images/certs/aicpa.png",
-    w: 676,
-    h: 671,
-    name: "SOC 2 Type II",
-    description: "Independently audited for security and trust.",
-  },
-  {
-    src: "/v26-images/certs/great-place.png",
-    w: 475,
-    h: 671,
-    name: "Great Place To Work",
-    description: "Certified for culture, care, and consistency.",
-  },
-  {
-    src: "/v26-images/certs/hipaa.png",
-    w: 1200,
-    h: 635,
-    name: "HIPAA Compliant",
-    description: "Healthcare data handled safely, always compliant.",
-  },
-];
 
 /**
  * Charcoal → grey radial wash plus the gradient hairline from the design. Square
@@ -164,8 +128,8 @@ const Certifications = () => {
                 <Image
                   src={cert.src}
                   alt={`${cert.name} certification badge`}
-                  width={cert.w}
-                  height={cert.h}
+                  width={cert.artwork.w}
+                  height={cert.artwork.h}
                   className="max-h-full w-auto object-contain object-left"
                 />
               </div>

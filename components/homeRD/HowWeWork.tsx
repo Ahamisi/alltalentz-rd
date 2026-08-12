@@ -36,7 +36,7 @@ const HowWeWork = () => {
   }, [controls, inView]);
 
   return (
-    <section className="bg-white text-[#4C4C4C] py-[70px] px-[24px] md:px-[40px]" ref={ref}>
+    <section className="bg-white text-[#4C4C4C] py-[50px] px-[24px] md:px-[40px]" ref={ref}>
       <div className="container mx-auto max-w-(--breakpoint-xl)">
         {/* Header */}
         <motion.div
@@ -45,15 +45,15 @@ const HowWeWork = () => {
           animate={controls}
           transition={{ duration: 0.5 }}
         >
-          <Image
+          {/* <Image
             src="/v26-images/home/request-to-deployed/small-tree.svg"
             alt="All Talentz"
             width={49}
             height={50}
             className="mb-8"
-          />
+          /> */}
           <h2 className="text-3xl my-6 md:text-[55px] lg:text-[50px] lg:leading-[67.25px] md:leading-[64px] font-medium text-black max-w-[616px] tracking-[-5%]">
-            From Request to Deployed <br className="hidden md:block" /> In 7 Days
+            From Request to Assigned <br className="hidden md:block" /> in Less Than 48 Hours
           </h2>
         </motion.div>
 

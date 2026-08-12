@@ -14,7 +14,7 @@ type Stat = {
 
 const stats: Stat[] = [
   { value: "75%", label: "Average savings on labour costs" },
-  { value: "7 Days", label: "From request to first placement" },
+  { value: "< 48 hours", label: "From request to assignment" },
   { value: "6+", label: "Industries served across the U.S." },
   { value: "24/7", label: "Operational support, always on." },
 ];

@@ -67,8 +67,12 @@ const ReadyToBuild = ({
       <br className="hidden sm:block" /> remote team?
     </>
   ),
-  description = "Tell us what you need. We'll have the right talent matched and ready within 7 days",
-  primary = { text: "Get Talentz", url: "/request-talent" },
+  description = "Tell us what you need. We'll have the right talent matched and ready under 48 hours",
+  primary = {
+    text: "Book a meeting",
+    url: "https://calendly.com/mnwoseh",
+    openNewTab: true,
+  },
   secondary = { text: "Talk to Our Team", url: "/contact" },
   image = DEFAULT_IMAGE,
   className = "",

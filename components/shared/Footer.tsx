@@ -7,6 +7,7 @@ import instagramIcon from "@iconify-icons/mdi/instagram";
 import twitterIcon from "@iconify-icons/mdi/twitter";
 import linkedinIcon from "@iconify-icons/mdi/linkedin";
 import facebookIcon from "@iconify-icons/mdi/facebook";
+import { CERTIFICATIONS } from "@/lib/certifications";
 
 /* -------------------------------------------------------------------------- */
 /*                                    Data                                    */
@@ -63,28 +64,7 @@ const socials = [
   { label: "Facebook", href: "https://www.facebook.com/Alltalentz", icon: facebookIcon },
 ];
 
-const certifications = [
-  {
-    src: "/v26-images/certs/iso.png",
-    alt: "ISO 27001 Certified by AssurancePoint",
-    href: "https://www.iafcertsearch.org/certification/vD5DJrOP2lgDH3m3YPIqgqtH",
-  },
-  {
-    src: "/v26-images/certs/aicpa.png",
-    alt: "AICPA SOC certified",
-    href: "https://us.aicpa.org/interestareas/frc/assuranceadvisoryservices/serviceorganization-smanagement.html",
-  },
-  {
-    src: "/v26-images/certs/great-place.png",
-    alt: "Great Place To Work Certified",
-    href: "https://www.greatplacetowork.com/",
-  },
-  {
-    src: "/v26-images/certs/hipaa.png",
-    alt: "HIPAA Compliant",
-    href: "https://www.hhs.gov/hipaa/index.html",
-  },
-];
+const certifications = CERTIFICATIONS;
 
 /* -------------------------------------------------------------------------- */
 /*                                   Footer                                   */

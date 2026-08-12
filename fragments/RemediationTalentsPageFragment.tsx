@@ -33,19 +33,36 @@ const ROLES: RoleCard[] = [
     src: "/v26-images/talentz-pages/construction/role-1.webp",
     alt: "Estimator in a hard hat presenting a floor plan on a large screen",
     title: "Estimator",
+    formValue: "Estimators",
     description: "Produces accurate estimates to win more bids.",
   },
   {
     src: "/v26-images/talentz-pages/construction/role-2.webp",
     alt: "Site administrator holding drawings up against a wall on site",
     title: "Project Administrator",
+    formValue: "Project Administrators",
     description: "Handles docs and scheduling for your site team.",
   },
   {
     src: "/v26-images/talentz-pages/construction/role-3.webp",
     alt: "Back-office specialist working through invoices with a calculator and laptop",
     title: "AR Specialist",
+    formValue: "AR Specialists",
     description: "Manages invoicing to protect project cash flow.",
+  },
+  {
+    src: "/v26-images/talentz-pages/construction/role-4.webp",
+    alt: "Two agents working the phones side by side on an outbound calling floor",
+    title: "Telemarketing Agent",
+    formValue: "Telemarketing Agents",
+    description: "Books qualified jobs through outbound calling.",
+  },
+  {
+    src: "/v26-images/talentz-pages/construction/role-5.webp",
+    alt: "Small marketing team reviewing a campaign together on a laptop",
+    title: "Digital Marketing Support",
+    formValue: "Digital Marketing Support",
+    description: "Keeps your pipeline full between projects.",
   },
 ];
 
@@ -67,15 +84,16 @@ export default function RemediationTalentsPage() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <TalentHero
         title="ATRA-certified construction support."
-        titleAccent="Within 7 days."
+        titleAccent="In under 48 hours."
         description="Keep your bids moving. Keep your back office lean."
-        cta={{ text: "Get Talentz", url: "/request-talent" }}
+        cta={{ text: "Get Construction Talentz", url: "/request-talent" }}
         cards={HERO_CARDS}
       />
 
       <RolesWePlace
         title="Roles We Place in Construction"
         roles={ROLES}
+        industry={"Construction & Restoration"}
         ctaLabel="Get Construction Talent"
       />
 

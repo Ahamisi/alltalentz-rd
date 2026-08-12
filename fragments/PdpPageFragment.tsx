@@ -55,7 +55,7 @@ export default function PdpPageFragment() {
   };
 
   return (
-    <main className="relative overflow-hidden overflow-y-hidden">
+    <>
       <PdpHero onApply={handleApply} />
 
       <WhatIsPdp videoUrl={pdpExplainerVideoUrl} />
@@ -104,6 +104,6 @@ export default function PdpPageFragment() {
       />
 
       <ReadyToBuild/>
-    </main>
+    </>
   );
 }

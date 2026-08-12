@@ -130,15 +130,11 @@ const BeliefQuote = () => {
       ))}
 
       <blockquote className="bq-reveal relative z-10 mx-auto max-w-[1080px]">
-        {/* The gradient is painted through the glyphs; the transparent text
-            colour is what lets it show. */}
         <p
-          className="bg-clip-text text-center text-[28px] leading-[1.15] tracking-[0.01em] text-transparent sm:text-[36px] lg:text-[48px] lg:leading-[48px]"
+          className="text-center text-[28px] leading-[1.15] tracking-[0.01em] text-[#F99621] sm:text-[36px] lg:text-[48px] lg:leading-[48px]"
           style={{
             fontFamily: "var(--font-poppins), sans-serif",
             fontWeight: 500,
-            backgroundImage:
-              "linear-gradient(90deg, #A37F40 0%, #FFC403 50%, #BFA166 75%, #E9CC39 87.5%, #FFC403 100%)",
           }}
         >
           &lsquo;Great talent should not cost a fortune, and great businesses should not

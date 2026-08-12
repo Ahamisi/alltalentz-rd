@@ -33,19 +33,43 @@ const ROLES: RoleCard[] = [
     src: "/v26-images/talentz-pages/finance/role-1.webp",
     alt: "Bookkeeper running figures on a calculator next to a written ledger",
     title: "Bookkeeper",
+    formValue: "Bookkeepers",
     description: "Keeps your records clean and audit-ready.",
   },
   {
     src: "/v26-images/talentz-pages/finance/role-2.webp",
     alt: "Two colleagues going over a company invoice on a clipboard",
     title: "AR/AP Specialist",
+    formValue: "AR/AP Specialists",
     description: "Protects your cash flow and vendor relations.",
   },
   {
     src: "/v26-images/talentz-pages/finance/role-3.webp",
     alt: "Analyst reading financial charts across a bank of monitors",
     title: "Financial Analyst",
+    formValue: "Financial Analysts",
     description: "Delivers reporting to support better decisions.",
+  },
+  {
+    src: "/v26-images/talentz-pages/finance/role-4.webp",
+    alt: "Overhead view of a payroll run in progress — laptop charts, calculator and notes on a desk",
+    title: "Payroll Processor",
+    formValue: "Payroll Processors",
+    description: "Runs payroll accurately and on schedule.",
+  },
+  {
+    src: "/v26-images/talentz-pages/finance/role-5.webp",
+    alt: "Bookkeeper reconciling accounts on a laptop with a calculator at hand",
+    title: "QuickBooks Specialist",
+    formValue: "QuickBooks Specialists",
+    description: "Sets up and maintains your books in QuickBooks.",
+  },
+  {
+    src: "/v26-images/talentz-pages/finance/role-6.webp",
+    alt: "Three colleagues reviewing campaign results together on their laptops",
+    title: "Digital Marketer",
+    formValue: "Digital Marketing",
+    description: "Runs campaigns that bring in qualified leads.",
   },
 ];
 
@@ -67,15 +91,16 @@ export default function FinanceTalentsPage() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <TalentHero
         title="Trained finance professionals."
-        titleAccent="Within 7 days."
+        titleAccent="In under 48 hours."
         description="Clean books. Healthy cash flow. Lower costs."
-        cta={{ text: "Get Talentz", url: "/request-talent" }}
+        cta={{ text: "Get Finance Talentz", url: "/request-talent" }}
         cards={HERO_CARDS}
       />
 
       <RolesWePlace
         title="Roles We Place in Finance"
         roles={ROLES}
+        industry="Finance"
         ctaLabel="Get Finance Talent"
       />
 

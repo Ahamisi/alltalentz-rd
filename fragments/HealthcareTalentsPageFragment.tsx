@@ -35,19 +35,29 @@ const ROLES: RoleCard[] = [
     src: "/v26-images/talentz-pages/healthcare/role-1.webp",
     alt: "Billing specialist at a laptop, checking a printed bar-chart statement against his screen",
     title: "Medical Billing Specialist",
+    formValue: "Medical Billing Specialists",
     description: "Handles claims, denial management, and AR follow-up.",
   },
   {
     src: "/v26-images/talentz-pages/healthcare/role-2.webp",
     alt: "A nurse in scrubs and a doctor in a white coat going over records on a tablet in a hospital corridor",
     title: "Revenue Cycle Manager",
+    formValue: "Revenue Cycle Managers",
     description: "Oversees billing cycles and reduces denial rates.",
   },
   {
     src: "/v26-images/talentz-pages/healthcare/role-3.webp",
     alt: "Administrator in an open-plan office pointing at a laptop screen while a colleague works nearby",
     title: "Healthcare Administrator",
+    formValue: "Healthcare Admins",
     description: "Manages scheduling, records, and daily operations.",
+  },
+  {
+    src: "/v26-images/talentz-pages/healthcare/role-4.webp",
+    alt: "Clinician in scrubs entering patient records at a hospital workstation",
+    title: "HIPAA-Compliant Support",
+    formValue: "HIPAA-Compliant Support",
+    description: "Handles patient data under strict HIPAA protocols.",
   },
 ];
 
@@ -69,7 +79,7 @@ export default function HealthcareTalentsPage() {
     <main className="relative overflow-hidden overflow-y-hidden">
       <TalentHero
         title="HIPAA-certified medical billing specialists."
-        titleAccent="Ready within 7 days."
+        titleAccent="In under 48 hours."
         description="Reduce denials. Clear backlogs. Cut costs by up to 75%."
         cta={{ text: "Get Healthcare Talent", url: "/request-talent" }}
         cards={HERO_CARDS}
@@ -78,6 +88,7 @@ export default function HealthcareTalentsPage() {
       <RolesWePlace
         title="Roles We Place in Healthcare"
         roles={ROLES}
+        industry="Healthcare"
         ctaLabel="Get Healthcare Talent"
       />
 

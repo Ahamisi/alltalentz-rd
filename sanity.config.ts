@@ -29,6 +29,24 @@ export default defineConfig({
               .child(S.documentTypeList('category').title('Categories')),
             S.divider(),
             S.listItem()
+              .title('Success Stories')
+              .child(
+                S.documentTypeList('successStory')
+                  .title('Success Stories')
+                  .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
+              ),
+            S.listItem()
+              .title('Success Story Categories')
+              .child(
+                S.documentTypeList('successStoryCategory')
+                  .title('Success Story Categories')
+                  .defaultOrdering([
+                    { field: 'order', direction: 'asc' },
+                    { field: 'title', direction: 'asc' },
+                  ])
+              ),
+            S.divider(),
+            S.listItem()
               .title('FAQs')
               .child(
                 S.documentTypeList('faq')
