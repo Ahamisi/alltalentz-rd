@@ -11,8 +11,6 @@ const POST_FIELDS = groq`
   mainImage,
   "author": author->{ name, role, image, bio },
   "categories": categories[]->{ title, "slug": slug.current },
-  // Character count of the body, so cards can show a read-time estimate
-  // without shipping the whole document to the client.
   "charCount": length(pt::text(body))
 `
 
@@ -34,7 +32,7 @@ export const featuredPostQuery = groq`
   }
 `
 
-// Sort direction must be a literal in GROQ — generate two queries and pick at runtime
+// GROQ needs a literal sort direction, hence one query per direction.
 export const postsQueryDesc = groq`
   *[${FILTER_CLAUSE}]
   | order(publishedAt desc)
@@ -81,12 +79,6 @@ export const allCategoriesQuery = groq`
   }
 `
 
-// --- FAQs -------------------------------------------------------------------
-
-// Every FAQ category with its questions nested, ready to render as the grouped
-// accordion on /faq. Categories are ordered by their explicit `order` field
-// (999 for the ones editors haven't ranked) and then alphabetically, so adding
-// a category in the studio never needs a code change.
 export const faqCategoriesWithFaqsQuery = groq`
   *[_type == "faqCategory" && !(_id in path("drafts.**"))]
   | order(coalesce(order, 999) asc, title asc) {
@@ -106,7 +98,6 @@ export const faqCategoriesWithFaqsQuery = groq`
   }
 `
 
-// Condensed set for the short FAQ blocks on marketing pages.
 export const featuredFaqsQuery = groq`
   *[_type == "faq" && showOnHomepage == true && !(_id in path("drafts.**"))]
   | order(coalesce(order, 999) asc, _createdAt asc) {
@@ -115,8 +106,6 @@ export const featuredFaqsQuery = groq`
     answer
   }
 `
-
-// --- Success stories --------------------------------------------------------
 
 const SUCCESS_STORY_FIELDS = groq`
   _id,
@@ -144,9 +133,7 @@ const SUCCESS_STORY_FILTER = groq`
   && ($search == "" || title match $search || excerpt match $search || clientName match $search)
 `
 
-// Featured stories are pinned to the top of the unfiltered listing; within each
-// group the newest wins. Sort direction has to be a literal in GROQ, so the two
-// orderings ship as separate queries and the page picks one at runtime.
+// GROQ needs a literal sort direction, hence one query per direction.
 export const successStoriesQueryDesc = groq`
   *[${SUCCESS_STORY_FILTER}]
   | order(featured desc, publishedAt desc)

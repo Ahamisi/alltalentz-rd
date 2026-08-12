@@ -3,9 +3,6 @@ import SuccessStoriesPageFragment from "@/fragments/SuccessStoriesPageFragment";
 
 export const revalidate = 60;
 
-// Metadata and the breadcrumb used to live in the section layout, but that layout
-// also wraps /success-stories/[slug], which emits its own three-level breadcrumb —
-// two BreadcrumbLists on one page. Both now belong to the listing page alone.
 export const metadata = {
   title: "Client Success Stories — Real Results with All Talentz",
   description:

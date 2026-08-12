@@ -1,13 +1,5 @@
 import { defineField, defineType } from 'sanity'
 
-/**
- * The industry chips on /success-stories (Tech, Healthcare, Finance, …).
- *
- * Kept separate from the blog `category` type on purpose: the two taxonomies
- * answer different questions ("what topic is this article about" vs "which
- * industry did this client come from"), and mixing them would put blog topics
- * in the success-stories filter rail and vice versa.
- */
 export default defineType({
   name: 'successStoryCategory',
   title: 'Success Story Category',

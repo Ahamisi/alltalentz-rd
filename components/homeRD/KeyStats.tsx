@@ -6,9 +6,7 @@ import GradientStar from "./GradientStar";
 import CountUp from "./CountUp";
 
 type Stat = {
-  /** The headline figure, e.g. "75%" or "7 Days". */
   value: string;
-  /** Supporting copy shown under the figure. */
   label: string;
 };
 
@@ -34,11 +32,11 @@ const KeyStats = () => {
       <div className="container mx-auto max-w-(--breakpoint-xl)">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[24px]">
           {stats.map((stat, index) => (
+            // Gradient border: this wrapper is the border and the div inside is
+            // the fill, so the 1.24px padding is the border width. border-image
+            // cannot follow rounded corners, which is why it is faked this way.
             <motion.div
               key={stat.value}
-              // Gradient border: this wrapper is the "border" (linear gradient),
-              // the inner div is the fill. border-image can't follow the
-              // rounded corners, so we pad by the border width instead.
               className="group rounded-[24px] p-[1.24px] [background-position:0%_50%] hover:[background-position:100%_50%] transition-[background-position] duration-[900ms] ease-out"
               style={{
                 backgroundImage:
@@ -58,7 +56,6 @@ const KeyStats = () => {
                   backgroundSize: "200% 200%",
                 }}
               >
-                {/* Star rating */}
                 <div className="flex items-center gap-[6px] mb-[22px]">
                   {Array.from({ length: 5 }).map((_, star) => (
                     <GradientStar

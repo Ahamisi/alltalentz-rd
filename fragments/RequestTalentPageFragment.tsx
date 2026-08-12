@@ -12,8 +12,6 @@ export default function RequestTalent() {
     <>
       <RequestTalentHero />
       <Certifications />
-      {/* The request form now lives inside the hero — this long-form version is
-          kept around in case we want it back further down the page. */}
       {/* <RequestTalentForm /> */}
       <RequestTalentTestimonials />
       {/* <WhatHappensNext /> */}

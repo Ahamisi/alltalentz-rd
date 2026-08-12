@@ -7,28 +7,9 @@ import { CalendarDays, Loader2, Phone } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import GradientStar from "@/components/homeRD/GradientStar";
 
-/**
- * Landing lead-capture popup.
- *
- * Shows once shortly after a visitor lands: headline, three proof points, a
- * short contact form, and "book a meeting" / phone escape hatches for people
- * who aren't ready to type. Deliberately short — the full brief lives on
- * /request-talentz, this only has to earn a reply.
- *
- * Frequency: every visit. Deliberately unthrottled — no localStorage snooze, no
- * once-per-session flag — so a returning visitor sees it again on every page
- * load. It only skips reopening on client-side navigation within one visit,
- * which would otherwise interrupt someone already browsing.
- *
- * Presentation is the shadcn/Base UI <Dialog>: it owns the portal, backdrop,
- * focus trap, escape handling and scroll lock, so this file only deals with
- * when to open and what to ask.
- */
-
 const OPEN_DELAY_MS = 1200;
 const CALENDLY_URL = "https://calendly.com/mnwoseh";
 
-/** Sanity Studio is an admin surface — a lead popup over the CMS is never right. */
 const SUPPRESSED_PREFIXES = ["/studio"];
 
 const BENEFITS = [
@@ -37,11 +18,9 @@ const BENEFITS = [
   "No commitment, no hidden fees",
 ];
 
-/** Sales line offered to visitors who'd rather talk than type. */
 const PHONE_DISPLAY = "+1 (614) 502-1440";
 const PHONE_HREF = "tel:+16145021440";
 
-/** Outlined tile — quiet enough to stay below the submit button, still tappable. */
 const secondaryActionClass = [
   "group/alt flex items-center gap-2.5 rounded-[10px] border border-[#EAEAEA] px-3 py-2.5 text-left",
   "transition-colors duration-200 hover:border-[#F99621]/50 hover:bg-[#FEF9F2]",
@@ -62,9 +41,6 @@ type FormErrors = Partial<Record<keyof FormState, string>>;
 
 const EMPTY_FORM: FormState = { name: "", email: "", phone: "", talentNeeded: "" };
 
-// ── Animated check mark ─────────────────────────────────────────────────────
-
-/** Stroke-drawn tick — reads as "being confirmed" rather than a static glyph. */
 const DrawnCheck = ({ delay = 0, size = 12 }: { delay?: number; size?: number }) => {
   const reduced = useReducedMotion();
   return (
@@ -83,8 +59,6 @@ const DrawnCheck = ({ delay = 0, size = 12 }: { delay?: number; size?: number })
   );
 };
 
-// ── Component ───────────────────────────────────────────────────────────────
-
 const WelcomeLeadModal = () => {
   const pathname = usePathname();
   const reduced = useReducedMotion();
@@ -95,15 +69,13 @@ const WelcomeLeadModal = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  /** Drives the invalid-input nudge only — never the entrance, which is CSS. */
+  // Drives the shake on invalid input only. The entrance is CSS.
   const shakeControls = useAnimationControls();
   const headingRef = useRef<HTMLHeadingElement>(null);
-  /** One open per page load — survives client-side route changes. */
   const hasOpenedRef = useRef(false);
 
   const isSuppressedRoute = SUPPRESSED_PREFIXES.some((p) => pathname?.startsWith(p));
 
-  // ── Open on landing ───────────────────────────────────────────────────────
   useEffect(() => {
     if (isSuppressedRoute) return;
     if (hasOpenedRef.current) return;
@@ -116,15 +88,11 @@ const WelcomeLeadModal = () => {
     return () => clearTimeout(timer);
   }, [isSuppressedRoute]);
 
-  // Lenis owns the scroll position, so the dialog's overflow lock alone doesn't
-  // freeze the page — the smooth-scroll loop has to be paused too.
   useEffect(() => {
     if (!isOpen) return;
     window.__lenis?.stop();
     return () => window.__lenis?.start();
   }, [isOpen]);
-
-  // ── Form ──────────────────────────────────────────────────────────────────
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -140,14 +108,11 @@ const WelcomeLeadModal = () => {
     if (!form.email.trim()) next.email = "Please add your email";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim()))
       next.email = "Please check that email address";
-    // Phone stays optional — email is enough to follow up, and one more
-    // required field is the cheapest way to lose a lead here.
     if (!form.talentNeeded.trim()) next.talentNeeded = "Let us know the roles you need";
     setErrors(next);
     if (Object.keys(next).length > 0) {
-      // A short lateral nudge on the settled card — cheaper to read than a
-      // banner, and it points attention back at the fields.
       if (!reduced) {
+        // Nudge the card sideways instead of showing an error banner.
         shakeControls.start({
           x: [0, -7, 7, -4, 4, 0],
           transition: { duration: 0.4, ease: "easeInOut" },
@@ -177,8 +142,6 @@ const WelcomeLeadModal = () => {
         }),
       });
     } catch (error) {
-      // The lead is low-friction by design — never block the visitor on a
-      // network hiccup, the thank-you state is the point.
       console.error("[welcome-lead-modal] submit failed:", error);
     } finally {
       setIsSubmitting(false);
@@ -197,20 +160,16 @@ const WelcomeLeadModal = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent
-        // Focus the heading rather than the first input, so mobile keyboards
-        // don't fly up the moment the popup lands.
         initialFocus={headingRef}
         overlayClassName="bg-[#121212]/60 supports-backdrop-filter:backdrop-blur-[3px]"
         className="max-h-[90dvh] w-full max-w-[calc(100%-2rem)] gap-0 overflow-y-auto rounded-[20px] bg-white p-0 ring-0 shadow-[0_30px_80px_-20px_rgba(18,18,18,0.45)] sm:max-w-[480px]"
       >
-        {/* Warm glow behind the header — anchors the card in the v26 palette */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-[#F99621]/25 blur-[70px]"
         />
 
         {isSubmitted ? (
-          /* ── Thank-you state ──────────────────────────────────────────── */
           <div className="relative px-6 py-14 text-center sm:px-10">
             <DialogTitle
               ref={headingRef}
@@ -249,12 +208,10 @@ const WelcomeLeadModal = () => {
             </div>
           </div>
         ) : (
-          /* ── Form state ───────────────────────────────────────────────── */
           <motion.div
             animate={shakeControls}
             className="relative px-6 pt-9 pb-7 sm:px-8 sm:pt-10"
           >
-            {/* Header */}
             <div className="pr-10">
               <div className="flex items-center gap-1.5">
                 <GradientStar id="wlm-star-1" className="h-3.5 w-3.5" />
@@ -272,7 +229,6 @@ const WelcomeLeadModal = () => {
               </DialogTitle>
             </div>
 
-            {/* Proof points */}
             <ul className="mt-5 flex flex-col gap-2.5">
               {BENEFITS.map((benefit, index) => (
                 <li
@@ -287,7 +243,6 @@ const WelcomeLeadModal = () => {
               ))}
             </ul>
 
-            {/* Form */}
             <form onSubmit={handleSubmit} noValidate className="mt-7 flex flex-col gap-3.5">
               <div>
                 <label htmlFor="wlm-name" className="sr-only">
@@ -406,9 +361,6 @@ const WelcomeLeadModal = () => {
               </button>
             </form>
 
-            {/* Secondary path — two escape hatches for anyone not ready to type.
-                Rules either side of the label keep them clearly subordinate to
-                the submit button rather than competing with it. */}
             <div className="mt-6">
               <div className="flex items-center gap-3">
                 <span className="h-px flex-1 bg-[#EDEDED]" />
@@ -416,7 +368,6 @@ const WelcomeLeadModal = () => {
                 <span className="h-px flex-1 bg-[#EDEDED]" />
               </div>
 
-              {/* Stacked on phones — side by side the number has to truncate. */}
               <div className="mt-3.5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                 <a
                   href={CALENDLY_URL}

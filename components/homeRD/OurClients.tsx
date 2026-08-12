@@ -20,7 +20,6 @@ const OurClients = () => {
   return (
     <section className="bg-white py-16 md:py-[116px] md:px-0 overflow-hidden">
       <div className="max-w-[1119.94px] mx-auto">
-        {/* Section Title with star trails */}
         <div className="relative flex items-center justify-center mb-12 md:mb-20">
           {/* <StarTrail
             side="left"
@@ -38,7 +37,6 @@ const OurClients = () => {
         </div>
       </div>
 
-      {/* Logos marquee */}
       <Marquee autoFill pauseOnHover speed={40} gradient={false}>
         {logos.map((logo, index) => (
           <div key={index} className="group flex justify-center items-center mx-8 md:mx-12">
@@ -53,9 +51,6 @@ const OurClients = () => {
         ))}
       </Marquee>
 
-      {/* Divider — the two tapering lines converge at the bottom centre of the
-          artwork (x = 50%, y ≈ 97% of its 2400x268 canvas), so the star is
-          pinned there and centred on that point rather than laid out in flow. */}
       <div className="relative mt-16 md:mt-20 pointer-events-none select-none">
         <Image
           src="/v26-images/home/special-divder.png"

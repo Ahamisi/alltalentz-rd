@@ -23,25 +23,18 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
       <HeroNew/>
 
-      {/* certifications */}
       <Certifications />
 
-      {/* vetted niche */}
       <NicheSection />
 
-      {/* Our Clients */}
       <OurClients />
 
-      {/* how we work */}
       <HowWeWork />
 
-      {/* call to action */}
       <CallToAction text="Get Started" url="/request-talent" />
 
-      {/* client testimonials */}
       <ClientWords
         title={
           <>
@@ -52,13 +45,10 @@ export default function Home() {
         testimonials={homepageTestimonials}
       />
 
-      {/* key stats */}
       <KeyStats />
 
-      {/* one partner, every solution */}
       <OnePartner />
 
-      {/* ready to build your remote team */}
       <ReadyToBuild />
 
       {/* <PdpModal /> */}

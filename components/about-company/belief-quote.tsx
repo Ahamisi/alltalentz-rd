@@ -4,14 +4,6 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 
-/**
- * The founding-belief pull quote on the about page: a gold-gradient line of
- * Poppins on white, framed by three hand-drawn doodles (spark, bulb, chat bubble).
- *
- * The doodles are *stroked* outlines with their colours baked in, so — as with
- * CallToAction / ReadyToBuild — each is animated as a whole unit: a staggered
- * pop-in on scroll, then a de-synchronised float/wobble loop.
- */
 type Doodle = {
   src: string;
   w: number;
@@ -23,7 +15,6 @@ type Doodle = {
 
 const BASE_PATH = "/v26-images/about-company/doodles/";
 
-// left/top are percentages of the section; each doodle is centred on its point.
 const DOODLES: Doodle[] = [
   // 1 = spark, 2 = chat bubble, 3 = light bulb
   { src: "1.svg", w: 83, h: 84, left: "50%", top: "25%" },
@@ -42,8 +33,8 @@ const BeliefQuote = () => {
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Hide the quote + doodles before first paint so the entrance always plays
-  // from scratch (no flash of fully-visible content while scrolling into view).
+  // Hide the quote and doodles before the first paint, so the entrance below
+  // always plays from the start instead of popping in half-finished.
   useLayoutEffect(() => {
     if (prefersReduced) return;
     if (!rootRef.current) return;
@@ -59,6 +50,7 @@ const BeliefQuote = () => {
     if (!rootRef.current) return;
 
     const ctx = gsap.context(() => {
+      // Quote rises and fades in when the section scrolls into view.
       gsap.to(".bq-reveal", {
         autoAlpha: 1,
         y: 0,
@@ -66,6 +58,7 @@ const BeliefQuote = () => {
         ease: "power3.out",
       });
 
+      // Doodles pop in just after, in random order, with an overshoot.
       gsap.to(".bq-doodle-enter", {
         autoAlpha: 1,
         scale: 1,
@@ -76,6 +69,7 @@ const BeliefQuote = () => {
         delay: 0.15,
       });
 
+      // Then they drift forever on random durations, so they never move in sync.
       gsap.utils.toArray<HTMLElement>(".bq-doodle-float").forEach((node) => {
         gsap.to(node, {
           y: gsap.utils.random(-10, -6),
@@ -102,7 +96,6 @@ const BeliefQuote = () => {
       ref={setRefs}
       className="relative flex min-h-[420px] items-center justify-center overflow-hidden bg-white px-[24px] py-[100px] md:min-h-[560px] md:px-[40px] md:py-[180px]"
     >
-      {/* Decorative doodles */}
       {DOODLES.map((doodle) => (
         <div
           key={doodle.src}
@@ -119,8 +112,6 @@ const BeliefQuote = () => {
                 alt=""
                 width={doodle.w}
                 height={doodle.h}
-                // The doodles ship with their colours baked into the strokes, so
-                // desaturation happens at render time rather than in the assets.
                 className="grayscale"
                 style={{ transformOrigin: "center" }}
               />

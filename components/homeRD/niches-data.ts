@@ -3,11 +3,8 @@ export interface NicheItemProp {
   imageSrc: string;
   description: string;
   path: string;
-  /** Short "·"-separated role tags shown under the title on the card. */
   tags?: string;
-  /** Inline illustration used on the redesigned deck card. */
   icon?: string;
-  /** Card background tint — gives the stacked deck its layered warmth. */
   tint?: string;
 }
 

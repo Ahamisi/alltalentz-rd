@@ -35,6 +35,5 @@ export interface SanitySuccessStory {
   testimonial?: SuccessStoryTestimonial
   videoUrl?: string
   body?: PortableTextBlock[]
-  /** Plain-text length of `body`; used to estimate read time. */
   charCount?: number
 }

@@ -181,8 +181,6 @@ export default async function About({
     <>
       <SuccessStoriesHero />
 
-      {/* Editor-managed stories out of Sanity. Suspense is required because the
-          toolbar reads useSearchParams. */}
       <Suspense>
         <SuccessStoriesToolbar
           categories={categories}

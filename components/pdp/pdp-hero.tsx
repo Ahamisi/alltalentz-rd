@@ -4,15 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 
-/**
- * "Build the skills. Get the placement. Change your career." — PDP hero.
- *
- * Same split treatment as the Outsourcing hero: copy + CTA on the left,
- * programme photo on the right, with a couple of grayscaled hand-drawn doodles
- * floating over the section.
- */
 type PdpHeroProps = {
-  /** Fires the application flow owned by the page fragment. */
   onApply?: () => void;
 };
 
@@ -25,7 +17,6 @@ type Doodle = {
   hideOnMobile?: boolean;
 };
 
-// left/top are percentages of the section; each doodle is centred on its point.
 const DOODLES: Doodle[] = [
   { src: "2.svg", w: 121, h: 79, left: "50%", top: "24%", hideOnMobile: true },
   { src: "3.svg", w: 104, h: 104, left: "40%", top: "88%", hideOnMobile: true },
@@ -44,8 +35,8 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Hide the copy + photo before first paint so the entrance always plays from
-  // scratch.
+  // Hide the copy, photo and doodles before the first paint, so the entrance
+  // below always plays from the start instead of popping in half-finished.
   useLayoutEffect(() => {
     if (prefersReduced) return;
     if (!rootRef.current) return;
@@ -63,9 +54,10 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
     if (!rootRef.current) return;
 
     const ctx = gsap.context(() => {
+      // One entrance timeline, played when the hero scrolls into view.
       const tl = gsap.timeline();
 
-      // Each heading line rises up from behind its clip mask, staggered.
+      // Heading lines slide up from behind their clip masks, one after another.
       tl.to(".pdp-line-inner", {
         yPercent: 0,
         duration: 0.85,
@@ -73,7 +65,7 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
         stagger: 0.12,
       });
 
-      // Paragraph then button fade up just after the heading settles.
+      // Paragraph and button fade up while the heading is still settling.
       tl.to(
         ".pdp-hero-para, .pdp-hero-cta",
         {
@@ -86,7 +78,7 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
         "-=0.35"
       );
 
-      // Photo settles in alongside the copy.
+      // Photo rises in alongside the copy.
       tl.to(
         ".pdp-hero-art",
         {
@@ -99,7 +91,7 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
         "-=0.8"
       );
 
-      // Doodles pop in with a little overshoot, then float on a loop.
+      // Doodles pop in last, in random order, with a slight overshoot.
       tl.to(
         ".pdp-doodle-enter",
         {
@@ -112,6 +104,7 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
         "-=0.5"
       );
 
+      // Then they drift forever on random durations, so they never move in sync.
       gsap.utils.toArray<HTMLElement>(".pdp-doodle-float").forEach((node) => {
         gsap.to(node, {
           y: gsap.utils.random(-10, -6),
@@ -138,7 +131,6 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
       ref={setRefs}
       className="relative overflow-hidden bg-white px-[24px] py-[80px] md:px-[40px] md:py-[120px]"
     >
-      {/* Decorative doodles */}
       {DOODLES.map((doodle) => (
         <div
           key={doodle.src}
@@ -165,11 +157,8 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
 
       <div className="container relative z-10 mx-auto max-w-(--breakpoint-xl)">
         <div className="grid grid-cols-1 items-center gap-[48px] lg:grid-cols-[1.1fr_0.9fr] lg:gap-[40px]">
-          {/* Copy */}
           <div className="order-2 lg:order-1">
             <h1 className="text-[36px] leading-[1.1] tracking-[-3%] font-semibold text-[#121212] sm:text-[48px] lg:text-[60px]">
-              {/* pb/-mb: give the clip mask room for descenders without
-                  changing the visual line spacing. */}
               <span className="block overflow-hidden pb-[0.18em] -mb-[0.18em]">
                 <span className="pdp-line-inner block">Build the skills.</span>
               </span>
@@ -195,7 +184,6 @@ const PdpHero = ({ onApply }: PdpHeroProps) => {
             </button>
           </div>
 
-          {/* Programme photo */}
           <div className="order-1 lg:order-2">
             <Image
               src="/v26-images/pdp/hero-img.png"

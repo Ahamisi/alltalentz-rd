@@ -8,23 +8,6 @@ import { INDUSTRIES, INDUSTRY_ROLES, TIMELINES } from "@/lib/request-talent-data
 import Field from "./field";
 import RolesDropdown from "./roles-dropdown";
 
-/**
- * Compact Request Talent form that lives inside the hero (right column).
- *
- * Short on purpose — the hero only asks for what we need to start a
- * conversation. The long-form version (company size, notes, etc.) still lives
- * in <RequestTalentForm />.
- *
- * Roles are driven off the chosen industry via INDUSTRY_ROLES, exactly like the
- * full form; picking "Other" (as an industry or as a role) swaps in a free-text
- * input.
- *
- * The talent pages link here with `?industry=…&roles=a,b` when a visitor picked
- * role cards in <RolesWePlace />; prefillFromParams() turns that into form
- * state. Anything the form doesn't have an option for lands in its "Other"
- * free-text fields rather than being dropped.
- */
-
 interface FormData {
   [key: string]: unknown;
   firstName: string;
@@ -61,7 +44,8 @@ const EMPTY_FORM: FormData = {
   timeline: "",
 };
 
-/** Turns `?industry=…&roles=a,b` into the slice of form state it describes. */
+// The talent pages link here as ?industry=Tech&roles=a,b when a visitor picks
+// role cards in <RolesWePlace />. This turns that into form state.
 const prefillFromParams = (params: URLSearchParams): Partial<FormData> | null => {
   const industryParam = params.get("industry")?.trim();
   if (!industryParam) return null;
@@ -71,8 +55,8 @@ const prefillFromParams = (params: URLSearchParams): Partial<FormData> | null =>
     .map((r) => r.trim())
     .filter(Boolean);
 
-  // An industry we don't list becomes "Other" + free text, and its roles come
-  // along as free text too — there is no role list to match them against.
+  // An industry the form does not list becomes "Other" plus free text, and its
+  // roles come along as free text too, since there is no list to match against.
   const known = INDUSTRIES.includes(industryParam) && industryParam !== "Other";
   if (!known) {
     return {
@@ -82,6 +66,8 @@ const prefillFromParams = (params: URLSearchParams): Partial<FormData> | null =>
     };
   }
 
+  // Known industry: tick the roles it has options for, and put the rest in the
+  // "Other" free-text box rather than dropping them.
   const options = INDUSTRY_ROLES[industryParam] ?? [];
   const matched = requested.filter((r) => options.includes(r));
   const unmatched = requested.filter((r) => !options.includes(r));
@@ -102,17 +88,13 @@ export default function RequestTalentHeroForm() {
   const [formData, setFormData] = useState<FormData>(EMPTY_FORM);
 
   const { clearPersisted, onEmailBlur } = useFormPersist("request-talent-hero", formData);
-
-  // ── Prefill from the talent pages' role cards ─────────────────────────────
-  // Applied after mount rather than as initial state: the params aren't known
-  // during prerender, and seeding them on the client alone would mismatch.
+  // Applied after mount rather than as initial state: the params are not known
+  // during prerender, so seeding them on the client alone would mismatch.
   const searchParams = useSearchParams();
   useEffect(() => {
     const prefill = prefillFromParams(new URLSearchParams(searchParams.toString()));
     if (prefill) setFormData((prev) => ({ ...prev, ...prefill }));
   }, [searchParams]);
-
-  // ── reCAPTCHA listeners ───────────────────────────────────────────────────
   useEffect(() => {
     const handleRecaptchaSuccess = (event: Event) => {
       setRecaptchaToken((event as CustomEvent<string>).detail);
@@ -127,14 +109,11 @@ export default function RequestTalentHeroForm() {
       window.removeEventListener("recaptchaExpired", handleRecaptchaExpired);
     };
   }, []);
-
-  // ── Handlers ──────────────────────────────────────────────────────────────
   const handleInput = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     if (name === "industry") {
-      // Roles are industry-scoped, so a new industry invalidates the selection.
       setFormData((prev) => ({ ...prev, industry: value, roles: [], otherRole: "" }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
@@ -157,8 +136,6 @@ export default function RequestTalentHeroForm() {
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Invalid email format";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
     if (!formData.industry) newErrors.industry = "Industry is required";
-    // Roles are only asked for — and only validated — once an industry is set;
-    // without one the field isn't rendered, so its error would be invisible.
     if (formData.industry && formData.industry !== "Other" && formData.roles.length === 0)
       newErrors.roles = "Please select at least one role";
     if (formData.industry === "Other" && !formData.otherRole.trim())
@@ -182,7 +159,6 @@ export default function RequestTalentHeroForm() {
     return {
       fullName: `${formData.firstName} ${formData.lastName}`.trim(),
       email: formData.email,
-      // Not asked for in the hero form — the API expects the keys regardless.
       company: "",
       phone: formData.phone,
       industry: industryLabel,
@@ -214,8 +190,6 @@ export default function RequestTalentHeroForm() {
     }
   };
 
-  // Same field styling as <RequestTalentForm /> — the two forms should read as
-  // one system.
   const inputClass = (field: keyof FormErrors) =>
     `w-full rounded-[10px] border px-4 py-3.5 text-[15px] text-[#121212] placeholder-gray-400 focus:outline-hidden focus:ring-2 focus:ring-[#F99621] transition-colors ${
       errors[field]
@@ -230,8 +204,6 @@ export default function RequestTalentHeroForm() {
 
   return (
     <>
-      {/* reCAPTCHA — unique script id so Next.js doesn't dedupe this block away
-          when another form is mounted on the same page. */}
       <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" />
       <Script id="recaptcha-callbacks-request-talent-hero" strategy="lazyOnload">
         {`
@@ -320,7 +292,6 @@ export default function RequestTalentHeroForm() {
               </div>
             </Field>
 
-            {/* "Other" industry: free-text description */}
             {formData.industry === "Other" && (
               <Field label="Describe your industry" className="sm:col-span-2">
                 <input
@@ -334,8 +305,6 @@ export default function RequestTalentHeroForm() {
               </Field>
             )}
 
-            {/* Roles — options follow the selected industry */}
-            {/* Roles only appear once there is an industry to scope them to. */}
             {formData.industry && (
               <Field label="Role(s) Needed" required error={errors.roles} className="sm:col-span-2">
                 {formData.industry === "Other" ? (
@@ -358,7 +327,6 @@ export default function RequestTalentHeroForm() {
               </Field>
             )}
 
-            {/* Custom role text — "Other" picked inside a known industry */}
             {formData.roles.includes("Other") && formData.industry !== "Other" && (
               <Field label="Describe the custom role" className="sm:col-span-2">
                 <input
@@ -398,7 +366,6 @@ export default function RequestTalentHeroForm() {
               </div>
             </Field>
 
-            {/* reCAPTCHA — /api/contact rejects submissions without a token */}
             <div className="flex flex-col gap-2 sm:col-span-2">
               <div
                 className="g-recaptcha"

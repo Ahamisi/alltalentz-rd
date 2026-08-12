@@ -1,4 +1,3 @@
-// Industry → roles mapping used by the RolesDropdown on the Request Talent form
 export const INDUSTRY_ROLES: Record<string, string[]> = {
   Technology: [
     "Data Annotator",

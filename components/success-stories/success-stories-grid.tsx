@@ -3,13 +3,6 @@ import BlogPagination from '@/components/blog/BlogPagination'
 import SuccessStoryCard from './success-story-card'
 import type { SanitySuccessStory, SuccessStoryCategory } from '@/types/success-story'
 
-/**
- * The three-up grid of story cards under the toolbar.
- *
- * The default (unfiltered) view carries no heading — the hero above already says
- * what the page is, and the design leans on the cards alone. A heading appears
- * only once a filter is on, where it doubles as confirmation of what was applied.
- */
 interface SuccessStoriesGridProps {
   stories: SanitySuccessStory[]
   categories: SuccessStoryCategory[]

@@ -1,21 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { transporter, smtpEmail } from "@/utils/nodemailer";
 
-/**
- * Quick lead from the landing popup (<WelcomeLeadModal />).
- *
- * Deliberately lighter than /api/contact: no reCAPTCHA gate, because the popup
- * trades verification for conversion. It only notifies the team by email;
- * follow-up happens from the inbox.
- */
-
 interface QuickLeadBody {
   name?: string;
   email?: string;
-  /** Optional in the popup — email is the guaranteed reply channel. */
   phone?: string;
   talentNeeded?: string;
-  /** Path the popup was shown on — useful for attributing the lead. */
   source?: string;
 }
 

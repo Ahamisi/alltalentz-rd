@@ -7,9 +7,6 @@ import WhatWeBring from "@/components/shared/WhatWeBring";
 import ClientTestimonial from "@/components/shared/ClientTestimonial";
 import ReadyToBuild from "@/components/shared/ReadyToBuild";
 
-// Photo deck, left → right; the middle card sits on top of the fan.
-// hero-1 is portrait and hero-2/3 are landscape, so `pos` is the crop that
-// keeps each subject inside the tall card.
 const HERO_CARDS: TalentHeroCard[] = [
   {
     src: "/v26-images/talentz-pages/pest-control/hero-1.webp",

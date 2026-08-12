@@ -4,18 +4,6 @@ import { useCallback, useRef, useTransition } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import type { SuccessStoryCategory } from '@/types/success-story'
 
-/**
- * Search + industry chips above the success stories grid.
- *
- * Filter state lives in the URL (?search / ?category), so the grid stays a
- * server component and every filtered view is linkable and back-button safe.
- *
- * The industry list is short and stable by nature (six or so verticals), so the
- * chips simply wrap rather than getting the scrolling rail + overflow panel the
- * blog's open-ended topic taxonomy needs. Tapping the active chip clears it, and
- * a "Clear" button appears alongside once a filter is on — the reset stays
- * discoverable without adding a permanent "All" chip to the design.
- */
 interface SuccessStoriesToolbarProps {
   categories: SuccessStoryCategory[]
   currentSearch: string
@@ -41,6 +29,8 @@ export default function SuccessStoriesToolbar({
 
   const searchTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  // Filters live in the URL, so the grid can stay a server component and every
+  // filtered view is linkable and back-button safe.
   const push = useCallback(
     (updates: Record<string, string>) => {
       const params = new URLSearchParams(searchParams.toString())
@@ -48,7 +38,7 @@ export default function SuccessStoriesToolbar({
         if (value) params.set(key, value)
         else params.delete(key)
       })
-      // Any filter change invalidates the current page number.
+      // Any filter change invalidates the page number.
       params.delete('page')
       const qs = params.toString()
       startTransition(() => {
@@ -68,7 +58,6 @@ export default function SuccessStoriesToolbar({
         }`}
       >
         <div className="flex flex-col gap-[20px] lg:flex-row lg:items-center lg:gap-[32px]">
-          {/* Search */}
           <div className="relative w-full shrink-0 lg:w-[340px] xl:w-[400px]">
             <svg
               aria-hidden="true"
@@ -98,7 +87,6 @@ export default function SuccessStoriesToolbar({
             />
           </div>
 
-          {/* Industry chips */}
           {categories.length > 0 && (
             <div
               role="group"

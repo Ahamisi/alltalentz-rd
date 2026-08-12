@@ -62,8 +62,6 @@ export default async function SuccessStoryLayout({ params, children }: LayoutPro
   const { slug } = await params
   const story = await client.fetch<SanitySuccessStory | null>(successStoryBySlugQuery, { slug })
 
-  // Article rather than Review/CaseStudy: schema.org has no case-study type, and
-  // Article is what search engines actually consume for this shape of page.
   const articleSchema = story
     ? {
         '@context': 'https://schema.org',

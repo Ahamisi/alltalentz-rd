@@ -38,7 +38,6 @@ const HowWeWork = () => {
   return (
     <section className="bg-white text-[#4C4C4C] py-[50px] px-[24px] md:px-[40px]" ref={ref}>
       <div className="container mx-auto max-w-(--breakpoint-xl)">
-        {/* Header */}
         <motion.div
           className="flex flex-col items-center text-center mb-[60px]"
           initial={{ opacity: 0, y: 50 }}
@@ -57,7 +56,6 @@ const HowWeWork = () => {
           </h2>
         </motion.div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[24px]">
           {steps.map((item, index) => (
             <motion.div
@@ -67,7 +65,6 @@ const HowWeWork = () => {
               animate={controls}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.2 }}
             >
-              {/* Gradient visual */}
               <div
                 className="relative h-[316px] rounded-t-[24px] p-[28px] flex items-center justify-center overflow-hidden"
                 style={{ backgroundImage: item.gradient }}
@@ -109,7 +106,6 @@ const HowWeWork = () => {
                 )}
               </div>
 
-              {/* Text */}
               <div className="pt-[28px] rounded-b-[24px] px-6 bg-[#FAFAFA] pb-10">
                 <span className="inline-block text-[#F99621] text-sm font-medium tracking-wide bg-white text-[12px] leading-[150%] tracking-[0%] rounded-full px-[14px] py-[4px] mb-[18px] font-medium">
                   {item.step}

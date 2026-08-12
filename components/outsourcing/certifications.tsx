@@ -5,27 +5,6 @@ import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 import { CERTIFICATIONS } from "@/lib/certifications";
 
-/**
- * "Certifications" — Outsourcing page.
- *
- * Same panel geometry as `the-process.tsx`: four square-cornered cards butted
- * together with `-space-x-px`, content bottom-aligned. Here the wash is the
- * design's translucent charcoal radial, which reads as pale grey on the white
- * section.
- *
- * Each badge sits in a fixed-height band rather than being sized individually —
- * the four logos have wildly different aspect ratios (the ISO shield is wide,
- * the Great Place To Work badge is tall), and a shared band is what keeps the
- * titles and descriptions on a common baseline.
- *
- * The set itself lives in `lib/certifications.ts`.
- */
-
-/**
- * Charcoal → grey radial wash plus the gradient hairline from the design. Square
- * corners let the edge be a plain `border-image` (`border-image-slice: 1`
- * stretches the single gradient tile across all four sides).
- */
 const CARD_STYLE = {
   backgroundImage:
     "radial-gradient(117.2% 352.94% at 3.21% 1.26%, rgba(38, 38, 38, 0.18) 0%, rgba(168, 168, 168, 0.14) 100%)",
@@ -62,8 +41,10 @@ const Certifications = () => {
     if (!rootRef.current) return;
 
     const ctx = gsap.context(() => {
+      // One entrance timeline, played when the section scrolls into view.
       const tl = gsap.timeline();
 
+      // Title first.
       tl.to(".cert-title", {
         autoAlpha: 1,
         y: 0,
@@ -71,6 +52,7 @@ const Certifications = () => {
         ease: "power3.out",
       });
 
+      // Then the four panels rise in one after another.
       tl.to(
         ".cert-card",
         {
@@ -83,7 +65,7 @@ const Certifications = () => {
         "-=0.3"
       );
 
-      // Badges settle in just behind their panel.
+      // Each badge settles in just behind its own panel.
       tl.to(
         ".cert-badge",
         {
@@ -115,8 +97,6 @@ const Certifications = () => {
           Certifications
         </h2>
 
-        {/* auto-rows-fr + h-full keeps every panel the same height even when a
-            name wraps to two lines. */}
         <ul className="mt-[48px] grid auto-rows-fr grid-cols-1 items-stretch sm:grid-cols-2 lg:mt-[100px] lg:grid-cols-4 lg:-space-x-px">
           {CERTIFICATIONS.map((cert) => (
             <li

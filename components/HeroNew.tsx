@@ -11,19 +11,21 @@ gsap.registerPlugin(ScrollTrigger);
 const SPIRAL = "/v26-images/home/spiral";
 const CENTER_IMG = `${SPIRAL}/11.webp`;
 
-// Exact sizes from the design.
+// Circle sizes taken straight from the design.
 const OUTER_SIZE = 107.35;
 const INNER_SIZE = 80;
 const CENTER_SIZE = 99.71;
 
-// Only images 1..10 are available for the orbits (11 is the centre / next
-// section), so we cycle through them to fill the 11 + 6 slots.
+// Only images 1..10 exist for the orbits (11 is the centre image), so the two
+// rings cycle through them to fill their 11 and 6 slots. `start` offsets the
+// inner ring so it does not repeat the outer run in the same order.
 const cycle = (count: number, start: number) =>
   Array.from({ length: count }, (_, i) => `${SPIRAL}/${((start + i) % 10) + 1}.webp`);
 
-const OUTER = cycle(11, 0); // 11 circles
-const INNER = cycle(6, 4); //  6 circles (offset so they don't repeat the outer run)
+const OUTER = cycle(11, 0);
+const INNER = cycle(6, 4);
 
+// Evenly spaces `count` images around a full circle.
 const ringAngles = (count: number, offset = 0) =>
   Array.from({ length: count }, (_, i) => offset + (360 / count) * i);
 
@@ -36,9 +38,8 @@ const HeroNew = () => {
   const centerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLElement>(null);
-
-  // --- Entrance: heading lines rise out of their clip masks, copy fades up ---
-  // The hero is above the fold, so this plays on mount rather than on scroll.
+  // Entrance. The hero is above the fold, so this plays on mount rather than
+  // waiting for a scroll trigger.
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
@@ -49,6 +50,7 @@ const HeroNew = () => {
 
         const tl = gsap.timeline({ delay: 0.15 });
 
+        // Heading lines slide up from behind their clip masks, one after another.
         tl.to(".hero-line-inner", {
           yPercent: 0,
           duration: 0.85,
@@ -56,6 +58,7 @@ const HeroNew = () => {
           stagger: 0.12,
         });
 
+        // Copy and CTA fade up while the heading is still settling.
         tl.to(
           ".hero-fade-up",
           {
@@ -68,8 +71,8 @@ const HeroNew = () => {
           "-=0.35"
         );
 
-        // The spiral fades in alongside the copy. Only autoAlpha — its scale
-        // comes from Tailwind classes and a GSAP scale tween would clobber it.
+        // The spiral fades in alongside the copy. Only autoAlpha here: its scale
+        // comes from Tailwind classes and a GSAP scale tween would overwrite it.
         tl.from(spiralRef.current, { autoAlpha: 0, duration: 1, ease: "power2.out" }, 0);
       });
     }, rootRef);
@@ -77,18 +80,23 @@ const HeroNew = () => {
     return () => ctx.revert();
   }, []);
 
+  // Scroll animation. The hero stays pinned while the rings spin, then it hands
+  // off to the next section, revealed through a circular hole that opens up.
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
+      // `rotation` is how far the rings turn over the pinned scroll, `morphFrom`
+      // is the point in that scroll (0 to 1) where the hand-off begins. Both
+      // differ between mobile and desktop, hence the shared builder.
       const build = (rotation: number, morphFrom: number) => {
         const outerImgs = gsap.utils.toArray<HTMLElement>(".orbit-img", outerRingRef.current!);
         const innerImgs = gsap.utils.toArray<HTMLElement>(".orbit-img", innerRingRef.current!);
         const nextEl = nextRef.current!;
 
-        // Promote the real next section to a clip-revealed overlay that sits on
-        // top of the hero. It stays here as the final frame after the pin ends,
-        // so it's never shown a second time.
+        // Lift the real next section into an overlay on top of the hero, so it
+        // can be revealed in place. It stays there as the final frame after the
+        // pin ends, which means it is never shown twice.
         gsap.set(nextEl, {
           position: "absolute",
           top: 0,
@@ -98,8 +106,9 @@ const HeroNew = () => {
           zIndex: 30,
         });
 
-        // Clip origin = the centre of the middle image, so the reveal reads as
-        // that photo zooming out to fill the screen.
+        // The reveal is a circular clip on that overlay, centred on the middle
+        // photo, so it reads as that photo zooming out to fill the screen.
+        // cx/cy are its centre, maxR the radius needed to cover the far corner.
         let cx = 0;
         let cy = 0;
         let maxR = 2000;
@@ -120,30 +129,31 @@ const HeroNew = () => {
         };
         measure();
 
+        // scrub: 1 lets ScrollTrigger interpolate the playhead for us, which is
+        // what keeps the whole thing smooth instead of jumping per scroll event.
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: pinRef.current,
             start: "top top",
             end: "+=180%",
             pin: true,
-            scrub: 1, // built-in smoothing — this is what kills the jerk
+            scrub: 1,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onRefresh: measure,
           },
         });
-
-        // --- Rings: outer clockwise, inner anti-clockwise (whole scroll) ---
+        // Rings turn in opposite directions across the whole pinned scroll.
         tl.to(outerRingRef.current, { rotate: rotation, duration: 1, ease: "none" }, 0);
         tl.to(innerRingRef.current, { rotate: -rotation, duration: 1, ease: "none" }, 0);
-        // Counter-rotate each photo so faces stay upright while rings spin.
+        // Each photo turns the other way, so faces stay upright while rings spin.
         tl.to(outerImgs, { rotate: -rotation, duration: 1, ease: "none" }, 0);
         tl.to(innerImgs, { rotate: rotation, duration: 1, ease: "none" }, 0);
-
-        // Gentle zoom on the centre image up to the hand-off.
+        // Slow zoom on the centre image, up to the hand-off point.
         tl.to(centerRef.current, { scale: 1.4, duration: morphFrom, ease: "none" }, 0);
 
-        // --- Hand-off: fade the scene, clip-zoom the next section in ---
+        // Hand-off, over whatever is left of the scroll: fade the hero scene out
+        // while the circular clip opens up over the next section.
         const rest = 1 - morphFrom;
         tl.to(
           [outerRingRef.current, innerRingRef.current],
@@ -158,14 +168,12 @@ const HeroNew = () => {
           morphFrom
         );
 
-        // Clean the promoted styles if this breakpoint stops matching.
+        // Undo the promoted styles if this breakpoint stops matching.
         return () => {
           nextEl.style.clipPath = "";
         };
       };
 
-      // Only animate when motion is welcome; "reduce" gets the two sections
-      // stacked normally (no pin, no clip, no overlay).
       mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () =>
         build(150, 0.45)
       );
@@ -203,21 +211,16 @@ const HeroNew = () => {
   return (
     <div ref={rootRef} className="hero-root">
       <div ref={pinRef} className="relative overflow-hidden">
-        {/* ---------------- Hero ---------------- */}
         <div
           className="relative h-screen w-full bg-cover bg-center"
           style={{ backgroundImage: "url('/v26-images/home/hero-bg.webp')" }}
         >
-          {/* soft wash so the copy stays legible over the map */}
           <div className="pointer-events-none absolute inset-0 z-5 bg-linear-to-r from-white/85 via-white/40 to-transparent" />
 
-          {/* copy */}
           <div ref={contentRef} className="absolute inset-0 z-20 flex items-center">
             <div className="w-full max-w-7xl mx-auto">
               <div className="max-w-[40%]">
                 <h1 className="text-4xl md:text-6xl lg:text-[50px] tracking-[-5%] font-semibold leading-[67.25px] text-[#121212]">
-                  {/* pb/-mb: give the clip mask room for descenders (g, y, .)
-                      without changing the visual line spacing. */}
                   <span className="block overflow-hidden pb-[0.18em] mb-[-0.18em]">
                     <span className="hero-line-inner block">Remote Talents.</span>
                   </span>
@@ -250,28 +253,24 @@ const HeroNew = () => {
             </div>
           </div>
 
-          {/* spiral */}
           <div className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center opacity-70 md:w-[60%] md:opacity-100">
             <div
               ref={spiralRef}
               className="spiral relative scale-[0.62] md:scale-100"
               style={{ width: 600, height: 600 }}
             >
-              {/* outer ring — clockwise */}
               <div ref={outerRingRef} className="absolute inset-0 [--ring-r:245px]">
                 {OUTER.map((src, i) =>
                   orbit(src, ringAngles(OUTER.length, -90)[i], OUTER_SIZE, i)
                 )}
               </div>
 
-              {/* inner ring — anti-clockwise */}
               <div ref={innerRingRef} className="absolute inset-0 [--ring-r:138px]">
                 {INNER.map((src, i) =>
                   orbit(src, ringAngles(INNER.length, 30)[i], INNER_SIZE, i)
                 )}
               </div>
 
-              {/* centre image (11.webp) — no border; seeds the clip zoom */}
               <div
                 ref={centerRef}
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full will-change-transform"
@@ -287,16 +286,12 @@ const HeroNew = () => {
             </div>
           </div>
         </div>
-
-        {/* ---------------- Next section (the real one, revealed in place) ---------------- */}
         <section ref={nextRef} className="relative h-screen w-full overflow-hidden">
           <img
             src={CENTER_IMG}
             alt=""
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          {/* Overlay: a flat scrim for baseline contrast, plus a vertical
-              gradient that darkens the centre band where the copy sits. */}
           <div aria-hidden="true" className="absolute inset-0 bg-[#121212]/55" />
           <div
             aria-hidden="true"

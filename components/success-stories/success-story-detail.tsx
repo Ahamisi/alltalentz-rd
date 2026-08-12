@@ -4,22 +4,12 @@ import TableOfContents from '@/components/blog/TableOfContents'
 import SuccessStoryDetailHero from './success-story-detail-hero'
 import type { SanitySuccessStory } from '@/types/success-story'
 
-/**
- * Success story detail body — same reading layout as the blog post detail: a
- * sticky table-of-contents rail on lg+ beside a wide reading column, collapsing
- * to a disclosure above the body on smaller screens.
- *
- * Two things follow the body that a blog post doesn't have: the client's video
- * testimonial (when one exists) and their pull-quote, both placed after the
- * write-up so the story is read before the endorsement.
- */
 interface SuccessStoryDetailProps {
   story: SanitySuccessStory
   heroImageUrl: string
   clientLogoUrl: string | null
 }
 
-/** YouTube id out of a watch/share/embed URL; null when it isn't a YouTube link. */
 function youTubeId(url: string): string | null {
   const match = url.match(/^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/)
   return match && match[2]?.length === 11 ? match[2] : null
@@ -43,7 +33,6 @@ export default function SuccessStoryDetail({
       />
 
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16 lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:items-start lg:gap-12 xl:grid-cols-[320px_minmax(0,1fr)] xl:gap-16">
-        {/* Sticky lives on the grid item — the nav itself has no room to travel. */}
         {story.body && (
           <aside className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
             <TableOfContents body={story.body} variant="sidebar" />
@@ -74,7 +63,6 @@ export default function SuccessStoryDetail({
 
           {story.body && (
             <article className="pt-10">
-              {/* Below lg the rail is hidden, so the contents collapse in above the body. */}
               <TableOfContents body={story.body} variant="collapsible" />
               <PortableTextRenderer value={story.body} />
             </article>

@@ -5,12 +5,6 @@ import { motion } from 'framer-motion'
 import { formatDate, readingTime } from '@/components/blog/utils'
 import type { SanitySuccessStory } from '@/types/success-story'
 
-/**
- * Success story hero — the blog post hero's three bands (title field, full-bleed
- * banner, cream copy panel), with the byline reading as the client rather than an
- * author, and the editor's key results rendered as a stat row inside the cream
- * panel where the numbers land next to the context that explains them.
- */
 interface SuccessStoryDetailHeroProps {
   story: SanitySuccessStory
   heroImageUrl: string
@@ -27,7 +21,6 @@ export default function SuccessStoryDetailHero({
 
   return (
     <section>
-      {/* Title + client byline */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -71,7 +64,6 @@ export default function SuccessStoryDetailHero({
         </div>
       </motion.div>
 
-      {/* Banner */}
       <div className="relative aspect-16/10 w-full overflow-hidden sm:aspect-2/1 lg:aspect-21/9">
         <Image
           src={heroImageUrl}
@@ -83,7 +75,6 @@ export default function SuccessStoryDetailHero({
         />
       </div>
 
-      {/* Cream copy panel */}
       <div className="bg-[#FEEFDE] px-[24px] py-[40px] md:px-[40px] lg:px-[96px]">
         <h2 className="max-w-[900px] text-[26px] leading-[1.15] font-semibold tracking-[-2%] text-[#121212] sm:text-[32px] lg:text-[40px]">
           {story.title}
@@ -106,8 +97,6 @@ export default function SuccessStoryDetailHero({
           </span>
         </div>
 
-        {/* Key results. Divided columns rather than cards — the row reads as one
-            set of figures about a single engagement, not four separate tiles. */}
         {metrics.length > 0 && (
           <dl className="mt-[36px] grid grid-cols-1 gap-y-[24px] border-t border-[#F1D4AE] pt-[32px] sm:grid-cols-2 sm:gap-x-[32px] lg:flex lg:flex-wrap lg:gap-x-[64px]">
             {metrics.map((metric) => (

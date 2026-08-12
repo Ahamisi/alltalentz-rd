@@ -1,45 +1,25 @@
-/**
- * The four certifications, in one place.
- *
- * Five surfaces render this set — the home badge row, the footer link row, the
- * Outsourcing and About decks, and the "trained on" grid on Our Global Talentz —
- * and each one had its own copy of the list before this file. Content lives
- * here; the per-surface sizing hints (`scale`, `box`) live here too, because
- * they're properties of the *artwork*, not of any one layout.
- *
- * All four source files are 3600×3600 squares, so `next/image` intrinsic
- * dimensions are always `CERT_INTRINSIC`. The artwork inside each square fills
- * a different share of the canvas, which is what the sizing hints compensate
- * for.
- */
 export type CertificationId = "iso" | "soc2" | "great-place" | "hipaa";
 
 export type Certification = {
   id: CertificationId;
-  /** Short name, as shown on cards. */
   name: string;
   alt: string;
-  /** Issuing body's page, for the footer's link row. */
   href: string;
   description: string;
   src: string;
-  /**
-   * Aspect box of the artwork *inside* the square canvas — the ISO shield is
-   * square, the Great Place To Work badge is tall, HIPAA is wide. Feed this to
-   * `next/image` in layouts that let each badge keep its own shape.
-   */
+  /** Shape of the artwork inside the square file, for layouts that keep it. */
   artwork: { w: number; h: number };
   /**
-   * Optical-size multiplier for rows that size every badge to one common
-   * square: it cancels out the differing padding so the badges read at roughly
-   * the same size.
+   * Optical-size multiplier. Every badge file is a 3600x3600 square, but the
+   * artwork inside fills a different share of it, so rows that size all four to
+   * one common box use this to cancel out the padding and make them look equal.
    */
   scale: number;
   /** Rendered box, for layouts that size each badge individually. */
   box: { w: number; h: number };
 };
 
-/** Every source file is a 3600×3600 square. */
+/** Every badge file is a 3600x3600 square. */
 export const CERT_INTRINSIC = { w: 3600, h: 3600 } as const;
 
 export const CERTIFICATIONS: Certification[] = [
@@ -91,10 +71,6 @@ export const CERTIFICATIONS: Certification[] = [
 
 const BY_ID = new Map(CERTIFICATIONS.map((cert) => [cert.id, cert]));
 
-/**
- * The set in a specific order, for layouts whose grid reads better with the
- * badges rearranged (the 2×2 deck pairs the two square badges on one row).
- */
 export const certificationsInOrder = (...ids: CertificationId[]): Certification[] =>
   ids.map((id) => {
     const cert = BY_ID.get(id);

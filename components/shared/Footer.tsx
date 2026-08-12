@@ -9,10 +9,6 @@ import linkedinIcon from "@iconify-icons/mdi/linkedin";
 import facebookIcon from "@iconify-icons/mdi/facebook";
 import { CERTIFICATIONS } from "@/lib/certifications";
 
-/* -------------------------------------------------------------------------- */
-/*                                    Data                                    */
-/* -------------------------------------------------------------------------- */
-
 type FooterLink = { label: string; href: string; external?: boolean };
 
 type FooterColumn = { title: string; links: FooterLink[] };
@@ -66,15 +62,10 @@ const socials = [
 
 const certifications = CERTIFICATIONS;
 
-/* -------------------------------------------------------------------------- */
-/*                                   Footer                                   */
-/* -------------------------------------------------------------------------- */
-
 export default function Footer() {
   return (
     <footer className="bg-[#121212] text-white">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
-        {/* Top: logo + tagline + socials */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <Link href="/" aria-label="All Talentz home" className="inline-flex">
             <Image
@@ -105,7 +96,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Link columns */}
         <nav className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 lg:mt-20 max-w-[884px] mx-auto">
           {columns.map((column) => (
             <div key={column.title}>
@@ -126,7 +116,6 @@ export default function Footer() {
           ))}
         </nav>
 
-        {/* Bottom: copyright + certifications */}
         <div className="mt-16 flex flex-col gap-8 lg:mt-24 lg:flex-row lg:items-center lg:justify-between">
           <p className="text-base leading-[30px] tracking-[-6%] text-white">
             &copy; {new Date().getFullYear()} All Talentz Limited

@@ -7,54 +7,23 @@ import { useInView } from "react-intersection-observer";
 import { useState, type ReactNode } from "react";
 import { Check } from "lucide-react";
 
-/**
- * Shared "Roles We Place in <niche>" section for every talent page.
- *
- * Centred headline over a grid of photo cards: image on top, then role name and
- * a one-line description on a white panel, with a single CTA under the grid
- * pointing at the request-talent page. Everything niche-specific comes in
- * through props, so a new page is one `<RolesWePlace {...} />` call.
- *
- * Cards are selectable: clicking anywhere on a card (or its "Select role"
- * button) toggles it and shows a tick in the top-right corner. The CTA under the
- * grid carries the selection over to the Request Talent form as query params
- * (`?industry=…&roles=…`), which prefills it.
- *
- * Three cards read best (one row on desktop); four+ wrap to a second row.
- */
 export type RoleCard = {
   src: string;
   alt: string;
   title: string;
   description: string;
-  /** object-position for the crop — keeps the subject inside the card. */
   pos?: string;
-  /**
-   * Value to hand the Request Talent form when this card is selected. Defaults
-   * to `title` — set it when the form's role list words the role differently
-   * (e.g. card "Bookkeeper" → form "Bookkeepers").
-   */
   formValue?: string;
 };
 
 type RolesWePlaceProps = {
-  /** Headline, rendered in near-black. */
   title: ReactNode;
-  /** Optional second headline line, rendered in orange. */
   titleAccent?: ReactNode;
   roles: RoleCard[];
-  /** Section background — cream by default, to sit against white neighbours. */
   background?: string;
-  /** Optional extra classes for the outer section. */
   className?: string;
-  /** CTA label under the grid — e.g. "Get Healthcare Talent". */
   ctaLabel?: string;
-  /** Where the CTA points. */
   ctaHref?: string;
-  /**
-   * Industry passed to the Request Talent form with the selection. Anything the
-   * form doesn't know lands in its "Other" industry as free text.
-   */
   industry?: string;
 };
 
@@ -78,8 +47,8 @@ const RolesWePlace = ({
       prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]
     );
 
-  // Selection rides to the form on the CTA's query string; with nothing picked
-  // the link stays exactly as it was.
+  // Selected cards ride to the Request Talent form on the CTA query string,
+  // which prefills it. With nothing picked the link stays exactly as passed in.
   const href = (() => {
     if (selected.length === 0) return ctaHref;
     const params = new URLSearchParams();
@@ -129,8 +98,6 @@ const RolesWePlace = ({
                 }}
                 className="group"
               >
-                {/* The whole card is the control — the "Select role" line below
-                    is a label inside it, not a second focus stop. */}
                 <button
                   type="button"
                   onClick={() => toggle(role.title)}
@@ -141,7 +108,6 @@ const RolesWePlace = ({
                       : "ring-0"
                   }`}
                 >
-                  {/* Selection tick — top-right corner of the card. */}
                   <span
                     aria-hidden="true"
                     className={`absolute top-[16px] left-[16px] z-10 flex h-[32px] w-[32px] items-center justify-center rounded-full border-2 transition-all duration-300 ${

@@ -1,28 +1,6 @@
-/**
- * Seeds the six industry chips shown on /success-stories as
- * `successStoryCategory` documents, so the filter rail isn't empty before the
- * first story is written.
- *
- *   SANITY_WRITE_TOKEN=... npx tsx scripts/seed-success-story-categories.ts          # dry run
- *   SANITY_WRITE_TOKEN=... npx tsx scripts/seed-success-story-categories.ts --commit # actually write
- *
- * Only the taxonomy is seeded — the stories themselves are editorial and belong
- * in the studio.
- *
- * Notes:
- *  - Ids are deterministic and *dotless* (`success-story-category-tech`). Dotted
- *    ids in this dataset aren't publicly readable, and deterministic ids make the
- *    script idempotent: re-running updates the same documents rather than
- *    creating duplicates.
- *  - `createOrReplace` means a re-run resets a seeded category to this file, so
- *    rename industries here rather than in the studio.
- *  - Nothing is deleted. Removing an entry below leaves the document in place;
- *    delete those in the studio.
- */
 import { readFileSync } from "node:fs";
 import { createClient } from "@sanity/client";
 
-// Minimal .env.local reader so the script works without adding a dotenv dep.
 function loadEnvFile(path: string) {
   let contents: string;
   try {
@@ -62,7 +40,6 @@ const client = createClient({
   useCdn: false,
 });
 
-/** Order here is the order of the chips on the page. */
 const CATEGORIES = [
   { title: "Tech", slug: "tech" },
   { title: "Healthcare", slug: "healthcare" },

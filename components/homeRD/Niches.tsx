@@ -50,7 +50,6 @@ const Card = ({
       style={{ backgroundColor: item.tint ?? "#FBF4E1" }}
     >
       <div className="mx-auto flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:justify-center sm:gap-14 sm:text-left">
-        {/* Illustration */}
         <div
           ref={iconRef}
           className="relative shrink-0 h-40 w-40 sm:h-64 sm:w-64 lg:h-72 lg:w-72 will-change-transform"
@@ -68,7 +67,6 @@ const Card = ({
           )}
         </div>
 
-        {/* Copy */}
         <div className="max-w-xl">
           <h3 className="text-3xl lg:text-[66.71px] font-medium tracking-[-5%] leading-[103.17px] text-neutral-900">
             {item.title}
@@ -79,12 +77,6 @@ const Card = ({
             </p>
           )}
 
-          {/*
-            Revealed on hover of the card (`group`) on desktop; on touch layouts
-            there is no hover, so the button is simply always visible. It stays
-            in the flow either way — animating opacity/translate only — so the
-            card's height never changes and the stacked deck stays concentric.
-          */}
           <button
             type="button"
             onClick={() => onExplore(item.path)}
@@ -100,8 +92,6 @@ const Card = ({
   );
 };
 
-// `title`/`subtitle` are accepted for backwards compatibility with existing
-// call sites, but the redesigned deck no longer renders a section heading.
 const NicheSection = ({}: {
   title?: string;
   subtitle?: string;
@@ -118,7 +108,6 @@ const NicheSection = ({}: {
 
   const n = niches.length;
 
-  // Decide layout mode once mounted (avoids SSR/hydration mismatch).
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
     const update = () => setIsDesktop(mq.matches);
@@ -139,19 +128,19 @@ const NicheSection = ({}: {
     if (!cards.length) return;
 
     const ctx = gsap.context(() => {
-      // Depth-based layout for the deck. `active` is the fractional index of
-      // the front-most card; every card is placed continuously relative to it,
-      // so there are no jumps as the scrubbed value sweeps through.
-      const MAX_BEHIND = 3; // how many stacked cards peek behind the front one
+      // How many cards stay visible behind the front one.
+      const MAX_BEHIND = 3;
 
+      // Positions every card from one number: `active` is the fractional index
+      // of the front card (2.4 = card 2 is 40% of the way out). Called on every
+      // scroll frame, so the deck moves continuously instead of snapping.
       const render = (active: number) => {
-        // Only the front-most card takes pointer input: the leaving card sits
-        // *above* the deck while it fades, and the stacked ones sit behind it,
-        // so without this the hover/click would land on the wrong card.
         const front = Math.round(active);
 
         cards.forEach((el, i) => {
-          const d = i - active; // <0 = leaving, 0 = front, >0 = waiting behind
+          // Distance from the front. Negative = already leaving, 0 = front,
+          // positive = still waiting in the stack.
+          const d = i - active;
           let yPercent: number;
           let scale: number;
           let opacity: number;
@@ -159,16 +148,19 @@ const NicheSection = ({}: {
           let zIndex: number;
 
           if (d < 0) {
-            // Front card exiting: eases down + forward and fades out.
+            // Leaving: slide down, grow slightly, tilt and fade out.
+            // t goes 0 -> 1 as it exits; e is t eased with a smoothstep curve.
             const t = Math.min(-d, 1);
-            const e = t * t * (3 - 2 * t); // smoothstep
+            const e = t * t * (3 - 2 * t);
             yPercent = e * 70;
             scale = 1 + e * 0.05;
             rotation = e * -3;
             opacity = 1 - e;
-            zIndex = 400 - i; // stays on top while it slides away
+            zIndex = 400 - i;
           } else {
-            // Cards resting in the stack, peeking above the front one.
+            // Waiting: each card sits a little higher and smaller than the one
+            // in front, which is what gives the stack its depth. Cards further
+            // back than MAX_BEHIND fade away.
             const dd = Math.min(d, MAX_BEHIND);
             yPercent = -dd * 5.5;
             scale = 1 - dd * 0.05;
@@ -183,11 +175,13 @@ const NicheSection = ({}: {
             rotation,
             opacity,
             zIndex,
+            // Only the front card takes clicks. The leaving card sits above the
+            // deck while it fades, so without this a click could hit that one.
             pointerEvents: i === front ? "auto" : "none",
           });
         });
 
-        // Side progress rail.
+        // Highlight the rail dot for whichever card is at the front.
         const current = front;
         progressRef.current.forEach((dot, i) => {
           if (!dot) return;
@@ -198,8 +192,8 @@ const NicheSection = ({}: {
         });
       };
 
-      // Continuous, ambient float for every illustration — independent of the
-      // scroll so the icons always feel alive.
+      // Each illustration floats up and down forever. Durations differ per icon
+      // so they never bob in unison.
       if (!reduce) {
         icons.forEach((icon, i) => {
           gsap.to(icon, {
@@ -213,15 +207,15 @@ const NicheSection = ({}: {
         });
       }
 
+      // Reduced motion: show the first card and skip the pin entirely.
       if (reduce) {
-        // Reduced motion: no pin/scrub — just lay the cards out readably.
         render(0);
         return;
       }
 
-      // Drive `proxy.p` from 0 → 1 across the pinned scroll distance. Using a
-      // scrubbed tween (not raw scroll) means ScrollTrigger interpolates the
-      // playhead for us — the source of the smoothness.
+      // Scroll drives `proxy.p` from 0 to 1, and that maps onto card 0 -> last.
+      // Animating a plain object (rather than reading scroll directly) lets
+      // ScrollTrigger's scrub smooth the value for us.
       const proxy = { p: 0 };
       render(0);
 
@@ -231,8 +225,7 @@ const NicheSection = ({}: {
         onUpdate: () => render(proxy.p * (n - 1)),
         scrollTrigger: {
           trigger: pinRef.current,
-          // Lock the deck the moment its centre reaches the viewport centre,
-          // so it sits dead-centre on screen — never a half-empty viewport.
+          // Pin once the deck is centred, and hold it for ~35vh per card.
           start: "center center",
           end: () => `+=${window.innerHeight * (n - 1) * 0.35}`,
           pin: pinRef.current,
@@ -244,7 +237,8 @@ const NicheSection = ({}: {
       });
     }, sectionRef);
 
-    // Fonts/images settling can shift measurements — recalc once ready.
+    // Fonts and images settling change the measurements, so recalculate once
+    // the page has finished loading.
     const refresh = () => ScrollTrigger.refresh();
     const t = setTimeout(refresh, 300);
     window.addEventListener("load", refresh);
@@ -256,7 +250,6 @@ const NicheSection = ({}: {
     };
   }, [isDesktop, n]);
 
-  /* ----------------------------- Mobile / list ---------------------------- */
   if (!isDesktop) {
     return (
       <section className="relative bg-white py-20">
@@ -271,14 +264,12 @@ const NicheSection = ({}: {
     );
   }
 
-  /* ----------------------------- Desktop / deck --------------------------- */
   return (
     <section ref={sectionRef} className="relative bg-white">
       <div
         ref={pinRef}
         className="relative flex h-svh min-h-140 w-full flex-col items-center justify-center"
       >
-        {/* Deck */}
         <div className="relative z-10 flex w-full items-center justify-center px-4">
           <div className="relative h-[470px] max-h-full w-full max-w-[1161px]">
             {niches.map((item, i) => (
@@ -303,7 +294,6 @@ const NicheSection = ({}: {
           </div>
         </div>
 
-        {/* Progress rail */}
         <div className="absolute right-8 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-3">
           {niches.map((_, i) => (
             <span
@@ -311,9 +301,6 @@ const NicheSection = ({}: {
               ref={(el) => {
                 progressRef.current[i] = el;
               }}
-              // Explicit hex, not `bg-secondary`: the theme's `--color-secondary`
-              // is re-declared as near-white further down globals.css, so the
-              // utility renders invisible against the white section.
               className="block h-8 w-1 origin-center rounded-full bg-[#F99621]"
             />
           ))}

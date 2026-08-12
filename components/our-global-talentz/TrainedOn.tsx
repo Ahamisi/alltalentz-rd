@@ -4,21 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { certificationsInOrder } from "@/lib/certifications";
 
-/**
- * "What All Talentz professionals are trained on" — a 2x2 deck of certification
- * cards beside the heading.
- *
- * The two square badges share the top row and the two odd-shaped ones the
- * bottom, which is why this deck reorders the set rather than taking it as-is.
- */
 const CERTS = certificationsInOrder("iso", "soc2", "hipaa", "great-place");
 
-/**
- * Card surface + 0.93px gradient border in one background shorthand: the fill
- * layers are clipped to padding-box and the border gradient to border-box, so
- * the gradient shows only through the transparent border ring. `border-image`
- * can't do this — it doesn't follow `border-radius`.
- */
 const CARD_STYLE = {
   border: "0.93px solid transparent",
   backgroundImage: [
@@ -37,7 +24,6 @@ const TrainedOn = () => {
     <section className="bg-white px-[24px] py-[70px] md:px-[40px] md:py-[100px]">
       <div className="container mx-auto max-w-(--breakpoint-xl)">
         <div className="grid items-center gap-[40px] lg:grid-cols-2 lg:gap-[80px]">
-          {/* Cards */}
           <div className="order-2 grid grid-cols-2 gap-[16px] md:gap-[24px] lg:order-1">
             {CERTS.map((cert, i) => (
               <motion.div
@@ -49,8 +35,6 @@ const TrainedOn = () => {
                 style={CARD_STYLE}
                 className="flex flex-col p-[20px] md:p-[28px]"
               >
-                {/* Fixed-height well so badges of differing aspect ratios all
-                    sit on the same baseline across the grid. */}
                 <div className="flex h-[120px] items-center justify-center md:h-[150px]">
                   <Image
                     src={cert.src}
@@ -71,7 +55,6 @@ const TrainedOn = () => {
             ))}
           </div>
 
-          {/* Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}

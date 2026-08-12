@@ -1,13 +1,5 @@
 import { defineField, defineType } from 'sanity'
 
-/**
- * A client success story — the cards on /success-stories and the long-form
- * write-up at /success-stories/[slug].
- *
- * `title` carries the headline result ("68% reduction in billing costs") and
- * `excerpt` the one-line context underneath it, which is exactly how the card
- * is laid out, so editors write the card by filling in those two fields.
- */
 export default defineType({
   name: 'successStory',
   title: 'Success Story',

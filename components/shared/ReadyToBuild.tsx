@@ -5,16 +5,6 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 
-/**
- * "Ready to build your remote team?" — a two-column CTA: copy + dual buttons on
- * the left, a photo card (with an orange top accent) on the right, all set on a
- * warm cream field scattered with hand-drawn doodles.
- *
- * The doodle SVGs (public/v26-images/ready-to-build/*.svg) are *filled*
- * shapes, not stroked outlines, so a self-drawing reveal isn't possible. Each is
- * treated as a whole unit: a staggered pop-in on scroll, then a de-synchronised
- * float/wobble loop — same approach as CallToAction / OnePartner.
- */
 type CtaButton = {
   text: string;
   url: string;
@@ -27,7 +17,6 @@ type ReadyToBuildProps = {
   primary?: CtaButton;
   secondary?: CtaButton;
   image?: { src: string; alt: string; width: number; height: number };
-  /** Optional extra classes for the outer section. */
   className?: string;
 };
 
@@ -43,7 +32,6 @@ type Doodle = {
 
 const BASE_PATH = "/v26-images/ready-to-build/";
 
-// left/top are percentages of the section; each doodle is centred on its point.
 const DOODLES: Doodle[] = [
   { src: "1.svg", w: 34, h: 32, left: "66%", top: "9%", twinkle: true },
   { src: "2.svg", w: 44, h: 42, left: "43%", top: "20%", twinkle: true },
@@ -87,8 +75,8 @@ const ReadyToBuild = ({
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Hide doodles + content before first paint so the entrance always plays from
-  // scratch (no flash of fully-visible content while scrolling into view).
+  // Hide the content and doodles before the first paint, so the entrance below
+  // always plays from the start instead of popping in half-finished.
   useLayoutEffect(() => {
     if (prefersReduced) return;
     const el = rootRef.current;
@@ -106,7 +94,7 @@ const ReadyToBuild = ({
     if (!el) return;
 
     const ctx = gsap.context(() => {
-      // Copy + image rise + fade in.
+      // Copy and photo rise and fade in when the section scrolls into view.
       gsap.to(".rtb-reveal", {
         autoAlpha: 1,
         y: 0,
@@ -116,7 +104,7 @@ const ReadyToBuild = ({
         delay: 0.1,
       });
 
-      // Doodles: staggered pop-in with a little overshoot.
+      // Doodles pop in at the same time, in random order, with an overshoot.
       gsap.to(".rtb-doodle-enter", {
         autoAlpha: 1,
         scale: 1,
@@ -126,7 +114,7 @@ const ReadyToBuild = ({
         stagger: { each: 0.09, from: "random" },
       });
 
-      // Idle float + wobble — de-synchronised so it never looks mechanical.
+      // Then they drift forever on random durations, so they never move in sync.
       gsap.utils.toArray<HTMLElement>(".rtb-doodle-float").forEach((node) => {
         gsap.to(node, {
           y: gsap.utils.random(-10, -6),
@@ -139,7 +127,7 @@ const ReadyToBuild = ({
         });
       });
 
-      // Extra twinkle for the sparkly doodles.
+      // The star-shaped doodles also pulse in size and opacity.
       gsap.utils.toArray<HTMLElement>(".rtb-doodle-twinkle").forEach((node) => {
         gsap.to(node, {
           scale: gsap.utils.random(0.82, 0.9),
@@ -166,7 +154,6 @@ const ReadyToBuild = ({
       ref={setRefs}
       className={`relative overflow-hidden bg-[#FBF3E3] px-[24px] md:px-[40px] py-[120px] md:py-[150px] ${className}`}
     >
-      {/* Decorative doodles */}
       {DOODLES.map((doodle) => (
         <div
           key={doodle.src}
@@ -193,7 +180,6 @@ const ReadyToBuild = ({
 
       <div className="container relative z-10 mx-auto max-w-(--breakpoint-xl)">
         <div className="grid grid-cols-1 items-center gap-[48px] md:grid-cols-2 md:gap-[64px]">
-          {/* Copy + buttons */}
           <div className="rtb-reveal">
             <h2 className="text-[40px] leading-[1.05] tracking-[-5%] lg:text-[50px] lg:leading-[67.25px] font-medium text-[#121212]">
               {title}
@@ -222,7 +208,6 @@ const ReadyToBuild = ({
             </div>
           </div>
 
-          {/* Photo card with orange top accent */}
           <div className="rtb-reveal">
             <div className="overflow-hidden">
               <Image

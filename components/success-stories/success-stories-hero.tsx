@@ -4,18 +4,9 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 
-/**
- * "Real business, Real result." — Success Stories hero.
- *
- * Centred copy over a cream field, with a row of four square client photos
- * underneath — the two outer cards are tilted outwards and lifted, the two
- * inner ones sit flat and slightly lower, so the row reads as a hand-laid
- * stack rather than a grid. No doodles here — the photos carry the section.
- */
 type Photo = {
   src: string;
   alt: string;
-  /** Tilt + vertical offset that give the row its hand-laid look. */
   className: string;
 };
 
@@ -53,8 +44,8 @@ const SuccessStoriesHero = () => {
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Hide the copy + photos before first paint so the entrance always plays from
-  // scratch.
+  // Hide the copy and photos before the first paint, so the entrance below
+  // always plays from the start instead of popping in half-finished.
   useLayoutEffect(() => {
     if (prefersReduced) return;
     if (!rootRef.current) return;
@@ -71,9 +62,10 @@ const SuccessStoriesHero = () => {
     if (!rootRef.current) return;
 
     const ctx = gsap.context(() => {
+      // One entrance timeline, played when the hero scrolls into view.
       const tl = gsap.timeline();
 
-      // Each heading line rises up from behind its clip mask, staggered.
+      // Heading lines slide up from behind their clip masks, one after another.
       tl.to(".ss-line-inner", {
         yPercent: 0,
         duration: 0.85,
@@ -81,13 +73,14 @@ const SuccessStoriesHero = () => {
         stagger: 0.12,
       });
 
+      // Paragraph fades up while the heading is still settling.
       tl.to(
         ".ss-hero-para",
         { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" },
         "-=0.35"
       );
 
-      // Photos rise in left-to-right, just behind the copy.
+      // Photos rise in left to right, just behind the copy.
       tl.to(
         ".ss-hero-photo",
         {
@@ -115,11 +108,8 @@ const SuccessStoriesHero = () => {
       className="relative overflow-hidden bg-[#FEF5E9] px-[24px] pt-[80px] pb-0 md:px-[40px] md:pt-[120px]"
     >
       <div className="container relative z-10 mx-auto max-w-(--breakpoint-xl)">
-        {/* Copy */}
         <div className="mx-auto max-w-[820px] text-center">
           <h1 className="text-[36px] leading-[1.1] tracking-[-3%] font-semibold text-[#121212] sm:text-[48px] lg:text-[60px]">
-            {/* pb/-mb: give the clip mask room for descenders without changing
-                the visual line spacing. */}
             <span className="block overflow-hidden pb-[0.18em] -mb-[0.18em]">
               <span className="ss-line-inner block">
                 Real business, <span className="text-[#F99621]">Real result.</span>
@@ -133,9 +123,6 @@ const SuccessStoriesHero = () => {
           </p>
         </div>
 
-        {/* Photo row — fanned out on desktop, a plain 2-up grid on mobile.
-            items-start keeps the two flat cards anchored while the outer two
-            lift out of the row. */}
         <div className="mt-[64px] grid grid-cols-2 gap-[16px] pb-[80px] md:mt-[112px] md:flex md:items-start md:justify-center md:gap-[48px] md:pb-[120px]">
           {PHOTOS.map((photo) => (
             <div

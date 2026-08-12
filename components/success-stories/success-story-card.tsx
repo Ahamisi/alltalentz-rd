@@ -7,17 +7,6 @@ import { blogImageUrl } from '@/lib/sanity/image'
 import { readingTime } from '@/components/blog/utils'
 import type { SanitySuccessStory } from '@/types/success-story'
 
-/**
- * Success story card — the inverse of BlogCard: copy on top of a white field,
- * photo anchored to the bottom edge, the whole thing ringed in the brand amber.
- *
- * The copy block is the flex-grower, so titles of one, two or three lines all
- * leave the "Read story…" row and the photo aligned across a row of cards; the
- * photo keeps a fixed aspect and bleeds into the card's bottom corners.
- *
- * One link wraps the card, and the footer "Read story…" is a visual affordance
- * inside it rather than a second tab stop — one keyboard target per card.
- */
 interface SuccessStoryCardProps {
   story: SanitySuccessStory
   index?: number
@@ -40,7 +29,6 @@ export default function SuccessStoryCard({ story, index = 0 }: SuccessStoryCardP
         href={`/success-stories/${story.slug}`}
         className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#F99621] bg-white transition-shadow duration-300 hover:shadow-[0_18px_40px_rgba(249,150,33,0.18)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F99621]"
       >
-        {/* Copy — grows so the footer row and photo line up across the row. */}
         <div className="flex flex-1 flex-col px-[28px] pt-[32px] pb-[24px]">
           <h3 className="text-[26px] leading-[1.15] font-semibold tracking-[-2%] text-[#121212] transition-colors duration-200 group-hover:text-[#F99621] md:text-[30px]">
             {story.title}
@@ -62,7 +50,6 @@ export default function SuccessStoryCard({ story, index = 0 }: SuccessStoryCardP
           </div>
         </div>
 
-        {/* Photo, bleeding into the card's bottom corners. */}
         <div className="relative aspect-4/3 w-full overflow-hidden">
           <Image
             src={imageUrl}

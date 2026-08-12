@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CERTIFICATIONS, CERT_INTRINSIC } from "@/lib/certifications";
 
-// Every badge is sized to one common square here, so each one's `scale` is what
-// cancels out the differing padding inside its canvas.
 const certs = CERTIFICATIONS;
 
 const containerVariants = {
@@ -48,6 +46,8 @@ const Certifications = () => {
             <motion.div
               key={cert.src}
               className="relative mx-auto flex max-w-full items-center justify-center"
+              // Every badge is sized off one --cert-size, and each one's `scale`
+              // cancels out the differing padding inside its own file.
               style={{
                 width: `calc(var(--cert-size) * ${cert.scale})`,
                 height: `calc(var(--cert-size) * ${cert.scale})`,
