@@ -20,28 +20,6 @@ import { homepageFAQs } from "@/lib/homepage-faqs";
 import { homepageTestimonials } from "@/lib/homepage-testimonials";
 
 export default function Home() {
-  // const clientVideos = [
-  //   {
-  //     id: 1,
-  //     videoUrl: "https://youtu.be/p5F-iGADZRI",
-  //   },
-  //   {
-  //     id: 2,
-  //     videoUrl: "https://youtu.be/ze9eSdRedt0",
-  //   },
-  //   {
-  //     id: 3,
-  //     videoUrl: "https://youtu.be/NeVJwPh3GZ0",
-  //   },
-  //   {
-  //     id: 4,
-  //     videoUrl: "https://youtu.be/aN_0I5tN5Eo",
-  //   },
-  //   {
-  //     id: 5,
-  //     videoUrl: "https://youtu.be/_Vx_xNe4TdA",
-  //   },
-  // ];
 
   return (
     <>

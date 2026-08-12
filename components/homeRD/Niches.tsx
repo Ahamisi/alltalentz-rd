@@ -46,7 +46,7 @@ const Card = ({
   return (
     <div
       ref={cardRef}
-      className="niche-card group flex w-full max-w-[1161px] items-center rounded-[32px] px-6 py-8 sm:min-h-[422px] sm:px-16 sm:py-14 ring-1 ring-black/5"
+      className="niche-card group flex w-full max-w-[1161px] items-center rounded-[32px] px-6 py-8 sm:min-h-[422px] sm:px-16 sm:py-14 md:h-full md:min-h-0 ring-1 ring-black/5"
       style={{ backgroundColor: item.tint ?? "#FBF4E1" }}
     >
       <div className="mx-auto flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:justify-center sm:gap-14 sm:text-left">
@@ -70,7 +70,7 @@ const Card = ({
 
         {/* Copy */}
         <div className="max-w-xl">
-          <h3 className="text-3xl lg:text-[76.71px] font-medium tracking-[-5%] leading-[103.17px] text-neutral-900">
+          <h3 className="text-3xl lg:text-[66.71px] font-medium tracking-[-5%] leading-[103.17px] text-neutral-900">
             {item.title}
           </h3>
           {item.tags && (
@@ -79,14 +79,21 @@ const Card = ({
             </p>
           )}
 
-          {/* <button
+          {/*
+            Revealed on hover of the card (`group`) on desktop; on touch layouts
+            there is no hover, so the button is simply always visible. It stays
+            in the flow either way — animating opacity/translate only — so the
+            card's height never changes and the stacked deck stays concentric.
+          */}
+          <button
             type="button"
             onClick={() => onExplore(item.path)}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-secondary px-7 py-3 text-sm font-semibold text-neutral-900 transition-all duration-300 hover:gap-3 hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/40"
+            aria-label={`Explore ${item.title}`}
+            className="mt-6 inline-flex items-center gap-2 bg-[#F99621] px-10 py-3 text-base font-semibold text-[#121212] transition-all duration-300 hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/40 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:focus-visible:translate-y-0 md:focus-visible:opacity-100"
           >
             Explore
             <ArrowIcon className="h-4 w-4" />
-          </button> */}
+          </button>
         </div>
       </div>
     </div>
@@ -138,6 +145,11 @@ const NicheSection = ({}: {
       const MAX_BEHIND = 3; // how many stacked cards peek behind the front one
 
       const render = (active: number) => {
+        // Only the front-most card takes pointer input: the leaving card sits
+        // *above* the deck while it fades, and the stacked ones sit behind it,
+        // so without this the hover/click would land on the wrong card.
+        const front = Math.round(active);
+
         cards.forEach((el, i) => {
           const d = i - active; // <0 = leaving, 0 = front, >0 = waiting behind
           let yPercent: number;
@@ -165,11 +177,18 @@ const NicheSection = ({}: {
             zIndex = 300 - Math.round(dd * 10);
           }
 
-          gsap.set(el, { yPercent, scale, rotation, opacity, zIndex });
+          gsap.set(el, {
+            yPercent,
+            scale,
+            rotation,
+            opacity,
+            zIndex,
+            pointerEvents: i === front ? "auto" : "none",
+          });
         });
 
         // Side progress rail.
-        const current = Math.round(active);
+        const current = front;
         progressRef.current.forEach((dot, i) => {
           if (!dot) return;
           gsap.set(dot, {
@@ -261,7 +280,7 @@ const NicheSection = ({}: {
       >
         {/* Deck */}
         <div className="relative z-10 flex w-full items-center justify-center px-4">
-          <div className="relative h-[422px] w-full max-w-[1161px]">
+          <div className="relative h-[470px] max-h-full w-full max-w-[1161px]">
             {niches.map((item, i) => (
               <div
                 key={i}

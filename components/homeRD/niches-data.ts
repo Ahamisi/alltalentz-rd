@@ -40,7 +40,7 @@ export const niches: NicheItemProp[] = [
     tags: "Bookkeepers · AR/AP Specialists · Financial Analysts",
     icon: "/v26-images/talentz/finance.png",
     tint: "#FDDEBA",
-    path: "/hire-remediation-talents",
+    path: "/hire-finance-talents",
   },
   {
     title: "Construction & Restoration",
@@ -60,7 +60,7 @@ export const niches: NicheItemProp[] = [
     tags: "Paralegals · Legal Virtual Assistants · Transcriptionists",
     icon: "/v26-images/talentz/legal.png",
     tint: "#FEEFDE",
-    path: "/hire-remediation-talents",
+    path: "/hire-legal-talents",
   },
   {
     title: "Pest Control",

@@ -212,6 +212,11 @@ const TalentNiches = () => {
       const MAX_BEHIND = 3; // how many stacked cards peek behind the front one
 
       const render = (activeVal: number) => {
+        // Only the front-most card takes pointer input: the leaving card sits
+        // *above* the deck while it fades and the stacked ones sit behind it,
+        // so without this an Explore click could land on the wrong card.
+        const front = Math.round(activeVal);
+
         cards.forEach((el, i) => {
           const d = i - activeVal; // <0 = leaving, 0 = front, >0 = waiting behind
           let yPercent: number;
@@ -248,16 +253,22 @@ const TalentNiches = () => {
             zIndex = 300 - Math.round(dd * 10);
           }
 
-          gsap.set(el, { yPercent, scale, rotation, opacity, zIndex });
+          gsap.set(el, {
+            yPercent,
+            scale,
+            rotation,
+            opacity,
+            zIndex,
+            pointerEvents: i === front ? "auto" : "none",
+          });
         });
 
         // Keep the tab bar in sync with the front-most card. The leaving card
         // owns the front of the deck until it has mostly cleared it, so the
         // highlight flips at the halfway point.
-        const current = Math.round(activeVal);
-        if (current !== activeRef.current) {
-          activeRef.current = current;
-          setActive(current);
+        if (front !== activeRef.current) {
+          activeRef.current = front;
+          setActive(front);
         }
       };
 
