@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import StarTrail from "./StarTrail";
+import Reveal from "@/components/shared/Reveal";
 
 const OurClients = () => {
   const logos = [
@@ -26,9 +27,12 @@ const OurClients = () => {
             className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[140px] lg:w-[181.9px] h-auto pointer-events-none select-none"
           /> */}
 
-          <h2 className="text-3xl md:text-5xl xl:text-[48px] font-medium text-center text-black leading-[67.25px] tracking-[-5%] max-w-[532px] text-[#121212]">
+          <Reveal
+            as="h2"
+            className="text-3xl md:text-5xl xl:text-[48px] font-medium text-center text-black leading-[67.25px] tracking-[-5%] max-w-[532px] text-[#121212]"
+          >
             Trusted by businesses across the United States
-          </h2>
+          </Reveal>
 
           {/* <StarTrail
             side="right"

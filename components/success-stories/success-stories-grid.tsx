@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import BlogPagination from '@/components/blog/BlogPagination'
 import SuccessStoryCard from './success-story-card'
+import Reveal from '@/components/shared/Reveal'
 import type { SanitySuccessStory, SuccessStoryCategory } from '@/types/success-story'
 
 interface SuccessStoriesGridProps {
@@ -30,9 +31,12 @@ export default function SuccessStoriesGrid({
     <section className="bg-white px-[24px] py-[56px] md:px-[40px] md:py-[80px]">
       <div className="container mx-auto max-w-(--breakpoint-xl)">
         {heading && (
-          <h2 className="mb-[40px] text-[24px] font-semibold tracking-[-2%] text-[#121212] md:text-[30px]">
+          <Reveal
+            as="h2"
+            className="mb-[40px] text-[24px] font-semibold tracking-[-2%] text-[#121212] md:text-[30px]"
+          >
             {heading}
-          </h2>
+          </Reveal>
         )}
 
         {stories.length > 0 ? (

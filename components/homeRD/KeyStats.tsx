@@ -4,6 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import GradientStar from "./GradientStar";
 import CountUp from "./CountUp";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 type Stat = {
   value: string;
@@ -18,7 +19,7 @@ const stats: Stat[] = [
 ];
 
 const KeyStats = () => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
   const controls = useAnimation();
 
   useEffect(() => {

@@ -3,9 +3,10 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React, { useEffect } from "react";
 import Image from "next/image";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 const ValueProp = () => {
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
   const controls = useAnimation();
 
   useEffect(() => {

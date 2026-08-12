@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 import TalentBubbles from "./TalentBubbles";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 /**
  * "Find the right talent for your industry." hero.
@@ -12,10 +13,7 @@ import TalentBubbles from "./TalentBubbles";
  */
 const HireTalentzHero = () => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

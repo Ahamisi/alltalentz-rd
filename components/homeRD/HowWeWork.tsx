@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 const steps = [
   {
@@ -26,7 +27,7 @@ const steps = [
 ];
 
 const HowWeWork = () => {
-  const { ref, inView } = useInView({ triggerOnce: true });
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
   const controls = useAnimation();
 
   useEffect(() => {

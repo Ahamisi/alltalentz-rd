@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import type { SanityPost, SanityCategory } from '@/types/blog'
 import BlogCard from './BlogCard'
 import BlogPagination from './BlogPagination'
+import Reveal from '@/components/shared/Reveal'
 
 interface BlogGridProps {
   posts: SanityPost[]
@@ -32,7 +33,9 @@ export default function BlogGrid({
         <div className="mb-10">
           {/* Search + category filters now live in BlogToolbar, directly under
               the hero; this heading just reflects whatever they resolved to. */}
-          <h2 className="text-2xl md:text-3xl font-bold text-[#121212]">{heading}</h2>
+          <Reveal as="h2" className="text-2xl md:text-3xl font-bold text-[#121212]">
+            {heading}
+          </Reveal>
         </div>
 
         {posts.length > 0 ? (

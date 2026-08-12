@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { animate, motion, useInView } from "framer-motion";
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 /**
  * "How to apply" — four numbered steps inside a curved cream band.
@@ -104,13 +105,11 @@ const StepNumber = ({ target, active, delay = 0 }: { target: number; active: boo
   );
 };
 
-const VIEWPORT = { once: true, amount: 0.15 } as const;
-
 const HowToApply = () => {
   const gridRef = useRef<HTMLDivElement>(null);
   // Drives the counters — the numbers should start together with the cards, not
   // on mount, or they finish counting before anyone sees them.
-  const inView = useInView(gridRef, VIEWPORT);
+  const inView = useInView(gridRef, REVEAL_VIEWPORT);
 
   return (
     <section className="relative bg-white">
@@ -123,7 +122,7 @@ const HowToApply = () => {
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={VIEWPORT}
+              viewport={REVEAL_VIEWPORT}
               transition={{ duration: 0.5 }}
               className="text-center text-3xl font-semibold tracking-[-5%] text-[#121212] md:text-[55px] md:leading-[64px] lg:text-[60px] lg:leading-[67.25px]"
             >
@@ -140,7 +139,7 @@ const HowToApply = () => {
                   key={step.title}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={VIEWPORT}
+                  viewport={REVEAL_VIEWPORT}
                   transition={{ duration: 0.5, delay: 0.15 + i * 0.12 }}
                   className="flex aspect-square flex-col items-center justify-center gap-[18px] px-[20px] py-[32px] text-center"
                   style={{ background: step.background }}

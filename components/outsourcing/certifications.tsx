@@ -4,6 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 import { CERTIFICATIONS } from "@/lib/certifications";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 const CARD_STYLE = {
   backgroundImage:
@@ -16,10 +17,7 @@ const CARD_STYLE = {
 
 const Certifications = () => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.15,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

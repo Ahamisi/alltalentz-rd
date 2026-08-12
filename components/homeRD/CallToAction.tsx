@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 type CallToActionProps = {
   /**
@@ -68,23 +69,21 @@ const CallToAction = ({
   buttonClassName = "",
 }: CallToActionProps) => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.25,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Hide doodles before first paint so the entrance always plays from scratch
-  // (no flash of fully-visible doodles while scrolling into view).
+  // Hide doodles + copy before first paint so the entrance always plays from
+  // scratch (no flash of fully-visible content while scrolling into view).
   useLayoutEffect(() => {
     if (prefersReduced) return;
     const el = rootRef.current;
     if (!el) return;
     const ctx = gsap.context(() => {
       gsap.set(".cta-doodle-enter", { autoAlpha: 0, scale: 0.4 });
+      gsap.set(".cta-reveal", { autoAlpha: 0, y: 24 });
     }, rootRef);
     return () => ctx.revert();
   }, [prefersReduced]);
@@ -96,6 +95,15 @@ const CallToAction = ({
     if (!el) return;
 
     const ctx = gsap.context(() => {
+      // Heading then button, rising into place.
+      gsap.to(".cta-reveal", {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+        stagger: 0.12,
+      });
+
       // Entrance: staggered pop-in with a little overshoot + random settle.
       gsap.to(".cta-doodle-enter", {
         autoAlpha: 1,
@@ -177,7 +185,7 @@ const CallToAction = ({
       >
         {heading && (
           <h2
-            className={`mb-8 max-w-3xl xl:max-w-[829px] text-3xl lg:text-[48px] lg:leading-[67.25px] font-medium leading-tight text-[#121212] md:text-5xl tracking-[-5%] ${headingClassName}`}
+            className={`cta-reveal mb-8 max-w-3xl xl:max-w-[829px] text-3xl lg:text-[48px] lg:leading-[67.25px] font-medium leading-tight text-[#121212] md:text-5xl tracking-[-5%] ${headingClassName}`}
           >
             {heading}
           </h2>
@@ -186,7 +194,7 @@ const CallToAction = ({
           href={url}
           target={openNewTab ? "_blank" : undefined}
           rel={openNewTab ? "noopener noreferrer" : undefined}
-          className={`inline-flex items-center justify-center bg-[#F99621] text-[#121212] px-[40px] py-[15px] font-medium transition-transform duration-300 hover:scale-105 hover:bg-[#e8871a] ${buttonClassName}`}
+          className={`cta-reveal inline-flex items-center justify-center bg-[#F99621] text-[#121212] px-[40px] py-[15px] font-medium transition-transform duration-300 hover:scale-105 hover:bg-[#e8871a] ${buttonClassName}`}
         >
           {text}
         </Link>

@@ -6,6 +6,7 @@ import type { SanityFaqCategory } from "@/types/faq";
 import FaqAccordionItem from "./FaqAccordionItem";
 import FaqCategoryNav from "./FaqCategoryNav";
 import FaqSupportCard from "./FaqSupportCard";
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 /**
  * The /faq body: a pinned search + category rail on the left, the grouped
@@ -311,7 +312,7 @@ export default function FaqExplorer({ categories }: FaqExplorerProps) {
                   id={`${sectionId(category.slug)}-label`}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.6 }}
+                  viewport={REVEAL_VIEWPORT}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="inline-flex rounded-full bg-[#E7E7E7] px-[20px] py-[9px] text-[16px] font-medium text-[#121212] md:text-[18px]"
                 >
@@ -324,7 +325,7 @@ export default function FaqExplorer({ categories }: FaqExplorerProps) {
                       key={faq._id}
                       initial={{ opacity: 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.25 }}
+                      viewport={REVEAL_VIEWPORT}
                       transition={{
                         duration: 0.5,
                         ease: [0.22, 1, 0.36, 1],

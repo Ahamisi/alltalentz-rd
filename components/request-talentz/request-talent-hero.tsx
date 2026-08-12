@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 import RequestTalentHeroForm from "./request-talent-hero-form";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 type Doodle = {
   src: string;
@@ -24,10 +25,7 @@ const DOODLES: Doodle[] = [
 
 const RequestTalentHero = () => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

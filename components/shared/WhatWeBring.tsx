@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 /**
  * "What All Talentz brings" — the same headline and three proof points on every
@@ -42,7 +43,7 @@ const ITEMS = [
 ];
 
 const WhatWeBring = () => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
 
   return (
     <section

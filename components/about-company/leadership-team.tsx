@@ -16,6 +16,7 @@ import {
   LEADERSHIP_TEAM,
   type LeadershipMember,
 } from "@/lib/leadership-team";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 /**
  * "Leadership Team" — the about page's roster band.
@@ -80,10 +81,7 @@ const LeadershipTeam = () => {
   const { ref: inViewRef, inView } = useInView({ threshold: 0.15 });
   // A separate one-shot observer for the entrance, so the rotation observer can
   // keep reporting (it also gates the timer — an off-screen strip shouldn't spin).
-  const { ref: enterRef, inView: entered } = useInView({
-    triggerOnce: true,
-    threshold: 0.15,
-  });
+  const { ref: enterRef, inView: entered } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

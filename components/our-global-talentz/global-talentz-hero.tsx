@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 /**
  * "The people behind your result." global-talentz hero.
@@ -27,10 +28,7 @@ const STRIPS = [
 
 const GlobalTalentzHero = () => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.15,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

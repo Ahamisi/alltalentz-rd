@@ -1,20 +1,27 @@
 import { WHAT_HAPPENS_NEXT } from "@/lib/request-talent-data";
+import Reveal from "@/components/shared/Reveal";
 
 export default function WhatHappensNext() {
   return (
     <section className="bg-[#F8F8F8] py-20 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#F99621] text-xs font-bold uppercase tracking-[0.2em] mb-3">
+          <Reveal
+            as="p"
+            className="text-[#F99621] text-xs font-bold uppercase tracking-[0.2em] mb-3"
+          >
             After you submit
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What Happens Next</h2>
+          </Reveal>
+          <Reveal as="h2" delay={0.1} className="text-3xl md:text-4xl font-bold text-gray-900">
+            What Happens Next
+          </Reveal>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {WHAT_HAPPENS_NEXT.map((item) => (
-            <div
+          {WHAT_HAPPENS_NEXT.map((item, i) => (
+            <Reveal
               key={item.step}
+              delay={0.15 + i * 0.08}
               className="bg-white border border-gray-100 p-8 flex flex-col gap-5 hover:border-[#F99621]/40 hover:shadow-xs transition-all group"
             >
               <div className="flex items-start justify-between">
@@ -26,7 +33,7 @@ export default function WhatHappensNext() {
                 <h3 className="text-gray-900 font-bold text-lg mb-2">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.body}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

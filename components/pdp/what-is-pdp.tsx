@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { REVEAL_SCROLL_START } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -46,7 +47,7 @@ const WhatIsPdp = ({ title = "What is the PDP", videoUrl }: WhatIsPdpProps) => {
       gsap.set(".wip-card", { autoAlpha: 0, y: 24 });
 
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: root, start: "top 80%", once: true },
+        scrollTrigger: { trigger: root, start: REVEAL_SCROLL_START, once: true },
       });
 
       tl.to(".wip-heading", { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" });

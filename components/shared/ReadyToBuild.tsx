@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 type CtaButton = {
   text: string;
@@ -66,10 +67,7 @@ const ReadyToBuild = ({
   className = "",
 }: ReadyToBuildProps) => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

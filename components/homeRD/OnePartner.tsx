@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 /**
  * "One partner. Every solution." — three entry-point cards (Hire Talentz,
@@ -75,10 +76,7 @@ const DOODLE_PATH = "/v26-images/home/one-partner/";
 
 const OnePartner = () => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&
@@ -92,6 +90,7 @@ const OnePartner = () => {
     if (!el) return;
     const ctx = gsap.context(() => {
       gsap.set(".op-doodle-enter", { autoAlpha: 0, scale: 0.4 });
+      gsap.set(".op-reveal", { autoAlpha: 0, y: 24 });
       gsap.set(".op-card", { autoAlpha: 0, y: 40 });
     }, rootRef);
     return () => ctx.revert();
@@ -103,6 +102,14 @@ const OnePartner = () => {
     if (!el) return;
 
     const ctx = gsap.context(() => {
+      // Heading leads, then the cards follow.
+      gsap.to(".op-reveal", {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      });
+
       // Cards rise + fade in, staggered left-to-right.
       gsap.to(".op-card", {
         autoAlpha: 1,
@@ -189,7 +196,7 @@ const OnePartner = () => {
       ))}
 
       <div className="container relative z-10 mx-auto max-w-(--breakpoint-xl)">
-        <h2 className="text-center text-[36px] leading-tight lg:text-[50px] lg: font-medium text-[#121212] mb-[64px] md:mb-[80px] mt-6">
+        <h2 className="op-reveal text-center text-[36px] leading-tight lg:text-[50px] lg: font-medium text-[#121212] mb-[64px] md:mb-[80px] mt-6">
           One partner. <span className="text-[#F99621]">The Right Solution.</span>
         </h2>
 

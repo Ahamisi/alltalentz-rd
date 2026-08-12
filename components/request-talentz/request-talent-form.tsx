@@ -6,6 +6,7 @@ import { useFormPersist } from "@/hooks/useFormPersist";
 import { INDUSTRIES, INDUSTRY_ROLES, TIMELINES } from "@/lib/request-talent-data";
 import Field from "./field";
 import RolesDropdown from "./roles-dropdown";
+import Reveal from "@/components/shared/Reveal";
 
 interface FormData {
   [key: string]: unknown;
@@ -196,9 +197,12 @@ export default function RequestTalentForm() {
       <section className="bg-white px-6 md:px-10 py-20 md:py-25">
         <div className="mx-auto max-w-[713px]">
           {/* Heading sits above the form, centred */}
-          <h2 className="text-center text-[32px] leading-[1.15] tracking-[-3%] font-bold text-[#121212] md:text-[48px] lg:text-[56px]">
+          <Reveal
+            as="h2"
+            className="text-center text-[32px] leading-[1.15] tracking-[-3%] font-bold text-[#121212] md:text-[48px] lg:text-[56px]"
+          >
             {"Let's find your Talentz"}
-          </h2>
+          </Reveal>
 
           {isSubmitted ? (
             <div className="mt-12 text-center">

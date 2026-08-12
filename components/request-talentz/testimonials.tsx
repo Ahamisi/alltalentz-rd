@@ -4,6 +4,7 @@ import Image from "next/image";
 import QuoteIcon from "@/components/homeRD/QuoteIcon";
 import type { Testimonial } from "@/lib/homepage-testimonials";
 import { homepageTestimonials } from "@/lib/homepage-testimonials";
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 const defaultTestimonials: Testimonial[] = [
   homepageTestimonials[1],
@@ -25,7 +26,7 @@ const RequestTalentTestimonials = ({
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={REVEAL_VIEWPORT}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group bg-white border border-[#EDEDED] rounded-[16px] p-8 transition-all duration-300 hover:bg-[#EC9A3C] hover:border-transparent hover:shadow-xl hover:-translate-y-1"
             >

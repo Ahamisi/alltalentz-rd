@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { REVEAL_SCROLL_START } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -81,7 +82,7 @@ const TheModel = () => {
         scrollTrigger: {
           trigger: root,
           // Fires once the section is a comfortable way into the viewport.
-          start: "top 75%",
+          start: REVEAL_SCROLL_START,
           once: true,
         },
       });

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import type { ReactNode } from "react";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 /**
  * Shared "Why it matters" section for every talent page.
@@ -50,7 +51,7 @@ const WhyItMatters = ({
   cardBackground = "#8C5A14",
   className = "",
 }: WhyItMattersProps) => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
 
   // Two cards stay side by side; three or more get a third desktop column.
   const columns = cards.length >= 3 ? "lg:grid-cols-3" : "";

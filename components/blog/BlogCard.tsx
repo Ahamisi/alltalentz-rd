@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { blogImageUrl } from '@/lib/sanity/image'
 import type { SanityPost } from '@/types/blog'
 import { readingTime } from './utils'
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 /**
  * Blog card — image on top of a soft grey panel carrying the title, excerpt and
@@ -28,7 +29,7 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
     <motion.article
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={REVEAL_VIEWPORT}
       transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
       className="h-full"
     >

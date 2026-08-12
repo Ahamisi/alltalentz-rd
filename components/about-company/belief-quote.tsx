@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 type Doodle = {
   src: string;
@@ -24,10 +25,7 @@ const DOODLES: Doodle[] = [
 
 const BeliefQuote = () => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.25,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

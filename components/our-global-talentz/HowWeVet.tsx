@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 /**
  * "How we Vet" — three numbered steps inside a cream band.
@@ -71,8 +72,6 @@ const BandArc = ({ flip = false }: { flip?: boolean }) => (
   </svg>
 );
 
-const VIEWPORT = { once: true, amount: 0.15 } as const;
-
 const HowWeVet = () => {
   return (
     <section className="relative bg-white">
@@ -86,7 +85,7 @@ const HowWeVet = () => {
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={VIEWPORT}
+              viewport={REVEAL_VIEWPORT}
               transition={{ duration: 0.5 }}
               className="text-center text-3xl font-semibold tracking-[-5%] text-[#121212] md:text-[55px] md:leading-[64px] tracking-[-4px] lg:text-[60px] lg:leading-[67.25px]"
             >
@@ -99,7 +98,7 @@ const HowWeVet = () => {
                   key={step.number}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={VIEWPORT}
+                  viewport={REVEAL_VIEWPORT}
                   transition={{ duration: 0.5, delay: 0.15 + i * 0.12 }}
                   className="overflow-hidden rounded-[24px] bg-[#FEF5E9]"
                 >

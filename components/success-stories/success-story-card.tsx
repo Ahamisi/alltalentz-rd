@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { blogImageUrl } from '@/lib/sanity/image'
 import { readingTime } from '@/components/blog/utils'
 import type { SanitySuccessStory } from '@/types/success-story'
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 interface SuccessStoryCardProps {
   story: SanitySuccessStory
@@ -21,7 +22,7 @@ export default function SuccessStoryCard({ story, index = 0 }: SuccessStoryCardP
     <motion.article
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={REVEAL_VIEWPORT}
       transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
       className="h-full"
     >

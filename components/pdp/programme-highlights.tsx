@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { REVEAL_SCROLL_START } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -115,7 +116,7 @@ const ProgrammeHighlights = () => {
       gsap.set(".ph-doodle-enter", { autoAlpha: 0, scale: 0.4 });
 
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: root, start: "top 75%", once: true },
+        scrollTrigger: { trigger: root, start: REVEAL_SCROLL_START, once: true },
       });
 
       tl.to(".ph-reveal", {

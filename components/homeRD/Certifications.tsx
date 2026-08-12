@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CERTIFICATIONS, CERT_INTRINSIC } from "@/lib/certifications";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 const certs = CERTIFICATIONS;
 
@@ -30,7 +31,7 @@ const itemVariants = {
 };
 
 const Certifications = () => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
 
   return (
     <section className="bg-white py-30 md:py-40 px-[40px] md:px-0">

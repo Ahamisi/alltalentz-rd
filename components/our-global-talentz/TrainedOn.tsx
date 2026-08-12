@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { certificationsInOrder } from "@/lib/certifications";
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 const CERTS = certificationsInOrder("iso", "soc2", "hipaa", "great-place");
 
@@ -17,8 +18,6 @@ const CARD_STYLE = {
   backgroundClip: "padding-box, padding-box, border-box",
 } as const;
 
-const VIEWPORT = { once: true, amount: 0.2 } as const;
-
 const TrainedOn = () => {
   return (
     <section className="bg-white px-[24px] py-[70px] md:px-[40px] md:py-[100px]">
@@ -30,7 +29,7 @@ const TrainedOn = () => {
                 key={cert.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={VIEWPORT}
+                viewport={REVEAL_VIEWPORT}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 style={CARD_STYLE}
                 className="flex flex-col p-[20px] md:p-[28px]"
@@ -58,7 +57,7 @@ const TrainedOn = () => {
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={VIEWPORT}
+            viewport={REVEAL_VIEWPORT}
             transition={{ duration: 0.5 }}
             className="order-1 text-3xl font-semibold tracking-[-1.5px] text-[#121212] md:text-[55px] md:leading-[64px] lg:max-w-[519.52px] md:tracking-[-5%] lg:order-2 lg:text-[55px] lg:leading-[67.25px]"
           >

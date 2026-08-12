@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import Btn from "@/components/Btn";
+import Reveal from "@/components/shared/Reveal";
 import { useFormPersist } from "@/hooks/useFormPersist";
 
 /**
@@ -161,7 +162,7 @@ const ContactFormSection = ({ services = [] }: { services?: string[] }) => {
       <div className="px-[24px] md:px-[40px]">
         <div className="mx-auto w-full max-w-[740px]">
           {isSubmitted ? (
-            <div className="bg-[#FDDEBA] px-[24px] py-[48px] text-center">
+            <Reveal className="bg-[#FDDEBA] px-[24px] py-[48px] text-center">
               <div className="flex items-center justify-center">
                 <Image src="/star-shine.svg" alt="" width={80} height={80} />
               </div>
@@ -175,12 +176,15 @@ const ContactFormSection = ({ services = [] }: { services?: string[] }) => {
                 text="Meet With Us"
                 otherCSS="mt-6"
               />
-            </div>
+            </Reveal>
           ) : (
             <form onSubmit={handleSubmit} noValidate>
               {/* Two columns of short fields, then the two wide ones full
-                  width — no half-empty cells, no stretched textarea. */}
-              <div className="grid grid-cols-1 gap-x-[50px] gap-y-[36px] md:grid-cols-2">
+                  width — no half-empty cells, no stretched textarea.
+                  The reveal stops at the field grid on purpose: reCAPTCHA's
+                  challenge overlay is position:fixed, and a transformed
+                  ancestor would anchor it to this box instead of the viewport. */}
+              <Reveal className="grid grid-cols-1 gap-x-[50px] gap-y-[36px] md:grid-cols-2">
                 <div className={FIELD_WRAP}>
                   <label htmlFor="contact-name" className={FIELD_LABEL}>
                     Name
@@ -304,7 +308,7 @@ const ContactFormSection = ({ services = [] }: { services?: string[] }) => {
                     className={`${FIELD_CONTROL} h-[86px] resize-none`}
                   />
                 </div>
-              </div>
+              </Reveal>
 
               <div className="mt-[42px] flex flex-col items-center">
                 {recaptchaLoaded && (

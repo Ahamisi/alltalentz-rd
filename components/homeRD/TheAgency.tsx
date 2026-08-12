@@ -3,6 +3,7 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import Image from "next/image";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 const Section = ({
   imageSrc,
@@ -19,7 +20,7 @@ const Section = ({
   buttonLabel?: string;
   reverse?: boolean;
 }) => {
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
   const controls = useAnimation();
 
   useEffect(() => {

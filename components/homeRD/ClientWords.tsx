@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Masonry from "react-masonry-css";
 import QuoteIcon from "./QuoteIcon";
+import { REVEAL_VIEWPORT } from "@/lib/motion";
 
 interface Testimonial {
   quote: string;
@@ -70,6 +71,7 @@ const ClientWords = ({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={REVEAL_VIEWPORT}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >

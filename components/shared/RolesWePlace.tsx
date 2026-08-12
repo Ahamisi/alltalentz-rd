@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, type ReactNode } from "react";
 import { Check } from "lucide-react";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 export type RoleCard = {
   src: string;
@@ -39,7 +40,7 @@ const RolesWePlace = ({
   ctaHref = "/request-talent",
   industry,
 }: RolesWePlaceProps) => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
   const [selected, setSelected] = useState<string[]>([]);
 
   const toggle = (title: string) =>

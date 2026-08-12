@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 /**
  * "Premium Talent. Honest Pricing" — a two-card cost comparison: the true cost
@@ -18,10 +19,7 @@ const CHECK_ICON = "/v26-images/agency/tables/check-icon.svg";
 
 const Pricing = () => {
   const rootRef = useRef<HTMLElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

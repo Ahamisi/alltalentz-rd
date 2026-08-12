@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useInView } from "react-intersection-observer";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,10 +88,7 @@ const TalentHero = ({
 }: TalentHeroProps) => {
   const rootRef = useRef<HTMLElement>(null);
   const deckRef = useRef<HTMLDivElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.15,
-  });
+  const { ref: inViewRef, inView } = useInView(REVEAL_IN_VIEW);
 
   const prefersReduced =
     typeof window !== "undefined" &&

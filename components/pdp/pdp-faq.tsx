@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordionItem from "@/components/faq/FaqAccordionItem";
 import { pdpFaqs } from "./pdp-data";
+import { REVEAL_SCROLL_START } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -33,7 +34,7 @@ const PdpFaq = () => {
 
       gsap
         .timeline({
-          scrollTrigger: { trigger: root, start: "top 75%", once: true },
+          scrollTrigger: { trigger: root, start: REVEAL_SCROLL_START, once: true },
         })
         .to(".pf-reveal", {
           autoAlpha: 1,

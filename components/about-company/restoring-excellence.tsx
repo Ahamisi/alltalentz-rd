@@ -4,6 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CERTIFICATIONS } from "@/lib/certifications";
+import { REVEAL_SCROLL_START } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -80,7 +81,7 @@ const RestoringExcellence = () => {
 
           // 1. Type. Heading words rise out of their clip masks, then the sub copy.
           gsap
-            .timeline({ scrollTrigger: { trigger: headerRef.current, start: "top 82%" } })
+            .timeline({ scrollTrigger: { trigger: headerRef.current, start: REVEAL_SCROLL_START } })
             .from(".rx-head .rx-word", {
               yPercent: 118,
               duration: 0.95,
@@ -96,7 +97,7 @@ const RestoringExcellence = () => {
             duration: 0.95,
             ease: "expo.out",
             stagger: 0.05,
-            scrollTrigger: { trigger: ".rx-deck-title", start: "top 88%" },
+            scrollTrigger: { trigger: ".rx-deck-title", start: REVEAL_SCROLL_START },
           });
 
           // 2. Deck. Park the sheen off the left of the cards first. It stays on
@@ -106,7 +107,7 @@ const RestoringExcellence = () => {
           // Cards lift in, each badge and its copy follow, then one light sweeps
           // across the row.
           gsap
-            .timeline({ scrollTrigger: { trigger: deckRef.current, start: "top 85%" } })
+            .timeline({ scrollTrigger: { trigger: deckRef.current, start: REVEAL_SCROLL_START } })
             .from(".rx-card", {
               autoAlpha: 0,
               y: 56,

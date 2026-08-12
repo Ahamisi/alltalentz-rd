@@ -266,6 +266,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <Button
             render={<Link href={ctaHref} />}
+            nativeButton={false}
             className="h-11 rounded-none bg-[#F99621] px-[63px] py-[23px] text-base font-semibold text-white hover:bg-[#F99621] hover:text-black"
           >
             Get Talentz
@@ -386,6 +387,7 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
         render={
           <Button
             render={<Link href={ctaHref} onClick={onNavigate} />}
+            nativeButton={false}
             className="mt-4 h-12 w-full rounded-lg bg-secondary text-base font-semibold text-black hover:bg-secondary/90"
           />
         }

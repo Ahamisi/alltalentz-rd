@@ -3,6 +3,7 @@ import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { homepageFAQs } from "@/lib/homepage-faqs";
+import Reveal from "@/components/shared/Reveal";
 
 /**
  * Reusable FAQ block for the redesigned pages: italic heading + "see all" link
@@ -122,7 +123,7 @@ const Faq = ({
       <div className="container mx-auto max-w-(--breakpoint-xl) lg:max-w-[937.17px]">
         <div className="flex flex-col gap-[40px] md:flex-row md:gap-[80px]">
           {/* Heading + "see all" link */}
-          <div className="md:w-[42%]">
+          <Reveal className="md:w-[42%]">
             <h2 className="text-[30px] leading-[124%] md:text-[36px] font-medium italic text-[#292929]">
               {title}
             </h2>
@@ -134,24 +135,25 @@ const Faq = ({
                 {linkText}
               </Link>
             )}
-          </div>
+          </Reveal>
 
-          {/* Accordion */}
+          {/* Accordion — each row rises just after the heading. */}
           <div className="md:w-[58%]">
             {faqs.map((faq, index) => (
-              <FaqItem
-                key={faq.question}
-                question={faq.question}
-                answer={faq.answer}
-                isOpen={openIndex === index}
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              />
+              <Reveal key={faq.question} delay={0.1 + index * 0.07}>
+                <FaqItem
+                  question={faq.question}
+                  answer={faq.answer}
+                  isOpen={openIndex === index}
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                />
+              </Reveal>
             ))}
           </div>
         </div>
 
         {(primaryCta || secondaryCta) && (
-          <div className="mt-[64px] flex flex-col items-center justify-center gap-[16px] sm:flex-row md:mt-[96px]">
+          <Reveal className="mt-[64px] flex flex-col items-center justify-center gap-[16px] sm:flex-row md:mt-[96px]">
             {primaryCta && (
               <Link
                 href={primaryCta.url}
@@ -172,7 +174,7 @@ const Faq = ({
                 {secondaryCta.text}
               </Link>
             )}
-          </div>
+          </Reveal>
         )}
       </div>
     </section>

@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { REVEAL_SCROLL_START } from "@/lib/motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -207,7 +208,7 @@ const OurStory = () => {
           .timeline({
             scrollTrigger: {
               trigger: scene,
-              start: "top 78%",
+              start: REVEAL_SCROLL_START,
               end: "bottom 52%",
               scrub: 1,
               invalidateOnRefresh: true,
@@ -237,7 +238,7 @@ const OurStory = () => {
         gsap.timeline({
           scrollTrigger: {
             trigger: rail,
-            start: "top 80%",
+            start: REVEAL_SCROLL_START,
             end: "bottom 70%",
             scrub: 1,
             invalidateOnRefresh: true,
@@ -252,7 +253,7 @@ const OurStory = () => {
             x: -18,
             duration: 0.5,
             ease: "power2.out",
-            scrollTrigger: { trigger: item, start: "top 88%" },
+            scrollTrigger: { trigger: item, start: REVEAL_SCROLL_START },
           });
         });
       }

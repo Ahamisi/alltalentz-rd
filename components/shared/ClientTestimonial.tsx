@@ -8,6 +8,7 @@ import {
   homepageTestimonials,
   type Testimonial,
 } from "@/lib/homepage-testimonials";
+import { REVEAL_IN_VIEW } from "@/lib/motion";
 
 /**
  * Shared single-quote testimonial section, used on the home page niches and
@@ -32,7 +33,7 @@ const ClientTestimonial = ({
   background = "#FFFFFF",
   className = "",
 }: ClientTestimonialProps) => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
+  const { ref, inView } = useInView(REVEAL_IN_VIEW);
   // Direction only drives which way the quote slides in.
   const [[index, direction], setIndex] = useState<[number, number]>([0, 1]);
 
