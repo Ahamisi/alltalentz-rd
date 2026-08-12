@@ -96,7 +96,7 @@ const GlobalTalentzHero = () => {
       <div className="container mx-auto max-w-(--breakpoint-xl)">
         {/* Copy */}
         <div className="mx-auto max-w-[902.58px] text-center">
-          <h1 className="text-[40px] leading-[90px] tracking-[-5%] font-semibold text-[#121212] lg:text-[60px]">
+          <h1 className="text-[32px] leading-[112%] sm:text-[40px] tracking-[-5%] font-semibold text-[#121212] lg:text-[60px] lg:leading-[115%]">
             {/* pb/-mb: room for descenders inside the clip mask without
                 changing the visual line spacing. */}
             <span className="block overflow-hidden pb-[0.18em] -mb-[0.18em]">

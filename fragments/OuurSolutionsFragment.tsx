@@ -8,26 +8,26 @@ import { solutionsFAQs } from "@/lib/solutions-faqs";
 
 export default function OurSolutions() {
   return (
-    <main className="relative overflow-hidden overflow-y-hidden">
-      {/* Hero — "One model. Total clarity." */}
+    <>
+      {/* Hero */}
       <SolutionsHero />
 
-      {/* The Model — Request → Match → Deploy → Support */}
+      {/* The Model */}
       <TheModel />
 
-      {/* What's included — six guarantee cards on dark */}
+      {/* What's included */}
       <WhatsIncluded />
 
-      {/* Pricing — local hire vs All Talentz */}
+      {/* Pricing */}
       <Pricing />
 
       <Faq
         faqs={solutionsFAQs}
-        primaryCta={{ text: "Get a Custom Quote", url: "/request-talent" }}
-        secondaryCta={{ text: "Talk to Our Team", url: "/contact" }}
+        primaryCta={{ text: "Request Talent", url: "/request-talent" }}
+        secondaryCta={{ text: "Talk to Our Team", url: "tel:+16145021440" }}
       />
 
       <ReadyToBuild />
-    </main>
+    </>
   );
 }

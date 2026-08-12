@@ -163,7 +163,7 @@ const OutsourcingHero = () => {
         <div className="grid grid-cols-1 items-center gap-[48px] lg:grid-cols-[1.3fr_0.7fr] lg:gap-[40px]">
           {/* Copy */}
           <div className="oh-hero-copy order-2 lg:order-1">
-            <h1 className="text-[44px] tracking-[-5%] lg:text-[60px] lg:leading-[67.25px] font-semibold text-[#121212]">
+            <h1 className="text-[32px] leading-[1.12] tracking-[-3%] sm:text-[44px] sm:tracking-[-5%] lg:text-[60px] lg:leading-[67.25px] font-semibold text-[#121212]">
               {/* pb/‑mb: give the clip mask room for descenders (y, g, .)
                   without changing the visual line spacing. */}
               <span className="block overflow-hidden pb-[0.18em] -mb-[0.18em]">

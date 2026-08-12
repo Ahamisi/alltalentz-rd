@@ -134,7 +134,7 @@ const RequestTalentHero = () => {
       <div className="container relative z-10 mx-auto max-w-(--breakpoint-xl)">
         <div className="grid grid-cols-1 items-center gap-[48px] lg:grid-cols-[0.9fr_1.1fr] lg:gap-[64px]">
           <div className="order-1">
-            <h1 className="text-[44px] tracking-[-5%] lg:text-[60px] lg:leading-[67.25px] font-semibold text-[#121212]">
+            <h1 className="text-[32px] leading-[1.12] tracking-[-3%] sm:text-[44px] sm:tracking-[-5%] lg:text-[60px] lg:leading-[67.25px] font-semibold text-[#121212]">
               <span className="block overflow-hidden pb-[0.18em] -mb-[0.18em]">
                 <span className="rt-line-inner block">
                   Your next remote professional is 7 days away.

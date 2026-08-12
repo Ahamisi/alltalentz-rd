@@ -95,27 +95,27 @@ const Certifications = () => {
           Certifications
         </h2>
 
-        <ul className="mt-[48px] grid auto-rows-fr grid-cols-1 items-stretch sm:grid-cols-2 lg:mt-[100px] lg:grid-cols-4 lg:-space-x-px">
+        <ul className="mt-[48px] grid auto-rows-fr grid-cols-2 items-stretch lg:mt-[100px] lg:grid-cols-4 lg:-space-x-px">
           {CERTIFICATIONS.map((cert) => (
             <li
               key={cert.src}
-              className="cert-card flex h-full flex-col justify-end px-[24px] pb-[40px] pt-[40px] md:px-[32px] md:pb-[75px] md:pt-[75px] lg:min-h-[450px]"
+              className="cert-card flex h-full flex-col items-center justify-end px-[16px] pb-[32px] pt-[32px] text-center sm:items-start sm:px-[24px] sm:pb-[40px] sm:pt-[40px] sm:text-left md:px-[32px] md:pb-[75px] md:pt-[75px] lg:min-h-[450px]"
               style={CARD_STYLE}
             >
-              <div className="cert-badge flex h-[90px] items-end md:h-[120px]">
+              <div className="cert-badge flex h-[72px] items-end justify-center sm:h-[90px] sm:justify-start md:h-[120px]">
                 <Image
                   src={cert.src}
                   alt={`${cert.name} certification badge`}
                   width={cert.artwork.w}
                   height={cert.artwork.h}
-                  className="max-h-full w-auto object-contain object-left"
+                  className="max-h-full w-auto object-contain object-center sm:object-left"
                 />
               </div>
 
-              <h3 className="mt-[20px] text-[16px] font-bold uppercase leading-[120%] tracking-[0%] text-[#121212] md:mt-[24px] md:text-[17.28px]">
+              <h3 className="mt-[20px] text-[14px] font-bold uppercase leading-[120%] tracking-[0%] text-[#121212] sm:text-[16px] md:mt-[24px] md:text-[17.28px]">
                 {cert.name}
               </h3>
-              <p className="mt-2 max-w-[260px] text-[12px] font-normal leading-[150%] tracking-[0%] text-[#121212]/80 md:mt-[12px] lg:text-sm">
+              <p className="mx-auto mt-2 max-w-[260px] text-[12px] font-normal leading-[150%] tracking-[0%] text-[#121212]/80 sm:mx-0 md:mt-[12px] lg:text-sm">
                 {cert.description}
               </p>
             </li>

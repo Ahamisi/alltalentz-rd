@@ -201,7 +201,7 @@ const ProgrammeHighlights = () => {
 
       <div className="container relative z-10 mx-auto max-w-(--breakpoint-xl)">
         <div className="grid grid-cols-1 items-center gap-[48px] lg:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] lg:gap-[64px]">
-          <h2 className="ph-reveal text-[40px] leading-[1.05] tracking-[-0.03em] font-semibold text-[#121212] lg:text-[42px] xl:text-[54px]">
+          <h2 className="ph-reveal text-[30px] sm:text-[40px] leading-[1.08] tracking-[-0.03em] font-semibold text-[#121212] lg:text-[42px] xl:text-[54px]">
             Programme
             <br className="hidden lg:block" /> Highlights
           </h2>

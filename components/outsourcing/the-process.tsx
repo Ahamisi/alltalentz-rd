@@ -192,17 +192,17 @@ const TheProcess = () => {
 
           {/* auto-rows-fr + h-full keeps every panel the same height even when a
               title wraps to two lines. */}
-          <ol className="mt-[48px] grid auto-rows-fr grid-cols-1 items-stretch sm:grid-cols-2 lg:mt-[100px] lg:grid-cols-4 lg:-space-x-px">
+          <ol className="mt-[48px] grid auto-rows-fr grid-cols-2 items-stretch lg:mt-[100px] lg:grid-cols-4 lg:-space-x-px">
             {STEPS.map((step) => (
               <li
                 key={step.number}
-                className="tp-card flex h-full flex-col justify-end px-[24px] pb-[40px] pt-[80px] md:px-[32px] md:pb-[56px] md:pt-[140px] lg:min-h-[480px]"
+                className="tp-card flex h-full flex-col justify-end px-[16px] pb-[28px] pt-[40px] sm:px-[24px] sm:pb-[40px] sm:pt-[80px] md:px-[32px] md:pb-[56px] md:pt-[140px] lg:min-h-[480px]"
                 style={CARD_STYLE}
               >
                 <span
                   aria-hidden="true"
                   data-value={step.number}
-                  className="tp-number block text-[110px] font-extralight leading-[100%] tracking-[0%] md:text-[172.82px]"
+                  className="tp-number block text-[52px] font-extralight leading-[100%] tracking-[0%] sm:text-[92px] md:text-[172.82px]"
                   style={NUMBER_STYLE}
                 >
                   {step.number}
@@ -211,7 +211,7 @@ const TheProcess = () => {
                 {/* Two lines are reserved so a wrapping title ("Ongoing
                     Management") doesn't shove its numeral out of line with the
                     others. */}
-                <h3 className="mt-[32px] text-[16px] font-bold lg:leading-[120%] text-white md:mt-[48px] md:text-[17.28px] tracking-[0%]">
+                <h3 className="mt-[20px] text-[14px] font-bold lg:leading-[120%] text-white sm:mt-[32px] sm:text-[16px] md:mt-[48px] md:text-[17.28px] tracking-[0%]">
                   {step.title}
                 </h3>
                 <p className="mt-2 max-w-[260px] text-[12px] tracking-[0%] font-normal leading-[150%] text-white/85 md:mt-[12px] lg:text-sm">

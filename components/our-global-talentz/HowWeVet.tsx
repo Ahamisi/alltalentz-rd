@@ -110,7 +110,7 @@ const HowWeVet = () => {
                       {step.title[1]}
                     </h3>
                     <span
-                      className="-mb-[0.12em] bg-clip-text text-[120px] font-light leading-[0.85] tracking-[-2%] text-transparent lg:text-[172.82px] pr-4"
+                      className="-mb-[0.12em] bg-clip-text text-[68px] sm:text-[92px] md:text-[120px] font-light leading-[0.85] tracking-[-2%] text-transparent lg:text-[172.82px] pr-4"
                       style={{ backgroundImage: NUMBER_GRADIENT }}
                     >
                       {step.number}

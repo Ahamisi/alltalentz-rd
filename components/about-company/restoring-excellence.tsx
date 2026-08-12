@@ -299,12 +299,12 @@ const RestoringExcellence = () => {
 
         <ul
           ref={deckRef}
-          className="mt-[48px] grid auto-rows-fr grid-cols-1 items-stretch sm:grid-cols-2 lg:mt-[80px] lg:grid-cols-4 lg:-space-x-px"
+          className="mt-[48px] grid auto-rows-fr grid-cols-2 items-stretch lg:mt-[80px] lg:grid-cols-4 lg:-space-x-px"
         >
           {CERTIFICATIONS.map((cert) => (
             <li
               key={cert.src}
-              className="rx-card relative flex h-full flex-col justify-end overflow-hidden px-[24px] pb-[40px] pt-[40px] will-change-transform md:px-[32px] md:pb-[75px] md:pt-[75px] lg:min-h-[450px]"
+              className="rx-card relative flex h-full flex-col items-center justify-end overflow-hidden px-[16px] pb-[32px] pt-[32px] text-center will-change-transform sm:items-start sm:px-[24px] sm:pb-[40px] sm:pt-[40px] sm:text-left md:px-[32px] md:pb-[75px] md:pt-[75px] lg:min-h-[450px]"
               style={CARD_STYLE}
             >
               <div
@@ -324,20 +324,20 @@ const RestoringExcellence = () => {
                 }}
               />
 
-              <div className="rx-badge relative flex h-[90px] items-end md:h-[120px]">
+              <div className="rx-badge relative flex h-[72px] items-end justify-center sm:h-[90px] sm:justify-start md:h-[120px]">
                 <Image
                   src={cert.src}
                   alt={`${cert.name} certification badge`}
                   width={cert.artwork.w}
                   height={cert.artwork.h}
-                  className="rx-badge-img max-h-full w-auto origin-bottom-left object-contain object-left will-change-transform"
+                  className="rx-badge-img max-h-full w-auto origin-bottom object-contain object-center will-change-transform sm:origin-bottom-left sm:object-left"
                 />
               </div>
 
-              <h4 className="rx-card-copy relative mt-[20px] text-[16px] font-bold uppercase leading-[120%] tracking-[0%] text-white md:mt-[24px] md:text-[17.28px]">
+              <h4 className="rx-card-copy relative mt-[20px] text-[14px] font-bold uppercase leading-[120%] tracking-[0%] text-white sm:text-[16px] md:mt-[24px] md:text-[17.28px]">
                 {cert.name}
               </h4>
-              <p className="rx-card-copy relative mt-2 max-w-[260px] text-[12px] font-normal leading-[150%] tracking-[0%] text-white/70 md:mt-[12px] lg:text-sm">
+              <p className="rx-card-copy relative mx-auto mt-2 max-w-[260px] text-[12px] font-normal leading-[150%] tracking-[0%] text-white/70 sm:mx-0 md:mt-[12px] lg:text-sm">
                 {cert.description}
               </p>
             </li>

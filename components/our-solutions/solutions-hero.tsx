@@ -163,7 +163,7 @@ const SolutionsHero = () => {
         <div className="grid grid-cols-1 items-center gap-[48px] lg:grid-cols-2 lg:gap-[40px]">
           {/* Copy */}
           <div className="sh-hero-copy order-2 lg:order-1">
-            <h1 className="text-[44px] tracking-[-5%] lg:text-[60px] lg:leading-[67.25px] font-semibold text-[#121212]">
+            <h1 className="text-[32px] leading-[1.12] tracking-[-3%] sm:text-[44px] sm:tracking-[-5%] lg:text-[60px] lg:leading-[67.25px] font-semibold text-[#121212]">
               {/* pb/‑mb: give the clip mask room for descenders without
                   changing the visual line spacing. */}
               <span className="block overflow-hidden pb-[0.18em] -mb-[0.18em]">
@@ -183,7 +183,7 @@ const SolutionsHero = () => {
           {/* Illustration — 70% cost saving over a dotted world map */}
           <div className="order-1 lg:order-2">
             <Image
-              src="/v26-images/our-solutions/metrics-hero.png"
+              src="/v26-images/our-solutions/metrics-hero.webp"
               alt="70% cost saving illustrated over a dotted world map with a globe of landmarks"
               width={2968}
               height={2011}

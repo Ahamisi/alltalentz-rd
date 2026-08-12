@@ -242,7 +242,7 @@ const LeadershipTeam = () => {
         <span className="lt-reveal block h-[3px] w-[110px] bg-[#F99621]" />
         <h2
           id="leadership-team-heading"
-          className="lt-reveal mt-[24px] text-[34px] font-medium leading-[100%] tracking-[0px] text-[#121212] lg:text-[42.97px]"
+          className="lt-reveal mt-[24px] text-[28px] font-medium leading-[110%] tracking-[0px] text-[#121212] sm:text-[34px] lg:text-[42.97px]"
         >
           Leadership Team
         </h2>
@@ -253,10 +253,10 @@ const LeadershipTeam = () => {
         <div className="mt-[48px] grid grid-cols-1 items-center gap-x-[40px] lg:mt-[80px] lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-x-[64px]">
           {/* Active member */}
           <div ref={copyRef} aria-live="polite">
-            <h3 className="lt-swap text-[34px] font-medium leading-[90.31px] tracking-[0%] text-[#121212] md:text-[48px] lg:text-[42.97px]">
+            <h3 className="lt-swap text-[28px] font-medium leading-[115%] tracking-[0%] text-[#121212] sm:text-[34px] md:text-[48px] lg:text-[42.97px]">
               {active.name}
               {active.title && (
-                <span className="ml-2 align-middle text-[14px] font-medium text-[#F99621]">
+                <span className="ml-2 align-middle text-[14px] font-medium leading-none text-[#F99621]">
                   {active.title}
                 </span>
               )}

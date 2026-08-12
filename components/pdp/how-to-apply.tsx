@@ -97,7 +97,7 @@ const StepNumber = ({ target, active, delay = 0 }: { target: number; active: boo
 
   return (
     <span
-      className="bg-clip-text text-[92px] font-light leading-[0.85] tracking-[-2%] text-transparent tabular-nums md:text-[120px] lg:text-[172.82px]"
+      className="bg-clip-text text-[64px] sm:text-[92px] font-light leading-[0.85] tracking-[-2%] text-transparent tabular-nums md:text-[120px] lg:text-[172.82px]"
       style={{ backgroundImage: NUMBER_GRADIENT }}
     >
       {String(Math.round(current)).padStart(2, "0")}

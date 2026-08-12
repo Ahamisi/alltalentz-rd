@@ -179,7 +179,7 @@ const ReadyToBuild = ({
       <div className="container relative z-10 mx-auto max-w-(--breakpoint-xl)">
         <div className="grid grid-cols-1 items-center gap-[48px] md:grid-cols-2 md:gap-[64px]">
           <div className="rtb-reveal">
-            <h2 className="text-[40px] leading-[1.05] tracking-[-5%] lg:text-[50px] lg:leading-[67.25px] font-medium text-[#121212]">
+            <h2 className="text-[30px] leading-[1.08] tracking-[-3%] sm:text-[40px] sm:tracking-[-5%] lg:text-[50px] lg:leading-[67.25px] font-medium text-[#121212]">
               {title}
             </h2>
             <p className="mt-[24px] max-w-[475px] text-[18px] leading-[25.86px] font-normal text-[#121212]">

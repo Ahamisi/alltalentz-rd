@@ -67,7 +67,7 @@ const KeyStats = () => {
                   ))}
                 </div>
 
-                <span className="text-white text-[46.29px] leading-[62.07px] font-normal tracking-[0%] mb-[16px]">
+                <span className="text-white text-[34px] leading-[120%] sm:text-[40px] lg:text-[46.29px] lg:leading-[62.07px] font-normal tracking-[0%] mb-[16px]">
                   <CountUp value={stat.value} active={inView} />
                 </span>
                 <p className="text-[#FFFFFFA8] text-[18px] font-normal max-w-[206.68px]">

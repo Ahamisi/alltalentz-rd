@@ -156,6 +156,31 @@ body {
   overflow-y: visible;
 }
 
+/* iOS Safari zooms in on focus when a control's text is under 16px. */
+@media (max-width: 767px) {
+  input:not([type='checkbox']):not([type='radio']):not([type='range']),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Preflight covers img/video, not these. No height, or aspect ratios squash. */
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+a {
+  overflow-wrap: break-word;
+}
+
 /* Lenis smooth scroll */
 html.lenis,
 html.lenis body {

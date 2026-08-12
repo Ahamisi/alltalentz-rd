@@ -46,7 +46,7 @@ const Card = ({
   return (
     <div
       ref={cardRef}
-      className="niche-card group flex w-full max-w-[1161px] items-center rounded-[32px] px-6 py-8 sm:min-h-[422px] sm:px-16 sm:py-14 md:h-full md:min-h-0 ring-1 ring-black/5"
+      className="niche-card group flex w-full max-w-[1161px] items-center rounded-[24px] px-5 py-8 sm:rounded-[32px] sm:min-h-[422px] sm:px-10 sm:py-14 lg:px-16 lg:h-full lg:min-h-0 ring-1 ring-black/5"
       style={{ backgroundColor: item.tint ?? "#FBF4E1" }}
     >
       <div className="mx-auto flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:justify-center sm:gap-14 sm:text-left">
@@ -68,11 +68,11 @@ const Card = ({
         </div>
 
         <div className="max-w-xl">
-          <h3 className="text-3xl lg:text-[66.71px] font-medium tracking-[-5%] leading-[103.17px] text-neutral-900">
+          <h3 className="text-[clamp(1.75rem,7vw,2.5rem)] leading-[1.1] lg:text-[66.71px] lg:leading-[1.15] font-medium tracking-[-5%] text-neutral-900">
             {item.title}
           </h3>
           {item.tags && (
-            <p className="mt-3 text-base text-[#121212] tracking-[-6%] leading-[39.68px] lg:text-[27.62px] sm:text-lg font-normal">
+            <p className="mt-3 text-base leading-relaxed text-[#121212] tracking-[-6%] sm:text-lg lg:text-[27.62px] lg:leading-[1.45] font-normal">
               {item.tags}
             </p>
           )}
@@ -81,7 +81,7 @@ const Card = ({
             type="button"
             onClick={() => onExplore(item.path)}
             aria-label={`Explore ${item.title}`}
-            className="mt-6 inline-flex items-center gap-2 bg-[#F99621] px-10 py-3 text-base font-semibold text-[#121212] transition-all duration-300 hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/40 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:focus-visible:translate-y-0 md:focus-visible:opacity-100"
+            className="mt-6 inline-flex items-center gap-2 bg-[#F99621] px-8 py-3 text-base font-semibold text-[#121212] transition-all duration-300 hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/40 sm:px-10 lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:focus-visible:translate-y-0 lg:focus-visible:opacity-100"
           >
             Explore
             <ArrowIcon className="h-4 w-4" />
@@ -109,7 +109,7 @@ const NicheSection = ({}: {
   const n = niches.length;
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
+    const mq = window.matchMedia("(min-width: 1024px)");
     const update = () => setIsDesktop(mq.matches);
     update();
     mq.addEventListener("change", update);
@@ -294,7 +294,7 @@ const NicheSection = ({}: {
           </div>
         </div>
 
-        <div className="absolute right-8 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-3">
+        <div className="absolute right-3 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-3 xl:right-8">
           {niches.map((_, i) => (
             <span
               key={i}

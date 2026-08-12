@@ -266,7 +266,7 @@ const OurStory = () => {
     <section ref={rootRef} className="relative overflow-hidden bg-white py-[72px] md:py-[120px]">
       {/* Header */}
       <div className="mx-auto max-w-[760px] px-6 text-center">
-        <h2 className="text-[36px] font-semibold leading-[1.05] tracking-[-0.02em] text-[#121212] lg:text-[60px] tracking-[-4%]">
+        <h2 className="text-[30px] font-semibold leading-[1.05] text-[#121212] sm:text-[36px] lg:text-[60px] tracking-[-4%]">
           Our Story
         </h2>
         <p className="mx-auto mt-5 font-medium tracking-[0px] max-w-[680.11px] text-[16px] leading-[1.6] text-[#B6B6B6] md:text-[16.12px]">

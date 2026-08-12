@@ -153,13 +153,13 @@ const Faq = ({
         </div>
 
         {(primaryCta || secondaryCta) && (
-          <Reveal className="mt-[64px] flex flex-col items-center justify-center gap-[16px] sm:flex-row md:mt-[96px]">
+          <Reveal className="mt-[64px] flex items-stretch justify-center gap-[12px] sm:gap-[16px] md:mt-[96px]">
             {primaryCta && (
               <Link
                 href={primaryCta.url}
                 target={primaryCta.openNewTab ? "_blank" : undefined}
                 rel={primaryCta.openNewTab ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center justify-center bg-[#F99621] px-[32px] py-[14px] text-[14px] font-normal text-[#121212] transition-transform duration-300 hover:scale-105 hover:bg-[#e8871a]"
+                className="inline-flex flex-1 items-center justify-center bg-[#F99621] px-[18px] py-[14px] text-center text-[13px] font-normal text-[#121212] transition-transform duration-300 hover:scale-105 hover:bg-[#e8871a] sm:flex-none sm:px-[32px] sm:text-[14px]"
               >
                 {primaryCta.text}
               </Link>
@@ -169,7 +169,7 @@ const Faq = ({
                 href={secondaryCta.url}
                 target={secondaryCta.openNewTab ? "_blank" : undefined}
                 rel={secondaryCta.openNewTab ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center justify-center border border-[#ECECEC] px-[32px] py-[14px] text-[14px] font-normal text-[#121212] transition-colors duration-300 hover:bg-[#121212] hover:text-white"
+                className="inline-flex flex-1 items-center justify-center border border-[#ECECEC] px-[18px] py-[14px] text-center text-[13px] font-normal text-[#121212] transition-colors duration-300 hover:bg-[#121212] hover:text-white sm:flex-none sm:px-[32px] sm:text-[14px]"
               >
                 {secondaryCta.text}
               </Link>

@@ -5,57 +5,48 @@ import gsap from "gsap";
 import { useInView } from "react-intersection-observer";
 import { REVEAL_IN_VIEW } from "@/lib/motion";
 
-/**
- * "What's included" — the six guarantees on the dark band of Our Solutions,
- * set as a ruled 3×2 matrix.
- *
- * Not a card deck: the cells share edges instead of floating as rounded panels,
- * so the six read as one schedule of terms. The rules are made by a 1px grid
- * gap showing the container colour through — which means no nth-child border
- * maths, and the outer perimeter stays open at every breakpoint (only the top
- * and bottom rules close it).
- *
- * Each cell hangs its index at the top and anchors the title to the baseline,
- * so the copy lines up across the row regardless of length. (The proof line
- * under each title is commented out pending approved copy from marketing.)
- *
- * Motion follows the form: the matrix wipes in top to bottom — because the cell
- * fill matches the section, only the hairlines appear to draw — then the copy
- * rises cell by cell.
- */
+// Grid rules come from a 1px gap showing the container colour through, so
+// there's no nth-child border maths.
 type Item = {
-  /** Client-owned label — do not reword without sign-off. */
   title: string;
-  // Awaiting approved copy from marketing — restore with the <p> below.
+  icon: string;
   // proof: string;
 };
+
+const ICONS = "/v26-images/our-solutions/whats-included";
 
 const ITEMS: Item[] = [
   {
     title: "Pre-vetted talent",
+    icon: `${ICONS}/pre-vetted.webp`,
     // proof:
     //   "Skills tests, English fluency and background checks are cleared before you see a shortlist.",
   },
   {
     title: "Industry-specific training",
+    icon: `${ICONS}/industry-specific.webp`,
     // proof:
     //   "Trained on your sector's tools, terminology and compliance rules before day one.",
   },
   {
     title: "ISO 27001 & SOC-2 certified",
+    icon: `${ICONS}/certification.webp`,
     // proof: "Audited security controls, signed NDAs, managed devices.",
   },
   {
-    title: "Deployed within 7 days",
+    title: "Deployed in less than 48 hours",
+    icon: `${ICONS}/deployed.webp`,
     // proof: "Request on Monday. Someone is working by Friday.",
   },
   {
     title: "24/7 support",
+    icon: `${ICONS}/customer-support.webp`,
     // proof:
     //   "A named account lead, plus cover across every US timezone including weekends.",
   },
   {
     title: "Flexible scale up/down",
+    icon: `${ICONS}/scale-up.webp`,
     // proof: "Add or release seats month to month. No renegotiation.",
   },
 ];
@@ -203,7 +194,16 @@ const WhatsIncluded = () => {
                 {String(index + 1).padStart(2, "0")}
               </span>
 
-              <div className="wi-cell-text mt-auto pt-[40px]">
+              <div className="wi-cell-text mt-auto flex flex-col items-start gap-[18px] pt-[32px]">
+                <Image
+                  src={item.icon}
+                  alt=""
+                  aria-hidden="true"
+                  width={44}
+                  height={44}
+                  sizes="44px"
+                  className="size-[38px] shrink-0 object-contain md:size-[44px]"
+                />
                 <h3 className="text-[21px] leading-[132%] md:text-[24px] font-medium tracking-[-0.005em] text-white">
                   {item.title}
                 </h3>

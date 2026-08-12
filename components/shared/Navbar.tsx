@@ -87,7 +87,7 @@ const ctaHref = "/request-talent";
 
 /** Shared typography for top-level nav links and dropdown triggers. */
 const navItemClass =
-  "text-[16px] leading-[30px] tracking-[-0.06em] font-normal text-[#121212]";
+  "whitespace-nowrap text-[15px] xl:text-[16px] leading-[30px] tracking-[-0.06em] font-normal text-[#121212]";
 
 /* -------------------------------------------------------------------------- */
 /*                              Shared sub-parts                              */
@@ -183,7 +183,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
       {/* h-nav → --spacing-nav in globals.css; pinned sections offset by the same token. */}
-      <div className="mx-auto flex h-nav max-w-7xl items-center justify-between gap-4">
+      <div className="mx-auto flex h-nav max-w-7xl items-center justify-between gap-4 px-6 md:px-8">
         <Logo />
 
         {/* Desktop navigation */}
@@ -195,7 +195,7 @@ export default function Navbar() {
                   <Link
                     href={homeLink.href}
                     className={cn(
-                      "inline-flex h-9 items-center rounded-lg px-3 transition-colors hover:bg-muted",
+                      "inline-flex h-9 items-center rounded-lg px-2 transition-colors hover:bg-muted xl:px-3",
                       navItemClass
                     )}
                   />
@@ -227,7 +227,7 @@ export default function Navbar() {
                   <Link
                     href={solutionsLink.href}
                     className={cn(
-                      "inline-flex h-9 items-center rounded-lg px-3 transition-colors hover:bg-muted",
+                      "inline-flex h-9 items-center rounded-lg px-2 transition-colors hover:bg-muted xl:px-3",
                       navItemClass
                     )}
                   />
@@ -243,7 +243,7 @@ export default function Navbar() {
                   <Link
                     href={agencyLink.href}
                     className={cn(
-                      "inline-flex h-9 items-center rounded-lg px-3 transition-colors hover:bg-muted",
+                      "inline-flex h-9 items-center rounded-lg px-2 transition-colors hover:bg-muted xl:px-3",
                       navItemClass
                     )}
                   />
@@ -267,7 +267,7 @@ export default function Navbar() {
           <Button
             render={<Link href={ctaHref} />}
             nativeButton={false}
-            className="h-11 rounded-none bg-[#F99621] px-[63px] py-[23px] text-base font-semibold text-white hover:bg-[#F99621] hover:text-black"
+            className="h-11 whitespace-nowrap rounded-none bg-[#F99621] px-8 py-[23px] text-base font-semibold text-white hover:bg-[#F99621] hover:text-black xl:px-[63px]"
           >
             Get Talentz
           </Button>
@@ -307,6 +307,7 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
       {simpleLinks.map((link) => (
         <SheetClose
           key={link.label}
+          nativeButton={false}
           render={
             <Link
               href={link.href}
@@ -324,6 +325,7 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
           {companyLinks.map((link) => (
             <SheetClose
               key={link.label}
+              nativeButton={false}
               render={
                 <Link
                   href={link.href}
@@ -343,6 +345,7 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
           {industries.map((industry) => (
             <SheetClose
               key={industry.label}
+              nativeButton={false}
               render={
                 <Link
                   href={industry.href}
@@ -369,6 +372,7 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
           {resourceLinks.map((link) => (
             <SheetClose
               key={link.label}
+              nativeButton={false}
               render={
                 <Link
                   href={link.href}
@@ -384,11 +388,12 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
       </MobileAccordion>
 
       <SheetClose
+        nativeButton={false}
         render={
           <Button
             render={<Link href={ctaHref} onClick={onNavigate} />}
             nativeButton={false}
-            className="mt-4 h-12 w-full rounded-lg bg-secondary text-base font-semibold text-black hover:bg-secondary/90"
+            className="mt-4 h-12 w-full rounded-lg bg-[#F99621] text-base font-semibold text-black hover:bg-[#F99621]/90"
           />
         }
       >

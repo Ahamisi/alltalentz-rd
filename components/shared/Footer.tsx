@@ -105,7 +105,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-[16px] leading-[24px] text-white tracking-[0%] transition-colors hover:text-[#F99621]"
+                      className="inline-flex min-h-[24px] items-center py-1 text-[16px] leading-[24px] text-white tracking-[0%] transition-colors hover:text-[#F99621]"
                     >
                       {link.label}
                     </Link>

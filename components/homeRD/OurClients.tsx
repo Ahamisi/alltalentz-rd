@@ -29,7 +29,7 @@ const OurClients = () => {
 
           <Reveal
             as="h2"
-            className="text-3xl md:text-5xl xl:text-[48px] font-medium text-center text-black leading-[67.25px] tracking-[-5%] max-w-[532px] text-[#121212]"
+            className="text-3xl md:text-5xl xl:text-[48px] font-medium text-center text-black leading-[1.15] xl:leading-[67.25px] tracking-[-5%] max-w-[532px] text-[#121212]"
           >
             Trusted by businesses across the United States
           </Reveal>

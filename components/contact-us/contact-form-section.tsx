@@ -34,7 +34,7 @@ const FIELD_WRAP = "group flex flex-col";
 const FIELD_LABEL =
   "mb-[6px] text-[15px] leading-[24px] text-[#767676] transition-colors group-focus-within:font-semibold group-focus-within:text-[#121212]";
 const FIELD_CONTROL =
-  "w-full border-b border-[#121212] bg-transparent pb-[6px] text-[16px] leading-[24px] text-[#121212] outline-hidden placeholder:text-[#B5B5B5]";
+  "w-full min-h-[44px] border-b border-[#121212] bg-transparent pt-[12px] pb-[8px] text-[16px] leading-[24px] text-[#121212] outline-hidden placeholder:text-[#B5B5B5] sm:min-h-0 sm:pt-0 sm:pb-[6px]";
 
 const ContactFormSection = ({ services = [] }: { services?: string[] }) => {
   const [isLoading, setIsLoading] = useState(false);

@@ -13,22 +13,22 @@ type Photo = {
 
 const PHOTOS: Photo[] = [
   {
-    src: "/v26-images/success-stories/1.jpg",
+    src: "/v26-images/success-stories/1.webp",
     alt: "A client celebrating at her laptop",
     className: "md:-translate-y-[40px] md:-rotate-[8deg]",
   },
   {
-    src: "/v26-images/success-stories/2.jpg",
+    src: "/v26-images/success-stories/2.webp",
     alt: "A client waving on a video call",
     className: "",
   },
   {
-    src: "/v26-images/success-stories/3.jpg",
+    src: "/v26-images/success-stories/3.webp",
     alt: "A client smiling on the phone at her desk",
     className: "",
   },
   {
-    src: "/v26-images/success-stories/4.jpg",
+    src: "/v26-images/success-stories/4.webp",
     alt: "A client cheering in front of his laptop",
     className: "md:-translate-y-[52px] md:rotate-[8deg]",
   },

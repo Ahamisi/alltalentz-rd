@@ -43,7 +43,7 @@ const STEPS: Step[] = [
   },
   {
     title: "Deploy",
-    description: "Your hire is onboarded within 7 days.",
+    description: "Your hire is onboarded in less than 48 hours.",
     img: "3.svg",
     w: 62,
     h: 68,

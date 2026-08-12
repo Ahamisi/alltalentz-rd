@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -38,6 +38,20 @@ const HeroNew = () => {
   const centerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLElement>(null);
+
+  // The orbit and the section it reveals are desktop only, so they are not
+  // rendered at all on phones — no pinned scroll, and none of the ring images
+  // get downloaded.
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   // Entrance. The hero is above the fold, so this plays on mount rather than
   // waiting for a scroll trigger.
   useLayoutEffect(() => {
@@ -70,25 +84,38 @@ const HeroNew = () => {
           },
           "-=0.35"
         );
-
-        // The spiral fades in alongside the copy. Only autoAlpha here: its scale
-        // comes from Tailwind classes and a GSAP scale tween would overwrite it.
-        tl.from(spiralRef.current, { autoAlpha: 0, duration: 1, ease: "power2.out" }, 0);
       });
     }, rootRef);
 
     return () => ctx.revert();
   }, []);
 
+  // The spiral fades in alongside the copy. Only autoAlpha here: its scale
+  // comes from Tailwind classes and a GSAP scale tween would overwrite it.
+  useLayoutEffect(() => {
+    if (!isDesktop) return;
+
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.from(spiralRef.current, { autoAlpha: 0, duration: 1, ease: "power2.out" });
+      });
+    }, rootRef);
+
+    return () => ctx.revert();
+  }, [isDesktop]);
+
   // Scroll animation. The hero stays pinned while the rings spin, then it hands
   // off to the next section, revealed through a circular hole that opens up.
   useLayoutEffect(() => {
+    if (!isDesktop) return;
+
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
       // `rotation` is how far the rings turn over the pinned scroll, `morphFrom`
-      // is the point in that scroll (0 to 1) where the hand-off begins. Both
-      // differ between mobile and desktop, hence the shared builder.
+      // is the point in that scroll (0 to 1) where the hand-off begins.
       const build = (rotation: number, morphFrom: number) => {
         const outerImgs = gsap.utils.toArray<HTMLElement>(".orbit-img", outerRingRef.current!);
         const innerImgs = gsap.utils.toArray<HTMLElement>(".orbit-img", innerRingRef.current!);
@@ -177,13 +204,10 @@ const HeroNew = () => {
       mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () =>
         build(150, 0.45)
       );
-      mm.add("(max-width: 767px) and (prefers-reduced-motion: no-preference)", () =>
-        build(110, 0.5)
-      );
     }, rootRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isDesktop]);
 
   const orbit = (src: string, angle: number, size: number, i: number) => (
     <div
@@ -212,15 +236,18 @@ const HeroNew = () => {
     <div ref={rootRef} className="hero-root">
       <div ref={pinRef} className="relative overflow-hidden">
         <div
-          className="relative h-screen w-full bg-cover bg-center"
+          className="relative flex min-h-[70svh] w-full items-center bg-cover bg-center md:block md:h-svh md:min-h-[600px]"
           style={{ backgroundImage: "url('/v26-images/home/hero-bg.webp')" }}
         >
-          <div className="pointer-events-none absolute inset-0 z-5 bg-linear-to-r from-white/85 via-white/40 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 z-5 bg-linear-to-b from-white/95 via-white/85 to-white/30 md:bg-linear-to-r md:from-white/85 md:via-white/40 md:to-transparent" />
 
-          <div ref={contentRef} className="absolute inset-0 z-20 flex items-center">
-            <div className="w-full max-w-7xl mx-auto">
-              <div className="max-w-[40%]">
-                <h1 className="text-4xl md:text-6xl lg:text-[50px] tracking-[-5%] font-semibold leading-[67.25px] text-[#121212]">
+          <div
+            ref={contentRef}
+            className="relative z-20 flex w-full items-center py-12 md:absolute md:inset-0 md:py-0 md:pt-nav"
+          >
+            <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
+              <div className="max-w-full md:max-w-[58%] lg:max-w-[45%]">
+                <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-[50px] tracking-[-3%] md:tracking-[-5%] font-semibold leading-[1.12] lg:leading-[67.25px] text-[#121212]">
                   <span className="block overflow-hidden pb-[0.18em] mb-[-0.18em]">
                     <span className="hero-line-inner block">Remote Talents.</span>
                   </span>
@@ -230,13 +257,14 @@ const HeroNew = () => {
                     </span>
                   </span>
                 </h1>
-                <p className="hero-fade-up mt-6 text-base md:text-[18px] tracking-[-6%] leading-[25.86px] font-normal text-[#121212] max-w-md">
-                  Pre-vetted professionals across Healthcare, Technology, Finance, Construction, Legal, and Pest Control, at up to 75% less than a local hire.
+                <p className="hero-fade-up mt-5 md:mt-6 text-base md:text-[18px] tracking-[-3%] md:tracking-[-6%] leading-[1.55] md:leading-[25.86px] font-normal text-[#121212] max-w-md">
+                  Pre-vetted professionals across Healthcare, Technology, Finance, Construction,
+                  Legal, and Pest Control, at up to 75% less than a local hire.
                 </p>
-                <div className="hero-fade-up mt-8 flex flex-wrap items-center gap-4">
+                <div className="hero-fade-up mt-7 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                   <Link
                     href="/request-talent"
-                    className="bg-[#F99621] text-[#121212] px-[40.74px] py-[14.87px] font-normal transition-colors hover:bg-[F99621] hover:text-white"
+                    className="bg-[#F99621] text-[#121212] px-8 py-[14.87px] text-center font-normal transition-colors hover:bg-[F99621] hover:text-white sm:px-[40.74px]"
                   >
                     Get Talentz
                   </Link>
@@ -244,7 +272,7 @@ const HeroNew = () => {
                     href="https://calendly.com/mnwoseh"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border-[0.56px] border-[#121212] px-[40.74px] py-[14.87px] font-normal text-[#121212] transition-colors hover:border-black"
+                    className="border-[0.56px] border-[#121212] px-8 py-[14.87px] text-center font-normal text-[#121212] transition-colors hover:border-black sm:px-[40.74px]"
                   >
                     Request a meeting
                   </Link>
@@ -253,82 +281,83 @@ const HeroNew = () => {
             </div>
           </div>
 
-          <div className="absolute inset-y-0 right-0 z-10 flex w-full items-center justify-center opacity-70 md:w-[60%] md:opacity-100">
-            <div
-              ref={spiralRef}
-              className="spiral relative scale-[0.62] md:scale-100"
-              style={{ width: 600, height: 600 }}
-            >
-              <div ref={outerRingRef} className="absolute inset-0 [--ring-r:245px]">
-                {OUTER.map((src, i) =>
-                  orbit(src, ringAngles(OUTER.length, -90)[i], OUTER_SIZE, i)
-                )}
-              </div>
+          {isDesktop && (
+            <div className="absolute inset-y-0 right-0 z-10 flex w-[60%] items-center justify-center">
+              <div ref={spiralRef} className="spiral relative" style={{ width: 600, height: 600 }}>
+                <div ref={outerRingRef} className="absolute inset-0 [--ring-r:245px]">
+                  {OUTER.map((src, i) =>
+                    orbit(src, ringAngles(OUTER.length, -90)[i], OUTER_SIZE, i)
+                  )}
+                </div>
 
-              <div ref={innerRingRef} className="absolute inset-0 [--ring-r:138px]">
-                {INNER.map((src, i) =>
-                  orbit(src, ringAngles(INNER.length, 30)[i], INNER_SIZE, i)
-                )}
-              </div>
+                <div ref={innerRingRef} className="absolute inset-0 [--ring-r:138px]">
+                  {INNER.map((src, i) =>
+                    orbit(src, ringAngles(INNER.length, 30)[i], INNER_SIZE, i)
+                  )}
+                </div>
 
-              <div
-                ref={centerRef}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full will-change-transform"
-                style={{ width: CENTER_SIZE, height: CENTER_SIZE }}
-              >
-                <img
-                  src={CENTER_IMG}
-                  alt="A remote professional on a video call"
-                  className="h-full w-full object-cover object-center"
-                  draggable={false}
-                />
+                <div
+                  ref={centerRef}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full will-change-transform"
+                  style={{ width: CENTER_SIZE, height: CENTER_SIZE }}
+                >
+                  <img
+                    src={CENTER_IMG}
+                    alt="A remote professional on a video call"
+                    className="h-full w-full object-cover object-center"
+                    draggable={false}
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
-        <section ref={nextRef} className="relative h-screen w-full overflow-hidden">
-          <img
-            src={CENTER_IMG}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-          <div aria-hidden="true" className="absolute inset-0 bg-[#121212]/55" />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-linear-to-b from-[#121212]/70 via-[#121212]/40 to-[#121212]/80"
-          />
-          <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-            <h2 className="max-w-3xl text-3xl md:text-5xl font-bold leading-tight">
-              Ready to scale with talent trained for your business?
-            </h2>
-            {/* <p className="mt-6 max-w-xl text-base md:text-lg text-white/85">
+
+        {isDesktop && (
+          <section ref={nextRef} className="relative h-svh min-h-[600px] w-full overflow-hidden">
+            <img
+              src={CENTER_IMG}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+            <div aria-hidden="true" className="absolute inset-0 bg-[#121212]/55" />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-linear-to-b from-[#121212]/70 via-[#121212]/40 to-[#121212]/80"
+            />
+            <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
+              <h2 className="max-w-3xl text-3xl md:text-5xl font-bold leading-tight">
+                Ready to scale with talent trained for your business?
+              </h2>
+              {/* <p className="mt-6 max-w-xl text-base md:text-lg text-white/85">
               Fully remote, fully integrated professionals who feel like they're
               in the room with you.
             </p> */}
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/request-talent"
-                className="group inline-flex items-center gap-2.5 bg-[#F99621] px-[40.74px] py-[14.87px] font-normal text-[#121212] transition-colors hover:bg-[F99621] hover:text-white"
-              >
-                Get Talentz
-                <ArrowRight
-                  size={18}
-                  aria-hidden="true"
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Link>
-              <Link
-                href="https://calendly.com/mnwoseh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center border-[0.56px] border-white px-[40.74px] py-[14.87px] font-normal text-white transition-colors hover:border-white/60"
-              >
-                Book a Meeting
-              </Link>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  href="/request-talent"
+                  className="group inline-flex items-center gap-2.5 bg-[#F99621] px-[40.74px] py-[14.87px] font-normal text-[#121212] transition-colors hover:bg-[F99621] hover:text-white"
+                >
+                  Get Talentz
+                  <ArrowRight
+                    size={18}
+                    aria-hidden="true"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+                <Link
+                  href="https://calendly.com/mnwoseh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center border-[0.56px] border-white px-[40.74px] py-[14.87px] font-normal text-white transition-colors hover:border-white/60"
+                >
+                  Book a Meeting
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </div>
     </div>
   );

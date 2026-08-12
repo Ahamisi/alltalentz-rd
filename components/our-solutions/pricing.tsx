@@ -93,7 +93,7 @@ const Pricing = () => {
               <h3 className="text-[22px] leading-[130%] lg:leading-[42.41px] font-semibold text-[#171923]">
                 US Full Time Salary
               </h3>
-              <p className="mt-[12px] text-[44px] leading-[120%] font-bold text-[#121212]">
+              <p className="mt-[12px] text-[34px] sm:text-[44px] leading-[120%] font-bold text-[#121212]">
                 $85k-$127k
               </p>
               <p className="mt-[12px] text-[18px] font-normal text-[#171923]">Per year</p>
@@ -117,7 +117,7 @@ const Pricing = () => {
           <div className="pr-card flex flex-col overflow-hidden rounded-[12px] border border-[#ECECEC] bg-white">
             <div className="bg-[#F99621] px-[24px] py-[40px] text-center">
               <h3 className="text-[22px] leading-[130%] lg:leading-[42.41px] font-semibold text-white">All Talentz</h3>
-              <p className="mt-[12px] text-[44px] leading-[120%] font-bold text-white">$6,000</p>
+              <p className="mt-[12px] text-[34px] sm:text-[44px] leading-[120%] font-bold text-white">$6,000</p>
               <p className="mt-[12px] text-[18px] font-normal text-white">Per year</p>
             </div>
             <div className="flex flex-1 flex-col items-center gap-[40px] px-[32px] py-[48px] text-center">
