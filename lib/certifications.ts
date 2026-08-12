@@ -46,17 +46,6 @@ export const CERTIFICATIONS: Certification[] = [
     box: { w: 138, h: 138 },
   },
   {
-    id: "great-place",
-    name: "Great Place To Work",
-    alt: "Great Place To Work certified, Oct 2025 – Oct 2026, Nigeria",
-    href: "https://www.greatplacetowork.com/",
-    description: "Certified for culture, care, and consistency.",
-    src: "/v26-images/certs/great-place.png",
-    artwork: { w: 475, h: 671 },
-    scale: 1.02,
-    box: { w: 92, h: 130 },
-  },
-  {
     id: "hipaa",
     name: "HIPAA Compliant",
     alt: "HIPAA compliant",
@@ -66,6 +55,17 @@ export const CERTIFICATIONS: Certification[] = [
     artwork: { w: 1200, h: 635 },
     scale: 1.23,
     box: { w: 200, h: 106 },
+  },
+  {
+    id: "great-place",
+    name: "Great Place To Work",
+    alt: "Great Place To Work certified, Oct 2025 – Oct 2026, Nigeria",
+    href: "https://www.greatplacetowork.com/",
+    description: "Certified for culture, care, and consistency.",
+    src: "/v26-images/certs/great-place.png",
+    artwork: { w: 475, h: 671 },
+    scale: 1.02,
+    box: { w: 92, h: 130 },
   },
 ];
 
