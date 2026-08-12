@@ -4,6 +4,9 @@ import { renderContactEmail } from "@/utils/renderEmail";
 
 const HUBSPOT_BASE = "https://api.hubapi.com/crm/v3/objects/contacts";
 
+// Only verify reCAPTCHA in production, so local builds can submit without a token
+const RECAPTCHA_REQUIRED = process.env.NODE_ENV === "production";
+
 interface ContactBody {
   fullName: string;
   email: string;
@@ -99,24 +102,25 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     recaptchaToken,
   } = body;
 
-  if (!recaptchaToken) {
-    return NextResponse.json({ error: "reCAPTCHA token is required" }, { status: 400 });
-  }
-
-  try {
-    const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
-    });
-
-    const recaptchaData = await recaptchaResponse.json();
-    if (!recaptchaData.success) {
-      return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 400 });
+  if (RECAPTCHA_REQUIRED) {
+    if (!recaptchaToken) {
+      return NextResponse.json({ error: "reCAPTCHA token is required" }, { status: 400 });
     }
-  } catch (error) {
-    console.error("reCAPTCHA verification error:", error);
-    return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 500 });
+    try {
+      const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+      });
+
+      const recaptchaData = await recaptchaResponse.json();
+      if (!recaptchaData.success) {
+        return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 400 });
+      }
+    } catch (error) {
+      console.error("reCAPTCHA verification error:", error);
+      return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 500 });
+    }
   }
 
   const sheetsData = new FormData();

@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 interface MainFooterProps {
   hideSub?: boolean;
   brochure?: string | false;
-  meetWithUs?: string | false;
   subHeading?: string;
   subSubheading?: string;
 }
@@ -19,7 +18,6 @@ interface MainFooterProps {
 const MainFooter = ({
   hideSub = false,
   brochure = false,
-  meetWithUs = false,
   subHeading,
   subSubheading,
 }: MainFooterProps) => {
@@ -28,7 +26,6 @@ const MainFooter = ({
       {!hideSub && (
         <SubFooter
           brochure={brochure || undefined}
-          meetWithUs={meetWithUs || undefined}
           heading={subHeading}
           subheading={subSubheading}
         />

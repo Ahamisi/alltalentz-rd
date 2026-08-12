@@ -5,31 +5,23 @@ import { USE_EMBEDDED_FORM, MICROSOFT_FORM_URL } from "@/utils/testConfig";
 export default function SecureTestForm() {
   const [formReady, setFormReady] = React.useState(false);
 
-  // If not using embedded form, redirect immediately on mount
+  // Anti-cheating measures, only active when the test is embedded
   useEffect(() => {
     if (!USE_EMBEDDED_FORM) {
-      window.location.href = MICROSOFT_FORM_URL;
-    }
-  }, []);
-  // Only apply security measures if using embedded form
-  useEffect(() => {
-    if (!USE_EMBEDDED_FORM) {
-      return; // Skip security measures if redirecting
+      return;
     }
 
-    // Disable right-click context menu - AGGRESSIVE MODE
+    // Block right-click
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();
-      // Show warning
       alert("⚠️ Right-click is disabled during the test.");
       return false;
     };
 
-    // Also block middle mouse button and other mouse buttons
+    // Block middle/right mouse buttons
     const handleMouseDown = (e: MouseEvent) => {
-      // Block right mouse button (button 2) and middle mouse button (button 1)
       if (e.button === 2 || e.button === 1) {
         e.preventDefault();
         e.stopPropagation();
@@ -38,7 +30,7 @@ export default function SecureTestForm() {
       }
     };
 
-    // Block mouse wheel + Ctrl (zoom attempts)
+    // Block ctrl/cmd + scroll zoom
     const handleWheel = (e: WheelEvent) => {
       if (e.ctrlKey || e.metaKey) {
         e.preventDefault();
@@ -47,11 +39,9 @@ export default function SecureTestForm() {
       }
     };
 
-    // Disable keyboard shortcuts for copy, paste, cut, select all - AGGRESSIVE MODE
+    // Block copy/paste, devtools, view-source and screenshot shortcuts
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Block ALL Ctrl/Cmd combinations
       if (e.ctrlKey || e.metaKey) {
-        // Block copy, paste, cut, select all, save, print
         if (["c", "v", "x", "a", "s", "p", "C", "V", "X", "A", "S", "P"].includes(e.key)) {
           e.preventDefault();
           e.stopPropagation();
@@ -59,7 +49,6 @@ export default function SecureTestForm() {
           alert("⚠️ Copy, paste, and other shortcuts are disabled during the test.");
           return false;
         }
-        // Block Ctrl+Shift combinations (DevTools, Inspect, etc.)
         if (e.shiftKey) {
           if (["i", "I", "j", "J", "c", "C", "k", "K"].includes(e.key)) {
             e.preventDefault();
@@ -69,14 +58,12 @@ export default function SecureTestForm() {
             return false;
           }
         }
-        // Block Ctrl+U (View Source)
         if (["u", "U"].includes(e.key)) {
           e.preventDefault();
           e.stopPropagation();
           e.stopImmediatePropagation();
           return false;
         }
-        // Block Ctrl+W (Close tab) - warn but allow
         if (["w", "W"].includes(e.key)) {
           if (!confirm("⚠️ Are you sure you want to close this tab? Your progress may be lost.")) {
             e.preventDefault();
@@ -86,7 +73,6 @@ export default function SecureTestForm() {
         }
       }
 
-      // Disable F12 (DevTools)
       if (e.key === "F12") {
         e.preventDefault();
         e.stopPropagation();
@@ -94,14 +80,12 @@ export default function SecureTestForm() {
         return false;
       }
 
-      // Disable right-click context menu shortcuts
       if (e.shiftKey && e.key === "F10") {
         e.preventDefault();
         e.stopPropagation();
         return false;
       }
 
-      // Block Print Screen key
       if (e.key === "PrintScreen" || e.keyCode === 44) {
         e.preventDefault();
         e.stopPropagation();
@@ -109,7 +93,6 @@ export default function SecureTestForm() {
         return false;
       }
 
-      // Block Alt+Tab simulation attempts
       if (e.altKey && e.key === "Tab") {
         e.preventDefault();
         e.stopPropagation();
@@ -117,19 +100,18 @@ export default function SecureTestForm() {
       }
     };
 
-    // Disable text selection
+    // Block text selection and drag
     const handleSelectStart = (e: Event) => {
       e.preventDefault();
       return false;
     };
 
-    // Disable drag
     const handleDragStart = (e: DragEvent) => {
       e.preventDefault();
       return false;
     };
 
-    // Disable copy event
+    // Block copy/cut/paste
     const handleCopy = (e: ClipboardEvent) => {
       e.preventDefault();
       e.stopPropagation();
@@ -138,7 +120,6 @@ export default function SecureTestForm() {
       return false;
     };
 
-    // Disable cut event
     const handleCut = (e: ClipboardEvent) => {
       e.preventDefault();
       e.stopPropagation();
@@ -147,7 +128,6 @@ export default function SecureTestForm() {
       return false;
     };
 
-    // Disable paste event
     const handlePaste = (e: ClipboardEvent) => {
       e.preventDefault();
       e.stopPropagation();
@@ -156,7 +136,7 @@ export default function SecureTestForm() {
       return false;
     };
 
-    // Detect DevTools opening
+    // Warn if devtools appears to be open
     let devtools = { open: false };
     const detectDevTools = () => {
       const threshold = 160;
@@ -166,7 +146,6 @@ export default function SecureTestForm() {
       ) {
         if (!devtools.open) {
           devtools.open = true;
-          // Show warning when DevTools is detected
           alert("Please close Developer Tools to continue with the test.");
         }
       } else {
@@ -174,10 +153,8 @@ export default function SecureTestForm() {
       }
     };
 
-    // Additional screenshot prevention - detect common screenshot shortcuts
+    // Block common screenshot shortcuts
     const handleScreenshotKeys = (e: KeyboardEvent) => {
-      // Windows: Print Screen, Alt+Print Screen, Win+Shift+S
-      // Mac: Cmd+Shift+3, Cmd+Shift+4, Cmd+Shift+5
       if (
         e.key === "PrintScreen" ||
         (e.altKey && e.key === "PrintScreen") ||
@@ -189,8 +166,8 @@ export default function SecureTestForm() {
       }
     };
 
-    // Add event listeners - CAPTURE PHASE for maximum interception
-    document.addEventListener("contextmenu", handleContextMenu, true); // true = capture phase
+    // Register listeners on capture phase so they fire first
+    document.addEventListener("contextmenu", handleContextMenu, true);
     document.addEventListener("mousedown", handleMouseDown, true);
     document.addEventListener("wheel", handleWheel, true);
     document.addEventListener("keydown", handleKeyDown, true);
@@ -201,12 +178,10 @@ export default function SecureTestForm() {
     document.addEventListener("cut", handleCut, true);
     document.addEventListener("paste", handlePaste, true);
 
-    // Also add to window for global capture
     window.addEventListener("contextmenu", handleContextMenu, true);
     window.addEventListener("keydown", handleKeyDown, true);
     window.addEventListener("keydown", handleScreenshotKeys, true);
 
-    // Prevent screenshot using visibility API
     let hidden: string | undefined, visibilityChange: string | undefined;
     if (typeof document.hidden !== "undefined") {
       hidden = "hidden";
@@ -221,7 +196,6 @@ export default function SecureTestForm() {
 
     const handleVisibilityChange = () => {
       if (hidden && (document as any)[hidden]) {
-        // Page is hidden - user might be taking screenshot
         console.warn("Page visibility changed");
       }
     };
@@ -230,10 +204,9 @@ export default function SecureTestForm() {
       document.addEventListener(visibilityChange, handleVisibilityChange, false);
     }
 
-    // Monitor for DevTools
     const devToolsInterval = setInterval(detectDevTools, 500);
 
-    // Add CSS to prevent text selection and add additional protections
+    // Disable selection/drag and add a confidential watermark
     const style = document.createElement("style");
     style.textContent = `
       * {
@@ -250,7 +223,6 @@ export default function SecureTestForm() {
         -ms-user-select: text !important;
         user-select: text !important;
       }
-      /* Prevent screenshot overlays and add watermark */
       body::before {
         content: 'All Talentz - Confidential Assessment';
         position: fixed;
@@ -274,11 +246,9 @@ export default function SecureTestForm() {
         color: rgba(0, 0, 0, 0.05);
         font-weight: bold;
       }
-      /* Add overlay protection for iframe */
       iframe {
         position: relative;
       }
-      /* Prevent drag and drop */
       * {
         -webkit-user-drag: none !important;
         -khtml-user-drag: none !important;
@@ -289,7 +259,7 @@ export default function SecureTestForm() {
     `;
     document.head.appendChild(style);
 
-    // Add periodic warning overlay
+    // One-time security notice overlay
     let warningShown = false;
     const showWarning = () => {
       if (warningShown) return;
@@ -328,15 +298,12 @@ export default function SecureTestForm() {
       }, 10000);
     };
 
-    // Show warning after 3 seconds
     setTimeout(showWarning, 3000);
 
-    // Monitor for focus changes (user might be switching windows)
     let lastFocusTime = Date.now();
     const handleFocus = () => {
       const now = Date.now();
       if (now - lastFocusTime > 5000) {
-        // User was away for more than 5 seconds
         console.warn("User returned after being away");
       }
       lastFocusTime = now;
@@ -349,7 +316,7 @@ export default function SecureTestForm() {
     window.addEventListener("focus", handleFocus);
     window.addEventListener("blur", handleBlur);
 
-    // Cleanup
+    // Clean up listeners, timers and injected DOM on unmount
     return () => {
       document.removeEventListener("contextmenu", handleContextMenu, true);
       document.removeEventListener("mousedown", handleMouseDown, true);
@@ -380,16 +347,39 @@ export default function SecureTestForm() {
     };
   }, []);
 
-  // If redirecting (non-embedded mode), show loading state while useEffect handles redirect
+  // Confirmation + fallback button (the test opens in a new tab from the submit handler)
   if (!USE_EMBEDDED_FORM) {
     return (
       <div className="w-full h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-        <div className="w-full max-w-6xl bg-white rounded-lg shadow-lg overflow-hidden p-8 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F99621]"></div>
+        <div className="w-full max-w-lg bg-white rounded-lg shadow-lg overflow-hidden p-8 text-center">
+          <div className="w-16 h-16 rounded-full bg-green-50 border border-green-200 flex items-center justify-center mx-auto mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 text-green-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Redirecting to Test...</h2>
-          <p className="text-gray-600">Please wait while we redirect you to the assessment test.</p>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Your application was submitted!</h2>
+          <p className="text-gray-600 mb-6">
+            Your assessment test should have opened in a new tab. If it didn&apos;t open, please
+            click the button below to start it.
+          </p>
+          <a
+            href={MICROSOFT_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#F99621] text-white font-bold px-8 py-3 rounded-lg hover:bg-[#e0851a] transition-colors"
+          >
+            Open Assessment Test
+          </a>
+          <p className="text-sm text-gray-400 mt-4">
+            Tip: if a popup was blocked, allow popups for this site or use the button above.
+          </p>
         </div>
       </div>
     );
@@ -428,7 +418,6 @@ export default function SecureTestForm() {
             title="Assessment Test"
             allow="camera; microphone; fullscreen"
             style={{
-              // Block interaction until the form has finished loading
               pointerEvents: formReady ? "auto" : "none",
               width: "100%",
               height: "100%",
@@ -438,19 +427,14 @@ export default function SecureTestForm() {
             frameBorder="0"
             onLoad={(e) => {
               console.warn("Test form loaded. Security measures are active.");
-              // Try to detect if form is properly loaded
               try {
                 const iframe = e.target as HTMLIFrameElement;
-                // Check if iframe has content (limited due to cross-origin)
                 if (iframe.contentWindow) {
                   console.log("Iframe loaded successfully");
                 }
               } catch (err) {
-                // Expected: cross-origin restrictions prevent access
                 console.log("Iframe loaded (cross-origin restrictions apply)");
               }
-              // Small buffer so the form's internal JS can finish hydrating
-              // before we let the user interact (cross-origin: can't detect precisely)
               setTimeout(() => setFormReady(true), 500);
             }}
           />
