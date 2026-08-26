@@ -3,6 +3,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import SocialMedia from "@/components/SocialMedia";
+import WelcomeLeadModal from "@/components/shared/WelcomeLeadModal";
 import {
   OrganizationSchema,
   WebsiteSchema,
@@ -81,6 +82,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {/* <Header/> */}
           {children}
         </main>
+
+        <WelcomeLeadModal />
 
         {/* Analytics Scripts - Load only once site-wide */}
         <Script
