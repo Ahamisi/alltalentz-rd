@@ -1,10 +1,21 @@
 "use client";
 import PageHeader from "@/components/PageHeader";
 import MainFooter from "@/components/MainFooter";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Script from "next/script";
 import { Loader2 } from "lucide-react";
 import { useFormPersist } from "@/hooks/useFormPersist";
+import {
+  trackFormStart,
+  trackFormValidationError,
+  trackLeadSubmitted,
+  trackFormSubmitError,
+  trackOutboundClick,
+  trackContactClick,
+} from "@/utils/analytics";
+
+const FORM_NAME = "request_talent";
+const CTA_LOCATION = "request_talent_hero";
 
 const INDUSTRIES = [
   "Healthcare",
@@ -17,6 +28,7 @@ const INDUSTRIES = [
 ];
 
 const CALENDLY_LINK = "https://calendly.com/mnwoseh";
+const PHONE_LINK = "tel:+16145021440";
 
 // The widget is skipped locally since the site key is tied to the live domain
 const RECAPTCHA_REQUIRED = process.env.NODE_ENV === "production";
@@ -115,6 +127,8 @@ export default function RequestTalent() {
 
   const { clearPersisted, onEmailBlur } = useFormPersist("request-talent", formData);
 
+  const startedRef = useRef(false);
+
   useEffect(() => {
     const handleRecaptchaSuccess = (event: Event) => {
       setRecaptchaToken((event as CustomEvent<string>).detail);
@@ -134,6 +148,10 @@ export default function RequestTalent() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    if (!startedRef.current) {
+      startedRef.current = true;
+      trackFormStart(FORM_NAME);
+    }
     if (name === "industry") {
       // Reset the "Other" text when the industry changes
       setFormData((prev) => ({ ...prev, industry: value, otherIndustry: "" }));
@@ -142,7 +160,7 @@ export default function RequestTalent() {
     }
   };
 
-  const validate = (): boolean => {
+  const validate = (): FormErrors => {
     const newErrors: FormErrors = {};
     if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
     if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
@@ -157,7 +175,7 @@ export default function RequestTalent() {
     if (RECAPTCHA_REQUIRED && !recaptchaToken)
       newErrors.recaptcha = "Please complete the reCAPTCHA verification";
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   };
 
   const buildPayload = () => {
@@ -181,21 +199,37 @@ export default function RequestTalent() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!validate()) return;
+
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      trackFormValidationError(FORM_NAME, Object.keys(validationErrors));
+      return;
+    }
+
+    const payload = buildPayload();
 
     try {
       setIsLoading(true);
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(buildPayload()),
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) console.error("Failed to submit talent request:", res.status);
+      if (res.ok) {
+        trackLeadSubmitted(FORM_NAME, {
+          industry: payload.industry,
+          timeline: payload.timeline,
+        });
+      } else {
+        console.error("Failed to submit talent request:", res.status);
+        trackFormSubmitError(FORM_NAME, `http_${res.status}`);
+      }
 
       clearPersisted();
       setIsSubmitted(true);
     } catch (error) {
       console.error("Failed to submit talent request:", error);
+      trackFormSubmitError(FORM_NAME, "network_error");
     } finally {
       setIsLoading(false);
     }
@@ -244,12 +278,18 @@ export default function RequestTalent() {
                   href={CALENDLY_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackOutboundClick("book_a_meeting", CTA_LOCATION, CALENDLY_LINK, true)
+                  }
                   className="bg-[#F99621] hover:bg-white text-[#121212] font-medium px-8 py-4 text-center transition duration-300"
                 >
                   Book a Meeting
                 </a>
                 <a
-                  href="tel:+16145021440"
+                  href={PHONE_LINK}
+                  onClick={() =>
+                    trackContactClick("talk_to_our_team", CTA_LOCATION, "phone", PHONE_LINK)
+                  }
                   className="border border-[#F99621] hover:bg-[#F99621] text-[#F99621] hover:text-[#121212] font-medium px-8 py-4 text-center transition duration-300"
                 >
                   Talk to Our Team

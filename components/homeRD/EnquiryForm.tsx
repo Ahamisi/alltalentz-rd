@@ -1,12 +1,20 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Script from "next/script";
 import { Loader2 } from "lucide-react";
 import { useFormPersist } from "@/hooks/useFormPersist";
+import {
+  trackFormStart,
+  trackFormValidationError,
+  trackLeadSubmitted,
+  trackFormSubmitError,
+} from "@/utils/analytics";
 
 // The widget is skipped locally since the site key is tied to the live domain
 const RECAPTCHA_REQUIRED = process.env.NODE_ENV === "production";
+
+const FORM_NAME = "contact_us_enquiry";
 
 interface FormErrors {
   fullName?: string;
@@ -30,6 +38,8 @@ const EnquiryForm = () => {
 
   const { clearPersisted, onEmailBlur } = useFormPersist("contact-us", formData);
 
+  const startedRef = useRef(false);
+
   useEffect(() => {
     const handleRecaptchaSuccess = (event: Event) => {
       setRecaptchaToken((event as CustomEvent<string>).detail);
@@ -49,10 +59,14 @@ const EnquiryForm = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    if (!startedRef.current) {
+      startedRef.current = true;
+      trackFormStart(FORM_NAME);
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const validate = (): boolean => {
+  const validate = (): FormErrors => {
     const newErrors: FormErrors = {};
     if (!formData.fullName.trim()) newErrors.fullName = "Name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
@@ -62,12 +76,17 @@ const EnquiryForm = () => {
     if (RECAPTCHA_REQUIRED && !recaptchaToken)
       newErrors.recaptcha = "Please complete the reCAPTCHA verification";
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!validate()) return;
+
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      trackFormValidationError(FORM_NAME, Object.keys(validationErrors));
+      return;
+    }
 
     try {
       setIsLoading(true);
@@ -76,12 +95,18 @@ const EnquiryForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, recaptchaToken }),
       });
-      if (!res.ok) console.error("Failed to send enquiry:", res.status);
+      if (res.ok) {
+        trackLeadSubmitted(FORM_NAME);
+      } else {
+        console.error("Failed to send enquiry:", res.status);
+        trackFormSubmitError(FORM_NAME, `http_${res.status}`);
+      }
 
       clearPersisted();
       setIsSubmitted(true);
     } catch (error) {
       console.error("Failed to send enquiry:", error);
+      trackFormSubmitError(FORM_NAME, "network_error");
     } finally {
       setIsLoading(false);
     }
