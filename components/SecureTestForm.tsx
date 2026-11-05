@@ -394,7 +394,7 @@ export default function SecureTestForm() {
       >
         <div className="bg-[#F99621] text-white p-4 text-center">
           <h1 className="text-2xl font-bold">
-            Professional Development Programme - Assessment Test
+            Professional Development Program - Assessment Test
           </h1>
           <p className="text-sm mt-2">Please complete this test to advance to the next stage.</p>
         </div>

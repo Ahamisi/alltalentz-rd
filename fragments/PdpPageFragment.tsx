@@ -267,7 +267,7 @@ export default function BootCamp() {
           <div className="lg:w-[45%] flex flex-col">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
               Welcome to <span className="text-[#F99621]">All Talentz</span>{" "}
-              <span className="text-white">professional development programme.</span>
+              <span className="text-white">professional development program.</span>
             </h1>
 
             <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-xl">
@@ -341,7 +341,7 @@ export default function BootCamp() {
             <div className="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center text-3xl">😔</div>
             <h1 className="text-xl font-bold text-gray-900">Applications Closed</h1>
             <p className="text-gray-500 text-sm max-w-xs">
-              The professional development programme application period is over. Please be on the lookout for the next cycle.
+              The professional development program application period is over. Please be on the lookout for the next cycle.
             </p>
             <button onClick={toggleModal} className="mt-2 text-sm text-gray-400 hover:text-gray-600 underline underline-offset-2">
               Close
@@ -365,7 +365,7 @@ export default function BootCamp() {
               </button>
               <Image src="/logo.svg" alt="All Talentz" width={100} height={36} className="h-8 w-auto mb-4 brightness-0 invert" />
               <h2 className="text-white text-xl font-bold leading-snug">PDP Application</h2>
-              <p className="text-white/55 text-sm mt-1">Fill in your details to apply for the Professional Development Programme.</p>
+              <p className="text-white/55 text-sm mt-1">Fill in your details to apply for the Professional Development Program.</p>
             </div>
 
             {/* ── Body ── */}

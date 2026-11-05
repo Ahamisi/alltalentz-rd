@@ -34,7 +34,7 @@ export default function PdpModal() {
           >
             <Image
               src="/pdp-banner.jpg"
-              alt="Professional Development Programme"
+              alt="Professional Development Program"
               width={800}
               height={600}
               className="w-full h-auto rounded-2xl"
