@@ -5,6 +5,9 @@ import { motion, useAnimate } from "framer-motion";
 
 const AUTO_CLOSE_MS = 10000;
 
+// Other popups (e.g. WelcomeLeadModal) wait for this one to close before opening.
+export const BOOTCAMP_MODAL_CLOSED_EVENT = "bootcamp-modal:closed";
+
 export default function BootcampModal() {
   const [isOpen, setIsOpen] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -17,6 +20,16 @@ export default function BootcampModal() {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const root = document.documentElement;
+    root.dataset.bootcampModal = "open";
+    return () => {
+      delete root.dataset.bootcampModal;
+      window.dispatchEvent(new Event(BOOTCAMP_MODAL_CLOSED_EVENT));
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -110,7 +123,7 @@ export default function BootcampModal() {
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            <span className="text-white text-sm font-semibold">July 13th &ndash; 19th, 2026</span>
+            <span className="text-white text-sm font-semibold">November 5th &ndash; 11th, 2026</span>
           </div>
         </div>
 

@@ -5,8 +5,10 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useAnimationControls, useReducedMotion } from "framer-motion";
 import { CalendarDays, Loader2, Phone, X } from "lucide-react";
 import GradientStar from "@/components/homeRD/GradientStar";
+import { BOOTCAMP_MODAL_CLOSED_EVENT } from "@/components/BootcampModal";
 
 const OPEN_DELAY_MS = 1200;
+const AFTER_ANNOUNCEMENT_DELAY_MS = 1500;
 const CALENDLY_URL = "https://calendly.com/mnwoseh";
 
 const SUPPRESSED_PREFIXES = ["/studio"];
@@ -78,12 +80,28 @@ const WelcomeLeadModal = () => {
     if (isSuppressedRoute) return;
     if (hasOpenedRef.current) return;
 
-    const timer = setTimeout(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    const open = () => {
       hasOpenedRef.current = true;
       setIsOpen(true);
+    };
+    // If the bootcamp announcement is showing, queue behind it instead of stacking on top.
+    const onBootcampClosed = () => {
+      timer = setTimeout(open, AFTER_ANNOUNCEMENT_DELAY_MS);
+    };
+
+    timer = setTimeout(() => {
+      if (document.documentElement.dataset.bootcampModal === "open") {
+        window.addEventListener(BOOTCAMP_MODAL_CLOSED_EVENT, onBootcampClosed, { once: true });
+      } else {
+        open();
+      }
     }, OPEN_DELAY_MS);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener(BOOTCAMP_MODAL_CLOSED_EVENT, onBootcampClosed);
+    };
   }, [isSuppressedRoute]);
 
   const close = useCallback(() => setIsOpen(false), []);
