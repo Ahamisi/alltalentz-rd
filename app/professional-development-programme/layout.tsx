@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 import { generateBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export const metadata = {
-  title: "Professional Development Programme — Launch a Global Career | All Talentz",
+  title: "Professional Development Program — Launch a Global Career | All Talentz",
   description:
     "Join the All Talentz PDP and gain world-class training to work with top US companies remotely. Build skills, earn globally, grow professionally.",
   alternates: { canonical: "https://alltalentz.com/professional-development-programme" },
   openGraph: {
     type: "website",
     siteName: "All Talentz",
-    title: "Professional Development Programme — Launch a Global Career | All Talentz",
+    title: "Professional Development Program — Launch a Global Career | All Talentz",
     description:
       "Join the All Talentz PDP and gain world-class training to work with top US companies remotely. Build skills, earn globally, grow professionally.",
     url: "https://alltalentz.com/professional-development-programme",
@@ -20,7 +20,7 @@ export const metadata = {
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", url: "https://alltalentz.com" },
   {
-    name: "Professional Development Programme",
+    name: "Professional Development Program",
     url: "https://alltalentz.com/professional-development-programme",
   },
 ]);
