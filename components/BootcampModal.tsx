@@ -5,6 +5,9 @@ import { motion, useAnimate } from "framer-motion";
 
 const AUTO_CLOSE_MS = 10000;
 
+// Other popups (e.g. WelcomeLeadModal) wait for this one to close before opening.
+export const BOOTCAMP_MODAL_CLOSED_EVENT = "bootcamp-modal:closed";
+
 export default function BootcampModal() {
   const [isOpen, setIsOpen] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -17,6 +20,16 @@ export default function BootcampModal() {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const root = document.documentElement;
+    root.dataset.bootcampModal = "open";
+    return () => {
+      delete root.dataset.bootcampModal;
+      window.dispatchEvent(new Event(BOOTCAMP_MODAL_CLOSED_EVENT));
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
