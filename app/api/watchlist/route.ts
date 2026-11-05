@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { transporter, smtpEmail } from "@/utils/nodemailer";
 import { renderWaitlistEmail } from "@/utils/renderEmail";
 import { google } from "googleapis";
-import type { GaxiosResponse } from "gaxios";
-import type { drive_v3 } from "googleapis";
 import { Readable } from "stream";
 
 const clientEmail = process.env.CLIENT_EMAIL;
@@ -45,12 +43,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const emailHtml = await renderWaitlistEmail({ fullName, email, yoe, phone, career });
 
     async function authorize() {
-      const jwtClient = new google.auth.JWT(
-        clientEmail,
-        undefined,
-        pkey!.split(String.raw`\n`).join("\n"),
-        SCOPE
-      );
+      const jwtClient = new google.auth.JWT({
+        email: clientEmail,
+        key: pkey!.split(String.raw`\n`).join("\n"),
+        scopes: SCOPE,
+      });
 
       await jwtClient.authorize();
 
@@ -62,48 +59,35 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       fileBuffer: ArrayBuffer,
       fileType: string
     ): Promise<string> => {
-      return new Promise((resolve, rejected) => {
-        const drive = google.drive({ version: "v3", auth: authClient });
+      const drive = google.drive({ version: "v3", auth: authClient });
 
-        const mimeType =
-          fileType === "pdf"
-            ? "application/pdf"
-            : "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-        const fileExtension = fileType === "pdf" ? "pdf" : "docx";
-        const randomString = Math.random().toString(36).substring(2, 15);
-        const fileName = `${fullName}_${randomString}.${fileExtension}`;
+      const mimeType =
+        fileType === "pdf"
+          ? "application/pdf"
+          : "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+      const fileExtension = fileType === "pdf" ? "pdf" : "docx";
+      const randomString = Math.random().toString(36).substring(2, 15);
+      const fileName = `${fullName}_${randomString}.${fileExtension}`;
 
-        const fileMetaData = {
-          name: fileName,
-          parents: ["1yPKiLx694pEpcYKBbUmpa_I8_eojIYHP"],
-        };
+      const fileMetaData = {
+        name: fileName,
+        parents: ["1yPKiLx694pEpcYKBbUmpa_I8_eojIYHP"],
+      };
 
-        const readableStream = new Readable();
-        readableStream.push(Buffer.from(fileBuffer));
-        readableStream.push(null);
+      const readableStream = new Readable();
+      readableStream.push(Buffer.from(fileBuffer));
+      readableStream.push(null);
 
-        drive.files.create(
-          {
-            requestBody: fileMetaData,
-            media: {
-              mimeType: mimeType,
-              body: readableStream,
-            },
-            fields: "id",
-          },
-          function (
-            error: Error | null,
-            file: GaxiosResponse<drive_v3.Schema$File> | null | undefined
-          ) {
-            if (error) {
-              return rejected(error);
-            }
-
-            const fileLink = `https://drive.google.com/uc?id=${file!.data.id}`;
-            resolve(fileLink);
-          }
-        );
+      const created = await drive.files.create({
+        requestBody: fileMetaData,
+        media: {
+          mimeType: mimeType,
+          body: readableStream,
+        },
+        fields: "id",
       });
+
+      return `https://drive.google.com/uc?id=${created.data.id}`;
     };
 
     const uploadCvToDrive = async () => {
