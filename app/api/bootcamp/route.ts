@@ -5,6 +5,10 @@ import { writeClient } from "@/lib/sanity/client";
 
 const MAX_FILE_BYTES = 5 * 1024 * 1024; // 5 MB
 
+// Number of sheet rows that belong to earlier cohorts. Bump this to the current
+// row count when a new cohort opens.
+const COHORT_START_OFFSET = 1995;
+
 const ALLOWED_FILE_TYPES: Record<string, string> = {
   "application/pdf": "pdf",
   "application/msword": "doc",
@@ -51,21 +55,26 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Check for duplicate email against the Google Sheet.
+    // Check for duplicate email against the current cohort's rows in the Google Sheet.
     const isDuplicate = async (emailToCheck: string): Promise<boolean> => {
       try {
         const sheetID = "1Axrmq73QMgThtUd_BT20B0GokXoA9v8QjXEVxUClhqQ";
         const sheetName = "Page1";
-        const query = `SELECT * where B contains "${emailToCheck}"`;
+        // The sheet is shared across cohorts and has no date column. The first
+        // 1995 rows are earlier cohorts (last one closed 2026-07-19), so skip them
+        // and only treat this cohort's applications as duplicates.
+        const query = `SELECT B OFFSET ${COHORT_START_OFFSET}`;
         const url =
           `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?` +
           `&sheet=${encodeURIComponent(sheetName)}&tq=${encodeURIComponent(query)}`;
 
-        const res = await fetch(url);
+        const res = await fetch(url, { cache: "no-store" });
         const text = await res.text();
         // Strip the gviz wrapper: google.visualization.Query.setResponse(...);
-        const jsData = JSON.parse(text.substring(47).slice(0, -2));
-        return (jsData?.table?.rows?.length ?? 0) > 0;
+        const jsData = JSON.parse(text.slice(text.indexOf("(") + 1, text.lastIndexOf(")")));
+        const target = emailToCheck.trim().toLowerCase();
+        const rows: { c: ({ v: unknown } | null)[] }[] = jsData?.table?.rows ?? [];
+        return rows.some((row) => String(row.c[0]?.v ?? "").trim().toLowerCase() === target);
       } catch (error) {
         console.error("Duplicate check failed, allowing submission:", error);
         return false;
