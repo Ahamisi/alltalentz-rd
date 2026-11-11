@@ -3,8 +3,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import SocialMedia from "@/components/SocialMedia";
-// Disabled during the bootcamp, re-enable afterwards.
-// import WelcomeLeadModal from "@/components/shared/WelcomeLeadModal";
+import WelcomeLeadModal from "@/components/shared/WelcomeLeadModal";
 import {
   OrganizationSchema,
   WebsiteSchema,
@@ -84,7 +83,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
 
-        {/* <WelcomeLeadModal /> */}
+        <WelcomeLeadModal />
 
         {/* Meta Pixel Code */}
         <Script id="meta-pixel-global" strategy="afterInteractive">
