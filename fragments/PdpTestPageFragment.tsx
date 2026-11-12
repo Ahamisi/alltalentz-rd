@@ -2,14 +2,16 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import SecureTestForm from "@/components/SecureTestForm";
+import { TEST_CLOSED } from "@/utils/testConfig";
 
 export default function TestPage() {
   const router = useRouter();
   const [allowed, setAllowed] = useState(false);
 
   useEffect(() => {
-    // Only reachable after submitting the PDP application (guard set there).
-    if (sessionStorage.getItem("pdp-test-access") === "granted") {
+    // Only reachable after submitting the PDP application (guard set there),
+    // and never while the test is closed.
+    if (!TEST_CLOSED && sessionStorage.getItem("pdp-test-access") === "granted") {
       setAllowed(true);
     } else {
       router.replace("/professional-development-programme");
